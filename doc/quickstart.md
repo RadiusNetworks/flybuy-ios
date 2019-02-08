@@ -1,100 +1,98 @@
-# FlyBuy SDK for iOS Quick Start
+# FlyBuy SDK for iOS: Quick Start
 
-![FlyBuy logo](img/flybuy-heading.jpg)
+## Getting Started
 
-Last Updated: January X, 2019
+This guide will walk through the basic setup for integrating the FlyBuy SDK into an iOS app. There are a few things that need to be set up properly, we recommend following this guide carefully when first integrating with your app.
 
-**Requirements:**
+## Requirements
 
-* iOS X.X and above
+- iOS 10+
+- Xcode 10+
 
-**Constraints**
-Although the FlyBuy SDK can be used in the iOS Simulator, it will not be able to simulate orders due to constraints of the iOS simulator.
+## SDK Installation
 
-**Create an account**
-You’ll need to [create an account](https://account.radiusnetworks.com/users/sign_up) to complete the steps below. Already have an account? [Sign in](http://flybuy.radiusnetworks.com/).
+Currently FlyBuy can be installed manually by dragging the framework bundle into Xcode.
 
-## Step 1: Add the SDK to your project
+CocoaPods and Carthage support will be coming soon. [Let us know](mailto:support@radiusnetworks.com) if you have a specific need.
 
-### Get an API key
-Log into the FlyBuy web administration and select *Manage project* to access your project. You can view and create API keys under the API keys section in the right sidebar.
+### Manual Install
 
-There are two types of API keys, development keys and production keys. You can manage and create API keys through FlyBuy web administration. Enable production keys by contacting your Account Executive. Your mobile SDK and dashboard must use the same environment.
+Download the [latest SDK release](https://github.com/RadiusNetworks/flybuy-ios/releases/latest).
 
-### Install the SDK
-Download the SDK from the following link: [https://github.com/RadiusNetworks/flybuy-ios](https://github.com/RadiusNetworks/flybuy-ios)
+After unzipping the SDK, drag `FlyBuy.framework` to your project in Xcode.
 
-### Adding FlyBuy to your project
-In order to use the FlyBuy framework, simply drag it into your Xcode project.
+Make sure to check "Copy items as needed" and check the target for your app.
 
-Under the `General` tab for your iOS target, make sure that `FlyBuy.framework` appears in both `Embedded Binaries` and `Linked Frameworks`.
+![Install drag options](/doc/img/install_drag_options.png)
 
-Be sure to include the following in the appropriate header and/or implementation file(s) depending on your language:
+Confirm you have `FlyBuy.framework` in both the "Embedded Binaries" and the "Linked Frameworks and Libraries" sections of the "General" tab for your target.
 
-**Objective-C:**
+![Install confirm frameworks](/doc/img/install_confirm_embedded.png)
 
-```
-@import FlyBuy;
-```
+Finally, you should verify build settings. Under the "Build Settings" tab for your target confirm:
 
-**Swift:**
+- Enable Modules should be set to `Yes`
+- Link Frameworks Automatically should be set to `Yes`
 
-```
-import FlyBuy
-```
+## Setting Permissions
+
+In order to use the SDK your app will need to request the proper permissions.
+
 
 ### Enable Background Modes
-Under the General tab for your iOS target, select Capabilities and scroll down to Background Modes. Make sure that Location updates and Background fetch are selected.
+
+Under the "General" tab for your iOS target, select Capabilities and scroll down to Background Modes. Enable Background Modes and select `Location updates` and `Background fetch`.
+
+![XCode background modes](/doc/img/quickstart_background_modes.png)
 
 ### Ask for Location Services permissions
+
 FlyBuy uses mobile sensor data to identify the location of a customer.  The FlyBuy SDK requires Location services permissions to properly function. Specifically, the SDK needs the Location Always and When in Use permission.
 
 If you are already asking users for the required permissions, you should review the usage description. The usage description explains why the application requires Always authorization.
 
-If you currently do not ask users for the required permissions, you should add a usage description to your app. Usage descriptions are set in the Info.plist file.
+If you currently do not ask users for the required permissions, you should add a usage description to your app. Usage descriptions are set in the `Info.plist` file.
 
-A best practice is to ask your users for location TODO
+A best practice is to explain why you are requesting location permissions prior to asking. This practice is known as "ask-to-ask."
 
-Name  | Suggested Description
-------------- | -------------
-`NSLocationAlwaysAndWhenInUseUsageDescription`  | To accurately locate you for order delivery
-`NSLocationWhenInUseUsageDescription`  | To accurately locate you for order delivery
+| Name                                           | Suggested Description                       |
+| ---------------------------------------------- | ------------------------------------------- |
+| `NSLocationAlwaysAndWhenInUseUsageDescription` | To accurately locate you for order delivery |
+| `NSLocationWhenInUseUsageDescription`          | To accurately locate you for order delivery |
 
-## Step 2: Add a site
-A site is a physical location that is a destination for your customer’s trips. Typically a project is created for a given brand, and sites are created for each of the stores.
+![XCode background modes](/doc/img/quickstart_location_permissions.png)
 
-Each site has a some required parameters, and optionally configurable parameters.
+## Import the library
 
-**Required parameters:**
+In your `AppDelegate.swift` file, and any files that need to reference the FlyBuy library you will need to import it.
 
-* Display Name - A display name for the location
-* Site Number - Your identifier or store number used to identify the site.
-* Address - A full street address, including street address, city/locality, state/region, postal code, and country
-* Time Zone - The time zone of the location
+```swift
+import FlyBuy
+```
 
-**Optional parameters:**
+## Configure FlyBuy at launch
 
-* Site photo - A photo of the location to help guide the customers for pickup
-* Site description - Details about the location and how to find it
-* Pickup instructions - Provide guidance for how to best pickup orders at this location
-* Property: Draw property boundaries for the particular location.
-* Areas: Configure pickup areas, including curbside areas, drive thru lanes, and in-store pickup areas.
+FlyBuy needs to be setup and configured at application launch. However, it does not run in the background or use device resources until there is an active order.
 
-## Step 3: Create an order
-Create order
+To configure everything properly pass the token into the `configure` method on `FlyBuy`:
 
-Cancel order
+```swift
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+  // Other setup
 
-Get site information
+  FlyBuy.configure(["token": "TOKEN_HERE"])
 
-Events
+  return true
+}
+```
 
-Error handling
+If you don't already have an API token please contact your Account Executive or drop an email to [support@radiusnetworks.com](mailto:support@radiusnetworks.com) with the Project URL you want to enable, and we will set you up.
 
-Other
+# Next Steps
 
-* Get nearby sites
-* API documentation
+Now that you have FlyBuy installed and configured, you need to integrate it with your app.
 
-## Step 4: View the dashboard
-The SDK is now fully integrated with your app. You can access the Dashboard to view customers with active orders.
+- [Handling Notifications](/doc/notifications.md)
+- [Managing Customers](/doc/customers.md)
+- [Managing Orders](/doc/orders.md)
+

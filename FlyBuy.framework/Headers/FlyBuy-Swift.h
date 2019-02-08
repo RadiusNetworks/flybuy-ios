@@ -188,7 +188,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 SWIFT_CLASS("_TtC6FlyBuy15CreateOrderInfo")
 @interface CreateOrderInfo : NSObject
-- (nonnull instancetype)initWithSiteID:(NSInteger)siteID partnerIdentifier:(NSString * _Nonnull)partnerIdentifier customerCarColor:(NSString * _Nullable)customerCarColor customerCarType:(NSString * _Nullable)customerCarType customerLicensePlate:(NSString * _Nullable)customerLicensePlate customerName:(NSString * _Nullable)customerName fcmToken:(NSString * _Nullable)fcmToken OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithSiteID:(NSInteger)siteID partnerIdentifier:(NSString * _Nonnull)partnerIdentifier customerCarColor:(NSString * _Nullable)customerCarColor customerCarType:(NSString * _Nullable)customerCarType customerLicensePlate:(NSString * _Nullable)customerLicensePlate customerName:(NSString * _Nullable)customerName pushToken:(NSString * _Nullable)pushToken OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 @end
@@ -303,7 +303,7 @@ SWIFT_CLASS("_TtC6FlyBuy5Order")
 - (NSString * _Nonnull)formattedSiteAddress SWIFT_WARN_UNUSED_RESULT;
 - (CLLocation * _Nullable)siteLocation SWIFT_WARN_UNUSED_RESULT;
 - (NSNumber * _Nullable)siteDistanceFrom:(CLLocation * _Nonnull)location SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)open SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)isOpen SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
