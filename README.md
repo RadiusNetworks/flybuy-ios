@@ -10,7 +10,7 @@ See the [quick start guide](/doc/quickstart.md) for install and setup details.
 
 More information can be found about:
 
-- [Customers](/doc/customers.md)
+- [Customers](/doc/customer.md)
 - [Orders](/doc/orders.md)
 - [Notifications](/doc/notifications.md)
 
