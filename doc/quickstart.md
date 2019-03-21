@@ -1,4 +1,4 @@
-# FlyBuy SDK for iOS: Quick Start
+# Quick Start
 
 ## Getting Started
 
@@ -6,7 +6,7 @@ This guide will walk through the basic setup for integrating the FlyBuy SDK into
 
 ## Requirements
 
-- iOS 10+
+- iOS 11+
 - Xcode 10+
 
 ## SDK Installation
@@ -23,11 +23,11 @@ After unzipping the SDK, drag `FlyBuy.framework` to your project in Xcode.
 
 Make sure to check "Copy items as needed" and check the target for your app.
 
-![Install drag options](/doc/img/install_drag_options.png)
+![Install drag options](img/install_drag_options.png)
 
 Confirm you have `FlyBuy.framework` in both the "Embedded Binaries" and the "Linked Frameworks and Libraries" sections of the "General" tab for your target.
 
-![Install confirm frameworks](/doc/img/install_confirm_embedded.png)
+![Install confirm frameworks](img/install_confirm_embedded.png)
 
 Finally, you should verify build settings. Under the "Build Settings" tab for your target confirm:
 
@@ -43,7 +43,7 @@ In order to use the SDK your app will need to request the proper permissions.
 
 Under the "General" tab for your iOS target, select Capabilities and scroll down to Background Modes. Enable Background Modes and select `Location updates` and `Background fetch`.
 
-![XCode background modes](/doc/img/quickstart_background_modes.png)
+![XCode background modes](img/quickstart_background_modes.png)
 
 ### Ask for Location Services permissions
 
@@ -60,7 +60,7 @@ A best practice is to explain why you are requesting location permissions prior 
 | `NSLocationAlwaysAndWhenInUseUsageDescription` | To accurately locate you for order delivery |
 | `NSLocationWhenInUseUsageDescription`          | To accurately locate you for order delivery |
 
-![XCode background modes](/doc/img/quickstart_location_permissions.png)
+![XCode background modes](img/quickstart_location_permissions.png)
 
 ## Import the library
 
@@ -74,7 +74,7 @@ import FlyBuy
 
 FlyBuy needs to be setup and configured at application launch. However, it does not run in the background or use device resources until there is an active order.
 
-To configure everything properly pass the token into the `configure` method on `FlyBuy`:
+To configure everything properly pass your API token to the `configure` method on `FlyBuy`:
 
 ```swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -92,7 +92,7 @@ If you don't already have an API token please contact your Account Executive or 
 
 Now that you have FlyBuy installed and configured, you need to integrate it with your app.
 
-- [Handling Notifications](/doc/notifications.md)
-- [Managing Customers](/doc/customers.md)
-- [Managing Orders](/doc/orders.md)
+- [Handling Notifications](notifications.md)
+- [Managing Customers](customer.md)
+- [Managing Orders](orders.md)
 

@@ -163,6 +163,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # define SWIFT_DEPRECATED_OBJC(Msg) SWIFT_DEPRECATED_MSG(Msg)
 #endif
 #if __has_feature(modules)
+@import CoreData;
 @import CoreLocation;
 @import Foundation;
 @import ObjectiveC;
@@ -186,6 +187,40 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
+SWIFT_CLASS("_TtC6FlyBuy14ClaimOrderInfo")
+@interface ClaimOrderInfo : NSObject
+- (nonnull instancetype)initWithCustomerCarColor:(NSString * _Nullable)customerCarColor customerCarType:(NSString * _Nullable)customerCarType customerLicensePlate:(NSString * _Nullable)customerLicensePlate customerName:(NSString * _Nullable)customerName pushToken:(NSString * _Nonnull)pushToken OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC6FlyBuy20ConfigurationManager")
+@interface ConfigurationManager : NSObject
+- (void)fetchWithCallback:(void (^ _Nullable)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))callback;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class NSEntityDescription;
+@class NSManagedObjectContext;
+
+SWIFT_CLASS("_TtC6FlyBuy9CoreOrder")
+@interface CoreOrder : NSManagedObject
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
+
+@interface CoreOrder (SWIFT_EXTENSION(FlyBuy))
+@property (nonatomic) int64_t customerState;
+@property (nonatomic) int64_t id;
+@property (nonatomic, copy) NSString * _Nullable partnerIdentifier;
+@property (nonatomic) int64_t siteId;
+@property (nonatomic) int64_t state;
+@end
+
+
 SWIFT_CLASS("_TtC6FlyBuy15CreateOrderInfo")
 @interface CreateOrderInfo : NSObject
 - (nonnull instancetype)initWithSiteID:(NSInteger)siteID partnerIdentifier:(NSString * _Nonnull)partnerIdentifier customerCarColor:(NSString * _Nullable)customerCarColor customerCarType:(NSString * _Nullable)customerCarType customerLicensePlate:(NSString * _Nullable)customerLicensePlate customerName:(NSString * _Nullable)customerName pushToken:(NSString * _Nullable)pushToken OBJC_DESIGNATED_INITIALIZER;
@@ -198,7 +233,19 @@ SWIFT_CLASS("_TtC6FlyBuy15CreateOrderInfo")
 SWIFT_CLASS("_TtC6FlyBuy8Customer")
 @interface Customer : NSObject
 @property (nonatomic, readonly, copy) NSString * _Nonnull token;
+@property (nonatomic, readonly, copy) NSString * _Nullable emailAddress;
 @property (nonatomic, readonly, strong) CustomerInfo * _Nonnull info;
+@property (nonatomic, readonly) BOOL registered;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC6FlyBuy15CustomerConsent")
+@interface CustomerConsent : NSObject
+@property (nonatomic, readonly) BOOL termsOfService;
+@property (nonatomic, readonly) BOOL ageVerification;
+- (nonnull instancetype)initWithTermsOfService:(BOOL)termsOfService ageVerification:(BOOL)ageVerification OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 @end
@@ -231,10 +278,33 @@ SWIFT_CLASS("_TtC6FlyBuy15CustomerManager")
 /// create a FlyBuy customer
 /// \param customerInfo contains the customer details
 ///
+/// \param customerConsent contains the customer consent info
+///
 /// \param callback Optional. Called with the new <code>Customer</code> and/or
 /// any error encountered.
 ///
-- (void)create:(CustomerInfo * _Nonnull)customerInfo callback:(void (^ _Nullable)(Customer * _Nullable, NSError * _Nullable))callback;
+- (void)create:(CustomerInfo * _Nonnull)customerInfo customerConsent:(CustomerConsent * _Nonnull)customerConsent callback:(void (^ _Nullable)(Customer * _Nullable, NSError * _Nullable))callback;
+/// update a FlyBuy customer
+/// \param customerInfo contains the customer details
+///
+/// \param callback Optional. Called with the new <code>Customer</code> and/or
+/// any error encountered.
+///
+- (void)update:(CustomerInfo * _Nonnull)customerInfo callback:(void (^ _Nullable)(Customer * _Nullable, NSError * _Nullable))callback;
+/// Login as a FlyBuy customer
+/// \param emailAddress the account email
+///
+/// \param password the account password
+///
+- (void)loginWithEmailAddress:(NSString * _Nonnull)emailAddress password:(NSString * _Nonnull)password callback:(void (^ _Nullable)(Customer * _Nullable, NSError * _Nullable))callback;
+/// Convert the current customer (an anonymous account) to a registered account
+/// \param emailAddress the account email
+///
+/// \param password the account password
+///
+/// \param passwordConfirmation the account password confirmation
+///
+- (void)signUpWithEmailAddress:(NSString * _Nonnull)emailAddress password:(NSString * _Nonnull)password passwordConfirmation:(NSString * _Nonnull)passwordConfirmation callback:(void (^ _Nullable)(Customer * _Nullable, NSError * _Nullable))callback;
 /// Signs out the FlyBuy user
 - (void)signOut;
 @end
@@ -258,6 +328,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) OrdersManage
 + (OrdersManager * _Nonnull)orders SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CustomerManager * _Nonnull customer;)
 + (CustomerManager * _Nonnull)customer SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) ConfigurationManager * _Nonnull config;)
++ (ConfigurationManager * _Nonnull)config SWIFT_WARN_UNUSED_RESULT;
 /// Configures FlyBuy with the given options
 /// Example:
 /// \code
@@ -276,6 +348,18 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CustomerMana
 + (void)stopLocationUpdates;
 @end
 
+
+SWIFT_CLASS("_TtC6FlyBuy9LoginInfo")
+@interface LoginInfo : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull emailAddress;
+@property (nonatomic, readonly, copy) NSString * _Nonnull password;
+- (nonnull instancetype)initWithEmailAddress:(NSString * _Nonnull)emailAddress password:(NSString * _Nonnull)password OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
+@end
+
+
+
 enum OrderState : NSInteger;
 @class NSNumber;
 
@@ -286,8 +370,11 @@ SWIFT_CLASS("_TtC6FlyBuy5Order")
 @property (nonatomic) enum OrderState state;
 @property (nonatomic) enum CustomerState customerState;
 @property (nonatomic, readonly, copy) NSString * _Nullable partnerIdentifier;
+@property (nonatomic, readonly, copy) NSString * _Nullable displayName;
 @property (nonatomic, readonly, copy) NSString * _Nullable siteName;
+@property (nonatomic, readonly, copy) NSString * _Nullable sitePhone;
 @property (nonatomic, readonly, copy) NSString * _Nullable siteStreetAddress;
+@property (nonatomic, readonly, copy) NSString * _Nullable siteFullAddress;
 @property (nonatomic, readonly, copy) NSString * _Nullable siteLocality;
 @property (nonatomic, readonly, copy) NSString * _Nullable siteRegion;
 @property (nonatomic, readonly, copy) NSString * _Nullable siteCountry;
@@ -300,7 +387,10 @@ SWIFT_CLASS("_TtC6FlyBuy5Order")
 @property (nonatomic, readonly, copy) NSString * _Nullable projectAccentColor;
 @property (nonatomic, readonly, copy) NSString * _Nullable projectAccentTextColor;
 @property (nonatomic, readonly, copy) NSString * _Nullable projectLogoURL;
-- (NSString * _Nonnull)formattedSiteAddress SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly, copy) NSString * _Nullable customerName;
+@property (nonatomic, readonly, copy) NSString * _Nullable customerCarType;
+@property (nonatomic, readonly, copy) NSString * _Nullable customerCarColor;
+@property (nonatomic, readonly, copy) NSString * _Nullable customerLicensePlate;
 - (CLLocation * _Nullable)siteLocation SWIFT_WARN_UNUSED_RESULT;
 - (NSNumber * _Nullable)siteDistanceFrom:(CLLocation * _Nonnull)location SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)isOpen SWIFT_WARN_UNUSED_RESULT;
@@ -338,11 +428,26 @@ SWIFT_CLASS("_TtC6FlyBuy13OrdersManager")
 @property (nonatomic, readonly, copy) NSArray<Order *> * _Nullable all;
 /// contains a list of all currently open orders
 @property (nonatomic, readonly, copy) NSArray<Order *> * _Nullable open;
+/// contains a list of all currently closed orders
+@property (nonatomic, readonly, copy) NSArray<Order *> * _Nullable closed;
 /// fetches the list of orders from the FlyBuy web API
 /// \param callback will get called on completion with the array of
 /// orders and any errors encountered. Optional.
 ///
 - (void)fetchWithCallback:(void (^ _Nullable)(NSArray<Order *> * _Nullable, NSError * _Nullable))callback;
+/// fetches an order using a redemption code
+/// \param redemptionCode the redemption code for the order
+///
+/// \param callback will get called on completion with the
+/// order and any errors encountered. Optional.
+///
+- (void)fetchWithRedemptionCode:(NSString * _Nonnull)redemptionCode callback:(void (^ _Nullable)(Order * _Nullable, NSError * _Nullable))callback;
+/// Claims an order using a redemption code
+/// \param redemptionCode the redemption code for the order
+///
+/// \param callback will get called on completion with the order and any errors encountered. Optional.
+///
+- (void)claimWithRedemptionCode:(NSString * _Nonnull)redemptionCode claimOrderInfo:(ClaimOrderInfo * _Nonnull)claimOrderInfo customerConsent:(CustomerConsent * _Nullable)customerConsent callback:(void (^ _Nullable)(Order * _Nullable, NSError * _Nullable))callback;
 /// creates an order using the FlyBuy web API
 /// \param info the customer and order info necessary to create an order
 ///
@@ -366,6 +471,17 @@ SWIFT_CLASS("_TtC6FlyBuy13OrdersManager")
 ///
 - (void)eventWithOrder:(Order * _Nonnull)order customerState:(enum CustomerState)customerState callback:(void (^ _Nullable)(Order * _Nullable, NSError * _Nullable))callback;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC6FlyBuy10SignUpInfo")
+@interface SignUpInfo : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull emailAddress;
+@property (nonatomic, readonly, copy) NSString * _Nonnull password;
+@property (nonatomic, readonly, copy) NSString * _Nonnull passwordConfirmation;
+- (nonnull instancetype)initWithEmailAddress:(NSString * _Nonnull)emailAddress password:(NSString * _Nonnull)password passwordConfirmation:(NSString * _Nonnull)passwordConfirmation OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 @end
 
 

@@ -1,4 +1,4 @@
-# FlyBuy SDK for iOS: Orders
+# Orders
 
 ## Fetching Orders
 
@@ -31,26 +31,30 @@ func registerForNotifications() {
 
 ## List Orders
 
-Once orders have been fetched they can be accessed via the `all` or `open` attributes.
+Once orders have been fetched they can be accessed via the `all`, `open`, or `closed` attributes.
 
 ```swift
 FlyBuy.orders.all
 FlyBuy.orders.open
+FlyBuy.orders.closed
 ```
 
-`all` will return both open and closed orders. `open` will only return orders that are in progress.
+`all` returns both open and closed orders. `open` returns orders that are in progress. `closed` returns only closed orders.
 
 
 ## Create Order
 
+Create an order by passing order identifiers to the `create` method. There are numerous attributes available, but the only mandatory ones are the `siteID` and `partnerIdentifier`. If you would like to receive push notifications to update order status, provide the push token the app received. (More information about how FlyBuy uses push notifications can be found [here](notifications.md).)
+
 ```swift
 let info = CreateOrderInfo(
   siteID: 101,
-  partnerIdentifier: "ABC-123",
+  partnerIdentifier: "1234123",
   customerCarColor: "#FF9900",
   customerCarType: "Silver Sedan",
   customerLicensePlate: "XYZ-456",
-  customerName: customerName
+  customerName: customerName,
+  pushToken: pushToken
 )
 
 FlyBuy.orders.create(info: info) { (order, error) -> (Void) in
@@ -63,11 +67,12 @@ FlyBuy.orders.create(info: info) { (order, error) -> (Void) in
 | Attribute              | Description                                     |
 | ---------------------- | ----------------------------------------------- |
 | `siteID`               | The FlyBuy Site Identifier                      |
-| `partnerIdentifier`    | Internal identifier for app developer reference |
+| `partnerIdentifier`    | Internal customer or order identifier.          |
 | `customerCarColor`     | Color of the customer's vehicle                 |
 | `customerCarType`      | Make and model of the customer's vehicle        |
 | `customerLicensePlate` | License plate of the customer's vehicle         |
 | `customerName`         | Customer's name                                 |
+| `pushToken`            | Push notification token                         |
 
 ## Updating Orders
 
@@ -104,4 +109,3 @@ FlyBuy.orders.event(info: event) { (order, error) in
 | `arrived`   | The customer has arrived on premises                                |
 | `waiting`   | The customer is in a pickup area or manually said they were waiting |
 | `completed` | The order is complete                                               |
-

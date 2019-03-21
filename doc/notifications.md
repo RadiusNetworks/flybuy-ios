@@ -1,8 +1,10 @@
-# FlyBuy SDK for iOS: Notifications
+# Notifications
 
-FlyBuy can leverage Apple's push notification service to get updates about the orders. FlyBuy does not perform the push notification directly, instead it relies on the app to notify it that a new notification has been received. If you do not already handle APNS in your app we recommend using a service like [Firebase](https://firebase.google.com).
+FlyBuy can leverage Apple's Push Notification Service (APNS) to get updates about the status of an order. FlyBuy does not perform the push notification directly, instead it relies on the app to notify it that a new notification has been received. If you do not already handle APNS in your app we recommend using a service like [Firebase](https://firebase.google.com).
 
-To integrate this the following callbacks need to be defined in the `AppDelegate`.
+Once your app receives a token for your push notification service, the token needs to be provided in the `CreateOrderInfo` struct when creating a new order. This allows your app to receive updates to the order information via push notification.
+
+To integrate this functionality the following callbacks need to be defined in the `AppDelegate`.
 
 ```swift
 func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
@@ -33,5 +35,3 @@ func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent noti
 ```
 
 You do not need to filter or check the body of the `userInfo` data, FlyBuy will inspect it and only process the notification if it is relevant to the SDK.
-
-

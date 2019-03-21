@@ -1,9 +1,8 @@
 //
-//  FlyBuySDK.h
-//  FlyBuySDK
+//  FlyBuy
 //
-//  Created by Michael Harper on 1/28/19.
-//  Copyright © 2019 Michael Harper. All rights reserved.
+//  Copyright © 2019 Radius Networks. All rights reserved. See LICENSE for
+//  details.
 //
 
 #import <UIKit/UIKit.h>
