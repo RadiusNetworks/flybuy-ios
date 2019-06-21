@@ -13,6 +13,7 @@ More information can be found about:
 - [Customers](/doc/customer.md)
 - [Orders](/doc/orders.md)
 - [Notifications](/doc/notifications.md)
+- [Universal Links](/doc/universal_links.md)
 
 ## Issues
 

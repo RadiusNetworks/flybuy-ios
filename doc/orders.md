@@ -41,6 +41,41 @@ FlyBuy.orders.closed
 
 `all` returns both open and closed orders. `open` returns orders that are in progress. `closed` returns only closed orders.
 
+## Claim Order
+
+An order which is created in the FlyBuy service can be "claimed" by the SDK in order to associate it with the current customer.
+
+To get information about an unclaimed order, the app can call `fetch(withRedemptionCode:)`
+
+```swift
+FlyBuy.orders.fetch(withRedemptionCode: code) { (order, error)
+  // update order claim view with order details here
+}
+```
+
+To claim the order for the current customer, the app should call the `claim` method:
+
+```swift
+
+let info = ClaimOrderInfo(
+  customerCarColor: "Blue",
+  customerCarType: "Chevy Tahoe",
+  customerLicensePlate: "ABC-123",
+  customerName: "Brian Johnson",
+  pushToken: "TOKEN_HERE"
+)
+
+let consent = CustomerConsent(
+  termsOfService: true,
+  ageVerification: true
+)
+
+FlyBuy.orders.claim(withRedemptionCode: code, claimOrderInfo: info, customerConsent: consent) { (order, error)
+  // if error == nil, order has been claimed
+}
+```
+
+After an order is claimed, the app may want to call `FlyBuy.orders.fetch()` to update the list of orders. The newly claimed order should now appear in the list of open orders which is available via `FlyBuy.orders.open`.
 
 ## Create Order
 
