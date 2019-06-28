@@ -192,7 +192,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 SWIFT_CLASS("_TtC6FlyBuy14ClaimOrderInfo")
 @interface ClaimOrderInfo : NSObject
-- (nonnull instancetype)initWithCustomerCarColor:(NSString * _Nullable)customerCarColor customerCarType:(NSString * _Nullable)customerCarType customerLicensePlate:(NSString * _Nullable)customerLicensePlate customerName:(NSString * _Nullable)customerName pushToken:(NSString * _Nonnull)pushToken OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithCustomerCarColor:(NSString * _Nullable)customerCarColor customerCarType:(NSString * _Nullable)customerCarType customerLicensePlate:(NSString * _Nullable)customerLicensePlate customerName:(NSString * _Nullable)customerName customerPhone:(NSString * _Nullable)customerPhone pushToken:(NSString * _Nonnull)pushToken OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 @end
@@ -364,6 +364,7 @@ SWIFT_CLASS("_TtC6FlyBuy9LoginInfo")
 
 
 enum OrderState : NSInteger;
+@class PickupWindow;
 @class NSNumber;
 
 SWIFT_CLASS("_TtC6FlyBuy5Order")
@@ -375,6 +376,7 @@ SWIFT_CLASS("_TtC6FlyBuy5Order")
 @property (nonatomic, readonly, copy) NSString * _Nullable partnerIdentifier;
 @property (nonatomic, readonly, copy) NSString * _Nullable redemptionCode;
 @property (nonatomic, readonly, copy) NSString * _Nullable displayName;
+@property (nonatomic, readonly, strong) PickupWindow * _Nullable pickupWindow;
 @property (nonatomic, readonly, copy) NSString * _Nullable siteName;
 @property (nonatomic, readonly, copy) NSString * _Nullable sitePhone;
 @property (nonatomic, readonly, copy) NSString * _Nullable siteStreetAddress;
@@ -475,6 +477,15 @@ SWIFT_CLASS("_TtC6FlyBuy13OrdersManager")
 ///
 - (void)eventWithOrder:(Order * _Nonnull)order customerState:(enum CustomerState)customerState callback:(void (^ _Nullable)(Order * _Nullable, NSError * _Nullable))callback;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC6FlyBuy12PickupWindow")
+@interface PickupWindow : NSObject
+@property (nonatomic, readonly, copy) NSDate * _Nonnull start;
+@property (nonatomic, readonly, copy) NSDate * _Nonnull end;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 @end
 
 
