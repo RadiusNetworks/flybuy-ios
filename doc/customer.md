@@ -27,6 +27,18 @@ FlyBuy.customer.create(withInfo: customerInfo, consent: consent) { (customer, er
 }
 ```
 
+## Login Via Customer Token
+```
+FlyBuy.customer.loginWithToken(token: "tAXDF4dPM38xkizypu4V5AYq") { (customer, error) -> (Void) in
+  if let customer = customer {
+    print(customer)
+  }
+  if let error = error {
+    print(error.localizedDescription)
+  }
+}
+```
+
 ## Get the current Customer
 
 Returns an instance of the current customer
