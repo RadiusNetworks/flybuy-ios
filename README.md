@@ -1,7 +1,7 @@
 ![FlyBuy SDK for iOS](readme.png)
 
 The FlyBuy cloud service and mobile SDK from [Radius Networks][1] enables
-developers to add FlyBuy functionatlity directly into their app for a full
+developers to add FlyBuy functionality directly into their app for a full
 white label implmentation of the service.
 
 ## Getting Started
