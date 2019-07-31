@@ -223,10 +223,13 @@ SWIFT_CLASS("_TtC6FlyBuy9CoreOrder")
 @property (nonatomic) int64_t state;
 @end
 
+enum OrderState : NSInteger;
+@class PickupWindow;
 
 SWIFT_CLASS("_TtC6FlyBuy15CreateOrderInfo")
 @interface CreateOrderInfo : NSObject
-- (nonnull instancetype)initWithSiteID:(NSInteger)siteID partnerIdentifier:(NSString * _Nonnull)partnerIdentifier customerCarColor:(NSString * _Nullable)customerCarColor customerCarType:(NSString * _Nullable)customerCarType customerLicensePlate:(NSString * _Nullable)customerLicensePlate customerName:(NSString * _Nullable)customerName pushToken:(NSString * _Nullable)pushToken OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithSiteID:(NSInteger)siteID partnerIdentifier:(NSString * _Nonnull)partnerIdentifier customerCarColor:(NSString * _Nullable)customerCarColor customerCarType:(NSString * _Nullable)customerCarType customerLicensePlate:(NSString * _Nullable)customerLicensePlate customerName:(NSString * _Nullable)customerName customerPhone:(NSString * _Nullable)customerPhone pushToken:(NSString * _Nullable)pushToken state:(enum OrderState)state pickupWindow:(PickupWindow * _Nullable)pickupWindow OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithSiteID:(NSInteger)siteID partnerIdentifier:(NSString * _Nonnull)partnerIdentifier customerCarColor:(NSString * _Nullable)customerCarColor customerCarType:(NSString * _Nullable)customerCarType customerLicensePlate:(NSString * _Nullable)customerLicensePlate customerName:(NSString * _Nullable)customerName customerPhone:(NSString * _Nullable)customerPhone pushToken:(NSString * _Nullable)pushToken pickupWindow:(PickupWindow * _Nullable)pickupWindow OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -260,7 +263,8 @@ SWIFT_CLASS("_TtC6FlyBuy12CustomerInfo")
 @property (nonatomic, readonly, copy) NSString * _Nonnull carType;
 @property (nonatomic, readonly, copy) NSString * _Nonnull carColor;
 @property (nonatomic, readonly, copy) NSString * _Nonnull licensePlate;
-- (nonnull instancetype)initWithName:(NSString * _Nonnull)name carType:(NSString * _Nonnull)carType carColor:(NSString * _Nonnull)carColor licensePlate:(NSString * _Nonnull)licensePlate OBJC_DESIGNATED_INITIALIZER;
+@property (nonatomic, readonly, copy) NSString * _Nullable phone;
+- (nonnull instancetype)initWithName:(NSString * _Nonnull)name carType:(NSString * _Nonnull)carType carColor:(NSString * _Nonnull)carColor licensePlate:(NSString * _Nonnull)licensePlate phone:(NSString * _Nullable)phone OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -367,8 +371,6 @@ SWIFT_CLASS("_TtC6FlyBuy9LoginInfo")
 
 
 
-enum OrderState : NSInteger;
-@class PickupWindow;
 @class NSNumber;
 
 SWIFT_CLASS("_TtC6FlyBuy5Order")

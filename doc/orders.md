@@ -1,146 +1,129 @@
 # Orders
 
-## Fetching Orders
+Examples are in Swift.
 
-Allows fetching the list of orders, creating a new order, or creating order events.
+- [Fetch Claimed Orders](#fetch-claimed-orders)
+- [Fetch Unclaimed Orders](#fetch-unclaimed-orders)
+- [Observe Orders](#observe-orders)
+- [Claim Orders](#claim-orders)
+- [Update Orders](#update-orders)
+
+## <span id="fetch-claimed-orders">Fetch Claimed Orders</span>
+
+Fetch the latest claimed orders with the server. An order is claimed if it is associated with the current customer.
 
 ```swift
 FlyBuy.orders.fetch()
 ```
 
-Fetching the orders will broadcast `NSNotifications` as updates are received. In order to get the update observers should watch for updates. For example in a view controller you might add a method like `registerForNotifications()` and call it from `viewDidLoad()`
-
-```swift
-override func viewDidLoad() {
-  super.viewDidLoad()
-  registerForNotifications()
-}
-
-func registerForNotifications() {
-  NotificationCenter.default.addObserver(forName: .ordersUpdated, object: nil, queue: nil) { (notification) in
-    // Update multiple orders
-  }
-  NotificationCenter.default.addObserver(forName: .orderUpdated, object: nil, queue: nil) { (notification) in
-    // Update single order
-  }
-  NotificationCenter.default.addObserver(forName: .ordersError, object: nil, queue: nil) { (notification) in
-    // Handle error
-  }
-}
-```
-
-## List Orders
-
-Once orders have been fetched they can be accessed via the `all`, `open`, or `closed` attributes.
+Return the cached list of orders for the current user.
 
 ```swift
 FlyBuy.orders.all
+```
+
+Return the cached list of open orders for the current user.
+
+```swift
 FlyBuy.orders.open
+```
+
+Return the cached list of closed orders for the current user.
+
+```swift
 FlyBuy.orders.closed
 ```
 
-`all` returns both open and closed orders. `open` returns orders that are in progress. `closed` returns only closed orders.
-
-## Claim Order
-
-An order which is created in the FlyBuy service can be "claimed" by the SDK in order to associate it with the current customer.
-
-To get information about an unclaimed order, the app can call `fetch(withRedemptionCode:)`
+## <span id="fetch-unclaimed-orders">Fetch Unclaimed Orders</span>
 
 ```swift
 FlyBuy.orders.fetch(withRedemptionCode: code) { (order, error)
-  // update order claim view with order details here
+    // Update order claim view with order details here
 }
 ```
 
-To claim the order for the current customer, the app should call the `claim` method:
+## <span id="observe-orders">Observe Orders</span>
+
+Set up observers to get updates about orders.
+
+Fetching the orders will broadcast `NSNotifications` as updates are received. You can add a method like `registerForNotifications()` in a view controller and call it from `viewDidLoad()`.
 
 ```swift
+override func viewDidLoad() {
+    super.viewDidLoad()
+    registerForNotifications()
+}
 
+func registerForNotifications() {
+    NotificationCenter.default.addObserver(forName: .ordersUpdated, object: nil, queue: nil) { (notification) in
+        // Update multiple orders
+    }
+    NotificationCenter.default.addObserver(forName: .orderUpdated, object: nil, queue: nil) { (notification) in
+        // Update single order
+    }
+    NotificationCenter.default.addObserver(forName: .ordersError, object: nil, queue: nil) { (notification) in
+        // Handle error
+    }
+}
+```
+
+## <span id="claim-orders">Claim Orders</span>
+
+To claim an order for the current customer, the app should call the `claim` method.
+
+```swift
 let info = ClaimOrderInfo(
-  customerCarColor: "Blue",
-  customerCarType: "Chevy Tahoe",
-  customerLicensePlate: "ABC-123",
-  customerName: "Brian Johnson",
-  pushToken: "TOKEN_HERE"
+    customerCarColor: "Blue",
+    customerCarType: "Chevy Tahoe",
+    customerLicensePlate: "ABC-123",
+    customerName: "Brian Johnson",
+    pushToken: "TOKEN_HERE"
 )
 
 let consent = CustomerConsent(
-  termsOfService: true,
-  ageVerification: true
+    termsOfService: true,
+    ageVerification: true
 )
 
 FlyBuy.orders.claim(withRedemptionCode: code, claimOrderInfo: info, customerConsent: consent) { (order, error)
-  // if error == nil, order has been claimed
+    // If error == nil, order has been claimed
 }
 ```
 
-After an order is claimed, the app may want to call `FlyBuy.orders.fetch()` to update the list of orders. The newly claimed order should now appear in the list of open orders which is available via `FlyBuy.orders.open`.
+After an order is claimed, call `FlyBuy.orders.fetch()` to update the list of orders from the server. The newly claimed order will appear in the list of open orders, which is available via `FlyBuy.orders.open`.
 
-## Create Order
+## <span id="update-orders">Update Orders</span>
 
-Create an order by passing order identifiers to the `create` method. There are numerous attributes available, but the only mandatory ones are the `siteID` and `partnerIdentifier`. If you would like to receive push notifications to update order status, provide the push token the app received. (More information about how FlyBuy uses push notifications can be found [here](notifications.md).)
-
-```swift
-let info = CreateOrderInfo(
-  siteID: 101,
-  partnerIdentifier: "1234123",
-  customerCarColor: "#FF9900",
-  customerCarType: "Silver Sedan",
-  customerLicensePlate: "XYZ-456",
-  customerName: customerName,
-  pushToken: pushToken
-)
-
-FlyBuy.orders.create(info: info) { (order, error) -> (Void) in
-  // Handle order or deal with error
-}
-```
-
-#### Order Info attributes
-
-| Attribute              | Description                                     |
-| ---------------------- | ----------------------------------------------- |
-| `siteID`               | The FlyBuy Site Identifier                      |
-| `partnerIdentifier`    | Internal customer or order identifier.          |
-| `customerCarColor`     | Color of the customer's vehicle                 |
-| `customerCarType`      | Make and model of the customer's vehicle        |
-| `customerLicensePlate` | License plate of the customer's vehicle         |
-| `customerName`         | Customer's name                                 |
-| `pushToken`            | Push notification token                         |
-
-## Updating Orders
-
-Orders are always updated with an Order Event.
+Orders are always updated with an order event. The order object cannot be updated directly.
 
 ```swift
 let event = OrderEvent(
-  order: order,
-  customerState: .waiting
+    order: order,
+    customerState: .waiting
 )
 
 FlyBuy.orders.event(info: event)
 
 // Or with a block
 FlyBuy.orders.event(info: event) { (order, error) in
-  // Handle event or deal with error
+    // Handle event or deal with error
 }
 ```
 
-#### Order Event attributes
+#### Order Event Attributes
 
-| Attribute | Description            |
-| --------- | ---------------------- |
-| `order` | The order data |
+| Attribute       | Description               |
+|-----------------|---------------------------|
+| `order`         | Order data                |
 | `customerState` | Customer state ENUM value |
 
-#### Customer State values
+#### Customer State ENUM Values
 
-| Value       | Description                                                         |
-| ----------- | ------------------------------------------------------------------- |
-| `created`   | Order has been created                                              |
-| `enRoute`   | Order tracking is started the customer is on their way              |
-| `nearby`    | The customer is close to the site                                   |
-| `arrived`   | The customer has arrived on premises                                |
-| `waiting`   | The customer is in a pickup area or manually said they were waiting |
-| `completed` | The order is complete                                               |
+| Value       | Description                                                             |
+|-------------|-------------------------------------------------------------------------|
+| `created`   | Order has been created                                                  |
+| `enRoute`   | Order tracking has started and the customer is on their way             |
+| `nearby`    | Customer is close to the site                                           |
+| `arrived`   | Customer has arrived on site                                            |
+| `waiting`   | Customer is in a pickup area or has manually indicated they are waiting |
+| `completed` | Order is complete                                                       |
