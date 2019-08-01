@@ -6,6 +6,7 @@ Examples are in Swift.
 - [Fetch Unclaimed Orders](#fetch-unclaimed-orders)
 - [Observe Orders](#observe-orders)
 - [Claim Orders](#claim-orders)
+- [Create Orders](#create-orders)
 - [Update Orders](#update-orders)
 
 ## <span id="fetch-claimed-orders">Fetch Claimed Orders</span>
@@ -91,6 +92,52 @@ FlyBuy.orders.claim(withRedemptionCode: code, claimOrderInfo: info, customerCons
 ```
 
 After an order is claimed, call `FlyBuy.orders.fetch()` to update the list of orders from the server. The newly claimed order will appear in the list of open orders, which is available via `FlyBuy.orders.open`.
+
+## <span id="create-orders">Create Orders</span>
+
+Create an order by passing order identifiers to the `create` method. There are numerous attributes available, but not all fields are mandatory.
+
+If you would like to receive push notifications to update order status, provide the push token the app received. (More information about how FlyBuy uses push notifications can be found [here](notifications.md).) If you do not wish to receive push notifications, provide an empty string `""` for that parameter.
+
+If you would like to pass the customer's phone number, provide a `phone` argument. If you do not have a phone number, provide an empty string `""`.
+
+By default, orders are created with a state of `.created`. If you wish to provide a different `OrderState`, you can provide that optional argument. If you do not wish to provide a different state, omit the parameter.
+
+Most orders will have a pickup time of "ASAP". If you have a different pickup window, you can pass a `pickupWindow` parameter. If you want the default of "ASAP", omit the parameter.
+
+```swift
+let info = CreateOrderInfo(
+  siteID: 101,
+  partnerIdentifier: "1234123",
+  customerCarColor: "#FF9900",
+  customerCarType: "Silver Sedan",
+  customerLicensePlate: "XYZ-456",
+  customerName: customerName,
+  phone: "555-5555",
+  pushToken: pushToken,
+  state: .created,
+  pickupWindow: customerPickupWindow
+)
+
+FlyBuy.orders.create(info: info) { (order, error) -> (Void) in
+  // Handle order or deal with error
+}
+```
+
+#### Order Info attributes
+
+| Attribute              | Description                                     |
+| ---------------------- | ----------------------------------------------- |
+| `siteID`               | The FlyBuy Site Identifier                      |
+| `partnerIdentifier`    | Internal customer or order identifier.          |
+| `customerCarColor`     | Color of the customer's vehicle                 |
+| `customerCarType`      | Make and model of the customer's vehicle        |
+| `customerLicensePlate` | License plate of the customer's vehicle         |
+| `customerName`         | Customer's name                                 |
+| `phone`                | Customer's phone number (or empty string)       |
+| `pushToken`            | Push notification token (or empty string)       |
+| `state`                | `OrderState` (optional)                         |
+| `pickupWindow`         | `PickupWindow` (optional)                       |
 
 ## <span id="update-orders">Update Orders</span>
 

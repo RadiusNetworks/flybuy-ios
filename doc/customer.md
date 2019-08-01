@@ -9,9 +9,14 @@ let customerInfo = CustomerInfo(
   name: name,
   carType: carType,
   carColor: carColor,
-  licensePlate: licensePlate
+  licensePlate: licensePlate,
+  phone: customerPhone
 )
+```
 
+_Note: The `phone` parameter is optional_
+
+```swift
 // Create the customer consent struct, indicating that the customer has
 // consented with Terms of Service & Privacy Policy and is old enough
 // to provide consent.
