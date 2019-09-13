@@ -16,18 +16,8 @@ let customerInfo = CustomerInfo(
 
 _Note: The `phone` parameter is optional_
 
-```swift
-// Create the customer consent struct, indicating that the customer has
-// consented with Terms of Service & Privacy Policy and is old enough
-// to provide consent.
-let consent = CustomerConsent(
-  termsOfService: true,
-  ageVerification: true
-)
-
 // Post it to the API
-
-FlyBuy.customer.create(withInfo: customerInfo, consent: consent) { (customer, error) -> (Void) in
+FlyBuy.customer.create(withInfo: customerInfo, termsOfService: true, ageVerification: true) { (customer, error) -> (Void) in
   // Handle customer or deal with error
 }
 ```
@@ -57,5 +47,5 @@ FlyBuy.customer.current
 Signs out the current customer.
 
 ```swift
-FlyBuy.customer.signOut()
+FlyBuy.customer.logout()
 ```

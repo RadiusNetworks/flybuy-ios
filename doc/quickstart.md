@@ -95,4 +95,4 @@ Now that you have FlyBuy installed and configured, you need to integrate it with
 - [Handling Notifications](notifications.md)
 - [Managing Customers](customer.md)
 - [Managing Orders](orders.md)
-
+- [Managing Sites](sites.md)

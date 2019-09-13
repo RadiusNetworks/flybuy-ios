@@ -39,7 +39,7 @@ FlyBuy.orders.closed
 
 ```swift
 FlyBuy.orders.fetch(withRedemptionCode: code) { (order, error)
-    // Update order claim view with order details here
+  // Update order claim view with order details here
 }
 ```
 
@@ -51,20 +51,20 @@ Fetching the orders will broadcast `NSNotifications` as updates are received. Yo
 
 ```swift
 override func viewDidLoad() {
-    super.viewDidLoad()
-    registerForNotifications()
+  super.viewDidLoad()
+  registerForNotifications()
 }
 
 func registerForNotifications() {
-    NotificationCenter.default.addObserver(forName: .ordersUpdated, object: nil, queue: nil) { (notification) in
-        // Update multiple orders
-    }
-    NotificationCenter.default.addObserver(forName: .orderUpdated, object: nil, queue: nil) { (notification) in
-        // Update single order
-    }
-    NotificationCenter.default.addObserver(forName: .ordersError, object: nil, queue: nil) { (notification) in
-        // Handle error
-    }
+  NotificationCenter.default.addObserver(forName: .ordersUpdated, object: nil, queue: nil) { (notification) in
+    // Update multiple orders
+  }
+  NotificationCenter.default.addObserver(forName: .orderUpdated, object: nil, queue: nil) { (notification) in
+    // Update single order
+  }
+  NotificationCenter.default.addObserver(forName: .ordersError, object: nil, queue: nil) { (notification) in
+    // Handle error
+  }
 }
 ```
 
@@ -73,21 +73,16 @@ func registerForNotifications() {
 To claim an order for the current customer, the app should call the `claim` method.
 
 ```swift
-let info = ClaimOrderInfo(
-    customerCarColor: "Blue",
-    customerCarType: "Chevy Tahoe",
-    customerLicensePlate: "ABC-123",
-    customerName: "Brian Johnson",
-    pushToken: "TOKEN_HERE"
+let customerInfo = CustomerInfo(
+  name: "Bob Smith",
+  carType: "Honda Civic",
+  carColor: "white",
+  licensePlate: "ABC-123",
+  phone: "555-5555"
 )
 
-let consent = CustomerConsent(
-    termsOfService: true,
-    ageVerification: true
-)
-
-FlyBuy.orders.claim(withRedemptionCode: code, claimOrderInfo: info, customerConsent: consent) { (order, error)
-    // If error == nil, order has been claimed
+FlyBuy.orders.claim(withRedemptionCode: code, customerInfo: customerInfo) { (order, error)
+  // If error == nil, order has been claimed
 }
 ```
 
@@ -97,8 +92,6 @@ After an order is claimed, call `FlyBuy.orders.fetch()` to update the list of or
 
 Create an order by passing order identifiers to the `create` method. There are numerous attributes available, but not all fields are mandatory.
 
-If you would like to receive push notifications to update order status, provide the push token the app received. (More information about how FlyBuy uses push notifications can be found [here](notifications.md).) If you do not wish to receive push notifications, provide an empty string `""` for that parameter.
-
 If you would like to pass the customer's phone number, provide a `phone` argument. If you do not have a phone number, provide an empty string `""`.
 
 By default, orders are created with a state of `.created`. If you wish to provide a different `OrderState`, you can provide that optional argument. If you do not wish to provide a different state, omit the parameter.
@@ -106,38 +99,18 @@ By default, orders are created with a state of `.created`. If you wish to provid
 Most orders will have a pickup time of "ASAP". If you have a different pickup window, you can pass a `pickupWindow` parameter. If you want the default of "ASAP", omit the parameter.
 
 ```swift
-let info = CreateOrderInfo(
-  siteID: 101,
-  partnerIdentifier: "1234123",
-  customerCarColor: "#FF9900",
-  customerCarType: "Silver Sedan",
-  customerLicensePlate: "XYZ-456",
-  customerName: customerName,
-  phone: "555-5555",
-  pushToken: pushToken,
-  state: .created,
-  pickupWindow: customerPickupWindow
+let customerInfo = CustomerInfo(
+  name: "Bob Smith",
+  carType: "Honda Civic",
+  carColor: "white",
+  licensePlate: "ABC-123",
+  phone: "555-5555"
 )
 
-FlyBuy.orders.create(info: info) { (order, error) -> (Void) in
+FlyBuy.orders.create(siteID: 101, partnerIdentifier: "1234123", customerInfo: customerInfo) { (order, error) -> (Void) in
   // Handle order or deal with error
 }
 ```
-
-#### Order Info attributes
-
-| Attribute              | Description                                     |
-| ---------------------- | ----------------------------------------------- |
-| `siteID`               | The FlyBuy Site Identifier                      |
-| `partnerIdentifier`    | Internal customer or order identifier.          |
-| `customerCarColor`     | Color of the customer's vehicle                 |
-| `customerCarType`      | Make and model of the customer's vehicle        |
-| `customerLicensePlate` | License plate of the customer's vehicle         |
-| `customerName`         | Customer's name                                 |
-| `phone`                | Customer's phone number (or empty string)       |
-| `pushToken`            | Push notification token (or empty string)       |
-| `state`                | `OrderState` (optional)                         |
-| `pickupWindow`         | `PickupWindow` (optional)                       |
 
 ## <span id="update-orders">Update Orders</span>
 
@@ -145,15 +118,16 @@ Orders are always updated with an order event. The order object cannot be update
 
 ```swift
 let event = OrderEvent(
-    order: order,
-    customerState: .waiting
+  order: order,
+  customerState: .waiting
 )
 
 FlyBuy.orders.event(info: event)
 
 // Or with a block
+
 FlyBuy.orders.event(info: event) { (order, error) in
-    // Handle event or deal with error
+  // Handle event or deal with error
 }
 ```
 
