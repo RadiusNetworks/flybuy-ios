@@ -117,26 +117,14 @@ FlyBuy.orders.create(siteID: 101, partnerIdentifier: "1234123", customerInfo: cu
 Orders are always updated with an order event. The order object cannot be updated directly.
 
 ```swift
-let event = OrderEvent(
-  order: order,
-  customerState: .waiting
-)
-
-FlyBuy.orders.event(info: event)
+FlyBuy.orders.event(orderID: order.id, customerState: .waiting)
 
 // Or with a block
 
-FlyBuy.orders.event(info: event) { (order, error) in
+FlyBuy.orders.event(orderID: order.id, customerState: .waiting) { (order, error) in
   // Handle event or deal with error
 }
 ```
-
-#### Order Event Attributes
-
-| Attribute       | Description               |
-|-----------------|---------------------------|
-| `order`         | Order data                |
-| `customerState` | Customer state ENUM value |
 
 #### Customer State ENUM Values
 

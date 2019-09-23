@@ -526,12 +526,6 @@ SWIFT_CLASS("_TtC6FlyBuy13OrdersManager")
 /// \param callback called once either an order is created or an error is encountered
 ///
 - (void)createWithInfo:(CreateOrderInfo * _Nonnull)info callback:(void (^ _Nullable)(Order * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("Method Deprecated");
-/// creates an order event using the Flybuy web API
-/// \param orderID The order’s ID
-///
-/// \param state The CustomerState
-///
-- (void)eventWithOrderID:(NSInteger)orderID state:(enum CustomerState)state callback:(void (^ _Nullable)(Order * _Nullable, NSError * _Nullable))callback;
 /// creates an order event that sets the customer state
 /// \param order specifies which order this event relates to
 ///
