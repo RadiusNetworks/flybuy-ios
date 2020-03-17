@@ -8,6 +8,7 @@ Examples are in Swift.
 - [Claim Orders](#claim-orders)
 - [Create Orders](#create-orders)
 - [Update Orders](#update-orders)
+- [Rate Orders](#rate-orders)
 
 ## <span id="fetch-claimed-orders">Fetch Claimed Orders</span>
 
@@ -112,6 +113,16 @@ FlyBuy.orders.create(siteID: 101, partnerIdentifier: "1234123", customerInfo: cu
 }
 ```
 
+To create a pickup window, you can pass a start time and an optional end time:
+
+```swift
+// Both start and end
+window = PickupWindow(start: <start date/time here>, end: <end date/time here>)
+
+// Just a start time
+window = PickupWindow(<date/time here>)
+```
+
 ## <span id="update-orders">Update Orders</span>
 
 Orders are always updated with an order event. The order object cannot be updated directly.
@@ -126,13 +137,39 @@ FlyBuy.orders.event(orderID: order.id, customerState: .waiting) { (order, error)
 }
 ```
 
-#### Customer State ENUM Values
+You can update an order's state, if necessary, with any valid `OrderState` enum:
+
+```swift
+FlyBuy.orders.event(orderID: order.id, state: .cancelled)
+```
+
+## <span id="rate-orders">Customer Ratings</span>
+
+If you collect customer ratings in your app, you can pass them to FlyBuy. The `rating` should be an integer and `comments` (optional) should be a string:
+
+```swift
+FlyBuy.orders.rateOrder(orderID: 123, rating: 5, comments: 'Great service')
+```
+
+## Customer State ENUM Values
 
 | Value       | Description                                                             |
 |-------------|-------------------------------------------------------------------------|
-| `created`   | Order has been created                                                  |
+| `created`   | Customer has claimed their order                                        |
 | `enRoute`   | Order tracking has started and the customer is on their way             |
 | `nearby`    | Customer is close to the site                                           |
 | `arrived`   | Customer has arrived on site                                            |
 | `waiting`   | Customer is in a pickup area or has manually indicated they are waiting |
 | `completed` | Order is complete                                                       |
+
+
+## Order State ENUM Values
+
+| Value       | Description                                                             |
+|-------------|-------------------------------------------------------------------------|
+| `created`   | Order has been created                                                  |
+| `ready`     | Order is ready for customer to claim                                    |
+| `delayed`   | Order has been delayed by merchant after customer arrives               |
+| `cancelled` | Merchant has cancelled order                                            |
+| `completed` | Order is complete                                                       |
+| `gone`      | Returned by API when order does not exist                               |
