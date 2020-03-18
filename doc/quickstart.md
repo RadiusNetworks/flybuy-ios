@@ -29,10 +29,24 @@ Confirm you have `FlyBuy.framework` in both the "Embedded Binaries" and the "Lin
 
 ![Install confirm frameworks](img/install_confirm_embedded.png)
 
-Finally, you should verify build settings. Under the "Build Settings" tab for your target confirm:
+Verify build settings. Under the "Build Settings" tab for your target confirm:
 
 - Enable Modules should be set to `Yes`
 - Link Frameworks Automatically should be set to `Yes`
+
+Strip the binary architectures:
+
+While in the build settings tab add new "run script" build phase after embedding frameworks. Title the phase "Strip FlyBuy Framework for AppStore" and add the following code snippet:
+
+```
+FB_BIN="${TARGET_BUILD_DIR}/${WRAPPER_NAME}/Frameworks/FlyBuy.framework/FlyBuy"
+lipo -remove x86_64 "$FB_BIN" -o "$FB_BIN"
+```
+
+Check "Run script only when installing"
+
+![Install Strip Framework Phase](img/install_strip_framework.png)
+
 
 ## Setting Permissions
 
