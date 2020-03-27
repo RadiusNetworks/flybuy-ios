@@ -209,7 +209,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 SWIFT_CLASS("_TtC6FlyBuy14ClaimOrderInfo")
 @interface ClaimOrderInfo : NSObject
 - (nonnull instancetype)initWithCustomerCarColor:(NSString * _Nullable)customerCarColor customerCarType:(NSString * _Nullable)customerCarType customerLicensePlate:(NSString * _Nullable)customerLicensePlate customerName:(NSString * _Nullable)customerName customerPhone:(NSString * _Nullable)customerPhone pushToken:(NSString * _Nonnull)pushToken OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithCustomerInfo:(CustomerInfo * _Nonnull)customerInfo pushToken:(NSString * _Nonnull)pushToken OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithCustomerInfo:(CustomerInfo * _Nonnull)customerInfo pushToken:(NSString * _Nonnull)pushToken pickupType:(NSString * _Nullable)pickupType OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -424,8 +424,10 @@ SWIFT_CLASS("_TtC6FlyBuy5Order")
 @property (nonatomic) enum CustomerState customerState;
 @property (nonatomic, readonly, copy) NSString * _Nullable partnerIdentifier;
 @property (nonatomic, readonly, copy) NSString * _Nullable redemptionCode;
+@property (nonatomic, readonly, copy) NSDate * _Nullable redeemedAt;
 @property (nonatomic, readonly, copy) NSString * _Nullable displayName;
 @property (nonatomic, readonly, strong) PickupWindow * _Nullable pickupWindow;
+@property (nonatomic, copy) NSString * _Nullable pickupType;
 @property (nonatomic, copy) NSDate * _Nullable etaAt;
 @property (nonatomic, copy) NSDate * _Nullable completedAt;
 @property (nonatomic, copy) NSDate * _Nullable createdAt;
@@ -507,6 +509,12 @@ SWIFT_CLASS("_TtC6FlyBuy13OrdersManager")
 /// order and any errors encountered. Optional.
 ///
 - (void)fetchWithRedemptionCode:(NSString * _Nonnull)redemptionCode callback:(void (^ _Nullable)(Order * _Nullable, NSError * _Nullable))callback;
+/// Claims an order using a redemption code and pickup type
+/// \param redemptionCode the redemption code for the order
+///
+/// \param callback will get called on completion with the order and any errors encountered. Optional.
+///
+- (void)claimWithRedemptionCode:(NSString * _Nonnull)redemptionCode customerInfo:(CustomerInfo * _Nonnull)customerInfo pickupType:(NSString * _Nullable)pickupType callback:(void (^ _Nullable)(Order * _Nullable, NSError * _Nullable))callback;
 /// Claims an order using a redemption code
 /// \param redemptionCode the redemption code for the order
 ///
@@ -592,6 +600,8 @@ SWIFT_CLASS("_TtC6FlyBuy13OrdersManager")
 
 SWIFT_CLASS("_TtC6FlyBuy10Pagination")
 @interface Pagination : NSObject
+@property (nonatomic, readonly) NSInteger currentPage;
+@property (nonatomic, readonly) NSInteger totalPages;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -601,6 +611,8 @@ SWIFT_CLASS("_TtC6FlyBuy12PickupWindow")
 @interface PickupWindow : NSObject
 @property (nonatomic, readonly, copy) NSDate * _Nonnull start;
 @property (nonatomic, readonly, copy) NSDate * _Nonnull end;
+- (nonnull instancetype)initWithStart:(NSDate * _Nonnull)start end:(NSDate * _Nonnull)end OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init:(NSDate * _Nonnull)date;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
