@@ -15,12 +15,14 @@ let customerInfo = CustomerInfo(
 )
 
 // Post it to the API
-FlyBuy.customer.create(withInfo: customerInfo, termsOfService: true, ageVerification: true) { (customer, error) -> (Void) in
+FlyBuy.customer.create(withInfo: customerInfo, termsOfService: userAcceptedTerms, ageVerification: userVerifiedAge) { (customer, error) -> (Void) in
   // Handle customer or deal with error
 }
 ```
 
 _Note: The `phone` parameter is optional_
+
+**IMPORTANT:** If the `termsOfService` and `ageVerification` parameters are not `true`, an error will be returned and the customer will not be created.
 
 ## Login Via Customer Token
 

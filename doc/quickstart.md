@@ -110,3 +110,4 @@ Now that you have FlyBuy installed and configured, you need to integrate it with
 - [Managing Customers](customer.md)
 - [Managing Orders](orders.md)
 - [Managing Sites](sites.md)
+- [Data Models](data_models.md)

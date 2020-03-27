@@ -1,6 +1,6 @@
 # Orders
 
-Examples are in Swift.
+Examples are in Swift. Refer to [Data Models](data_models.md) for details on classes and objects used by the SDK.
 
 - [Fetch Claimed Orders](#fetch-claimed-orders)
 - [Fetch Unclaimed Orders](#fetch-unclaimed-orders)
@@ -8,7 +8,9 @@ Examples are in Swift.
 - [Claim Orders](#claim-orders)
 - [Create Orders](#create-orders)
 - [Update Orders](#update-orders)
-- [Rate Orders](#rate-orders)
+  - [Update customer state](#update-customer-state)
+  - [Update order state](#update-order-state)
+- [Customer Ratings](#customer-ratings)
 
 ## <span id="fetch-claimed-orders">Fetch Claimed Orders</span>
 
@@ -40,7 +42,7 @@ FlyBuy.orders.closed
 
 ```swift
 FlyBuy.orders.fetch(withRedemptionCode: code) { (order, error)
-  // Update order claim view with order details here
+  // Check error response and update order claim view with order details here
 }
 ```
 
@@ -74,12 +76,13 @@ func registerForNotifications() {
 To claim an order for the current customer, the app should call the `claim` method.
 
 ```swift
+// Create the customer info struct for person picking up (name is required)
 let customerInfo = CustomerInfo(
-  name: "Bob Smith",
-  carType: "Honda Civic",
-  carColor: "white",
-  licensePlate: "ABC-123",
-  phone: "555-5555"
+  name: "Marty McFly",
+  carType: "DeLorean",
+  carColor: "Silver",
+  licensePlate: "OUTATIME",
+  phone: "555-555-5555"
 )
 
 FlyBuy.orders.claim(withRedemptionCode: code, customerInfo: customerInfo) { (order, error)
@@ -87,7 +90,15 @@ FlyBuy.orders.claim(withRedemptionCode: code, customerInfo: customerInfo) { (ord
 }
 ```
 
-After an order is claimed, call `FlyBuy.orders.fetch()` to update the list of orders from the server. The newly claimed order will appear in the list of open orders, which is available via `FlyBuy.orders.open`.
+**IMPORTANT:** Make sure to call `FlyBuy.orders.fetch()` to sync the orders after successfully claiming the order. The newly claimed order will appear in the list of open orders, which is available via `FlyBuy.orders.open`.
+
+Optionally, the pickup type can be set when claiming an order. This is only necessary for apps that do not set the pickup type via backend integrations when the order is created. Supported pickup types currently include `"curbside"`, `"pickup"`, and `"delivery"`. Passing `nil` will leave the `pickupType` unchanged.
+
+```swift
+FlyBuy.orders.claim(withRedemptionCode: code, customerInfo: customerInfo, pickupType: pickupType) { (order, error)
+  // If error == nil, order has been claimed
+}
+```
 
 ## <span id="create-orders">Create Orders</span>
 
@@ -101,11 +112,11 @@ Most orders will have a pickup time of "ASAP". If you have a different pickup wi
 
 ```swift
 let customerInfo = CustomerInfo(
-  name: "Bob Smith",
-  carType: "Honda Civic",
-  carColor: "white",
-  licensePlate: "ABC-123",
-  phone: "555-5555"
+  name: "Marty McFly",
+  carType: "DeLorean",
+  carColor: "Silver",
+  licensePlate: "OUTATIME",
+  phone: "555-555-5555"
 )
 
 FlyBuy.orders.create(siteID: 101, partnerIdentifier: "1234123", customerInfo: customerInfo) { (order, error) -> (Void) in
@@ -127,6 +138,8 @@ window = PickupWindow(<date/time here>)
 
 Orders are always updated with an order event. The order object cannot be updated directly.
 
+### Update customer state
+
 ```swift
 FlyBuy.orders.event(orderID: order.id, customerState: .waiting)
 
@@ -137,11 +150,17 @@ FlyBuy.orders.event(orderID: order.id, customerState: .waiting) { (order, error)
 }
 ```
 
+Refer to [Customer State ENUM Values](data_models.md#customer-state-enum-values) for possible `customerState` values.
+
+### Update order state
+
 You can update an order's state, if necessary, with any valid `OrderState` enum:
 
 ```swift
 FlyBuy.orders.event(orderID: order.id, state: .cancelled)
 ```
+
+Refer to [Order State ENUM Values](#order-state-enum-values) for possible `state` values.
 
 ## <span id="rate-orders">Customer Ratings</span>
 
@@ -151,25 +170,3 @@ If you collect customer ratings in your app, you can pass them to FlyBuy. The `r
 FlyBuy.orders.rateOrder(orderID: 123, rating: 5, comments: 'Great service')
 ```
 
-## Customer State ENUM Values
-
-| Value       | Description                                                             |
-|-------------|-------------------------------------------------------------------------|
-| `created`   | Customer has claimed their order                                        |
-| `enRoute`   | Order tracking has started and the customer is on their way             |
-| `nearby`    | Customer is close to the site                                           |
-| `arrived`   | Customer has arrived on site                                            |
-| `waiting`   | Customer is in a pickup area or has manually indicated they are waiting |
-| `completed` | Order is complete                                                       |
-
-
-## Order State ENUM Values
-
-| Value       | Description                                                             |
-|-------------|-------------------------------------------------------------------------|
-| `created`   | Order has been created                                                  |
-| `ready`     | Order is ready for customer to claim                                    |
-| `delayed`   | Order has been delayed by merchant after customer arrives               |
-| `cancelled` | Merchant has cancelled order                                            |
-| `completed` | Order is complete                                                       |
-| `gone`      | Returned by API when order does not exist                               |
