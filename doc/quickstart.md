@@ -61,7 +61,7 @@ Under the "General" tab for your iOS target, select Capabilities and scroll down
 
 ### Ask for Location Services permissions
 
-FlyBuy uses mobile sensor data to identify the location of a customer.  The FlyBuy SDK requires Location services permissions to properly function. Specifically, the SDK needs the Location Always and When in Use permission.
+FlyBuy uses mobile sensor data to identify the location of a customer.  The FlyBuy SDK requires Location services permissions to properly function. Specifically, the SDK supports Always permission, but only needs the When in Use permission.
 
 If you are already asking users for the required permissions, you should review the usage description. The usage description explains why the application requires Always authorization.
 
