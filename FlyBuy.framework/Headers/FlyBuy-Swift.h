@@ -398,7 +398,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) Configuratio
 /// important:
 /// This method should only be used for debugging purposes.
 + (void)stopLocationUpdates;
+/// Updates the push token that FlyBuy uses to send push messages to the app.
 + (void)updatePushToken:(NSString * _Nonnull)newPushToken;
+/// Updates the APNs device token that FlyBuy uses to send pushes to the app. This should only be used
+/// when FlyBuy is configured to send pushes through APNs directly. If using a 3rd party service such as
+/// Airship, OneSignal, etc, the correct method to call is <code>updatePushToken</code>.
++ (void)updateAPNPushToken:(NSData * _Nonnull)deviceToken;
 @end
 
 typedef SWIFT_ENUM(NSInteger, LocationAuthStatus, closed) {
@@ -1095,7 +1100,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) Configuratio
 /// important:
 /// This method should only be used for debugging purposes.
 + (void)stopLocationUpdates;
+/// Updates the push token that FlyBuy uses to send push messages to the app.
 + (void)updatePushToken:(NSString * _Nonnull)newPushToken;
+/// Updates the APNs device token that FlyBuy uses to send pushes to the app. This should only be used
+/// when FlyBuy is configured to send pushes through APNs directly. If using a 3rd party service such as
+/// Airship, OneSignal, etc, the correct method to call is <code>updatePushToken</code>.
++ (void)updateAPNPushToken:(NSData * _Nonnull)deviceToken;
 @end
 
 typedef SWIFT_ENUM(NSInteger, LocationAuthStatus, closed) {
