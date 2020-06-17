@@ -1,6 +1,6 @@
 # Universal Links
 
-These instructions will help you set up universal links to your iOS app from a white-label FlyBuy domain.  If you don't already have a white-label domain set up with FlyBuy go [here](https://github.com/RadiusNetworks/flybuy-documentation/blob/master/doc/white_label_domains.md) to get that set up first.
+These instructions will help you set up universal links to your iOS app from a white-label FlyBuy domain.  If you don't already have a white-label domain set up with FlyBuy go [here](https://github.com/RadiusNetworks/flybuy-documentation/blob/master/doc/white-label-domains.md) to get that set up first.
 
 ## Setting up universal links in your app from a white-label FlyBuy domain
 

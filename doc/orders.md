@@ -14,7 +14,12 @@ Examples are in Swift. Refer to [Data Models](data_models.md) for details on cla
 
 ## <span id="fetch-claimed-orders">Fetch Claimed Orders</span>
 
-Fetch the latest claimed orders with the server. An order is claimed if it is associated with the current customer.
+Fetch syncs the SDK with the FlyBuy backend to ensure the state changes match between the systems.
+
+When to Fetch:
+- app startup (required)
+- claiming an order (required)
+- showing a list of orders (optional)
 
 ```swift
 FlyBuy.orders.fetch()
@@ -38,7 +43,7 @@ Return the cached list of closed orders for the current user.
 FlyBuy.orders.closed
 ```
 
-## <span id="fetch-unclaimed-orders">Fetch Unclaimed Orders</span>
+## <span id="fetch-unclaimed-orders">Fetch Orders with Redemption Code</span>
 
 ```swift
 FlyBuy.orders.fetch(withRedemptionCode: code) { (order, error)
@@ -48,9 +53,7 @@ FlyBuy.orders.fetch(withRedemptionCode: code) { (order, error)
 
 ## <span id="observe-orders">Observe Orders</span>
 
-Set up observers to get updates about orders.
-
-Fetching the orders will broadcast `NSNotifications` as updates are received. You can add a method like `registerForNotifications()` in a view controller and call it from `viewDidLoad()`.
+Set up observers to get updates about orders. You can add a method like `registerForNotifications()` in a view controller and call it from `viewDidLoad()`.
 
 ```swift
 override func viewDidLoad() {
@@ -169,4 +172,3 @@ If you collect customer ratings in your app, you can pass them to FlyBuy. The `r
 ```swift
 FlyBuy.orders.rateOrder(orderID: 123, rating: 5, comments: 'Great service')
 ```
-
