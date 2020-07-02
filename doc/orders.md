@@ -127,6 +127,8 @@ FlyBuy.orders.create(siteID: 101, partnerIdentifier: "1234123", customerInfo: cu
 }
 ```
 
+**IMPORTANT:** Make sure to call `FlyBuy.orders.fetch()` to sync the orders after successfully creating the order. The newly created order will appear in the list of open orders, which is available via `FlyBuy.orders.open`.
+
 To create a pickup window, you can pass a start time and an optional end time:
 
 ```swift
