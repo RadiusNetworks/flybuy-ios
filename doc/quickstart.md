@@ -19,13 +19,13 @@ CocoaPods and Carthage support will be coming soon. [Let us know](mailto:support
 
 Download the [latest SDK release](https://github.com/RadiusNetworks/flybuy-ios/releases/latest).
 
-After unzipping the SDK, drag `FlyBuy.framework` to your project in Xcode.
+After unzipping the SDK, drag `FlyBuySDK.framework` to your project in Xcode.
 
 Make sure to check "Copy items as needed" and check the target for your app.
 
 ![Install drag options](img/install_drag_options.png)
 
-Confirm you have `FlyBuy.framework` in both the "Embedded Binaries" and the "Linked Frameworks and Libraries" sections of the "General" tab for your target.
+Confirm you have `FlyBuySDK.framework` in both the "Embedded Binaries" and the "Linked Frameworks and Libraries" sections of the "General" tab for your target.
 
 ![Install confirm frameworks](img/install_confirm_embedded.png)
 
@@ -39,7 +39,7 @@ Strip the binary architectures:
 While in the build settings tab add new "run script" build phase after embedding frameworks. Title the phase "Strip FlyBuy Framework for AppStore" and add the following code snippet:
 
 ```
-FB_BIN="${TARGET_BUILD_DIR}/${WRAPPER_NAME}/Frameworks/FlyBuy.framework/FlyBuy"
+FB_BIN="${TARGET_BUILD_DIR}/${WRAPPER_NAME}/Frameworks/FlyBuySDK.framework/FlyBuySDK"
 lipo -remove x86_64 "$FB_BIN" -o "$FB_BIN"
 ```
 
