@@ -1,4 +1,0 @@
-framework module FlyBuy {
-  header "FlyBuy-Swift.h"
-  requires objc
-}

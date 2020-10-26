@@ -6,14 +6,7 @@ white label implementation of the service.
 
 ## Getting Started
 
-See the [quick start guide](/doc/quickstart.md) for install and setup details.
-
-More information can be found about:
-
-- [Customers](/doc/customer.md)
-- [Orders](/doc/orders.md)
-- [Notifications](/doc/notifications.md)
-- [Universal Links](/doc/universal_links.md)
+Refer to the Integration Guide in the [FlyBuy Documentation][5] to get started. The iOS SDK is available for download in this repo's [Releases][5].
 
 ## Issues
 
@@ -43,4 +36,5 @@ terms](LICENSE) and Radius Networks [terms of service][4]
 [2]: https://radiusnetworks.zendesk.com/
 [3]: https://github.com/RadiusNetworks/flybuy-ios/issues/new
 [4]: http://www.radiusnetworks.com/terms_of_service.html
-
+[5]: https://github.com/RadiusNetworks/flybuy-ios/releases
+[6]: https://www.radiusnetworks.com/developers/flybuy/
