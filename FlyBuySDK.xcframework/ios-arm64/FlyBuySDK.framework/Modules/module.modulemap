@@ -1,0 +1,11 @@
+framework module FlyBuySDK {
+  umbrella header "FlyBuySDK.h"
+
+  export *
+  module * { export * }
+}
+
+module FlyBuySDK.Swift {
+    header "FlyBuySDK-Swift.h"
+    requires objc
+}
