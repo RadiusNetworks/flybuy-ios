@@ -6,7 +6,7 @@ white label implementation of the service.
 
 ## Getting Started
 
-Refer to the Integration Guide in the [FlyBuy Documentation][5] to get started. The iOS SDK is available for download in this repo's [Releases][5].
+Refer to the Integration Guide in the [FlyBuy Documentation][6] to get started. The iOS SDK is available for download in this repo's [Releases][5].
 
 ## Issues
 
