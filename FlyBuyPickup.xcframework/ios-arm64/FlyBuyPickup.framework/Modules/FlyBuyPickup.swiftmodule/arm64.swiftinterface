@@ -5,6 +5,7 @@ import CoreLocation
 import FlyBuy
 @_exported import FlyBuyPickup
 import Foundation
+import NotificationCenter
 import Swift
 import UIKit
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(FlyBuyPickupManager) public class Manager : ObjectiveC.NSObject {
@@ -23,4 +24,7 @@ extension NSNotification.Name {
   public static let locationAuthorizationNotDetermined: Foundation.Notification.Name
   public static let locationNotAuthorized: Foundation.Notification.Name
   public static let locationAuthorizationChanged: Foundation.Notification.Name
+}
+extension Manager : FlyBuy.FlyBuyModuleManager {
+  public func configUpdated(_ config: FlyBuy.AppConfig)
 }

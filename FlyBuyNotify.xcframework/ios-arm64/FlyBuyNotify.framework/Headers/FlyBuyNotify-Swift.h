@@ -226,6 +226,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FlyBuyNotify
 
 
 
+
+
 SWIFT_CLASS("_TtC12FlyBuyNotify16NotificationInfo")
 @interface NotificationInfo : NSObject
 @property (nonatomic, readonly, copy) NSString * _Nonnull title;

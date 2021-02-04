@@ -29,3 +29,6 @@ import UserNotifications
   @objc deinit
   override public init(_ description: Swift.String?, context: Any? = super)
 }
+extension Manager : FlyBuy.FlyBuyModuleManager {
+  public func configUpdated(_ config: FlyBuy.AppConfig)
+}

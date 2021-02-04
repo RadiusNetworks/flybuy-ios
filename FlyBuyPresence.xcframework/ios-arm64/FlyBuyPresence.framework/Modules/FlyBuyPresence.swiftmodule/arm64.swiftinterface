@@ -21,6 +21,9 @@ import Swift
   @objc public func stop() -> (Swift.Error?)
   @objc override dynamic public init()
 }
+extension Manager : FlyBuy.FlyBuyModuleManager {
+  public func configUpdated(_ config: FlyBuy.AppConfig)
+}
 @objc public protocol PresenceLocatorDelegate {
   @objc optional func locatorDidStart(_ locator: FlyBuyPresence.PresenceLocator)
   @objc optional func locatorDidStop(_ locator: FlyBuyPresence.PresenceLocator)

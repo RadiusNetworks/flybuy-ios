@@ -249,6 +249,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FlyBuyPresen
 @end
 
 
+
+
 SWIFT_CLASS("_TtC14FlyBuyPresence15PresenceLocator")
 @interface PresenceLocator : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;

@@ -217,6 +217,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FlyBuyPickup
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+
+
 @class CLLocationManager;
 @class CLBeacon;
 @class CLBeaconRegion;
