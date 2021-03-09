@@ -24,6 +24,34 @@ import Swift
 extension Manager : FlyBuy.FlyBuyModuleManager {
   public func configUpdated(_ config: FlyBuy.AppConfig)
 }
+@objc public enum PresenceErrorType : Swift.Int {
+  case invalidPresenceIdentifierLength
+  case invalidPayloadLength
+  case unableToCreateLocator
+  case failedToStartAdvertising
+  case advertiserAlreadyStarted
+  case locatorNotStarted
+  case bluetoothPoweredOff
+  case bluetoothUnauthorized
+  case bluetoothUnsupported
+  public var description: Swift.String {
+    get
+  }
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc(FlyBuyPresenceError) @_objcRuntimeName(FlyBuyPresenceError) public class PresenceError : FlyBuy.FlyBuyError {
+  @objc final public let type: FlyBuyPresence.PresenceErrorType
+  @objc public init(_ typeIn: FlyBuyPresence.PresenceErrorType, context: Any? = nil)
+  @objc override dynamic public var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+  override public init(_ description: Swift.String?, context: Any? = super)
+}
 @objc public protocol PresenceLocatorDelegate {
   @objc optional func locatorDidStart(_ locator: FlyBuyPresence.PresenceLocator)
   @objc optional func locatorDidStop(_ locator: FlyBuyPresence.PresenceLocator)
@@ -48,6 +76,9 @@ extension Manager : FlyBuy.FlyBuyModuleManager {
   @objc override dynamic public init()
   @objc deinit
 }
+extension FlyBuyPresence.PresenceErrorType : Swift.Equatable {}
+extension FlyBuyPresence.PresenceErrorType : Swift.Hashable {}
+extension FlyBuyPresence.PresenceErrorType : Swift.RawRepresentable {}
 extension FlyBuyPresence.PresenceLocator.state : Swift.Equatable {}
 extension FlyBuyPresence.PresenceLocator.state : Swift.Hashable {}
 extension FlyBuyPresence.PresenceLocator.state : Swift.RawRepresentable {}

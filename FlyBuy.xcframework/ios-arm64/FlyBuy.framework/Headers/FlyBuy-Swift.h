@@ -537,6 +537,8 @@ SWIFT_CLASS_NAMED("Order")
 
 
 
+
+
 SWIFT_CLASS_NAMED("OrderEvent")
 @interface FlyBuyOrderEvent : NSObject
 - (nonnull instancetype)initWithOrderID:(NSInteger)orderID customerState:(NSString * _Nonnull)customerState etaSeconds:(NSNumber * _Nullable)etaSeconds OBJC_DESIGNATED_INITIALIZER;

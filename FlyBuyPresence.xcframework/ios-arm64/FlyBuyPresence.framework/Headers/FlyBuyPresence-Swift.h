@@ -250,6 +250,18 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FlyBuyPresen
 
 
 
+typedef SWIFT_ENUM(NSInteger, PresenceErrorType, open) {
+  PresenceErrorTypeInvalidPresenceIdentifierLength = 0,
+  PresenceErrorTypeInvalidPayloadLength = 1,
+  PresenceErrorTypeUnableToCreateLocator = 2,
+  PresenceErrorTypeFailedToStartAdvertising = 3,
+  PresenceErrorTypeAdvertiserAlreadyStarted = 4,
+  PresenceErrorTypeLocatorNotStarted = 5,
+  PresenceErrorTypeBluetoothPoweredOff = 6,
+  PresenceErrorTypeBluetoothUnauthorized = 7,
+  PresenceErrorTypeBluetoothUnsupported = 8,
+};
+
 
 SWIFT_CLASS("_TtC14FlyBuyPresence15PresenceLocator")
 @interface PresenceLocator : NSObject

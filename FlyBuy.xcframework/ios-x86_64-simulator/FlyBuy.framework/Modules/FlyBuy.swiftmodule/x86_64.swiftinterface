@@ -661,6 +661,9 @@ public struct CustomerResponse : Swift.Decodable {
   @objc deinit
   @objc override dynamic public init()
 }
+extension Order {
+  public func isOpen() -> Swift.Bool
+}
 extension FlyBuy.LocationAuthStatus : Swift.Equatable {}
 extension FlyBuy.LocationAuthStatus : Swift.Hashable {}
 extension FlyBuy.LocationAuthStatus : Swift.RawRepresentable {}
