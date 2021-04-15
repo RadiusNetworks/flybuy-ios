@@ -286,21 +286,6 @@ public struct SQLite {
   @objc deinit
   override public init(_ description: Swift.String?, context: Any? = super)
 }
-public enum HTTPStatusCode : Swift.Int {
-  case ok
-  case accepted
-  case noContent
-  case unauthorized
-  case notFound
-  case gone
-  case unprocessableEntity
-  case appUpgradeRequired
-  public typealias RawValue = Swift.Int
-  public init?(rawValue: Swift.Int)
-  public var rawValue: Swift.Int {
-    get
-  }
-}
 @_hasMissingDesignatedInitializers @objc public class FlyBuyAPIError : FlyBuy.FlyBuyError {
   final public let statusCode: FlyBuy.HTTPStatusCode?
   public var errors: [Swift.String : [Swift.String]]? {
@@ -465,6 +450,80 @@ extension UserDefaults {
   @objc override dynamic public init()
   @objc deinit
 }
+public enum HTTPStatusCode : Swift.Int, Swift.Error {
+  case `continue`
+  case switchingProtocols
+  case processing
+  case ok
+  case created
+  case accepted
+  case nonAuthoritativeInformation
+  case noContent
+  case resetContent
+  case partialContent
+  case multiStatus
+  case alreadyReported
+  case IMUsed
+  case multipleChoices
+  case movedPermanently
+  case found
+  case seeOther
+  case notModified
+  case useProxy
+  case switchProxy
+  case temporaryRedirect
+  case permenantRedirect
+  case badRequest
+  case unauthorized
+  case paymentRequired
+  case forbidden
+  case notFound
+  case methodNotAllowed
+  case notAcceptable
+  case proxyAuthenticationRequired
+  case requestTimeout
+  case conflict
+  case gone
+  case lengthRequired
+  case preconditionFailed
+  case payloadTooLarge
+  case URITooLong
+  case unsupportedMediaType
+  case rangeNotSatisfiable
+  case expectationFailed
+  case teapot
+  case misdirectedRequest
+  case unprocessableEntity
+  case locked
+  case failedDependency
+  case appUpgradeRequired
+  case upgradeRequired
+  case preconditionRequired
+  case tooManyRequests
+  case requestHeaderFieldsTooLarge
+  case noResponse
+  case unavailableForLegalReasons
+  case SSLCertificateError
+  case SSLCertificateRequired
+  case HTTPRequestSentToHTTPSPort
+  case clientClosedRequest
+  case internalServerError
+  case notImplemented
+  case badGateway
+  case serviceUnavailable
+  case gatewayTimeout
+  case HTTPVersionNotSupported
+  case variantAlsoNegotiates
+  case insufficientStorage
+  case loopDetected
+  case notExtended
+  case networkAuthenticationRequired
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 @_inheritsConvenienceInitializers @objc(FlyBuySitesManager) open class SitesManager : ObjectiveC.NSObject {
   @objc public var all: [FlyBuy.Site]? {
     get
@@ -485,8 +544,6 @@ extension String {
   public var wordsFromCamelCase: Swift.String {
     get
   }
-}
-extension String : Swift.Error {
 }
 @objc public class AppUpgrade : ObjectiveC.NSObject, Swift.Codable {
   final public let required: Swift.Bool
@@ -536,8 +593,8 @@ extension NSNotification.Name {
   public static let orderEventError: Foundation.Notification.Name
 }
 @_hasMissingDesignatedInitializers @objc(FlyBuyOrdersManagerError) public class OrdersManagerError : FlyBuy.FlyBuyError {
-  override public init(_ description: Swift.String?, context: Any? = super)
   @objc deinit
+  override public init(_ description: Swift.String?, context: Any? = super)
 }
 @_inheritsConvenienceInitializers @objc(FlyBuyCustomerManager) public class CustomerManager : ObjectiveC.NSObject {
   @objc public var current: FlyBuy.Customer? {
@@ -556,8 +613,8 @@ extension NSNotification.Name {
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc(FlyBuyCustomerManagerError) public class CustomerManagerError : FlyBuy.FlyBuyError {
-  @objc deinit
   override public init(_ description: Swift.String?, context: Any? = super)
+  @objc deinit
 }
 @objc public enum LogLevel : Swift.Int {
   case verbose
@@ -667,12 +724,12 @@ extension Order {
 extension FlyBuy.LocationAuthStatus : Swift.Equatable {}
 extension FlyBuy.LocationAuthStatus : Swift.Hashable {}
 extension FlyBuy.LocationAuthStatus : Swift.RawRepresentable {}
-extension FlyBuy.HTTPStatusCode : Swift.Equatable {}
-extension FlyBuy.HTTPStatusCode : Swift.Hashable {}
-extension FlyBuy.HTTPStatusCode : Swift.RawRepresentable {}
 extension FlyBuy.UserDefaultsKey : Swift.Equatable {}
 extension FlyBuy.UserDefaultsKey : Swift.Hashable {}
 extension FlyBuy.UserDefaultsKey : Swift.RawRepresentable {}
+extension FlyBuy.HTTPStatusCode : Swift.Equatable {}
+extension FlyBuy.HTTPStatusCode : Swift.Hashable {}
+extension FlyBuy.HTTPStatusCode : Swift.RawRepresentable {}
 extension FlyBuy.LogLevel : Swift.Equatable {}
 extension FlyBuy.LogLevel : Swift.Hashable {}
 extension FlyBuy.LogLevel : Swift.RawRepresentable {}

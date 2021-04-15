@@ -438,6 +438,8 @@ SWIFT_CLASS_NAMED("Geofence")
 @property (nonatomic, readonly) double radiusMeters;
 @end
 
+
+
 typedef SWIFT_ENUM(NSInteger, LocationAuthStatus, open) {
   LocationAuthStatusNotDetermined = 0,
   LocationAuthStatusRestricted = 1,

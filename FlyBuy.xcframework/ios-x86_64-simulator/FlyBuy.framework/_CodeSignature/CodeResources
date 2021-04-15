@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/FlyBuy-Swift.h</key>
 		<data>
-		mJHT19nVmGvTV6f02kiEQkJHe6c=
+		qsC02j9WkAU+VPzFYgAYiXTvdUI=
 		</data>
 		<key>Headers/FlyBuy.h</key>
 		<data>
@@ -14,31 +14,31 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		5JrNpK6sX8VhIiUMEOeiDWgLYCA=
+		KXTw8ZVIXuyUUYBxcC7w+6SAhj4=
 		</data>
 		<key>Modules/FlyBuy.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		dE5dB3l69A2yXwh712JdMkh2hiM=
+		hJvqXCLIMAQJ2jyWclJIi+YFVr0=
 		</data>
 		<key>Modules/FlyBuy.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		SOpV8weXMh79Eqla3r2MYstLdkM=
+		ncODcwiXzXdLSIvLTpgdRq4zMWE=
 		</data>
 		<key>Modules/FlyBuy.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		gUKfYsfQ53US7ql5HwJjC0/nZyo=
+		AJRhVaEW5KSvmUNZXRE4O8AQkEU=
 		</data>
 		<key>Modules/FlyBuy.swiftmodule/x86_64.swiftdoc</key>
 		<data>
-		dE5dB3l69A2yXwh712JdMkh2hiM=
+		hJvqXCLIMAQJ2jyWclJIi+YFVr0=
 		</data>
 		<key>Modules/FlyBuy.swiftmodule/x86_64.swiftinterface</key>
 		<data>
-		SOpV8weXMh79Eqla3r2MYstLdkM=
+		ncODcwiXzXdLSIvLTpgdRq4zMWE=
 		</data>
 		<key>Modules/FlyBuy.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		gUKfYsfQ53US7ql5HwJjC0/nZyo=
+		AJRhVaEW5KSvmUNZXRE4O8AQkEU=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -51,7 +51,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			4bmDpA9aBl2GNQxD2qqhhsn1RskPGJ/v1ihNcuk64IY=
+			0LQLPSdbntJ7HyyitHgUSI1qEtjjc/qQJq3WLTUfa7A=
 			</data>
 		</dict>
 		<key>Headers/FlyBuy.h</key>
@@ -65,42 +65,42 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			9CRFRIXIRvW6PNCULX6hVGbaQANRmX8ezVYekx5pglI=
+			1Rh6qhTzvtSZLDse/+4MNGw5Lg+5Q7U33wiXsFQ97yI=
 			</data>
 		</dict>
 		<key>Modules/FlyBuy.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			a10usunbVuXJy99LEUq5aTunWoxR/XUAV1Q4xBieb4g=
+			PSJg10xDTfNpbuQDWIISH0TvOROD525KLTbRmO7o0hI=
 			</data>
 		</dict>
 		<key>Modules/FlyBuy.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			NaG8SHJPLMPYEdvzMLQT95JsCix+JUi9NlcyUwPvrbE=
+			mjTFP/U+c2D9ad1T03bDTBcZnv4yjuzSvoC0zJbd1dg=
 			</data>
 		</dict>
 		<key>Modules/FlyBuy.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			9CRFRIXIRvW6PNCULX6hVGbaQANRmX8ezVYekx5pglI=
+			1Rh6qhTzvtSZLDse/+4MNGw5Lg+5Q7U33wiXsFQ97yI=
 			</data>
 		</dict>
 		<key>Modules/FlyBuy.swiftmodule/x86_64.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			a10usunbVuXJy99LEUq5aTunWoxR/XUAV1Q4xBieb4g=
+			PSJg10xDTfNpbuQDWIISH0TvOROD525KLTbRmO7o0hI=
 			</data>
 		</dict>
 		<key>Modules/FlyBuy.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			NaG8SHJPLMPYEdvzMLQT95JsCix+JUi9NlcyUwPvrbE=
+			mjTFP/U+c2D9ad1T03bDTBcZnv4yjuzSvoC0zJbd1dg=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
