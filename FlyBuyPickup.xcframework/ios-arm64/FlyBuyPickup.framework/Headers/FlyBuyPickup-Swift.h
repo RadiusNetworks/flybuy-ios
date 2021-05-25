@@ -187,6 +187,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
 @import CoreLocation;
+@import Foundation;
 @import ObjectiveC;
 #endif
 
@@ -228,6 +229,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FlyBuyPickup
 - (void)locationManager:(CLLocationManager * _Nonnull)manager didUpdateLocations:(NSArray<CLLocation *> * _Nonnull)locations;
 - (void)locationManager:(CLLocationManager * _Nonnull)manager didRangeBeacons:(NSArray<CLBeacon *> * _Nonnull)beacons inRegion:(CLBeaconRegion * _Nonnull)region;
 @end
+
+
 
 #if __has_attribute(external_source_symbol)
 # pragma clang attribute pop

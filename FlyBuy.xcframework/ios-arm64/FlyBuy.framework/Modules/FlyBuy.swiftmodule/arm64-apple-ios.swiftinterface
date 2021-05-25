@@ -42,22 +42,6 @@ extension PickupLocationFilterData {
   required public init(from decoder: Swift.Decoder) throws
   open func encode(to encoder: Swift.Encoder) throws
 }
-extension SQLite {
-  public enum Error : Swift.Error {
-    case onOpen(Swift.Int32, Swift.String)
-    case onClose(Swift.Int32)
-    case onPrepareStatement(Swift.Int32, Swift.String)
-    case onGetParameterIndex(Swift.String)
-    case onBindParameter(Swift.Int32, Swift.Int32, FlyBuy.SQLite.Value)
-    case onStep(Swift.Int32, Swift.String)
-    case onGetColumnType(Swift.Int32)
-  }
-}
-extension SQLite.Error : Swift.CustomStringConvertible {
-  public var description: Swift.String {
-    get
-  }
-}
 @objc(FlyBuyUpdateOrderInfo) open class UpdateOrderInfo : ObjectiveC.NSObject, Swift.Codable {
   @objc public init(pushToken: Swift.String)
   @objc deinit
@@ -149,47 +133,6 @@ open class EncodableRequest<EncodableObject> where EncodableObject : Swift.Encod
   @objc deinit
   required public init(from decoder: Swift.Decoder) throws
 }
-public typealias SQLiteArguments = [Swift.String : FlyBuy.SQLite.Value]
-public typealias SQLiteRow = [Swift.String : FlyBuy.SQLite.Value]
-extension SQLite {
-  public enum Value {
-    case data(Foundation.Data)
-    case double(Swift.Double)
-    case integer(Swift.Int64)
-    case null
-    case text(Swift.String)
-  }
-}
-extension SQLite.Value {
-  public init(rawValue: Swift.OpaquePointer)
-}
-extension SQLite.Value {
-  public var boolValue: Swift.Bool? {
-    get
-  }
-  public var dataValue: Foundation.Data? {
-    get
-  }
-  public var doubleValue: Swift.Double? {
-    get
-  }
-  public var intValue: Swift.Int? {
-    get
-  }
-  public var int64Value: Swift.Int64? {
-    get
-  }
-  public var stringValue: Swift.String? {
-    get
-  }
-}
-extension SQLite.Value : Swift.Hashable {
-  public static func == (lhs: FlyBuy.SQLite.Value, rhs: FlyBuy.SQLite.Value) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
-  public var hashValue: Swift.Int {
-    get
-  }
-}
 @objc(FlyBuyGeofence) open class Geofence : ObjectiveC.NSObject, Swift.Decodable {
   @objc final public let latitude: Swift.String
   @objc final public let longitude: Swift.String
@@ -198,19 +141,6 @@ extension SQLite.Value : Swift.Hashable {
   @objc deinit
   required public init(from decoder: Swift.Decoder) throws
 }
-extension SQLite {
-  final public class Encoder {
-    public enum Error : Swift.Error {
-      case invalidType(Any)
-      case invalidValue(Any)
-      case invalidJSON(Foundation.Data)
-      case transactionFailed
-    }
-    public init(_ database: FlyBuy.SQLite.Database)
-    final public func encode<T>(_ value: T, using sql: FlyBuy.SQL) throws where T : Swift.Encodable
-    @objc deinit
-  }
-}
 @objc(FlyBuyCustomerInfo) open class CustomerInfo : ObjectiveC.NSObject, Swift.Codable {
   @objc final public let name: Swift.String
   @objc final public let carType: Swift.String?
@@ -218,27 +148,10 @@ extension SQLite {
   @objc final public let licensePlate: Swift.String?
   @objc final public let phone: Swift.String?
   @objc public init(name: Swift.String, carType: Swift.String?, carColor: Swift.String?, licensePlate: Swift.String?, phone: Swift.String? = nil)
-  public static let defaultsKeyPaths: [(key: FlyBuy.UserDefaultsKey, keyPath: Swift.PartialKeyPath<FlyBuy.CustomerInfo>)]
   @objc override dynamic public init()
   required public init(from decoder: Swift.Decoder) throws
   @objc deinit
   open func encode(to encoder: Swift.Encoder) throws
-}
-extension SQLite {
-  final public class Decoder {
-    public enum Error : Swift.Error {
-      case incorrectNumberOfResults(Swift.Int)
-      case missingValueForKey(Swift.String)
-      case invalidDate(Swift.String)
-      case invalidURL(Swift.String)
-      case invalidUUID(Swift.String)
-      case invalidJSON(Swift.String)
-    }
-    public init(_ database: FlyBuy.SQLite.Database)
-    final public func decode<T>(_ type: T.Type, using sql: FlyBuy.SQL, arguments: FlyBuy.SQLiteArguments = [:]) throws -> T? where T : Swift.Decodable
-    final public func decode<T>(_ type: [T].Type, using sql: FlyBuy.SQL, arguments: FlyBuy.SQLiteArguments = [:]) throws -> [T] where T : Swift.Decodable
-    @objc deinit
-  }
 }
 @objc public enum LocationAuthStatus : Swift.Int, Swift.Codable {
   case notDetermined
@@ -258,9 +171,6 @@ extension SQLite {
   public var rawValue: Swift.Int {
     get
   }
-}
-public typealias SQL = Swift.String
-public struct SQLite {
 }
 @_hasMissingDesignatedInitializers @objc(FlyBuyPagination) public class Pagination : ObjectiveC.NSObject {
   @objc final public let currentPage: Swift.Int
@@ -371,58 +281,6 @@ extension _AnyDecodable {
   required public init(from decoder: Swift.Decoder) throws
   @objc deinit
   open func encode(to encoder: Swift.Encoder) throws
-}
-extension SQLite {
-  final public class Database {
-    final public var userVersion: Swift.Int {
-      get
-      set
-    }
-    final public var hasOpenTransactions: Swift.Bool {
-      get
-    }
-    public init(path: Swift.String) throws
-    @objc deinit
-    final public func close()
-    final public func inTransaction(_ block: () throws -> Swift.Void) throws -> Swift.Bool
-    final public func write(_ sql: FlyBuy.SQL, arguments: FlyBuy.SQLiteArguments) throws
-    final public func read(_ sql: FlyBuy.SQL, arguments: FlyBuy.SQLiteArguments) throws -> [FlyBuy.SQLiteRow]
-    @discardableResult
-    final public func execute(raw sql: FlyBuy.SQL) throws -> [FlyBuy.SQLiteRow]
-  }
-}
-extension SQLite.Database : Swift.Equatable {
-  public static func == (lhs: FlyBuy.SQLite.Database, rhs: FlyBuy.SQLite.Database) -> Swift.Bool
-}
-public enum UserDefaultsKey : Swift.String, Swift.CaseIterable {
-  case customerToken
-  case customerName
-  case customerEmail
-  case customerVehicleType
-  case customerVehicleColor
-  case customerLicensePlate
-  case customerPhone
-  case apiBase
-  case lastKnownAuthStatus
-  case migrationVersion
-  public func stringValue() -> Swift.String?
-  public func namespacedKey() -> Swift.String
-  public func boolValue() -> Swift.Bool
-  public func set(value: Swift.String?)
-  public func set(bool: Swift.Bool)
-  public func delete()
-  public typealias RawValue = Swift.String
-  public init?(rawValue: Swift.String)
-  public var rawValue: Swift.String {
-    get
-  }
-  public typealias AllCases = [FlyBuy.UserDefaultsKey]
-  public static var allCases: [FlyBuy.UserDefaultsKey] {
-    get
-  }
-}
-extension UserDefaults {
-  public func string(forKey key: FlyBuy.UserDefaultsKey) -> Swift.String?
 }
 @_hasMissingDesignatedInitializers @objc(FlyBuyCustomer) open class Customer : ObjectiveC.NSObject, Swift.Decodable {
   @objc final public let token: Swift.String
@@ -542,6 +400,9 @@ extension Optional where Wrapped == Swift.String {
 }
 extension String {
   public var wordsFromCamelCase: Swift.String {
+    get
+  }
+  public var isBlank: Swift.Bool {
     get
   }
 }
@@ -724,9 +585,6 @@ extension Order {
 extension FlyBuy.LocationAuthStatus : Swift.Equatable {}
 extension FlyBuy.LocationAuthStatus : Swift.Hashable {}
 extension FlyBuy.LocationAuthStatus : Swift.RawRepresentable {}
-extension FlyBuy.UserDefaultsKey : Swift.Equatable {}
-extension FlyBuy.UserDefaultsKey : Swift.Hashable {}
-extension FlyBuy.UserDefaultsKey : Swift.RawRepresentable {}
 extension FlyBuy.HTTPStatusCode : Swift.Equatable {}
 extension FlyBuy.HTTPStatusCode : Swift.Hashable {}
 extension FlyBuy.HTTPStatusCode : Swift.RawRepresentable {}

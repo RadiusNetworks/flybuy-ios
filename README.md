@@ -1,4 +1,7 @@
-![FlyBuy SDK for iOS](readme.png)
+<div>
+    <img src="readme.svg" style="vertical-align: middle;" width="150px"/>
+    <span style="vertical-align: middle;font-size:32px;">iOS SDK</span>
+</div>
 
 The FlyBuy cloud service and mobile SDK from [Radius Networks][1] enables
 developers to add FlyBuy functionality directly into their app for a full
