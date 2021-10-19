@@ -268,6 +268,8 @@ typedef SWIFT_ENUM(NSInteger, NotifyErrorType, open) {
   NotifyErrorTypeNotifyModuleNotConfigured = 2,
   NotifyErrorTypeCoreIsNotConfigured = 3,
   NotifyErrorTypeNotifyModuleNotEnabled = 4,
+  NotifyErrorTypeBeaconRangingNotAvailable = 5,
+  NotifyErrorTypeNoBeaconInRange = 6,
 };
 
 
@@ -546,6 +548,8 @@ typedef SWIFT_ENUM(NSInteger, NotifyErrorType, open) {
   NotifyErrorTypeNotifyModuleNotConfigured = 2,
   NotifyErrorTypeCoreIsNotConfigured = 3,
   NotifyErrorTypeNotifyModuleNotEnabled = 4,
+  NotifyErrorTypeBeaconRangingNotAvailable = 5,
+  NotifyErrorTypeNoBeaconInRange = 6,
 };
 
 

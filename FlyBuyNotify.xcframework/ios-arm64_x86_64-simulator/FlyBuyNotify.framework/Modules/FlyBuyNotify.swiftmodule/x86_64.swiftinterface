@@ -44,6 +44,8 @@ extension FlyBuyNotify.Manager : FlyBuy.FlyBuyModuleManager {
   case notifyModuleNotConfigured
   case coreIsNotConfigured
   case notifyModuleNotEnabled
+  case beaconRangingNotAvailable
+  case noBeaconInRange
   public var description: Swift.String {
     get
   }
