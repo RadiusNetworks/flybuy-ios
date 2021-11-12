@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.5 (swiftlang-1300.0.31.1 clang-1300.0.29.1)
+// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
 // swift-module-flags: -target arm64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name FlyBuyNotify
 import CoreLocation
 import FlyBuy
@@ -8,15 +8,15 @@ import Foundation
 import Swift
 import UIKit
 import UserNotifications
-import _Concurrency
 @objc open class NotificationInfo : ObjectiveC.NSObject {
   @objc final public let title: Swift.String
   @objc final public let content: Swift.String
   @objc final public let data: [Swift.AnyHashable : Any]?
   public init(title: Swift.String, content: Swift.String, data: [Swift.AnyHashable : Any]?)
   @objc deinit
+  @objc override dynamic public init()
 }
-extension Foundation.NSNotification.Name {
+extension NSNotification.Name {
   public static let notifyCampaignsUpdated: Foundation.Notification.Name
   public static let notifyCampaignsError: Foundation.Notification.Name
   public static let notifySitesError: Foundation.Notification.Name
@@ -28,13 +28,17 @@ extension Foundation.NSNotification.Name {
   }
   @objc public func configure()
   @objc deinit
+  @available(*, deprecated, message: "This method for using Notify has been deprecated.")
   @objc public func createForSitesInRegion(_ region: CoreLocation.CLCircularRegion, notification: FlyBuyNotify.NotificationInfo, callback: @escaping (([FlyBuy.Site]?, Swift.Error?) -> (Swift.Void)))
+  @available(*, deprecated, message: "This method for using Notify has been deprecated.")
   @objc public func createForSites(_ sites: [FlyBuy.Site], notification: FlyBuyNotify.NotificationInfo, callback: @escaping ((Swift.Error?) -> (Swift.Void)))
+  @available(*, deprecated, message: "This method for using Notify has been deprecated.")
   @objc public func clear(callback: @escaping (Swift.Error?) -> (Swift.Void))
+  @available(*, deprecated, message: "This method for using Notify has been deprecated.")
   @objc public func isFlyBuyNotifyUserInfo(_ userInfo: [Swift.AnyHashable : Any]) -> Swift.Bool
   @objc override dynamic public init()
 }
-extension FlyBuyNotify.Manager : FlyBuy.FlyBuyModuleManager {
+extension Manager : FlyBuy.FlyBuyModuleManager {
   public func set(logLevel: FlyBuy.LogLevel)
   public func configUpdated(_ config: FlyBuy.AppConfig)
 }
@@ -49,8 +53,8 @@ extension FlyBuyNotify.Manager : FlyBuy.FlyBuyModuleManager {
   public var description: Swift.String {
     get
   }
-  public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
   public var rawValue: Swift.Int {
     get
   }
@@ -61,9 +65,10 @@ extension FlyBuyNotify.Manager : FlyBuy.FlyBuyModuleManager {
   @objc override dynamic public var description: Swift.String {
     @objc get
   }
+  @objc override dynamic public init()
   @objc deinit
 }
-extension FlyBuyNotify.Manager {
+extension Manager {
   @objc dynamic public func sync(force: Swift.Bool = false, callback: ((Swift.Error?) -> (Swift.Void))? = nil)
   @objc dynamic public func performFetchWithCompletionHandler(_ completionHandler: ((UIKit.UIBackgroundFetchResult) -> Swift.Void)? = nil)
   @objc dynamic public func handleNotification(_ response: UserNotifications.UNNotificationResponse) -> [Swift.String : Swift.String]?
