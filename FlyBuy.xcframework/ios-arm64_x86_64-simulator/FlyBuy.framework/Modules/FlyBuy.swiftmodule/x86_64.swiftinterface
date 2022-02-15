@@ -370,6 +370,7 @@ public protocol FlyBuyModuleManager {
   @objc public static func handleRemoteNotification(_ data: [Swift.AnyHashable : Any])
   @objc public static func updatePushToken(_ newPushToken: Swift.String)
   @objc public static func updateAPNPushToken(_ deviceToken: Foundation.Data)
+  public static func cancelRunningURLSessions()
   @objc deinit
 }
 @usableFromInline
@@ -702,6 +703,7 @@ extension NSNotification.Name {
 }
 @objc(FlyBuyLogger) final public class Logger : ObjectiveC.NSObject {
   final public var logLevel: FlyBuy.LogLevel
+  final public var writeEnabled: Swift.Bool
   public init(name: Swift.String = "FlyBuySDK")
   final public func verbose(_ message: Any = "", filename: Swift.String = #file, function: Swift.String = #function, line: Swift.Int = #line)
   final public func debug(_ message: Any = "", filename: Swift.String = #file, function: Swift.String = #function, line: Swift.Int = #line)
