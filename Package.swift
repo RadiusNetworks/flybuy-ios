@@ -20,7 +20,7 @@ let package = Package(
         .library(
             name: "FlyBuyPresence",
             targets: ["FlyBuy", "FlyBuyPresence"]
-        )
+        ),
         .library(
             name: "FlyBuyTableside",
             targets: ["FlyBuyTableside"]
