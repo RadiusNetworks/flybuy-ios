@@ -1,0 +1,11 @@
+framework module FlyBuyTableside {
+  umbrella header "FlyBuyTableside.h"
+
+  export *
+  module * { export * }
+}
+
+module FlyBuyTableside.Swift {
+    header "FlyBuyTableside-Swift.h"
+    requires objc
+}

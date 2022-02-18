@@ -1,0 +1,350 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-module-flags: -target arm64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name FlyBuyTableside
+import CoreBluetooth
+import CoreLocation
+@_exported import FlyBuyTableside
+import Foundation
+import MapKit
+import Swift
+import UIKit
+@objc(TablesideSite) public class TablesideSite : ObjectiveC.NSObject, Swift.Codable {
+  final public let name: Swift.String
+  final public let storeNumber: Swift.String
+  final public let siteID: Swift.Int
+  public init(name: Swift.String, storeNumber: Swift.String, siteID: Swift.Int)
+  @objc deinit
+  @objc override dynamic public init()
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public typealias ResultType<T> = Swift.Result<T, Swift.Error>
+public struct VoidResponse : Swift.Codable {
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public enum HTTPMethod : Swift.String {
+  case get
+  case post
+  case put
+  case patch
+  case delete
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum EncodingType {
+  case url
+  case json
+  public static func == (a: FlyBuyTableside.EncodingType, b: FlyBuyTableside.EncodingType) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public protocol BaseApiRequest {
+  var requestEndPoint: Swift.String { get }
+  var requestType: FlyBuyTableside.HTTPMethod { get }
+  var encoding: FlyBuyTableside.EncodingType { get }
+  var headers: [Swift.String : Swift.String]? { get }
+  var requestBody: Foundation.Data? { get }
+}
+extension BaseApiRequest {
+  public var encoding: FlyBuyTableside.EncodingType {
+    get
+  }
+  public var requestBody: Foundation.Data? {
+    get
+  }
+  public var headers: [Swift.String : Swift.String]? {
+    get
+  }
+}
+public protocol CodableRequest : FlyBuyTableside.BaseApiRequest {
+  associatedtype Response : Swift.Decodable
+  associatedtype ErrorType : Swift.Decodable, Swift.Error
+  var decoder: Foundation.JSONDecoder { get }
+  var apiToken: Swift.String? { get }
+  var queryParams: [Swift.String : Swift.String]? { get }
+}
+extension CodableRequest {
+  public typealias ErrorType = FlyBuyTableside.RuntimeError
+  public var decoder: Foundation.JSONDecoder {
+    get
+  }
+  public var apiToken: Swift.String? {
+    get
+  }
+  public var queryParams: [Swift.String : Swift.String]? {
+    get
+  }
+}
+open class EncodableRequest<EncodableObject> where EncodableObject : Swift.Encodable {
+  final public let object: EncodableObject
+  final public let encoder: Foundation.JSONEncoder
+  public init(object: EncodableObject, encoder: Foundation.JSONEncoder = JSONEncoder.iso8601FullLocalTZ)
+  public var requestBody: Foundation.Data? {
+    get
+  }
+  @objc deinit
+}
+public struct RuntimeError : Swift.Error, Swift.Codable {
+  public var localizedDescription: Swift.String {
+    get
+  }
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+extension Error {
+  public var message: Swift.String {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc(FlyBuyTablesideManager) public class Manager : ObjectiveC.NSObject {
+  @objc public static let shared: FlyBuyTableside.Manager
+  @objc final public let maxPayloadSize: Swift.Int
+  @objc public var apiToken: Swift.String?
+  @objc public var kitID: Swift.String?
+  @objc public var delegate: FlyBuyTableside.TablesideSiteMonitorDelegate? {
+    @objc get
+    @objc set
+  }
+  @objc public func configure(kitID: Swift.String, apiToken: Swift.String)
+  @objc deinit
+  @objc public func findSites(referenceID: Swift.String, callback: @escaping ([FlyBuyTableside.TablesideSite]?, Swift.Error?) -> Swift.Void)
+  @objc public func createLocator(site: FlyBuyTableside.TablesideSite, additionalData: Swift.String?, callback: @escaping (FlyBuyTableside.TablesideLocator?, Swift.Error?) -> Swift.Void)
+  @objc public func releaseLocator(site: FlyBuyTableside.TablesideSite, locator: FlyBuyTableside.TablesideLocator, callback: @escaping (Swift.Error?) -> Swift.Void)
+  @objc public func start(_ locator: FlyBuyTableside.TablesideLocator)
+  @objc public func stop() -> (Swift.Error?)
+  @objc override dynamic public init()
+}
+extension Manager {
+  public func set(logLevel: FlyBuyTableside.TablesideLogLevel)
+}
+@objc public enum TablesideErrorType : Swift.Int {
+  case invalidPayloadLength
+  case unableToCreateLocator
+  case failedToStartAdvertising
+  case advertiserAlreadyStarted
+  case locatorNotStarted
+  case bluetoothPoweredOff
+  case bluetoothUnauthorized
+  case bluetoothUnsupported
+  case tablesideManagerNotConfigured
+  case needsLocationUsageKeys
+  case locationPermissionInsufficient
+  public var description: Swift.String {
+    get
+  }
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc(FlyBuyTablesideError) public class TablesideError : ObjectiveC.NSObject, FlyBuyTableside.FlyBuyError {
+  @objc final public let type: FlyBuyTableside.TablesideErrorType
+  @objc public init(_ typeIn: FlyBuyTableside.TablesideErrorType)
+  @objc override dynamic public var description: Swift.String {
+    @objc get
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension Manager {
+  @objc dynamic public func requestAlwaysAuthorization()
+  @objc dynamic public func requestWhenInUseAuthorization()
+}
+extension JSONDecoder {
+  public static let iso8601Full: Foundation.JSONDecoder
+}
+extension JSONEncoder {
+  public static let iso8601FullLocalTZ: Foundation.JSONEncoder
+}
+extension DateFormatter {
+  public static let iso8601Full: Foundation.DateFormatter
+  public static let iso8601FullLocalTZ: Foundation.DateFormatter
+}
+public enum HTTPStatusCode : Swift.Int, Swift.Error {
+  case `continue`
+  case switchingProtocols
+  case processing
+  case ok
+  case created
+  case accepted
+  case nonAuthoritativeInformation
+  case noContent
+  case resetContent
+  case partialContent
+  case multiStatus
+  case alreadyReported
+  case IMUsed
+  case multipleChoices
+  case movedPermanently
+  case found
+  case seeOther
+  case notModified
+  case useProxy
+  case switchProxy
+  case temporaryRedirect
+  case permenantRedirect
+  case badRequest
+  case unauthorized
+  case paymentRequired
+  case forbidden
+  case notFound
+  case methodNotAllowed
+  case notAcceptable
+  case proxyAuthenticationRequired
+  case requestTimeout
+  case conflict
+  case gone
+  case lengthRequired
+  case preconditionFailed
+  case payloadTooLarge
+  case URITooLong
+  case unsupportedMediaType
+  case rangeNotSatisfiable
+  case expectationFailed
+  case teapot
+  case misdirectedRequest
+  case unprocessableEntity
+  case locked
+  case failedDependency
+  case appUpgradeRequired
+  case upgradeRequired
+  case preconditionRequired
+  case tooManyRequests
+  case requestHeaderFieldsTooLarge
+  case noResponse
+  case unavailableForLegalReasons
+  case SSLCertificateError
+  case SSLCertificateRequired
+  case HTTPRequestSentToHTTPSPort
+  case clientClosedRequest
+  case internalServerError
+  case notImplemented
+  case badGateway
+  case serviceUnavailable
+  case gatewayTimeout
+  case HTTPVersionNotSupported
+  case variantAlsoNegotiates
+  case insufficientStorage
+  case loopDetected
+  case notExtended
+  case networkAuthenticationRequired
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+}
+open class BaseAPIService {
+  public init()
+  public func execute<Request>(_ request: Request, withCompletion completion: @escaping (FlyBuyTableside.ResultType<Request.Response>) -> Swift.Void) where Request : FlyBuyTableside.CodableRequest
+  @objc deinit
+}
+@objc public protocol TablesideLocatorDelegate {
+  @objc optional func locatorDidStart(_ locator: FlyBuyTableside.TablesideLocator)
+  @objc optional func locatorDidStop(_ locator: FlyBuyTableside.TablesideLocator)
+  @objc optional func locatorDidFail(_ locator: FlyBuyTableside.TablesideLocator, error: Swift.Error)
+}
+@objc public class TablesideLocator : ObjectiveC.NSObject, Swift.Codable {
+  final public let id: Swift.Int
+  final public let uuid: Foundation.UUID
+  public var payload: Swift.String?
+  public var delegate: FlyBuyTableside.TablesideLocatorDelegate?
+  final public let major: Swift.UInt16
+  final public let minor: Swift.UInt16
+  @objc deinit
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc public enum TablesideSiteEvent : Swift.Int {
+  case entered
+  case exited
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public protocol TablesideSiteMonitorDelegate {
+  @objc optional func siteMonitorDidFail(error: Swift.Error)
+  @objc optional func siteMonitorDidStop()
+  @objc optional func siteMonitorDidStart()
+  @objc optional func siteMonitor(_ site: FlyBuyTableside.TablesideSite, didReceiveEvent type: FlyBuyTableside.TablesideSiteEvent)
+}
+@objc public enum TablesideLogLevel : Swift.Int {
+  case verbose
+  case debug
+  case info
+  case warning
+  case error
+  case none
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc(FlyBuyLogger) final public class TablesideLogger : ObjectiveC.NSObject {
+  final public var logLevel: FlyBuyTableside.TablesideLogLevel
+  public init(name: Swift.String = "FlyBuyTableside")
+  final public func verbose(_ message: Any = "", filename: Swift.String = #file, function: Swift.String = #function, line: Swift.Int = #line)
+  final public func debug(_ message: Any = "", filename: Swift.String = #file, function: Swift.String = #function, line: Swift.Int = #line)
+  final public func info(_ message: Any = "", filename: Swift.String = #file, function: Swift.String = #function, line: Swift.Int = #line)
+  final public func warning(_ message: Any = "", filename: Swift.String = #file, function: Swift.String = #function, line: Swift.Int = #line)
+  final public func error(_ message: Any = "", filename: Swift.String = #file, function: Swift.String = #function, line: Swift.Int = #line)
+  @objc override dynamic public init()
+  @objc deinit
+}
+public protocol FlyBuyError : Foundation.LocalizedError {
+  var description: Swift.String { get }
+  var errorDescription: Swift.String? { get }
+}
+@objc public enum FlyBuyAPIErrorType : Swift.Int {
+  case invalidResponse
+  case responseError
+  public var description: Swift.String {
+    get
+  }
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers @objc(FlyBuyAPIError) public class FlyBuyAPIError : ObjectiveC.NSObject, FlyBuyTableside.FlyBuyError {
+  @objc final public let type: FlyBuyTableside.FlyBuyAPIErrorType
+  @objc final public let statusCodeInt: Swift.Int
+  final public let statusCode: FlyBuyTableside.HTTPStatusCode?
+  public var errorDescription: Swift.String?
+  @objc override dynamic public var description: Swift.String {
+    @objc get
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension FlyBuyTableside.HTTPMethod : Swift.Equatable {}
+extension FlyBuyTableside.HTTPMethod : Swift.Hashable {}
+extension FlyBuyTableside.HTTPMethod : Swift.RawRepresentable {}
+extension FlyBuyTableside.EncodingType : Swift.Equatable {}
+extension FlyBuyTableside.EncodingType : Swift.Hashable {}
+extension FlyBuyTableside.TablesideErrorType : Swift.Equatable {}
+extension FlyBuyTableside.TablesideErrorType : Swift.Hashable {}
+extension FlyBuyTableside.TablesideErrorType : Swift.RawRepresentable {}
+extension FlyBuyTableside.HTTPStatusCode : Swift.Equatable {}
+extension FlyBuyTableside.HTTPStatusCode : Swift.Hashable {}
+extension FlyBuyTableside.HTTPStatusCode : Swift.RawRepresentable {}
+extension FlyBuyTableside.TablesideSiteEvent : Swift.Equatable {}
+extension FlyBuyTableside.TablesideSiteEvent : Swift.Hashable {}
+extension FlyBuyTableside.TablesideSiteEvent : Swift.RawRepresentable {}
+extension FlyBuyTableside.TablesideLogLevel : Swift.Equatable {}
+extension FlyBuyTableside.TablesideLogLevel : Swift.Hashable {}
+extension FlyBuyTableside.TablesideLogLevel : Swift.RawRepresentable {}
+extension FlyBuyTableside.FlyBuyAPIErrorType : Swift.Equatable {}
+extension FlyBuyTableside.FlyBuyAPIErrorType : Swift.Hashable {}
+extension FlyBuyTableside.FlyBuyAPIErrorType : Swift.RawRepresentable {}
