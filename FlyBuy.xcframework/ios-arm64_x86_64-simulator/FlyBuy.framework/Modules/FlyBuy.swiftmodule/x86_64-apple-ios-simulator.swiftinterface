@@ -392,6 +392,10 @@ public struct BeaconRegion : Swift.Codable, Swift.Hashable {
 public protocol FlyBuyModuleManager {
   func configUpdated(_ config: FlyBuy.AppConfig)
   func set(logLevel: FlyBuy.LogLevel)
+  func ordersUpdated(_ orders: [FlyBuy.Order])
+}
+extension FlyBuyModuleManager {
+  public func ordersUpdated(_ orders: [FlyBuy.Order])
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(FlyBuyCore) public class Core : ObjectiveC.NSObject {
   @objc public static let orders: FlyBuy.OrdersManager

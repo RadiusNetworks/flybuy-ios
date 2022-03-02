@@ -48,6 +48,7 @@ extension NSNotification.Name {
   @objc override dynamic public init()
 }
 extension Manager : FlyBuy.FlyBuyModuleManager {
+  public func ordersUpdated(_ orders: [FlyBuy.Order])
   public func set(logLevel: FlyBuy.LogLevel)
   public func set(logLevel: FlyBuy.LogLevel, writeEnabled: Swift.Bool)
   public func configUpdated(_ config: FlyBuy.AppConfig)
