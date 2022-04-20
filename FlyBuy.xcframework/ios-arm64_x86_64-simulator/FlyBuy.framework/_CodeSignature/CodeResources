@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/FlyBuy-Swift.h</key>
 		<data>
-		i4h11lmtSLAuLD7D6BZYzUvVDrg=
+		27Ozq2DJLSfoUBGPZiGz5xSbOvc=
 		</data>
 		<key>Headers/FlyBuy.h</key>
 		<data>
@@ -14,7 +14,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		m4K752ZadL+QBgjD7pvnZ+jojOA=
+		wFP7LzzvDcTWXXQxuD0ZwZOFLt0=
 		</data>
 		<key>Modules/FlyBuy.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -22,11 +22,11 @@
 		</data>
 		<key>Modules/FlyBuy.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		AIFZzPSI7fhIx+fWx6jNW+yDdLE=
+		udFMPiUDLYiTYvsEkm3Z7ywyrsk=
 		</data>
 		<key>Modules/FlyBuy.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		jS5xwgYDQxpsdT+Dq3GvUFFhlBQ=
+		i2PZhkvi0BAchiWaR0vRYOGDwmE=
 		</data>
 		<key>Modules/FlyBuy.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -34,11 +34,11 @@
 		</data>
 		<key>Modules/FlyBuy.swiftmodule/arm64.swiftinterface</key>
 		<data>
-		AIFZzPSI7fhIx+fWx6jNW+yDdLE=
+		udFMPiUDLYiTYvsEkm3Z7ywyrsk=
 		</data>
 		<key>Modules/FlyBuy.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		jS5xwgYDQxpsdT+Dq3GvUFFhlBQ=
+		i2PZhkvi0BAchiWaR0vRYOGDwmE=
 		</data>
 		<key>Modules/FlyBuy.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -46,11 +46,11 @@
 		</data>
 		<key>Modules/FlyBuy.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		1Pug0g4zjUgY8SVxgs6IYy8mnBM=
+		JxHlwsf8CMbgwceMJShWP3GIjjI=
 		</data>
 		<key>Modules/FlyBuy.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		Wy9YhjVmiYrMYfLoLEUhfX10TEA=
+		P3MJCVMLSwVAn4tRGyKOrT3p3IE=
 		</data>
 		<key>Modules/FlyBuy.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -58,11 +58,11 @@
 		</data>
 		<key>Modules/FlyBuy.swiftmodule/x86_64.swiftinterface</key>
 		<data>
-		1Pug0g4zjUgY8SVxgs6IYy8mnBM=
+		JxHlwsf8CMbgwceMJShWP3GIjjI=
 		</data>
 		<key>Modules/FlyBuy.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		Wy9YhjVmiYrMYfLoLEUhfX10TEA=
+		P3MJCVMLSwVAn4tRGyKOrT3p3IE=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -75,7 +75,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			IVGyTASGKGJbOYhmwi3hmRpAP6sFcKet+PUMqw9BsB8=
+			U/S/4N9IS3DW8Yio8HCpeWNIDSIBxVjE4hmRHFywmUQ=
 			</data>
 		</dict>
 		<key>Headers/FlyBuy.h</key>
@@ -96,14 +96,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			iK/BcThRP1SEuETzEsM4Z9f3HzfJniPJb6Yj4tt21jo=
+			O+iwu3bG32iGOwn5hL3WsFAd0Az0IZ0boAtXputEWOo=
 			</data>
 		</dict>
 		<key>Modules/FlyBuy.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2lq1RXfrkYy0DY0hfyYqZdWo+a5VroEn27dxwXzKqZc=
+			dQV7sVAK8+8vcFQxxZeIrZVGFaVKZf5UQz6JoCQiaPg=
 			</data>
 		</dict>
 		<key>Modules/FlyBuy.swiftmodule/arm64.swiftdoc</key>
@@ -117,14 +117,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			iK/BcThRP1SEuETzEsM4Z9f3HzfJniPJb6Yj4tt21jo=
+			O+iwu3bG32iGOwn5hL3WsFAd0Az0IZ0boAtXputEWOo=
 			</data>
 		</dict>
 		<key>Modules/FlyBuy.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2lq1RXfrkYy0DY0hfyYqZdWo+a5VroEn27dxwXzKqZc=
+			dQV7sVAK8+8vcFQxxZeIrZVGFaVKZf5UQz6JoCQiaPg=
 			</data>
 		</dict>
 		<key>Modules/FlyBuy.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -138,14 +138,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			kUDvh6V8HsxOdN8Jh+4v/FOZqgOwbcC0aIFYEACGNxQ=
+			nmFwtZI6fx4l4FHEPFov/itOl4W++5u0bNwhtdLdvVc=
 			</data>
 		</dict>
 		<key>Modules/FlyBuy.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			oxcAE8sc+mg32JKLJR7sxdk1to7o2vXGChMQK94YL0k=
+			X62kJqkQcV2rwSDb5WA9O714yL/HcBACO+B+szpRGl8=
 			</data>
 		</dict>
 		<key>Modules/FlyBuy.swiftmodule/x86_64.swiftdoc</key>
@@ -159,14 +159,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			kUDvh6V8HsxOdN8Jh+4v/FOZqgOwbcC0aIFYEACGNxQ=
+			nmFwtZI6fx4l4FHEPFov/itOl4W++5u0bNwhtdLdvVc=
 			</data>
 		</dict>
 		<key>Modules/FlyBuy.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			oxcAE8sc+mg32JKLJR7sxdk1to7o2vXGChMQK94YL0k=
+			X62kJqkQcV2rwSDb5WA9O714yL/HcBACO+B+szpRGl8=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
