@@ -105,8 +105,12 @@ extension Error {
 @_inheritsConvenienceInitializers @objc(FlyBuyTablesideManager) public class Manager : ObjectiveC.NSObject {
   @objc public static let shared: FlyBuyTableside.Manager
   @objc final public let maxPayloadSize: Swift.Int
-  @objc public var apiToken: Swift.String?
-  @objc public var kitID: Swift.String?
+  @objc public var apiToken: Swift.String? {
+    get
+  }
+  @objc public var kitID: Swift.String? {
+    get
+  }
   @objc public var delegate: FlyBuyTableside.TablesideSiteMonitorDelegate? {
     @objc get
     @objc set
@@ -119,9 +123,6 @@ extension Error {
   @objc public func start(_ locator: FlyBuyTableside.TablesideLocator)
   @objc public func stop() -> (Swift.Error?)
   @objc override dynamic public init()
-}
-extension Manager {
-  public func set(logLevel: FlyBuyTableside.TablesideLogLevel)
 }
 @objc public enum TablesideErrorType : Swift.Int {
   case invalidPayloadLength

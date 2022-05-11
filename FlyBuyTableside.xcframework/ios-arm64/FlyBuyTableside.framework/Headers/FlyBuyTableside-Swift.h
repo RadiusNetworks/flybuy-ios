@@ -229,30 +229,127 @@ typedef SWIFT_ENUM(NSInteger, FlyBuyAPIErrorType, open) {
 @class TablesideSite;
 @class TablesideLocator;
 
-/// Radius Networks’ Flybuy® Tableside Module provides partners the ability to use mobile devices as locators so the Tableside system can find customers within a store (e.g. a table within a restaurant). The Tableside SDK must be initialized when the application starts in order to configure the app authorization token and handle appropriate lifecycle methods. Note that the app authorization token for Tableside is not the same token as the other Flybuy SDK modules.
-/// Example:
-/// \code
-/// FlyBuyTableside.Manager.shared.configure(kitID: "24", apiToken: "31dd6e09c7d9c5471ac1814528ed3673")
-///
-/// \endcode
+/// Manager for Tableside operations
+/// See <a href="https://www.radiusnetworks.com/developers/flybuy/#/">Flybuy Developer Docs</a> for additional details including all setup steps.
 SWIFT_CLASS_NAMED("Manager")
 @interface FlyBuyTablesideManager : NSObject
+/// The shared <code>FlyBuyTablesideManager</code> instance.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FlyBuyTablesideManager * _Nonnull shared;)
 + (FlyBuyTablesideManager * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+/// Declares the max payload size when creating a locator.
 @property (nonatomic, readonly) NSInteger maxPayloadSize;
-@property (nonatomic, copy) NSString * _Nullable apiToken;
-@property (nonatomic, copy) NSString * _Nullable kitID;
+/// The configured API token string. Read-only.
+@property (nonatomic, readonly, copy) NSString * _Nullable apiToken;
+/// The configured kit ID string. Read-only.
+@property (nonatomic, readonly, copy) NSString * _Nullable kitID;
+/// The site monitor delegate. Must conform to <code>TablesideSiteMonitorDelegate</code>
 @property (nonatomic, strong) id <TablesideSiteMonitorDelegate> _Nullable delegate;
-/// configures the presence UUID associated with the app’s project
+/// Configure and initialize the tableside module.
+/// The Tableside SDK must be initialized when the application starts in order to configure the kitId and apiToken and handle appropriate lifecycle methods. Note that the app authorization token for Tableside is not the same token as the other Flybuy SDK modules.
+/// The Tableside SDK is currently independent of the rest of the Flybuy SDK in order to support legacy Tableside installations. It needs to be initialized with its own app authorization token as follows.
+/// Flybuy needs to be setup and configured at application launch. However, it does not run in the background or use device resources until there is an active locator.
+/// Example:
+/// \code
+/// func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+///   FlyBuyTableside.Manager.shared.configure([kitID: "KIT_ID_HERE", apiToken: "TOKEN_HERE"])
+///   return true
+/// }
+///
+/// \endcode\param kitID The kit ID string.
+///
+/// \param apiToken The API token string.
+///
 - (void)configureWithKitID:(NSString * _Nonnull)kitID apiToken:(NSString * _Nonnull)apiToken;
+/// Find site by referenceId.
+/// The app can use this method to lookup the site needed for creating a locator.
+/// Example:
+/// \code
+/// FlyBuyTableside.Manager.shared.findSites(referenceID: text) { sites, error in
+///  if let error = error {
+///    print("Error trying to retrieve sites")
+///    return
+///  }
+///  if let sites = sites, let site = sites.first {
+///    // Store a reference to the site
+///  }
+/// }
+///
+/// \endcode\param referenceID The reference ID string associated with the site.
+///
+/// \param callback Called with any matching <code>TablesideSite</code> if found or any error encountered.
+///
 - (void)findSitesWithReferenceID:(NSString * _Nonnull)referenceID callback:(void (^ _Nonnull)(NSArray<TablesideSite *> * _Nullable, NSError * _Nullable))callback;
-/// Calls the FlyBuy web API in order to create a Tableside locator
+/// Create a locator for the site.
+/// Once a site is known (via the findSite method), a locator may be created.
+/// To receive updates from the <code>TablesideLocator</code> (e.g. starting, stopping, and state updates), set the TablesideLocatorListener for the locator after it is created (as shown below).
+/// Example:
+/// \code
+/// FlyBuyTableside.Manager.shared.createLocator(site: site, additionalData: optionalData) { (locator, error) -> (Void) in
+///   if let error = error {
+///   // Handle error
+///   }
+///   else {
+///   // Set locator delegate
+///   locator?.delegate = self
+///   // Save locator or start it here
+///   }
+/// }
+///
+/// \endcode\param site The <code>TablesideSite</code> to create the locator for.
+///
+/// \param additionalData The payload string to be added to the locator. Optional
+///
+/// \param callback Called with the <code>TablesideLocator</code> if successfully created or any error encountered.
+///
 - (void)createLocatorWithSite:(TablesideSite * _Nonnull)site additionalData:(NSString * _Nullable)additionalData callback:(void (^ _Nonnull)(TablesideLocator * _Nullable, NSError * _Nullable))callback;
-/// Calls the FlyBuy web API in order to release a Tableside locator
+/// Release the locator for the site so the identifier can be reused.
+/// Example:
+/// \code
+/// FlyBuyTableside.Manager.shared.releaseLocator(site: site, locator: locator) { error in
+///   DispatchQueue.main.async {
+///     if let error = error {
+///       // handle error
+///       return
+///     }
+///   }
+/// }
+///
+/// \endcode\param site The <code>TablesideSite</code> to release the locator for.
+///
+/// \param locator The existing <code>TablesideLocator</code> to be released.
+///
+/// \param callback Called when the locator is successfully released or any error encountered.
+///
 - (void)releaseLocatorWithSite:(TablesideSite * _Nonnull)site locator:(TablesideLocator * _Nonnull)locator callback:(void (^ _Nonnull)(NSError * _Nullable))callback;
-/// starts the bluetooth advertising and service associated with a presence locator
+/// Start the locator when the application is ready to begin broadcasting.
+/// Example:
+/// \code
+/// FlyBuyTableside.Manager.shared.start(locator) { (error) -> (Void) in
+///   if let error = error {
+///   // Handle error
+///   }
+///   else {
+///   // Handle success
+///   }
+/// }
+///
+/// \endcode\param locator The <code>TablesideLocator</code> to be started.
+///
 - (void)start:(TablesideLocator * _Nonnull)locator;
-/// stops the bluetooth advertising and service associated with a presence locator
+/// Stop the active <code>TablesideLocator</code> when the transaction is complete.
+/// note:
+/// It is the responsibility of the app to call this method to stop the locator. Another locator may not be started without calling this first.
+/// Example:
+/// \code
+/// if let error = FlyBuyTableside.Manager.shared.stop() as? TablesideError {
+///  print("Error Description: \(error)")
+///  let errorType = error.type
+///  print("Error Type: \(errorType)")
+/// }
+///
+/// \endcode
+/// returns:
+/// An error if encountered.
 - (NSError * _Nullable)stop SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -260,21 +357,27 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FlyBuyTables
 
 
 @interface FlyBuyTablesideManager (SWIFT_EXTENSION(FlyBuyTableside))
+/// Helper method for requesting the user’s permission to use location services regardless of whether the app is in use.
 - (void)requestAlwaysAuthorization;
+/// Helper method for requesting the user’s permission to use location services when the app is actively in use.
 - (void)requestWhenInUseAuthorization;
 @end
 
 enum TablesideErrorType : NSInteger;
 
+/// Error that may be returned from FlyBuyTablesideManager methods.
 SWIFT_CLASS_NAMED("TablesideError")
 @interface FlyBuyTablesideError : NSObject
+/// Specifies the error type and contains a description of the error.
 @property (nonatomic, readonly) enum TablesideErrorType type;
 - (nonnull instancetype)init:(enum TablesideErrorType)typeIn OBJC_DESIGNATED_INITIALIZER;
+/// Returns the string describing the error type.
 @property (nonatomic, readonly, copy) NSString * _Nonnull description;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+/// The type that may be associated with a TablesideError.
 typedef SWIFT_ENUM(NSInteger, TablesideErrorType, open) {
   TablesideErrorTypeInvalidPayloadLength = 0,
   TablesideErrorTypeUnableToCreateLocator = 1,
@@ -290,6 +393,7 @@ typedef SWIFT_ENUM(NSInteger, TablesideErrorType, open) {
 };
 
 
+/// Data model for the tableside locator
 SWIFT_CLASS("_TtC15FlyBuyTableside16TablesideLocator")
 @interface TablesideLocator : NSObject
 @end
@@ -322,6 +426,7 @@ SWIFT_CLASS_NAMED("TablesideLogger")
 
 
 
+/// Data model for tableside site.
 SWIFT_CLASS_NAMED("TablesideSite")
 @interface TablesideSite : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
