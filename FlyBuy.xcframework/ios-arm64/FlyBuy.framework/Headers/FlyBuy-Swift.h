@@ -1046,7 +1046,7 @@ SWIFT_CLASS_NAMED("Site")
 @property (nonatomic, readonly, copy) NSString * _Nullable projectAccentTextColor;
 @property (nonatomic, readonly, copy) NSString * _Nullable projectLogoURL;
 @property (nonatomic, readonly, strong) FlyBuyGeofence * _Nullable geofence;
-@property (nonatomic, readonly, strong) NSNumber * _Nullable wrongSiteArrivalRadius;
+@property (nonatomic, readonly, strong) NSNumber * _Nonnull wrongSiteArrivalRadius;
 @property (nonatomic, readonly, copy) NSString * _Nullable operationalStatus;
 /// Gets the location of the site.
 - (CLLocation * _Nullable)location SWIFT_WARN_UNUSED_RESULT;

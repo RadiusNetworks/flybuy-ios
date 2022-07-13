@@ -124,7 +124,7 @@ extension FlyBuy._AnyEncodable {
   @objc final public let projectAccentTextColor: Swift.String?
   @objc final public let projectLogoURL: Swift.String?
   @objc final public let geofence: FlyBuy.Geofence?
-  @objc public var wrongSiteArrivalRadius: Foundation.NSNumber? {
+  @objc public var wrongSiteArrivalRadius: Foundation.NSNumber {
     @objc get
   }
   @objc final public let operationalStatus: Swift.String?
