@@ -14,7 +14,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Sss9YkrZQiqZGL9hggrEH4zjs3o=
+		c/ogPzF6ep/GIOyjL+ePkdAToK8=
 		</data>
 		<key>Modules/FlyBuyNotify.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>Modules/FlyBuyNotify.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		Z6g/blIgcf+TplHOgx/o4YBa9Rw=
+		OgRnVPVXJTpONziPV2jD2Jq7y+U=
 		</data>
 		<key>Modules/FlyBuyNotify.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Modules/FlyBuyNotify.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		oAGJY11SI7IZA1yLuMRJqv1L9Ws=
+		W6jDVe9VFiSJGwLZQQY4hcHVXxM=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -79,7 +79,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			B3H7x6wHQaIG4OfwiCc+bi7sX+sloayuFjyYUVvSDXU=
+			aEMOtu/h0UWPO+BMJlztAtgnWG6wKhZ5SpSh8IJ0aPs=
 			</data>
 		</dict>
 		<key>Modules/FlyBuyNotify.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -100,7 +100,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			mJ2Zv1ufZXlXN8UtH4erPn5P4J/nVDe1qJ3EhwKSJt0=
+			ULDdzMcC9b6G/SwmM6lSqgfCg1VrikiwhBpv7wa9nHs=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
