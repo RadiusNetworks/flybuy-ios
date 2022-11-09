@@ -10,10 +10,11 @@ import Swift
 import UIKit
 import UserNotifications
 import _Concurrency
-public struct AppConfig : Swift.Codable {
-  public let data: FlyBuy.AppConfigData?
+@_hasMissingDesignatedInitializers @objc public class AppConfig : ObjectiveC.NSObject, Swift.Codable {
+  final public let data: FlyBuy.AppConfigData?
+  @objc deinit
   public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  required public init(from decoder: Swift.Decoder) throws
 }
 public struct PickupLocationFilters : Swift.Codable {
   public let ios: [FlyBuy.PickupLocationFilterData]?
