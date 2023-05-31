@@ -239,13 +239,39 @@ SWIFT_CLASS_NAMED("BeaconList")
 
 
 @class NSString;
-@class FlyBuyCustomerInfo;
+@class FlyBuyConfigOptionsBuilder;
 
-/// Data model with information for claiming an order.
-SWIFT_CLASS_NAMED("ClaimOrderInfo")
-@interface FlyBuyClaimOrderInfo : NSObject
-- (nonnull instancetype)initWithCustomerCarColor:(NSString * _Nullable)customerCarColor customerCarType:(NSString * _Nullable)customerCarType customerLicensePlate:(NSString * _Nullable)customerLicensePlate customerName:(NSString * _Nullable)customerName customerPhone:(NSString * _Nullable)customerPhone pushToken:(NSString * _Nonnull)pushToken OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithCustomerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pushToken:(NSString * _Nonnull)pushToken pickupType:(NSString * _Nullable)pickupType OBJC_DESIGNATED_INITIALIZER;
+/// Configuration options to be passed to FlyBuy.Core.configure(withOptions configOptions: ConfigOptions)
+/// Example usage:
+/// \code
+/// let configOptions = ConfigOptions.Builder(token: "TOKEN_HERE")
+/// .build()
+///
+/// FlyBuy.Core.configure(withOptions: configOptions)
+///
+/// \endcode
+SWIFT_CLASS_NAMED("ConfigOptions")
+@interface FlyBuyConfigOptions : NSObject
+/// Returns a builder for <code>ConfigOptions</code>
++ (FlyBuyConfigOptionsBuilder * _Nonnull)BuilderWithToken:(NSString * _Nonnull)token SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+enum LogLevel : NSInteger;
+
+/// Builder for configuration options to be passed to FlyBuy.Core.configure(withOptions configOptions: ConfigOptions)
+SWIFT_CLASS_NAMED("ConfigOptionsBuilder")
+@interface FlyBuyConfigOptionsBuilder : NSObject
+- (nonnull instancetype)initWithToken:(NSString * _Nonnull)token OBJC_DESIGNATED_INITIALIZER;
+/// Returns finalized options to pass to FlyBuy.Core.configure(withOptions configOptions: ConfigOptions)
+- (FlyBuyConfigOptions * _Nonnull)build SWIFT_WARN_UNUSED_RESULT;
+/// Sets the SDK log level
+- (FlyBuyConfigOptionsBuilder * _Nonnull)setLogLevel:(enum LogLevel)logLevel SWIFT_WARN_UNUSED_RESULT;
+/// Sets whether the deferred location tracking feature is enabled
+/// See <a href="https://www.radiusnetworks.com/developers/flybuy/#/">Flybuy Developer Docs</a> for additional details.
+- (FlyBuyConfigOptionsBuilder * _Nonnull)setDeferredLocationTracking:(BOOL)enabled SWIFT_WARN_UNUSED_RESULT;
+- (FlyBuyConfigOptionsBuilder * _Nonnull)setOptions:(NSDictionary<NSString *, id> * _Nonnull)opts SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -288,7 +314,19 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FlyBuyLogger
 /// FlyBuy.configure(["token": "TOKEN_HERE"])
 ///
 /// \endcode
-+ (void)configure:(NSDictionary<NSString *, id> * _Nonnull)opts;
++ (void)configure:(NSDictionary<NSString *, id> * _Nonnull)opts SWIFT_DEPRECATED_MSG("This method for configuring Flybuy Core has been deprecated. Use FlyBuy.Core.configure(withOptions configOptions: ConfigOptions) instead.");
+/// Configures FlyBuy with the given <code>ConfigOptions</code>
+/// See <a href="https://www.radiusnetworks.com/developers/flybuy/#/">Flybuy Developer Docs</a> for additional details including all setup steps.
+/// Example:
+/// \code
+/// let configOptions = ConfigOptions.Builder(token: "TOKEN_HERE")
+/// .setToken("TOKEN_HERE")
+/// .build()
+///  
+/// FlyBuy.Core.configure(withOptions: configOptions)
+///
+/// \endcode
++ (void)configureWithOptions:(FlyBuyConfigOptions * _Nonnull)configOptions;
 /// handles a remote notification which may contain FlyBuy order data
 /// \param data contains the <code>userInfo</code> data from a remote notification
 ///
@@ -302,14 +340,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FlyBuyLogger
 @end
 
 
-
-/// Data model with information for creating an order.
-SWIFT_CLASS("_TtC6FlyBuy15CreateOrderInfo")
-@interface CreateOrderInfo : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
+@class FlyBuyCustomerInfo;
 
 /// Data model for customers
 SWIFT_CLASS_NAMED("Customer")
@@ -702,6 +733,11 @@ SWIFT_CLASS_NAMED("Order")
 @end
 
 
+
+@interface FlyBuyOrder (SWIFT_EXTENSION(FlyBuy))
+/// Returns if location tracking is deferred for the order.
+@property (nonatomic, readonly) BOOL locationTrackingDeferred;
+@end
 
 
 
@@ -1653,13 +1689,39 @@ SWIFT_CLASS_NAMED("BeaconList")
 
 
 @class NSString;
-@class FlyBuyCustomerInfo;
+@class FlyBuyConfigOptionsBuilder;
 
-/// Data model with information for claiming an order.
-SWIFT_CLASS_NAMED("ClaimOrderInfo")
-@interface FlyBuyClaimOrderInfo : NSObject
-- (nonnull instancetype)initWithCustomerCarColor:(NSString * _Nullable)customerCarColor customerCarType:(NSString * _Nullable)customerCarType customerLicensePlate:(NSString * _Nullable)customerLicensePlate customerName:(NSString * _Nullable)customerName customerPhone:(NSString * _Nullable)customerPhone pushToken:(NSString * _Nonnull)pushToken OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithCustomerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pushToken:(NSString * _Nonnull)pushToken pickupType:(NSString * _Nullable)pickupType OBJC_DESIGNATED_INITIALIZER;
+/// Configuration options to be passed to FlyBuy.Core.configure(withOptions configOptions: ConfigOptions)
+/// Example usage:
+/// \code
+/// let configOptions = ConfigOptions.Builder(token: "TOKEN_HERE")
+/// .build()
+///
+/// FlyBuy.Core.configure(withOptions: configOptions)
+///
+/// \endcode
+SWIFT_CLASS_NAMED("ConfigOptions")
+@interface FlyBuyConfigOptions : NSObject
+/// Returns a builder for <code>ConfigOptions</code>
++ (FlyBuyConfigOptionsBuilder * _Nonnull)BuilderWithToken:(NSString * _Nonnull)token SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+enum LogLevel : NSInteger;
+
+/// Builder for configuration options to be passed to FlyBuy.Core.configure(withOptions configOptions: ConfigOptions)
+SWIFT_CLASS_NAMED("ConfigOptionsBuilder")
+@interface FlyBuyConfigOptionsBuilder : NSObject
+- (nonnull instancetype)initWithToken:(NSString * _Nonnull)token OBJC_DESIGNATED_INITIALIZER;
+/// Returns finalized options to pass to FlyBuy.Core.configure(withOptions configOptions: ConfigOptions)
+- (FlyBuyConfigOptions * _Nonnull)build SWIFT_WARN_UNUSED_RESULT;
+/// Sets the SDK log level
+- (FlyBuyConfigOptionsBuilder * _Nonnull)setLogLevel:(enum LogLevel)logLevel SWIFT_WARN_UNUSED_RESULT;
+/// Sets whether the deferred location tracking feature is enabled
+/// See <a href="https://www.radiusnetworks.com/developers/flybuy/#/">Flybuy Developer Docs</a> for additional details.
+- (FlyBuyConfigOptionsBuilder * _Nonnull)setDeferredLocationTracking:(BOOL)enabled SWIFT_WARN_UNUSED_RESULT;
+- (FlyBuyConfigOptionsBuilder * _Nonnull)setOptions:(NSDictionary<NSString *, id> * _Nonnull)opts SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1702,7 +1764,19 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FlyBuyLogger
 /// FlyBuy.configure(["token": "TOKEN_HERE"])
 ///
 /// \endcode
-+ (void)configure:(NSDictionary<NSString *, id> * _Nonnull)opts;
++ (void)configure:(NSDictionary<NSString *, id> * _Nonnull)opts SWIFT_DEPRECATED_MSG("This method for configuring Flybuy Core has been deprecated. Use FlyBuy.Core.configure(withOptions configOptions: ConfigOptions) instead.");
+/// Configures FlyBuy with the given <code>ConfigOptions</code>
+/// See <a href="https://www.radiusnetworks.com/developers/flybuy/#/">Flybuy Developer Docs</a> for additional details including all setup steps.
+/// Example:
+/// \code
+/// let configOptions = ConfigOptions.Builder(token: "TOKEN_HERE")
+/// .setToken("TOKEN_HERE")
+/// .build()
+///  
+/// FlyBuy.Core.configure(withOptions: configOptions)
+///
+/// \endcode
++ (void)configureWithOptions:(FlyBuyConfigOptions * _Nonnull)configOptions;
 /// handles a remote notification which may contain FlyBuy order data
 /// \param data contains the <code>userInfo</code> data from a remote notification
 ///
@@ -1716,14 +1790,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FlyBuyLogger
 @end
 
 
-
-/// Data model with information for creating an order.
-SWIFT_CLASS("_TtC6FlyBuy15CreateOrderInfo")
-@interface CreateOrderInfo : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
+@class FlyBuyCustomerInfo;
 
 /// Data model for customers
 SWIFT_CLASS_NAMED("Customer")
@@ -2116,6 +2183,11 @@ SWIFT_CLASS_NAMED("Order")
 @end
 
 
+
+@interface FlyBuyOrder (SWIFT_EXTENSION(FlyBuy))
+/// Returns if location tracking is deferred for the order.
+@property (nonatomic, readonly) BOOL locationTrackingDeferred;
+@end
 
 
 

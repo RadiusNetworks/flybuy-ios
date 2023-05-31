@@ -61,12 +61,6 @@ extension FlyBuy.PickupLocationFilterData {
   open func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
 }
-@objc open class CreateOrderInfo : ObjectiveC.NSObject, Swift.Codable {
-  public init(siteID: Swift.Int, partnerIdentifier: Swift.String, customerInfo: FlyBuy.CustomerInfo, pushToken: Swift.String?, state: Swift.String?, pickupWindow: FlyBuy.PickupWindow? = nil, pickupType: Swift.String? = nil)
-  @objc deinit
-  open func encode(to encoder: Swift.Encoder) throws
-  required public init(from decoder: Swift.Decoder) throws
-}
 public struct BeaconIdentifiers : Swift.Hashable, Swift.Codable {
   public func hash(into hasher: inout Swift.Hasher)
   public static func == (a: FlyBuy.BeaconIdentifiers, b: FlyBuy.BeaconIdentifiers) -> Swift.Bool
@@ -407,13 +401,6 @@ extension FlyBuy.BaseApiRequest {
   @objc final public let totalPages: Swift.Int
   @objc deinit
 }
-@objc(FlyBuyClaimOrderInfo) open class ClaimOrderInfo : ObjectiveC.NSObject, Swift.Codable {
-  @objc public init(customerCarColor: Swift.String?, customerCarType: Swift.String?, customerLicensePlate: Swift.String?, customerName: Swift.String?, customerPhone: Swift.String?, pushToken: Swift.String)
-  @objc public init(customerInfo: FlyBuy.CustomerInfo, pushToken: Swift.String, pickupType: Swift.String?)
-  public func encode(to encoder: Swift.Encoder) throws
-  @objc deinit
-  required public init(from decoder: Swift.Decoder) throws
-}
 @objc(FlyBuyOrderEvent) open class OrderEvent : ObjectiveC.NSObject, Swift.Encodable {
   public init(orderID: Swift.Int, location: CoreLocation.CLLocation, beacons: [FlyBuy.Beacon], etaSeconds: Foundation.NSNumber?, etaSource: Swift.String?, possibleWrongSiteId: Swift.Int?, clientEtaExpiry: Swift.Int?, clientEtaAttempted: Swift.Bool?, clientEtaLog: Swift.String?)
   public init(orderID: Swift.Int, customerState: Swift.String, etaSeconds: Foundation.NSNumber?, etaSource: Swift.String?, location: CoreLocation.CLLocation? = nil)
@@ -470,8 +457,13 @@ extension FlyBuy.FlyBuyModuleManager {
   public static var isCoreConfigured: Swift.Bool {
     get
   }
+  public static var deferredLocationTracking: Swift.Bool {
+    get
+  }
   @objc public static func setAppInstanceIDUpdatedListener(callback: ((Foundation.UUID) -> (Swift.Void))? = nil)
+  @available(*, deprecated, message: "This method for configuring Flybuy Core has been deprecated. Use FlyBuy.Core.configure(withOptions configOptions: ConfigOptions) instead.")
   @objc public static func configure(_ opts: [Swift.String : Any])
+  @objc public static func configure(withOptions configOptions: FlyBuy.ConfigOptions)
   public static func appInstanceID() -> Foundation.UUID
   @objc public static func handleRemoteNotification(_ data: [Swift.AnyHashable : Any])
   @objc public static func updatePushToken(_ newPushToken: Swift.String)
@@ -731,8 +723,10 @@ extension Swift.String {
 public struct PickupStates : Swift.Codable {
   public let order: [Swift.String]?
   public let openOrder: [Swift.String]?
+  public let deferredOrder: [Swift.String]?
   public let customer: [Swift.String]?
   public let openCustomer: [Swift.String]?
+  public let deferredCustomer: [Swift.String]?
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
@@ -747,7 +741,9 @@ public struct PickupStates : Swift.Codable {
     @objc get
   }
   @objc public var orderStates: [Swift.String]
+  public var deferredOrderStates: [Swift.String]
   @objc public var customerStates: [Swift.String]
+  public var deferredCustomerStates: [Swift.String]
   @objc override dynamic public init()
   @objc public func fetch(callback: (([FlyBuy.Order]?, Swift.Error?) -> (Swift.Void))? = nil)
   @objc public func fetch(withRedemptionCode redemptionCode: Swift.String, callback: ((FlyBuy.Order?, Swift.Error?) -> (Swift.Void))? = nil)
@@ -869,6 +865,18 @@ extension FlyBuy.OrdersManager : CoreLocation.CLLocationManagerDelegate {
   final public func error(_ message: Any = "", filename: Swift.String = #file, function: Swift.String = #function, line: Swift.Int = #line)
   @objc deinit
 }
+@_hasMissingDesignatedInitializers @objc(FlyBuyConfigOptions) public class ConfigOptions : ObjectiveC.NSObject {
+  @objc public static func Builder(token: Swift.String) -> FlyBuy.ConfigOptionsBuilder
+  @objc deinit
+}
+@objc(FlyBuyConfigOptionsBuilder) public class ConfigOptionsBuilder : ObjectiveC.NSObject {
+  @objc public init(token: Swift.String)
+  @objc public func build() -> FlyBuy.ConfigOptions
+  @objc public func setLogLevel(_ logLevel: FlyBuy.LogLevel) -> FlyBuy.ConfigOptionsBuilder
+  @objc public func setDeferredLocationTracking(_ enabled: Swift.Bool) -> FlyBuy.ConfigOptionsBuilder
+  @objc public func setOptions(_ opts: [Swift.String : Any]) -> FlyBuy.ConfigOptionsBuilder
+  @objc deinit
+}
 @objc(FlyBuyOrder) open class Order : ObjectiveC.NSObject {
   @objc final public let id: Swift.Int
   @objc final public let siteID: Swift.Int
@@ -969,6 +977,9 @@ extension FlyBuy.Order {
   public func isOpen() -> Swift.Bool
   public var sitePickupConfig: FlyBuy.PickupConfig {
     get
+  }
+  @objc dynamic public var locationTrackingDeferred: Swift.Bool {
+    @objc get
   }
 }
 extension FlyBuy.LocationAuthStatus : Swift.Equatable {}
