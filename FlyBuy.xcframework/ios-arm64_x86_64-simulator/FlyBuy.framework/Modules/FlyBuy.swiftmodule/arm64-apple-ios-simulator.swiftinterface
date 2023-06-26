@@ -483,6 +483,22 @@ extension Swift.Error {
     get
   }
 }
+@_hasMissingDesignatedInitializers @objc(FlyBuyOrderOptions) public class OrderOptions : ObjectiveC.NSObject {
+  public class Builder {
+    public init(customerName: Swift.String)
+    public func setCustomerPhone(_ customerPhone: Swift.String?) -> FlyBuy.OrderOptions.Builder
+    public func setCustomerCarColor(_ customerCarColor: Swift.String?) -> FlyBuy.OrderOptions.Builder
+    public func setCustomerCarType(_ customerCarType: Swift.String?) -> FlyBuy.OrderOptions.Builder
+    public func setCustomerCarPlate(_ customerCarPlate: Swift.String?) -> FlyBuy.OrderOptions.Builder
+    public func setPartnerIdentifier(_ partnerIdentifier: Swift.String?) -> FlyBuy.OrderOptions.Builder
+    public func setPickupWindow(_ pickupWindow: FlyBuy.PickupWindow?) -> FlyBuy.OrderOptions.Builder
+    public func setState(_ state: Swift.String?) -> FlyBuy.OrderOptions.Builder
+    public func setPickupType(_ pickupType: Swift.String?) -> FlyBuy.OrderOptions.Builder
+    public func build() -> FlyBuy.OrderOptions
+    @objc deinit
+  }
+  @objc deinit
+}
 @usableFromInline
 internal protocol _AnyDecodable {
   var value: Any { get }
@@ -747,17 +763,31 @@ public struct PickupStates : Swift.Codable {
   @objc override dynamic public init()
   @objc public func fetch(callback: (([FlyBuy.Order]?, Swift.Error?) -> (Swift.Void))? = nil)
   @objc public func fetch(withRedemptionCode redemptionCode: Swift.String, callback: ((FlyBuy.Order?, Swift.Error?) -> (Swift.Void))? = nil)
+  @objc public func claim(withRedemptionCode redemptionCode: Swift.String, orderOptions: FlyBuy.OrderOptions, callback: ((FlyBuy.Order?, Swift.Error?) -> (Swift.Void))? = nil)
+  @available(*, deprecated, message: "This method for claiming an order has been deprecated. Use claim(withRedemptionCode, orderOptions) instead.")
   @objc public func claim(withRedemptionCode redemptionCode: Swift.String, customerInfo: FlyBuy.CustomerInfo, pickupType: Swift.String? = nil, callback: ((FlyBuy.Order?, Swift.Error?) -> (Swift.Void))? = nil)
+  @available(*, deprecated, message: "This method for creating an order has been deprecated. Use create(siteID, orderOptions) instead.")
   @objc public func create(sitePartnerIdentifier: Swift.String, orderPartnerIdentifier: Swift.String, customerInfo: FlyBuy.CustomerInfo, pickupWindow: FlyBuy.PickupWindow? = nil, state: Swift.String? = nil, pickupType: Swift.String? = nil, callback: ((FlyBuy.Order?, Swift.Error?) -> (Swift.Void))?)
+  @available(*, deprecated, message: "This method for creating an order has been deprecated. Use create(siteID, orderOptions) instead.")
   @objc public func create(sitePartnerIdentifier: Swift.String, orderPartnerIdentifier: Swift.String, customerInfo: FlyBuy.CustomerInfo, pickupWindow: FlyBuy.PickupWindow? = nil, state: Swift.String, callback: ((FlyBuy.Order?, Swift.Error?) -> (Swift.Void))?)
+  @available(*, deprecated, message: "This method for creating an order has been deprecated. Use create(siteID, orderOptions) instead.")
   @objc public func create(sitePartnerIdentifier: Swift.String, orderPartnerIdentifier: Swift.String, customerInfo: FlyBuy.CustomerInfo, pickupWindow: FlyBuy.PickupWindow? = nil, callback: ((FlyBuy.Order?, Swift.Error?) -> (Swift.Void))?)
+  @available(*, deprecated, message: "This method for creating an order has been deprecated. Use create(siteID, orderOptions) instead.")
   @objc public func create(sitePartnerIdentifier: Swift.String, orderPartnerIdentifier: Swift.String, customerInfo: FlyBuy.CustomerInfo, pickupWindow: FlyBuy.PickupWindow? = nil, pickupType: Swift.String? = nil, callback: ((FlyBuy.Order?, Swift.Error?) -> (Swift.Void))?)
+  @available(*, deprecated, message: "This method for creating an order has been deprecated. Use create(siteID, orderOptions) instead.")
   @objc public func create(sitePartnerIdentifier: Swift.String, orderPartnerIdentifier: Swift.String, customerInfo: FlyBuy.CustomerInfo, state: Swift.String?, pickupType: Swift.String? = nil, callback: ((FlyBuy.Order?, Swift.Error?) -> (Swift.Void))?)
+  @available(*, deprecated, message: "This method for creating an order has been deprecated. Use create(siteID, orderOptions) instead.")
   @objc public func create(siteID: Swift.Int, partnerIdentifier: Swift.String, customerInfo: FlyBuy.CustomerInfo, pickupWindow: FlyBuy.PickupWindow? = nil, state: Swift.String, callback: ((FlyBuy.Order?, Swift.Error?) -> (Swift.Void))?)
+  @available(*, deprecated, message: "This method for creating an order has been deprecated. Use create(siteID, orderOptions) instead.")
   @objc public func create(siteID: Swift.Int, partnerIdentifier: Swift.String, customerInfo: FlyBuy.CustomerInfo, pickupWindow: FlyBuy.PickupWindow? = nil, state: Swift.String, pickupType: Swift.String? = nil, callback: ((FlyBuy.Order?, Swift.Error?) -> (Swift.Void))?)
+  @available(*, deprecated, message: "This method for creating an order has been deprecated. Use create(siteID, orderOptions) instead.")
   @objc public func create(siteID: Swift.Int, partnerIdentifier: Swift.String, customerInfo: FlyBuy.CustomerInfo, pickupWindow: FlyBuy.PickupWindow? = nil, callback: ((FlyBuy.Order?, Swift.Error?) -> (Swift.Void))?)
+  @available(*, deprecated, message: "This method for creating an order has been deprecated. Use create(siteID, orderOptions) instead.")
   @objc public func create(siteID: Swift.Int, partnerIdentifier: Swift.String, customerInfo: FlyBuy.CustomerInfo, pickupWindow: FlyBuy.PickupWindow? = nil, pickupType: Swift.String? = nil, callback: ((FlyBuy.Order?, Swift.Error?) -> (Swift.Void))?)
+  @available(*, deprecated, message: "This method for creating an order has been deprecated. Use create(siteID, orderOptions) instead.")
   @objc public func create(siteID: Swift.Int, partnerIdentifier: Swift.String, customerInfo: FlyBuy.CustomerInfo, state: Swift.String?, pickupType: Swift.String? = nil, callback: ((FlyBuy.Order?, Swift.Error?) -> (Swift.Void))?)
+  @objc public func create(siteID: Swift.Int, orderOptions: FlyBuy.OrderOptions, callback: ((FlyBuy.Order?, Swift.Error?) -> (Swift.Void))?)
+  @objc public func create(sitePartnerIdentifier: Swift.String, orderOptions: FlyBuy.OrderOptions, callback: ((FlyBuy.Order?, Swift.Error?) -> (Swift.Void))?)
   public func event(info: FlyBuy.OrderEvent, callback: ((FlyBuy.Order?, Swift.Error?) -> ())? = nil)
   @objc public func updateCustomerState(orderID: Swift.Int, customerState: Swift.String, callback: ((FlyBuy.Order?, Swift.Error?) -> (Swift.Void))? = nil)
   @objc public func updateCustomerState(orderID: Swift.Int, customerState: Swift.String, spotIdentifier: Swift.String?, callback: ((FlyBuy.Order?, Swift.Error?) -> (Swift.Void))? = nil)

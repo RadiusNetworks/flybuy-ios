@@ -748,6 +748,13 @@ SWIFT_CLASS_NAMED("OrderEvent")
 @end
 
 
+SWIFT_CLASS_NAMED("OrderOptions")
+@interface FlyBuyOrderOptions : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
 /// Manager for order operations
 /// Allows fetching the list of orders, creating a new order, or creating
 /// order events.
@@ -797,304 +804,112 @@ SWIFT_CLASS_NAMED("OrdersManager")
 ///
 - (void)fetchWithRedemptionCode:(NSString * _Nonnull)redemptionCode callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
 /// Claim an order for the current customer.
-/// redemptionCode and customerInfo are required to claim the order.
-/// Optionally, a pickupType may be provided. This is only necessary for apps that do not set the pickup type via backend integrations when the order is created. Supported pickup types currently include “curbside”, “pickup”, and “delivery”. Passing nil will leave the pickupType unchanged.
+/// redemptionCode and orderOptions are required to claim the order.
+/// Optionally, a <code>"pickupType"</code> may be provided in the [orderOptions]. This is only necessary for apps that do not set the pickup type via backend integrations when the order is created. Supported pickup types currently include <code>"curbside"</code>, <code>"pickup"</code>, and <code>"delivery"</code>.
 /// Example:
 /// \code
-/// // Create the customer info struct for person picking up (name is required)
-/// let customerInfo = CustomerInfo(
-///   name: "Marty McFly",
-///   carType: "DeLorean",
-///   carColor: "Silver",
-///   licensePlate: "OUTATIME",
-///   phone: "555-555-5555"
-/// )
+/// // Create the order options instance for person pickup the order (name is required)
+/// let orderOptions = OrderOptions.Builder(customerName: "Marty McFly")
+/// .setCustomerPhone("555-555-5555")
+/// .setCustomerCarColor("Silver")
+/// .setCustomerCarType("Delorean")
+/// .setCustomerCarPlate("OUTATIME")
 ///
-/// FlyBuy.Core.orders.claim(withRedemptionCode: code, customerInfo: customerInfo) { (order, error) -> (Void) in
-///   if let error = error {
-///     // Handle error
-///   } else {
-///     // Handle success
-///   }
+///
+/// FlyBuy.Core.orders.claim(withRedemptionCode: code, orderOptions: orderOptions.build()) { (order, error) -> (Void) in
+///  if let error = error {
+///    // Handle error
+///  } else {
+///    // Handle success
+///    }
 /// }
 ///
 /// \endcode\param redemptionCode the redemption code for the order
 ///
-/// \param customerInfo the customer details for the order
-///
-/// \param pickupType the pickup type string value for the order. Optional.
+/// \param orderOptions options used for claiming the order
 ///
 /// \param callback will get called on completion with the <code>Order</code> and any errors encountered. Optional.
 ///
-- (void)claimWithRedemptionCode:(NSString * _Nonnull)redemptionCode customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupType:(NSString * _Nullable)pickupType callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
-/// Create an <code>Order</code> for the current customer for the site with the given sitePartnerIdentifier.
-/// Example:
-/// \code
-/// let customerInfo = CustomerInfo(
-///   name: "Marty McFly",
-///   carType: "DeLorean",
-///   carColor: "Silver",
-///   licensePlate: "OUTATIME",
-///   phone: "555-555-5555"
-/// )
-///
-/// FlyBuy.Core.orders.create(sitePartnerIdentifier: "123", orderPartnerIdentifier: "1234123", customerInfo: customerInfo) { (order, error) -> (Void) in
-///   if let error = error {
-///    // Handle error
-///   } else {
-///    // Handle success
-///   }
-/// }
-///
-/// \endcode\param sitePartnerIdentifier site partner identifier
-///
-/// \param orderPartnerIdentifier partner identifier for the order
-///
-/// \param customerInfo customer information
-///
-/// \param pickupWindow pickup window for the order. Optional.
-///
-/// \param state initial order state. Optional.
-///
-/// \param pickupType the pickup type string value for the order. Optional.
-///
-/// \param callback called once either an <code>Order</code> is created or an error is encountered. Optional.
-///
-- (void)createWithSitePartnerIdentifier:(NSString * _Nonnull)sitePartnerIdentifier orderPartnerIdentifier:(NSString * _Nonnull)orderPartnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupWindow:(FlyBuyPickupWindow * _Nullable)pickupWindow state:(NSString * _Nullable)state pickupType:(NSString * _Nullable)pickupType callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
-/// Create an <code>Order</code> for the current customer for the site with the given sitePartnerIdentifier.
-/// Example:
-/// \code
-/// let customerInfo = CustomerInfo(
-///   name: "Marty McFly",
-///   carType: "DeLorean",
-///   carColor: "Silver",
-///   licensePlate: "OUTATIME",
-///   phone: "555-555-5555"
-/// )
-///
-/// FlyBuy.Core.orders.create(sitePartnerIdentifier: "123", orderPartnerIdentifier: "1234123", customerInfo: customerInfo) { (order, error) -> (Void) in
-/// if let error = error {
-///    // Handle error
-///   } else {
-///    // Handle success
-///   }
-/// }
-///
-/// \endcode\param sitePartnerIdentifier site partner identifier
-///
-/// \param orderPartnerIdentifier partner identifier for the order
-///
-/// \param customerInfo customer information
-///
-/// \param pickupWindow pickup window for the order. Optional.
-///
-/// \param state initial order state. Optional.
-///
-/// \param callback called once either an <code>Order</code> is created or an error is encountered. Optional.
-///
-- (void)createWithSitePartnerIdentifier:(NSString * _Nonnull)sitePartnerIdentifier orderPartnerIdentifier:(NSString * _Nonnull)orderPartnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupWindow:(FlyBuyPickupWindow * _Nullable)pickupWindow state:(NSString * _Nonnull)state callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
-/// Create an <code>Order</code> for the current customer for the site with the given sitePartnerIdentifier.
-/// Example:
-/// \code
-/// let customerInfo = CustomerInfo(
-///   name: "Marty McFly",
-///   carType: "DeLorean",
-///   carColor: "Silver",
-///   licensePlate: "OUTATIME",
-///   phone: "555-555-5555"
-/// )
-///
-/// FlyBuy.Core.orders.create(sitePartnerIdentifier: "123", orderPartnerIdentifier: "1234123", customerInfo: customerInfo) { (order, error) -> (Void) in
-///   if let error = error {
-///    // Handle error
-///   } else {
-///    // Handle success
-///   }
-/// }
-///
-/// \endcode\param sitePartnerIdentifier site partner identifier
-///
-/// \param orderPartnerIdentifier partner identifier for the order
-///
-/// \param customerInfo customer information
-///
-/// \param pickupWindow pickup window for the order. Optional.
-///
-/// \param callback called once either an <code>Order</code> is created or an error is encountered. Optional.
-///
-- (void)createWithSitePartnerIdentifier:(NSString * _Nonnull)sitePartnerIdentifier orderPartnerIdentifier:(NSString * _Nonnull)orderPartnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupWindow:(FlyBuyPickupWindow * _Nullable)pickupWindow callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
-/// Create an <code>Order</code> for the current customer for the site with the given sitePartnerIdentifier.
-/// Example:
-/// \code
-///   let customerInfo = CustomerInfo(
-///   name: "Marty McFly",
-///   carType: "DeLorean",
-///   carColor: "Silver",
-///   licensePlate: "OUTATIME",
-///   phone: "555-555-5555"
-/// )
-///
-/// FlyBuy.Core.orders.create(sitePartnerIdentifier: "123", orderPartnerIdentifier: "1234123", customerInfo: customerInfo) { (order, error) -> (Void) in
-///   if let error = error {
-///    // Handle error
-///   } else {
-///    // Handle success
-///   }
-/// }
-///
-/// \endcode\param sitePartnerIdentifier site partner identifier
-///
-/// \param orderPartnerIdentifier partner identifier for the order
-///
-/// \param customerInfo customer information
-///
-/// \param pickupWindow pickup window for the order. Optional.
-///
-/// \param pickupType the pickup type string value for the order. Optional.
-///
-/// \param callback called once either an <code>Order</code> is created or an error is encountered. Optional.
-///
-- (void)createWithSitePartnerIdentifier:(NSString * _Nonnull)sitePartnerIdentifier orderPartnerIdentifier:(NSString * _Nonnull)orderPartnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupWindow:(FlyBuyPickupWindow * _Nullable)pickupWindow pickupType:(NSString * _Nullable)pickupType callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
-/// Create an <code>Order</code> for the current customer for the site with the given sitePartnerIdentifier.
-/// Example:
-/// \code
-/// let customerInfo = CustomerInfo(
-///   name: "Marty McFly",
-///   carType: "DeLorean",
-///   carColor: "Silver",
-///   licensePlate: "OUTATIME",
-///   phone: "555-555-5555"
-/// )
-///
-/// FlyBuy.Core.orders.create(sitePartnerIdentifier: "123", orderPartnerIdentifier: "1234123", customerInfo: customerInfo) { (order, error) -> (Void) in
-///   if let error = error {
-///    // Handle error
-///   } else {
-///    // Handle success
-///   }
-/// }
-///
-/// \endcode\param sitePartnerIdentifier site partner identifier
-///
-/// \param orderPartnerIdentifier partner identifier for the order
-///
-/// \param customerInfo customer information
-///
-/// \param pickupType the pickup type string value for the order. Optional.
-///
-/// \param state initial order state. Optional.
-///
-/// \param callback called once either an <code>Order</code> is created or an error is encountered. Optional.
-///
-- (void)createWithSitePartnerIdentifier:(NSString * _Nonnull)sitePartnerIdentifier orderPartnerIdentifier:(NSString * _Nonnull)orderPartnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo state:(NSString * _Nullable)state pickupType:(NSString * _Nullable)pickupType callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
+- (void)claimWithRedemptionCode:(NSString * _Nonnull)redemptionCode orderOptions:(FlyBuyOrderOptions * _Nonnull)orderOptions callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
+- (void)claimWithRedemptionCode:(NSString * _Nonnull)redemptionCode customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupType:(NSString * _Nullable)pickupType callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for claiming an order has been deprecated. Use claim(withRedemptionCode, orderOptions) instead.");
+- (void)createWithSitePartnerIdentifier:(NSString * _Nonnull)sitePartnerIdentifier orderPartnerIdentifier:(NSString * _Nonnull)orderPartnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupWindow:(FlyBuyPickupWindow * _Nullable)pickupWindow state:(NSString * _Nullable)state pickupType:(NSString * _Nullable)pickupType callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for creating an order has been deprecated. Use create(siteID, orderOptions) instead.");
+- (void)createWithSitePartnerIdentifier:(NSString * _Nonnull)sitePartnerIdentifier orderPartnerIdentifier:(NSString * _Nonnull)orderPartnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupWindow:(FlyBuyPickupWindow * _Nullable)pickupWindow state:(NSString * _Nonnull)state callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for creating an order has been deprecated. Use create(siteID, orderOptions) instead.");
+- (void)createWithSitePartnerIdentifier:(NSString * _Nonnull)sitePartnerIdentifier orderPartnerIdentifier:(NSString * _Nonnull)orderPartnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupWindow:(FlyBuyPickupWindow * _Nullable)pickupWindow callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for creating an order has been deprecated. Use create(siteID, orderOptions) instead.");
+- (void)createWithSitePartnerIdentifier:(NSString * _Nonnull)sitePartnerIdentifier orderPartnerIdentifier:(NSString * _Nonnull)orderPartnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupWindow:(FlyBuyPickupWindow * _Nullable)pickupWindow pickupType:(NSString * _Nullable)pickupType callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for creating an order has been deprecated. Use create(siteID, orderOptions) instead.");
+- (void)createWithSitePartnerIdentifier:(NSString * _Nonnull)sitePartnerIdentifier orderPartnerIdentifier:(NSString * _Nonnull)orderPartnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo state:(NSString * _Nullable)state pickupType:(NSString * _Nullable)pickupType callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for creating an order has been deprecated. Use create(siteID, orderOptions) instead.");
+- (void)createWithSiteID:(NSInteger)siteID partnerIdentifier:(NSString * _Nonnull)partnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupWindow:(FlyBuyPickupWindow * _Nullable)pickupWindow state:(NSString * _Nonnull)state callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for creating an order has been deprecated. Use create(siteID, orderOptions) instead.");
+- (void)createWithSiteID:(NSInteger)siteID partnerIdentifier:(NSString * _Nonnull)partnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupWindow:(FlyBuyPickupWindow * _Nullable)pickupWindow state:(NSString * _Nonnull)state pickupType:(NSString * _Nullable)pickupType callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for creating an order has been deprecated. Use create(siteID, orderOptions) instead.");
+- (void)createWithSiteID:(NSInteger)siteID partnerIdentifier:(NSString * _Nonnull)partnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupWindow:(FlyBuyPickupWindow * _Nullable)pickupWindow callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for creating an order has been deprecated. Use create(siteID, orderOptions) instead.");
+- (void)createWithSiteID:(NSInteger)siteID partnerIdentifier:(NSString * _Nonnull)partnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupWindow:(FlyBuyPickupWindow * _Nullable)pickupWindow pickupType:(NSString * _Nullable)pickupType callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for creating an order has been deprecated. Use create(siteID, orderOptions) instead.");
+- (void)createWithSiteID:(NSInteger)siteID partnerIdentifier:(NSString * _Nonnull)partnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo state:(NSString * _Nullable)state pickupType:(NSString * _Nullable)pickupType callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for creating an order has been deprecated. Use create(siteID, orderOptions) instead.");
 /// Create an <code>Order</code> for the current customer for the site with the given siteID.
-/// partnerIdentifier (e.g. order number) and customerInfo are required.
-/// Most orders will have a pickup time of “ASAP”. If you have a different pickup window, you can pass a pickupWindow parameter. If you want the default of “ASAP”, omit the parameter.
-/// \param siteID site identifier
-///
-/// \param partnerIdentifier partner identifier for the order
-///
-/// \param customerInfo customer information
-///
-/// \param pickupWindow pickup window for the order. Optional.
-///
-/// \param state initial order state
-///
-/// \param callback called once either an <code>Order</code> is created or an error is encountered. Optional.
-///
-- (void)createWithSiteID:(NSInteger)siteID partnerIdentifier:(NSString * _Nonnull)partnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupWindow:(FlyBuyPickupWindow * _Nullable)pickupWindow state:(NSString * _Nonnull)state callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
-/// Create an <code>Order</code> for the current customer for the site with the given siteID.
-/// \param siteID site identifier
-///
-/// \param partnerIdentifier partner identifier for the order
-///
-/// \param customerInfo customer information
-///
-/// \param pickupWindow pickup window for the order. Optional.
-///
-/// \param state initial order state
-///
-/// \param pickupType the pickup type string value for the order. Optional.
-///
-/// \param callback called once either an <code>Order</code> is created or an error is encountered. Optional.
-///
-- (void)createWithSiteID:(NSInteger)siteID partnerIdentifier:(NSString * _Nonnull)partnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupWindow:(FlyBuyPickupWindow * _Nullable)pickupWindow state:(NSString * _Nonnull)state pickupType:(NSString * _Nullable)pickupType callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
-/// Create an <code>Order</code> for the current customer for the site with the given siteID.
+/// [orderOptions] is required.
+/// By default, orders are created with a state of <code>created</code>. If you wish to provide a different initial state, use the optional <code>state</code> parameter of the [orderOptions].
+/// Most orders will have a pickup time of “ASAP”. If you have a different pickup window, you can set a <code>pickupWindow</code> parameter of the [orderOptions]. If you want the default of “ASAP”, omit the parameter.
+/// Optionally, a <code>pickupType</code> may be provided in the [orderOptions].
 /// Example:
 /// \code
-/// let customerInfo = CustomerInfo(
-///   name: "Marty McFly",
-///   carType: "DeLorean",
-///   carColor: "Silver",
-///   licensePlate: "OUTATIME",
-///   phone: "555-555-5555"
-/// )
+/// let orderOptions = OrderOptions.Builder(customerName: "Marty McFly")
+/// .setCustomerPhone("555-555-5555")
+/// .setCustomerCarColor("Silver")
+/// .setCustomerCarType("DeLorean")
+/// .setCustomerCarPlate("OUTATIME")
+/// .setPartnerIdentifier("1234")
+/// .setPickupWindow(pickupWindow)
+/// .setState(orderState)
+/// .setPickupType(pickupType)
 ///
-/// FlyBuy.Core.orders.create(siteID: 101, partnerIdentifier: "1234123", customerInfo: customerInfo) { (order, error) -> (Void) in
+/// FlyBuy.Core.orders.create(siteID: 101, orderOptions: orderOptions.build()) { (order, error) -> (Void) in
 ///   if let error = error {
-///     // Handle error
+///      // Handle error
 ///   } else {
-///     // Handle success
-///   }
+///      // Handle success
+///    }
 /// }
 ///
 /// \endcode\param siteID site identifier
 ///
-/// \param partnerIdentifier partner identifier for the order
-///
-/// \param customerInfo customer information
-///
-/// \param pickupWindow pickup window for the order. Optional.
+/// \param orderOptions options used for creating the order
 ///
 /// \param callback called once either an <code>Order</code> is created or an error is encountered. Optional.
 ///
-- (void)createWithSiteID:(NSInteger)siteID partnerIdentifier:(NSString * _Nonnull)partnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupWindow:(FlyBuyPickupWindow * _Nullable)pickupWindow callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
-/// Create an <code>Order</code> for the current customer for the site with the given siteID.
+- (void)createWithSiteID:(NSInteger)siteID orderOptions:(FlyBuyOrderOptions * _Nonnull)orderOptions callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
+/// Create an <code>Order</code> for the current customer for the site with the given sitePartnerIdentifier.
+/// [orderOptions] is required.
+/// By default, orders are created with a state of <code>created</code>. If you wish to provide a different initial state, use the optional <code>state</code> parameter of the [orderOptions].
+/// Most orders will have a pickup time of “ASAP”. If you have a different pickup window, you can set a <code>pickupWindow</code> parameter of the [orderOptions]. If you want the default of “ASAP”, omit the parameter.
+/// <ul>
+///   <li>
+///     Optionally, a <code>pickupType</code> may be provided in the [orderOptions]
+///   </li>
+/// </ul>
 /// Example:
 /// \code
-/// let customerInfo = CustomerInfo(
-///   name: "Marty McFly",
-///   carType: "DeLorean",
-///   carColor: "Silver",
-///   licensePlate: "OUTATIME",
-///   phone: "555-555-5555"
-/// )
+/// let orderOptions = OrderOptions.Builder(customerName: "Marty McFly")
+/// .setCustomerPhone("555-555-5555")
+/// .setCustomerCarColor("Silver")
+/// .setCustomerCarType("DeLorean")
+/// .setCustomerCarPlate("OUTATIME")
+/// .setPartnerIdentifier("1234")
+/// .setPickupWindow(pickupWindow)
+/// .setState(orderState)
+/// .setPickupType(pickupType)
 ///
-/// FlyBuy.Core.orders.create(siteID: 101, partnerIdentifier: "1234123", customerInfo: customerInfo) { (order, error) -> (Void) in
-///   if let error = error {
-///     // Handle error
-///   } else {
-///     // Handle success
-///   }
+/// FlyBuy.Core.orders.create(sitePartnerIdentifier: "123", orderOptions: orderOptions.build()) { (order, error) -> (Void) in
+///  if let error = error {
+///    // Handle error
+///  } else {
+///    // Handle success
+///    }
 /// }
 ///
-/// \endcode\param siteID site identifier
+/// \endcode\param sitePartnerIdentifier site partner identifier
 ///
-/// \param partnerIdentifier partner identifier for the order
-///
-/// \param customerInfo customer information
-///
-/// \param pickupWindow pickup window for the order. Optional.
-///
-/// \param pickupType the pickup type string value for the order. Optional.
+/// \param orderOptions customer information for the order
 ///
 /// \param callback called once either an <code>Order</code> is created or an error is encountered. Optional.
 ///
-- (void)createWithSiteID:(NSInteger)siteID partnerIdentifier:(NSString * _Nonnull)partnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupWindow:(FlyBuyPickupWindow * _Nullable)pickupWindow pickupType:(NSString * _Nullable)pickupType callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
-/// Create an <code>Order</code> for the current customer for the site with the given siteID.
-/// \param siteID site identifier
-///
-/// \param partnerIdentifier partner identifier for the order
-///
-/// \param customerInfo customer information
-///
-/// \param state initial order state. Optional.
-///
-/// \param pickupType the pickup type string value for the order. Optional.
-///
-/// \param callback called once either an <code>Order</code> is created or an error is encountered. Optional.
-///
-- (void)createWithSiteID:(NSInteger)siteID partnerIdentifier:(NSString * _Nonnull)partnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo state:(NSString * _Nullable)state pickupType:(NSString * _Nullable)pickupType callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
+- (void)createWithSitePartnerIdentifier:(NSString * _Nonnull)sitePartnerIdentifier orderOptions:(FlyBuyOrderOptions * _Nonnull)orderOptions callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
 /// Update the customerState for an order with the given orderId.
 /// Example:
 /// \code
@@ -2198,6 +2013,13 @@ SWIFT_CLASS_NAMED("OrderEvent")
 @end
 
 
+SWIFT_CLASS_NAMED("OrderOptions")
+@interface FlyBuyOrderOptions : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
 /// Manager for order operations
 /// Allows fetching the list of orders, creating a new order, or creating
 /// order events.
@@ -2247,304 +2069,112 @@ SWIFT_CLASS_NAMED("OrdersManager")
 ///
 - (void)fetchWithRedemptionCode:(NSString * _Nonnull)redemptionCode callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
 /// Claim an order for the current customer.
-/// redemptionCode and customerInfo are required to claim the order.
-/// Optionally, a pickupType may be provided. This is only necessary for apps that do not set the pickup type via backend integrations when the order is created. Supported pickup types currently include “curbside”, “pickup”, and “delivery”. Passing nil will leave the pickupType unchanged.
+/// redemptionCode and orderOptions are required to claim the order.
+/// Optionally, a <code>"pickupType"</code> may be provided in the [orderOptions]. This is only necessary for apps that do not set the pickup type via backend integrations when the order is created. Supported pickup types currently include <code>"curbside"</code>, <code>"pickup"</code>, and <code>"delivery"</code>.
 /// Example:
 /// \code
-/// // Create the customer info struct for person picking up (name is required)
-/// let customerInfo = CustomerInfo(
-///   name: "Marty McFly",
-///   carType: "DeLorean",
-///   carColor: "Silver",
-///   licensePlate: "OUTATIME",
-///   phone: "555-555-5555"
-/// )
+/// // Create the order options instance for person pickup the order (name is required)
+/// let orderOptions = OrderOptions.Builder(customerName: "Marty McFly")
+/// .setCustomerPhone("555-555-5555")
+/// .setCustomerCarColor("Silver")
+/// .setCustomerCarType("Delorean")
+/// .setCustomerCarPlate("OUTATIME")
 ///
-/// FlyBuy.Core.orders.claim(withRedemptionCode: code, customerInfo: customerInfo) { (order, error) -> (Void) in
-///   if let error = error {
-///     // Handle error
-///   } else {
-///     // Handle success
-///   }
+///
+/// FlyBuy.Core.orders.claim(withRedemptionCode: code, orderOptions: orderOptions.build()) { (order, error) -> (Void) in
+///  if let error = error {
+///    // Handle error
+///  } else {
+///    // Handle success
+///    }
 /// }
 ///
 /// \endcode\param redemptionCode the redemption code for the order
 ///
-/// \param customerInfo the customer details for the order
-///
-/// \param pickupType the pickup type string value for the order. Optional.
+/// \param orderOptions options used for claiming the order
 ///
 /// \param callback will get called on completion with the <code>Order</code> and any errors encountered. Optional.
 ///
-- (void)claimWithRedemptionCode:(NSString * _Nonnull)redemptionCode customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupType:(NSString * _Nullable)pickupType callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
-/// Create an <code>Order</code> for the current customer for the site with the given sitePartnerIdentifier.
-/// Example:
-/// \code
-/// let customerInfo = CustomerInfo(
-///   name: "Marty McFly",
-///   carType: "DeLorean",
-///   carColor: "Silver",
-///   licensePlate: "OUTATIME",
-///   phone: "555-555-5555"
-/// )
-///
-/// FlyBuy.Core.orders.create(sitePartnerIdentifier: "123", orderPartnerIdentifier: "1234123", customerInfo: customerInfo) { (order, error) -> (Void) in
-///   if let error = error {
-///    // Handle error
-///   } else {
-///    // Handle success
-///   }
-/// }
-///
-/// \endcode\param sitePartnerIdentifier site partner identifier
-///
-/// \param orderPartnerIdentifier partner identifier for the order
-///
-/// \param customerInfo customer information
-///
-/// \param pickupWindow pickup window for the order. Optional.
-///
-/// \param state initial order state. Optional.
-///
-/// \param pickupType the pickup type string value for the order. Optional.
-///
-/// \param callback called once either an <code>Order</code> is created or an error is encountered. Optional.
-///
-- (void)createWithSitePartnerIdentifier:(NSString * _Nonnull)sitePartnerIdentifier orderPartnerIdentifier:(NSString * _Nonnull)orderPartnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupWindow:(FlyBuyPickupWindow * _Nullable)pickupWindow state:(NSString * _Nullable)state pickupType:(NSString * _Nullable)pickupType callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
-/// Create an <code>Order</code> for the current customer for the site with the given sitePartnerIdentifier.
-/// Example:
-/// \code
-/// let customerInfo = CustomerInfo(
-///   name: "Marty McFly",
-///   carType: "DeLorean",
-///   carColor: "Silver",
-///   licensePlate: "OUTATIME",
-///   phone: "555-555-5555"
-/// )
-///
-/// FlyBuy.Core.orders.create(sitePartnerIdentifier: "123", orderPartnerIdentifier: "1234123", customerInfo: customerInfo) { (order, error) -> (Void) in
-/// if let error = error {
-///    // Handle error
-///   } else {
-///    // Handle success
-///   }
-/// }
-///
-/// \endcode\param sitePartnerIdentifier site partner identifier
-///
-/// \param orderPartnerIdentifier partner identifier for the order
-///
-/// \param customerInfo customer information
-///
-/// \param pickupWindow pickup window for the order. Optional.
-///
-/// \param state initial order state. Optional.
-///
-/// \param callback called once either an <code>Order</code> is created or an error is encountered. Optional.
-///
-- (void)createWithSitePartnerIdentifier:(NSString * _Nonnull)sitePartnerIdentifier orderPartnerIdentifier:(NSString * _Nonnull)orderPartnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupWindow:(FlyBuyPickupWindow * _Nullable)pickupWindow state:(NSString * _Nonnull)state callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
-/// Create an <code>Order</code> for the current customer for the site with the given sitePartnerIdentifier.
-/// Example:
-/// \code
-/// let customerInfo = CustomerInfo(
-///   name: "Marty McFly",
-///   carType: "DeLorean",
-///   carColor: "Silver",
-///   licensePlate: "OUTATIME",
-///   phone: "555-555-5555"
-/// )
-///
-/// FlyBuy.Core.orders.create(sitePartnerIdentifier: "123", orderPartnerIdentifier: "1234123", customerInfo: customerInfo) { (order, error) -> (Void) in
-///   if let error = error {
-///    // Handle error
-///   } else {
-///    // Handle success
-///   }
-/// }
-///
-/// \endcode\param sitePartnerIdentifier site partner identifier
-///
-/// \param orderPartnerIdentifier partner identifier for the order
-///
-/// \param customerInfo customer information
-///
-/// \param pickupWindow pickup window for the order. Optional.
-///
-/// \param callback called once either an <code>Order</code> is created or an error is encountered. Optional.
-///
-- (void)createWithSitePartnerIdentifier:(NSString * _Nonnull)sitePartnerIdentifier orderPartnerIdentifier:(NSString * _Nonnull)orderPartnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupWindow:(FlyBuyPickupWindow * _Nullable)pickupWindow callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
-/// Create an <code>Order</code> for the current customer for the site with the given sitePartnerIdentifier.
-/// Example:
-/// \code
-///   let customerInfo = CustomerInfo(
-///   name: "Marty McFly",
-///   carType: "DeLorean",
-///   carColor: "Silver",
-///   licensePlate: "OUTATIME",
-///   phone: "555-555-5555"
-/// )
-///
-/// FlyBuy.Core.orders.create(sitePartnerIdentifier: "123", orderPartnerIdentifier: "1234123", customerInfo: customerInfo) { (order, error) -> (Void) in
-///   if let error = error {
-///    // Handle error
-///   } else {
-///    // Handle success
-///   }
-/// }
-///
-/// \endcode\param sitePartnerIdentifier site partner identifier
-///
-/// \param orderPartnerIdentifier partner identifier for the order
-///
-/// \param customerInfo customer information
-///
-/// \param pickupWindow pickup window for the order. Optional.
-///
-/// \param pickupType the pickup type string value for the order. Optional.
-///
-/// \param callback called once either an <code>Order</code> is created or an error is encountered. Optional.
-///
-- (void)createWithSitePartnerIdentifier:(NSString * _Nonnull)sitePartnerIdentifier orderPartnerIdentifier:(NSString * _Nonnull)orderPartnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupWindow:(FlyBuyPickupWindow * _Nullable)pickupWindow pickupType:(NSString * _Nullable)pickupType callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
-/// Create an <code>Order</code> for the current customer for the site with the given sitePartnerIdentifier.
-/// Example:
-/// \code
-/// let customerInfo = CustomerInfo(
-///   name: "Marty McFly",
-///   carType: "DeLorean",
-///   carColor: "Silver",
-///   licensePlate: "OUTATIME",
-///   phone: "555-555-5555"
-/// )
-///
-/// FlyBuy.Core.orders.create(sitePartnerIdentifier: "123", orderPartnerIdentifier: "1234123", customerInfo: customerInfo) { (order, error) -> (Void) in
-///   if let error = error {
-///    // Handle error
-///   } else {
-///    // Handle success
-///   }
-/// }
-///
-/// \endcode\param sitePartnerIdentifier site partner identifier
-///
-/// \param orderPartnerIdentifier partner identifier for the order
-///
-/// \param customerInfo customer information
-///
-/// \param pickupType the pickup type string value for the order. Optional.
-///
-/// \param state initial order state. Optional.
-///
-/// \param callback called once either an <code>Order</code> is created or an error is encountered. Optional.
-///
-- (void)createWithSitePartnerIdentifier:(NSString * _Nonnull)sitePartnerIdentifier orderPartnerIdentifier:(NSString * _Nonnull)orderPartnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo state:(NSString * _Nullable)state pickupType:(NSString * _Nullable)pickupType callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
+- (void)claimWithRedemptionCode:(NSString * _Nonnull)redemptionCode orderOptions:(FlyBuyOrderOptions * _Nonnull)orderOptions callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
+- (void)claimWithRedemptionCode:(NSString * _Nonnull)redemptionCode customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupType:(NSString * _Nullable)pickupType callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for claiming an order has been deprecated. Use claim(withRedemptionCode, orderOptions) instead.");
+- (void)createWithSitePartnerIdentifier:(NSString * _Nonnull)sitePartnerIdentifier orderPartnerIdentifier:(NSString * _Nonnull)orderPartnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupWindow:(FlyBuyPickupWindow * _Nullable)pickupWindow state:(NSString * _Nullable)state pickupType:(NSString * _Nullable)pickupType callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for creating an order has been deprecated. Use create(siteID, orderOptions) instead.");
+- (void)createWithSitePartnerIdentifier:(NSString * _Nonnull)sitePartnerIdentifier orderPartnerIdentifier:(NSString * _Nonnull)orderPartnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupWindow:(FlyBuyPickupWindow * _Nullable)pickupWindow state:(NSString * _Nonnull)state callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for creating an order has been deprecated. Use create(siteID, orderOptions) instead.");
+- (void)createWithSitePartnerIdentifier:(NSString * _Nonnull)sitePartnerIdentifier orderPartnerIdentifier:(NSString * _Nonnull)orderPartnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupWindow:(FlyBuyPickupWindow * _Nullable)pickupWindow callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for creating an order has been deprecated. Use create(siteID, orderOptions) instead.");
+- (void)createWithSitePartnerIdentifier:(NSString * _Nonnull)sitePartnerIdentifier orderPartnerIdentifier:(NSString * _Nonnull)orderPartnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupWindow:(FlyBuyPickupWindow * _Nullable)pickupWindow pickupType:(NSString * _Nullable)pickupType callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for creating an order has been deprecated. Use create(siteID, orderOptions) instead.");
+- (void)createWithSitePartnerIdentifier:(NSString * _Nonnull)sitePartnerIdentifier orderPartnerIdentifier:(NSString * _Nonnull)orderPartnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo state:(NSString * _Nullable)state pickupType:(NSString * _Nullable)pickupType callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for creating an order has been deprecated. Use create(siteID, orderOptions) instead.");
+- (void)createWithSiteID:(NSInteger)siteID partnerIdentifier:(NSString * _Nonnull)partnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupWindow:(FlyBuyPickupWindow * _Nullable)pickupWindow state:(NSString * _Nonnull)state callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for creating an order has been deprecated. Use create(siteID, orderOptions) instead.");
+- (void)createWithSiteID:(NSInteger)siteID partnerIdentifier:(NSString * _Nonnull)partnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupWindow:(FlyBuyPickupWindow * _Nullable)pickupWindow state:(NSString * _Nonnull)state pickupType:(NSString * _Nullable)pickupType callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for creating an order has been deprecated. Use create(siteID, orderOptions) instead.");
+- (void)createWithSiteID:(NSInteger)siteID partnerIdentifier:(NSString * _Nonnull)partnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupWindow:(FlyBuyPickupWindow * _Nullable)pickupWindow callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for creating an order has been deprecated. Use create(siteID, orderOptions) instead.");
+- (void)createWithSiteID:(NSInteger)siteID partnerIdentifier:(NSString * _Nonnull)partnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupWindow:(FlyBuyPickupWindow * _Nullable)pickupWindow pickupType:(NSString * _Nullable)pickupType callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for creating an order has been deprecated. Use create(siteID, orderOptions) instead.");
+- (void)createWithSiteID:(NSInteger)siteID partnerIdentifier:(NSString * _Nonnull)partnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo state:(NSString * _Nullable)state pickupType:(NSString * _Nullable)pickupType callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for creating an order has been deprecated. Use create(siteID, orderOptions) instead.");
 /// Create an <code>Order</code> for the current customer for the site with the given siteID.
-/// partnerIdentifier (e.g. order number) and customerInfo are required.
-/// Most orders will have a pickup time of “ASAP”. If you have a different pickup window, you can pass a pickupWindow parameter. If you want the default of “ASAP”, omit the parameter.
-/// \param siteID site identifier
-///
-/// \param partnerIdentifier partner identifier for the order
-///
-/// \param customerInfo customer information
-///
-/// \param pickupWindow pickup window for the order. Optional.
-///
-/// \param state initial order state
-///
-/// \param callback called once either an <code>Order</code> is created or an error is encountered. Optional.
-///
-- (void)createWithSiteID:(NSInteger)siteID partnerIdentifier:(NSString * _Nonnull)partnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupWindow:(FlyBuyPickupWindow * _Nullable)pickupWindow state:(NSString * _Nonnull)state callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
-/// Create an <code>Order</code> for the current customer for the site with the given siteID.
-/// \param siteID site identifier
-///
-/// \param partnerIdentifier partner identifier for the order
-///
-/// \param customerInfo customer information
-///
-/// \param pickupWindow pickup window for the order. Optional.
-///
-/// \param state initial order state
-///
-/// \param pickupType the pickup type string value for the order. Optional.
-///
-/// \param callback called once either an <code>Order</code> is created or an error is encountered. Optional.
-///
-- (void)createWithSiteID:(NSInteger)siteID partnerIdentifier:(NSString * _Nonnull)partnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupWindow:(FlyBuyPickupWindow * _Nullable)pickupWindow state:(NSString * _Nonnull)state pickupType:(NSString * _Nullable)pickupType callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
-/// Create an <code>Order</code> for the current customer for the site with the given siteID.
+/// [orderOptions] is required.
+/// By default, orders are created with a state of <code>created</code>. If you wish to provide a different initial state, use the optional <code>state</code> parameter of the [orderOptions].
+/// Most orders will have a pickup time of “ASAP”. If you have a different pickup window, you can set a <code>pickupWindow</code> parameter of the [orderOptions]. If you want the default of “ASAP”, omit the parameter.
+/// Optionally, a <code>pickupType</code> may be provided in the [orderOptions].
 /// Example:
 /// \code
-/// let customerInfo = CustomerInfo(
-///   name: "Marty McFly",
-///   carType: "DeLorean",
-///   carColor: "Silver",
-///   licensePlate: "OUTATIME",
-///   phone: "555-555-5555"
-/// )
+/// let orderOptions = OrderOptions.Builder(customerName: "Marty McFly")
+/// .setCustomerPhone("555-555-5555")
+/// .setCustomerCarColor("Silver")
+/// .setCustomerCarType("DeLorean")
+/// .setCustomerCarPlate("OUTATIME")
+/// .setPartnerIdentifier("1234")
+/// .setPickupWindow(pickupWindow)
+/// .setState(orderState)
+/// .setPickupType(pickupType)
 ///
-/// FlyBuy.Core.orders.create(siteID: 101, partnerIdentifier: "1234123", customerInfo: customerInfo) { (order, error) -> (Void) in
+/// FlyBuy.Core.orders.create(siteID: 101, orderOptions: orderOptions.build()) { (order, error) -> (Void) in
 ///   if let error = error {
-///     // Handle error
+///      // Handle error
 ///   } else {
-///     // Handle success
-///   }
+///      // Handle success
+///    }
 /// }
 ///
 /// \endcode\param siteID site identifier
 ///
-/// \param partnerIdentifier partner identifier for the order
-///
-/// \param customerInfo customer information
-///
-/// \param pickupWindow pickup window for the order. Optional.
+/// \param orderOptions options used for creating the order
 ///
 /// \param callback called once either an <code>Order</code> is created or an error is encountered. Optional.
 ///
-- (void)createWithSiteID:(NSInteger)siteID partnerIdentifier:(NSString * _Nonnull)partnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupWindow:(FlyBuyPickupWindow * _Nullable)pickupWindow callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
-/// Create an <code>Order</code> for the current customer for the site with the given siteID.
+- (void)createWithSiteID:(NSInteger)siteID orderOptions:(FlyBuyOrderOptions * _Nonnull)orderOptions callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
+/// Create an <code>Order</code> for the current customer for the site with the given sitePartnerIdentifier.
+/// [orderOptions] is required.
+/// By default, orders are created with a state of <code>created</code>. If you wish to provide a different initial state, use the optional <code>state</code> parameter of the [orderOptions].
+/// Most orders will have a pickup time of “ASAP”. If you have a different pickup window, you can set a <code>pickupWindow</code> parameter of the [orderOptions]. If you want the default of “ASAP”, omit the parameter.
+/// <ul>
+///   <li>
+///     Optionally, a <code>pickupType</code> may be provided in the [orderOptions]
+///   </li>
+/// </ul>
 /// Example:
 /// \code
-/// let customerInfo = CustomerInfo(
-///   name: "Marty McFly",
-///   carType: "DeLorean",
-///   carColor: "Silver",
-///   licensePlate: "OUTATIME",
-///   phone: "555-555-5555"
-/// )
+/// let orderOptions = OrderOptions.Builder(customerName: "Marty McFly")
+/// .setCustomerPhone("555-555-5555")
+/// .setCustomerCarColor("Silver")
+/// .setCustomerCarType("DeLorean")
+/// .setCustomerCarPlate("OUTATIME")
+/// .setPartnerIdentifier("1234")
+/// .setPickupWindow(pickupWindow)
+/// .setState(orderState)
+/// .setPickupType(pickupType)
 ///
-/// FlyBuy.Core.orders.create(siteID: 101, partnerIdentifier: "1234123", customerInfo: customerInfo) { (order, error) -> (Void) in
-///   if let error = error {
-///     // Handle error
-///   } else {
-///     // Handle success
-///   }
+/// FlyBuy.Core.orders.create(sitePartnerIdentifier: "123", orderOptions: orderOptions.build()) { (order, error) -> (Void) in
+///  if let error = error {
+///    // Handle error
+///  } else {
+///    // Handle success
+///    }
 /// }
 ///
-/// \endcode\param siteID site identifier
+/// \endcode\param sitePartnerIdentifier site partner identifier
 ///
-/// \param partnerIdentifier partner identifier for the order
-///
-/// \param customerInfo customer information
-///
-/// \param pickupWindow pickup window for the order. Optional.
-///
-/// \param pickupType the pickup type string value for the order. Optional.
+/// \param orderOptions customer information for the order
 ///
 /// \param callback called once either an <code>Order</code> is created or an error is encountered. Optional.
 ///
-- (void)createWithSiteID:(NSInteger)siteID partnerIdentifier:(NSString * _Nonnull)partnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo pickupWindow:(FlyBuyPickupWindow * _Nullable)pickupWindow pickupType:(NSString * _Nullable)pickupType callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
-/// Create an <code>Order</code> for the current customer for the site with the given siteID.
-/// \param siteID site identifier
-///
-/// \param partnerIdentifier partner identifier for the order
-///
-/// \param customerInfo customer information
-///
-/// \param state initial order state. Optional.
-///
-/// \param pickupType the pickup type string value for the order. Optional.
-///
-/// \param callback called once either an <code>Order</code> is created or an error is encountered. Optional.
-///
-- (void)createWithSiteID:(NSInteger)siteID partnerIdentifier:(NSString * _Nonnull)partnerIdentifier customerInfo:(FlyBuyCustomerInfo * _Nonnull)customerInfo state:(NSString * _Nullable)state pickupType:(NSString * _Nullable)pickupType callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
+- (void)createWithSitePartnerIdentifier:(NSString * _Nonnull)sitePartnerIdentifier orderOptions:(FlyBuyOrderOptions * _Nonnull)orderOptions callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
 /// Update the customerState for an order with the given orderId.
 /// Example:
 /// \code
