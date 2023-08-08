@@ -617,6 +617,12 @@ typedef SWIFT_ENUM(NSInteger, FlyBuyAPIErrorType, open) {
   FlyBuyAPIErrorTypeResponseError = 1,
 };
 
+typedef SWIFT_ENUM(NSInteger, FlybuyLinkType, open) {
+  FlybuyLinkTypeDineIn = 0,
+  FlybuyLinkTypeRedemption = 1,
+  FlybuyLinkTypeOther = 2,
+};
+
 
 /// Data model representing a geofence.
 SWIFT_CLASS_NAMED("Geofence")
@@ -626,6 +632,26 @@ SWIFT_CLASS_NAMED("Geofence")
 @property (nonatomic, readonly) double radiusMeters;
 @end
 
+
+@class FlyBuyOrderOptionsBuilder;
+
+SWIFT_CLASS_NAMED("LinkDetails")
+@interface FlybuyLink : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull url;
+@property (nonatomic, readonly) enum FlybuyLinkType type;
+@property (nonatomic, readonly, strong) FlyBuyOrderOptionsBuilder * _Nullable orderOptions;
+@property (nonatomic, readonly, copy) NSDictionary<NSString *, NSString *> * _Nonnull params;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class NSURL;
+
+SWIFT_CLASS_NAMED("Links")
+@interface FlyBuyLinks : NSObject
++ (FlybuyLink * _Nonnull)parseWithUrl:(NSURL * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
 
 typedef SWIFT_ENUM(NSInteger, LocationAuthStatus, open) {
   LocationAuthStatusNotDetermined = 0,
@@ -748,6 +774,23 @@ SWIFT_CLASS_NAMED("OrderEvent")
 
 SWIFT_CLASS_NAMED("OrderOptions")
 @interface FlyBuyOrderOptions : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull customerName;
+@property (nonatomic, readonly, copy) NSString * _Nullable customerPhone;
+@property (nonatomic, readonly, copy) NSString * _Nullable customerCarColor;
+@property (nonatomic, readonly, copy) NSString * _Nullable customerCarType;
+@property (nonatomic, readonly, copy) NSString * _Nullable customerCarLicensePlate;
+@property (nonatomic, readonly, copy) NSString * _Nonnull partnerIdentifier;
+@property (nonatomic, readonly, strong) FlyBuyPickupWindow * _Nullable pickupWindow;
+@property (nonatomic, readonly, copy) NSString * _Nullable state;
+@property (nonatomic, readonly, copy) NSString * _Nullable pickupType;
+@property (nonatomic, readonly, copy) NSString * _Nullable spotIdentifier;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS_NAMED("Builder")
+@interface FlyBuyOrderOptionsBuilder : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -991,9 +1034,9 @@ SWIFT_CLASS_NAMED("OrdersManager")
 @end
 
 
+
 @interface FlyBuyOrdersManager (SWIFT_EXTENSION(FlyBuy)) <CLLocationManagerDelegate>
 @end
-
 
 
 enum OrdersManagerErrorType : NSInteger;

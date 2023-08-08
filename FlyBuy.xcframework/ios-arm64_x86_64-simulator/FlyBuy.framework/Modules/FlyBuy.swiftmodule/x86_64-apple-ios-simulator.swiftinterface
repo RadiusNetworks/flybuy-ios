@@ -16,6 +16,23 @@ import _Concurrency
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
 }
+@objc public enum FlybuyLinkType : Swift.Int {
+  case dineIn
+  case redemption
+  case other
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers @objc(FlybuyLink) open class LinkDetails : ObjectiveC.NSObject {
+  @objc final public let url: Swift.String
+  @objc final public let type: FlyBuy.FlybuyLinkType
+  @objc final public let orderOptions: FlyBuy.OrderOptions.Builder?
+  @objc final public let params: [Swift.String : Swift.String]
+  @objc deinit
+}
 public struct PickupLocationFilters : Swift.Codable {
   public let ios: [FlyBuy.PickupLocationFilterData]?
   public func encode(to encoder: Swift.Encoder) throws
@@ -484,8 +501,19 @@ extension Swift.Error {
   }
 }
 @_hasMissingDesignatedInitializers @objc(FlyBuyOrderOptions) public class OrderOptions : ObjectiveC.NSObject {
-  public class Builder {
+  @objc final public let customerName: Swift.String
+  @objc final public let customerPhone: Swift.String?
+  @objc final public let customerCarColor: Swift.String?
+  @objc final public let customerCarType: Swift.String?
+  @objc final public let customerCarLicensePlate: Swift.String?
+  @objc final public let partnerIdentifier: Swift.String
+  @objc final public let pickupWindow: FlyBuy.PickupWindow?
+  @objc final public let state: Swift.String?
+  @objc final public let pickupType: Swift.String?
+  @objc final public let spotIdentifier: Swift.String?
+  @objc(FlyBuyOrderOptionsBuilder) public class Builder : ObjectiveC.NSObject {
     public init(customerName: Swift.String)
+    public func setCustomerName(_ name: Swift.String) -> FlyBuy.OrderOptions.Builder
     public func setCustomerPhone(_ customerPhone: Swift.String?) -> FlyBuy.OrderOptions.Builder
     public func setCustomerCarColor(_ customerCarColor: Swift.String?) -> FlyBuy.OrderOptions.Builder
     public func setCustomerCarType(_ customerCarType: Swift.String?) -> FlyBuy.OrderOptions.Builder
@@ -494,6 +522,7 @@ extension Swift.Error {
     public func setPickupWindow(_ pickupWindow: FlyBuy.PickupWindow?) -> FlyBuy.OrderOptions.Builder
     public func setState(_ state: Swift.String?) -> FlyBuy.OrderOptions.Builder
     public func setPickupType(_ pickupType: Swift.String?) -> FlyBuy.OrderOptions.Builder
+    public func setSpotIdentifier(_ spotIdentifier: Swift.String?) -> FlyBuy.OrderOptions.Builder
     public func build() -> FlyBuy.OrderOptions
     @objc deinit
   }
@@ -907,6 +936,11 @@ extension FlyBuy.OrdersManager : CoreLocation.CLLocationManagerDelegate {
   @objc public func setOptions(_ opts: [Swift.String : Any]) -> FlyBuy.ConfigOptionsBuilder
   @objc deinit
 }
+@_inheritsConvenienceInitializers @objc(FlyBuyLinks) public class Links : ObjectiveC.NSObject {
+  @objc public static func parse(url: Foundation.URL) -> FlyBuy.LinkDetails
+  @objc override dynamic public init()
+  @objc deinit
+}
 @objc(FlyBuyOrder) open class Order : ObjectiveC.NSObject {
   @objc final public let id: Swift.Int
   @objc final public let siteID: Swift.Int
@@ -1012,6 +1046,9 @@ extension FlyBuy.Order {
     @objc get
   }
 }
+extension FlyBuy.FlybuyLinkType : Swift.Equatable {}
+extension FlyBuy.FlybuyLinkType : Swift.Hashable {}
+extension FlyBuy.FlybuyLinkType : Swift.RawRepresentable {}
 extension FlyBuy.LocationAuthStatus : Swift.Equatable {}
 extension FlyBuy.LocationAuthStatus : Swift.Hashable {}
 extension FlyBuy.LocationAuthStatus : Swift.RawRepresentable {}
