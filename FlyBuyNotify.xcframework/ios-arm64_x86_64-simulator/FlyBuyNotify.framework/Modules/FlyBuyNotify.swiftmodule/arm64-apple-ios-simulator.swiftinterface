@@ -58,6 +58,7 @@ extension FlyBuyNotify.Manager : FlyBuy.FlyBuyModuleManager {
 }
 @objc public enum NotifyErrorType : Swift.Int {
   case noLocationPermission
+  case notificationPermissionDenied
   case reachedTheMaxNumberOfSites
   case notifyModuleNotConfigured
   case coreIsNotConfigured
@@ -65,7 +66,11 @@ extension FlyBuyNotify.Manager : FlyBuy.FlyBuyModuleManager {
   case beaconRangingNotAvailable
   case noBeaconInRange
   case beaconRangingDisabledInBackground
+  case failedToAddNotificationRequest
   public var description: Swift.String {
+    get
+  }
+  public var string: Swift.String {
     get
   }
   public init?(rawValue: Swift.Int)

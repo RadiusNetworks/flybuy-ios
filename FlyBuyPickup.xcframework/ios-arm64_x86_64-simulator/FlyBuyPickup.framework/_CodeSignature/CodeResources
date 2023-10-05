@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/FlyBuyPickup-Swift.h</key>
 		<data>
-		+hHFoSDcLsEb9M7EtlvabKFMpdk=
+		zDO00ibKBr5VDq+hHCn7sGHyunc=
 		</data>
 		<key>Headers/FlyBuyPickup.h</key>
 		<data>
@@ -14,7 +14,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		q0Z0wSAsKQA97shdyfrUlMNF/G8=
+		6kRURZNzO5wDW5Am1Ut42YCnNtk=
 		</data>
 		<key>Modules/FlyBuyPickup.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>Modules/FlyBuyPickup.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		0k1Z0Mdd/PQhRjrnOpLqEBgRoUo=
+		L9adS9R6Ngs4wpnnplDnvQitBRg=
 		</data>
 		<key>Modules/FlyBuyPickup.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Modules/FlyBuyPickup.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		zewqGdaPrVUMR6+KagNAPpOv4dM=
+		oeOem48Frk2pH7PculBKl3xfcpU=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -51,7 +51,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			7QuQjduCxe6E2/js21JiWAiFL7AxiRxKBSsidDSz4M8=
+			THM/4Lu1Lu4eI/dVheCMB/woRPJDI328s94/hWumtDM=
 			</data>
 		</dict>
 		<key>Headers/FlyBuyPickup.h</key>
@@ -79,7 +79,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			94i8B00d3dA9lL2I0pUJWrS1ZaIrnhoL/UqI3TKuPlg=
+			EjJF6qKlNXCRFcNaQ65LcXp3H6kOONqsoOAWOxvZEZM=
 			</data>
 		</dict>
 		<key>Modules/FlyBuyPickup.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -100,7 +100,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			XipoyeGag++HbBO8nmSX8Ur/EzP7QG7FKtrloNq2BV8=
+			SPgdc6LkWuqGF7uHocxeC4kvmMDeyCAPy0JIEc7+tIY=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

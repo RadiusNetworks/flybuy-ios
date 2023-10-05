@@ -325,13 +325,15 @@ SWIFT_CLASS_NAMED("NotifyError")
 /// The type that may be associated with a NotifyError.
 typedef SWIFT_ENUM(NSInteger, NotifyErrorType, open) {
   NotifyErrorTypeNoLocationPermission = 0,
-  NotifyErrorTypeReachedTheMaxNumberOfSites = 1,
-  NotifyErrorTypeNotifyModuleNotConfigured = 2,
-  NotifyErrorTypeCoreIsNotConfigured = 3,
-  NotifyErrorTypeNotifyModuleNotEnabled = 4,
-  NotifyErrorTypeBeaconRangingNotAvailable = 5,
-  NotifyErrorTypeNoBeaconInRange = 6,
-  NotifyErrorTypeBeaconRangingDisabledInBackground = 7,
+  NotifyErrorTypeNotificationPermissionDenied = 1,
+  NotifyErrorTypeReachedTheMaxNumberOfSites = 2,
+  NotifyErrorTypeNotifyModuleNotConfigured = 3,
+  NotifyErrorTypeCoreIsNotConfigured = 4,
+  NotifyErrorTypeNotifyModuleNotEnabled = 5,
+  NotifyErrorTypeBeaconRangingNotAvailable = 6,
+  NotifyErrorTypeNoBeaconInRange = 7,
+  NotifyErrorTypeBeaconRangingDisabledInBackground = 8,
+  NotifyErrorTypeFailedToAddNotificationRequest = 9,
 };
 
 
@@ -667,13 +669,15 @@ SWIFT_CLASS_NAMED("NotifyError")
 /// The type that may be associated with a NotifyError.
 typedef SWIFT_ENUM(NSInteger, NotifyErrorType, open) {
   NotifyErrorTypeNoLocationPermission = 0,
-  NotifyErrorTypeReachedTheMaxNumberOfSites = 1,
-  NotifyErrorTypeNotifyModuleNotConfigured = 2,
-  NotifyErrorTypeCoreIsNotConfigured = 3,
-  NotifyErrorTypeNotifyModuleNotEnabled = 4,
-  NotifyErrorTypeBeaconRangingNotAvailable = 5,
-  NotifyErrorTypeNoBeaconInRange = 6,
-  NotifyErrorTypeBeaconRangingDisabledInBackground = 7,
+  NotifyErrorTypeNotificationPermissionDenied = 1,
+  NotifyErrorTypeReachedTheMaxNumberOfSites = 2,
+  NotifyErrorTypeNotifyModuleNotConfigured = 3,
+  NotifyErrorTypeCoreIsNotConfigured = 4,
+  NotifyErrorTypeNotifyModuleNotEnabled = 5,
+  NotifyErrorTypeBeaconRangingNotAvailable = 6,
+  NotifyErrorTypeNoBeaconInRange = 7,
+  NotifyErrorTypeBeaconRangingDisabledInBackground = 8,
+  NotifyErrorTypeFailedToAddNotificationRequest = 9,
 };
 
 

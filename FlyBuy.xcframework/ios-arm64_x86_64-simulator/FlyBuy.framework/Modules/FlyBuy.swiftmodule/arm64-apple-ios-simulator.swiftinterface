@@ -16,6 +16,9 @@ import _Concurrency
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
 }
+extension FlyBuy.AppConfig {
+  public static let defaultLocationFilters: FlyBuy.PickupLocationFilters
+}
 @objc public enum FlybuyLinkType : Swift.Int {
   case dineIn
   case redemption
@@ -38,8 +41,11 @@ public struct PickupLocationFilters : Swift.Codable {
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
-public class PickupLocationFilterData : Swift.Codable {
-  final public let proximityToSite: Swift.Int
+public class PickupLocationFilterData : Swift.Codable, Swift.Equatable {
+  public static func == (lhs: FlyBuy.PickupLocationFilterData, rhs: FlyBuy.PickupLocationFilterData) -> Swift.Bool
+  public var proximityToSite: Swift.Int {
+    get
+  }
   final public let _desiredAccuracy: Swift.String
   final public let _activityType: Swift.String
   final public let distanceFilterCharging: Swift.Double
@@ -1004,6 +1010,7 @@ extension FlyBuy.OrdersManager : CoreLocation.CLLocationManagerDelegate {
   @objc public var wrongSiteDetectionEnabled: Swift.Bool {
     @objc get
   }
+  public var wrongSiteId: Swift.Int?
   @objc public var distanceFilteringDisabled: Swift.Bool {
     @objc get
   }

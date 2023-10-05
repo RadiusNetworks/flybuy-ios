@@ -247,6 +247,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FlyBuyPickup
 @end
 
 
+
 @class CLLocationManager;
 @class CLLocation;
 @class CLBeacon;
