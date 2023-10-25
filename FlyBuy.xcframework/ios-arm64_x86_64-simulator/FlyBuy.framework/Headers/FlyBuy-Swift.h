@@ -230,6 +230,14 @@ SWIFT_CLASS("_TtC6FlyBuy10AppUpgrade")
 @interface AppUpgrade : NSObject
 @end
 
+@class NSString;
+
+SWIFT_CLASS("_TtC6FlyBuy31AvailableHandoffVehicleLocation")
+@interface AvailableHandoffVehicleLocation : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull vehicleLocation;
+@property (nonatomic, readonly, copy) NSString * _Nonnull vehicleLocationLocalizedString;
+@end
+
 
 /// Data model for a list of <code>Beacon</code>s
 SWIFT_CLASS_NAMED("BeaconList")
@@ -238,7 +246,6 @@ SWIFT_CLASS_NAMED("BeaconList")
 @end
 
 
-@class NSString;
 @class FlyBuyConfigOptionsBuilder;
 
 /// Configuration options to be passed to FlyBuy.Core.configure(withOptions configOptions: ConfigOptions)
@@ -786,6 +793,7 @@ SWIFT_CLASS_NAMED("OrderOptions")
 @property (nonatomic, readonly, copy) NSString * _Nullable state;
 @property (nonatomic, readonly, copy) NSString * _Nullable pickupType;
 @property (nonatomic, readonly, copy) NSString * _Nullable spotIdentifier;
+@property (nonatomic, readonly, copy) NSString * _Nullable handoffVehicleLocation;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1036,9 +1044,9 @@ SWIFT_CLASS_NAMED("OrdersManager")
 @end
 
 
-
 @interface FlyBuyOrdersManager (SWIFT_EXTENSION(FlyBuy)) <CLLocationManagerDelegate>
 @end
+
 
 
 enum OrdersManagerErrorType : NSInteger;
@@ -1090,6 +1098,7 @@ SWIFT_CLASS("_TtC6FlyBuy12PickupConfig")
 @property (nonatomic, readonly, copy) NSString * _Nullable termsOfServiceURL;
 @property (nonatomic, readonly, copy) NSString * _Nullable privacyPolicyURL;
 @property (nonatomic, readonly, copy) NSArray<PickupTypeConfig *> * _Nonnull availablePickupTypes;
+@property (nonatomic, readonly, copy) NSArray<AvailableHandoffVehicleLocation *> * _Nonnull availableHandoffVehicleLocation;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1103,6 +1112,7 @@ SWIFT_CLASS("_TtC6FlyBuy16PickupTypeConfig")
 @property (nonatomic, readonly, copy) NSString * _Nonnull pickupType;
 @property (nonatomic, readonly, copy) NSString * _Nonnull pickupTypeLocalizedString;
 @property (nonatomic, readonly) BOOL showVehicleInfoFields;
+@property (nonatomic, readonly) BOOL showHandoffVehicleLocations;
 @property (nonatomic, readonly) BOOL requireVehicleInfo;
 @end
 
@@ -1538,6 +1548,14 @@ SWIFT_CLASS("_TtC6FlyBuy10AppUpgrade")
 @interface AppUpgrade : NSObject
 @end
 
+@class NSString;
+
+SWIFT_CLASS("_TtC6FlyBuy31AvailableHandoffVehicleLocation")
+@interface AvailableHandoffVehicleLocation : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull vehicleLocation;
+@property (nonatomic, readonly, copy) NSString * _Nonnull vehicleLocationLocalizedString;
+@end
+
 
 /// Data model for a list of <code>Beacon</code>s
 SWIFT_CLASS_NAMED("BeaconList")
@@ -1546,7 +1564,6 @@ SWIFT_CLASS_NAMED("BeaconList")
 @end
 
 
-@class NSString;
 @class FlyBuyConfigOptionsBuilder;
 
 /// Configuration options to be passed to FlyBuy.Core.configure(withOptions configOptions: ConfigOptions)
@@ -2094,6 +2111,7 @@ SWIFT_CLASS_NAMED("OrderOptions")
 @property (nonatomic, readonly, copy) NSString * _Nullable state;
 @property (nonatomic, readonly, copy) NSString * _Nullable pickupType;
 @property (nonatomic, readonly, copy) NSString * _Nullable spotIdentifier;
+@property (nonatomic, readonly, copy) NSString * _Nullable handoffVehicleLocation;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -2344,9 +2362,9 @@ SWIFT_CLASS_NAMED("OrdersManager")
 @end
 
 
-
 @interface FlyBuyOrdersManager (SWIFT_EXTENSION(FlyBuy)) <CLLocationManagerDelegate>
 @end
+
 
 
 enum OrdersManagerErrorType : NSInteger;
@@ -2398,6 +2416,7 @@ SWIFT_CLASS("_TtC6FlyBuy12PickupConfig")
 @property (nonatomic, readonly, copy) NSString * _Nullable termsOfServiceURL;
 @property (nonatomic, readonly, copy) NSString * _Nullable privacyPolicyURL;
 @property (nonatomic, readonly, copy) NSArray<PickupTypeConfig *> * _Nonnull availablePickupTypes;
+@property (nonatomic, readonly, copy) NSArray<AvailableHandoffVehicleLocation *> * _Nonnull availableHandoffVehicleLocation;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -2411,6 +2430,7 @@ SWIFT_CLASS("_TtC6FlyBuy16PickupTypeConfig")
 @property (nonatomic, readonly, copy) NSString * _Nonnull pickupType;
 @property (nonatomic, readonly, copy) NSString * _Nonnull pickupTypeLocalizedString;
 @property (nonatomic, readonly) BOOL showVehicleInfoFields;
+@property (nonatomic, readonly) BOOL showHandoffVehicleLocations;
 @property (nonatomic, readonly) BOOL requireVehicleInfo;
 @end
 

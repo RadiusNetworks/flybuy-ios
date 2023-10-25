@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/FlyBuy-Swift.h</key>
 		<data>
-		yzguYUW2OcdkRgJYd6ncg+FSjLY=
+		1Pt51O6Xq2taj8kbpNvwlUL5FkA=
 		</data>
 		<key>Headers/FlyBuy.h</key>
 		<data>
@@ -14,31 +14,31 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		LRbUtFQMlmamUi8hUZbLUIpzA2c=
+		eHnaPHMPHO83yPwDn0Qn0rIpqvY=
 		</data>
 		<key>Modules/FlyBuy.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		wCMLvY7IPA7WxHinylFChenLoQc=
+		Km2cm4j/FxU5bkj+2VguJ8j4elw=
 		</data>
 		<key>Modules/FlyBuy.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		wsaKDtUfal57VZwwDdL64gVRtCo=
+		tZEbOVQoiZXyATO7mLSJkR/BNfE=
 		</data>
 		<key>Modules/FlyBuy.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		faBAs2TvWdzW6j8skDMgBxBU0q8=
+		f5UMZI+zfnN7Xvn5L/zacg7/evA=
 		</data>
 		<key>Modules/FlyBuy.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		8ST8qsFdOVBp12IQuGxm7LbnMQ8=
+		GOgiikGyhORznuQDhj+R9SOLy1k=
 		</data>
 		<key>Modules/FlyBuy.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		gm0eSjIHKLfW8MOYNN33ijF8DLM=
+		9gU6p7sdRZIwJ2cTLOEXFocUDXU=
 		</data>
 		<key>Modules/FlyBuy.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		s9WQKZ2zMTOI7+1EWCEUC+L2CIE=
+		VJ2+B+tfIWhQ1pH+xrZmhUXKdOE=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -51,7 +51,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			1sMq1OuKIC1mVhu4qLHuInF0S/RxXUXvCNdZZR9Er88=
+			JpECWCoUw12euP1+klh+zE+tPgIR4QdRGdIRyFwI1LA=
 			</data>
 		</dict>
 		<key>Headers/FlyBuy.h</key>
@@ -65,42 +65,42 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			vGPiQUOS6LAvGwOcV4t3c8+RQq/sg1J0YB/RKXE5s3Y=
+			3s3B5umGgVIzbNuG/243sF3Hkebd2cMG2QSYxB8FVvU=
 			</data>
 		</dict>
 		<key>Modules/FlyBuy.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			bEE240OAVNwKqjnwz/427cPxDkHeRpknpo20t+ge8zI=
+			7zzW5s7POWEoU/mD9mlPm7NHPJYLSW26euA8sLZRDJg=
 			</data>
 		</dict>
 		<key>Modules/FlyBuy.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			eR92RXf/5B+z33yHuaxvM90A5/8bFPtlQ+bTP3yl+Ig=
+			kpqAo8RjyWTjnr6SPKUuwtfmicCm8JpzCQye3l1EXbc=
 			</data>
 		</dict>
 		<key>Modules/FlyBuy.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			athd5GvzgWDsQoVpYHmGRz/Lp3fXalgy6yHxP3pwILs=
+			oTDvRofbJFDFbmli+F8VMgzK43crru8mrtctgU2LCuw=
 			</data>
 		</dict>
 		<key>Modules/FlyBuy.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			xxajFb99spuxRhzYW5i6p61HYfhj58tbIDYyEy4SflQ=
+			RfE7wJjbKEMHanTjetwwNsCIK+xQR1hLaSzT9zDi33k=
 			</data>
 		</dict>
 		<key>Modules/FlyBuy.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			624lfRuCnVmARjBObP/SulBeMPdCcPOirdelpUF27T8=
+			Aga55xa2TAOf1MQ0y9I8yNlQSKnkgQTSBVOdQeDpuF4=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

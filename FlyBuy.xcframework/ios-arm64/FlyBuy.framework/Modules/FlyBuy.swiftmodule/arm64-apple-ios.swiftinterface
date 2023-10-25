@@ -289,6 +289,7 @@ public enum HTTPStatusCode : Swift.Int, Swift.Error {
   @objc final public let pickupType: Swift.String
   @objc final public let pickupTypeLocalizedString: Swift.String
   @objc final public let showVehicleInfoFields: Swift.Bool
+  @objc final public let showHandoffVehicleLocations: Swift.Bool
   @objc public var requireVehicleInfo: Swift.Bool {
     @objc get
   }
@@ -307,6 +308,7 @@ public enum HTTPStatusCode : Swift.Int, Swift.Error {
   @objc final public let termsOfServiceURL: Swift.String?
   @objc final public let privacyPolicyURL: Swift.String?
   @objc final public let availablePickupTypes: [FlyBuy.PickupTypeConfig]
+  @objc final public let availableHandoffVehicleLocation: [FlyBuy.AvailableHandoffVehicleLocation]
   required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
   @objc deinit
@@ -517,6 +519,7 @@ extension Swift.Error {
   @objc final public let state: Swift.String?
   @objc final public let pickupType: Swift.String?
   @objc final public let spotIdentifier: Swift.String?
+  @objc final public let handoffVehicleLocation: Swift.String?
   @objc(FlyBuyOrderOptionsBuilder) public class Builder : ObjectiveC.NSObject {
     public init(customerName: Swift.String)
     public func setCustomerName(_ name: Swift.String) -> FlyBuy.OrderOptions.Builder
@@ -529,6 +532,7 @@ extension Swift.Error {
     public func setState(_ state: Swift.String?) -> FlyBuy.OrderOptions.Builder
     public func setPickupType(_ pickupType: Swift.String?) -> FlyBuy.OrderOptions.Builder
     public func setSpotIdentifier(_ spotIdentifier: Swift.String?) -> FlyBuy.OrderOptions.Builder
+    public func setHandoffVehicleLocation(_ handoffVehicleLocation: Swift.String?) -> FlyBuy.OrderOptions.Builder
     public func build() -> FlyBuy.OrderOptions
     @objc deinit
   }
@@ -636,6 +640,16 @@ public protocol FlyBuyError : Foundation.LocalizedError {
     @objc get
   }
   @objc deinit
+}
+@objc public class AvailableHandoffVehicleLocation : ObjectiveC.NSObject, Swift.Codable {
+  @objc final public let vehicleLocation: Swift.String
+  @objc final public let vehicleLocationLocalizedString: Swift.String
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+extension Swift.Array where Element : FlyBuy.AvailableHandoffVehicleLocation {
+  public func get(forVehicleLocation location: Swift.String) -> FlyBuy.AvailableHandoffVehicleLocation?
 }
 @objc(FlyBuyPickupWindow) public class PickupWindow : ObjectiveC.NSObject, Swift.Codable {
   @objc final public let start: Foundation.Date
@@ -1018,6 +1032,7 @@ extension FlyBuy.OrdersManager : CoreLocation.CLLocationManagerDelegate {
     @objc get
   }
   final public let _pickupConfigID: Swift.Int?
+  final public let handoffVehicleLocation: Swift.String?
   required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
   @objc public func siteLocation() -> CoreLocation.CLLocation?
