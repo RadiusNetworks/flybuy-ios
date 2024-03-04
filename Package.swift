@@ -24,6 +24,10 @@ let package = Package(
         .library(
             name: "FlyBuyTableside",
             targets: ["FlyBuyTableside"]
+        ),
+        .library(
+            name: "FlyBuyLiveStatus",
+            targets: ["FlyBuy", "FlyBuyLiveStatus"]
         )
     ],
     dependencies: [
@@ -51,6 +55,10 @@ let package = Package(
         .binaryTarget(
             name: "FlyBuyTableside",
             path: "FlyBuyTableside.xcframework"
+        ),
+        .binaryTarget(
+            name: "FlyBuyLiveStatus",
+            path: "FlyBuyLiveStatus.xcframework"
         )
     ]
 )
