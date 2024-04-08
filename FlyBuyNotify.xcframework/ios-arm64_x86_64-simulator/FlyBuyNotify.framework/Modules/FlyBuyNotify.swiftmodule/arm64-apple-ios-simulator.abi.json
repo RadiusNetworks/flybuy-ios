@@ -13,20 +13,6 @@
       },
       {
         "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "FlyBuyNotify"
-      },
-      {
-        "kind": "Import",
-        "name": "FlyBuy",
-        "printedName": "FlyBuy",
-        "declKind": "Import",
-        "moduleName": "FlyBuyNotify"
-      },
-      {
-        "kind": "Import",
         "name": "CoreLocation",
         "printedName": "CoreLocation",
         "declKind": "Import",
@@ -231,12 +217,12 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "Swift.Error?",
+                "printedName": "(any Swift.Error)?",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "Error",
-                    "printedName": "Swift.Error",
+                    "printedName": "any Swift.Error",
                     "usr": "s:s5ErrorP"
                   }
                 ],
@@ -287,12 +273,12 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "Swift.Error?",
+                "printedName": "(any Swift.Error)?",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "Error",
-                    "printedName": "Swift.Error",
+                    "printedName": "any Swift.Error",
                     "usr": "s:s5ErrorP"
                   }
                 ],
@@ -381,20 +367,6 @@
       },
       {
         "kind": "Import",
-        "name": "FlyBuy",
-        "printedName": "FlyBuy",
-        "declKind": "Import",
-        "moduleName": "FlyBuyNotify"
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "FlyBuyNotify"
-      },
-      {
-        "kind": "Import",
         "name": "CoreLocation",
         "printedName": "CoreLocation",
         "declKind": "Import",
@@ -475,13 +447,6 @@
         "declAttributes": [
           "RawDocComment"
         ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "FlyBuyNotify"
       },
       {
         "kind": "Import",
@@ -562,6 +527,27 @@
       },
       {
         "kind": "Import",
+        "name": "UserNotifications",
+        "printedName": "UserNotifications",
+        "declKind": "Import",
+        "moduleName": "FlyBuyNotify"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "FlyBuyNotify"
+      },
+      {
+        "kind": "Import",
+        "name": "FlyBuy",
+        "printedName": "FlyBuy",
+        "declKind": "Import",
+        "moduleName": "FlyBuyNotify"
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -613,6 +599,13 @@
         "kind": "Import",
         "name": "UserNotifications",
         "printedName": "UserNotifications",
+        "declKind": "Import",
+        "moduleName": "FlyBuyNotify"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
         "declKind": "Import",
         "moduleName": "FlyBuyNotify"
       },
@@ -1262,12 +1255,12 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "((Swift.Error?) -> ())?",
+                "printedName": "(((any Swift.Error)?) -> ())?",
                 "children": [
                   {
                     "kind": "TypeFunc",
                     "name": "Function",
-                    "printedName": "(Swift.Error?) -> ()",
+                    "printedName": "((any Swift.Error)?) -> ()",
                     "children": [
                       {
                         "kind": "TypeNominal",
@@ -1277,12 +1270,12 @@
                       {
                         "kind": "TypeNominal",
                         "name": "Optional",
-                        "printedName": "Swift.Error?",
+                        "printedName": "(any Swift.Error)?",
                         "children": [
                           {
                             "kind": "TypeNominal",
                             "name": "Error",
-                            "printedName": "Swift.Error",
+                            "printedName": "any Swift.Error",
                             "usr": "s:s5ErrorP"
                           }
                         ],
@@ -1332,7 +1325,7 @@
               {
                 "kind": "TypeFunc",
                 "name": "Function",
-                "printedName": "([FlyBuy.Site]?, Swift.Error?) -> ()",
+                "printedName": "([FlyBuy.Site]?, (any Swift.Error)?) -> ()",
                 "children": [
                   {
                     "kind": "TypeNominal",
@@ -1342,7 +1335,7 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Tuple",
-                    "printedName": "([FlyBuy.Site]?, Swift.Error?)",
+                    "printedName": "([FlyBuy.Site]?, (any Swift.Error)?)",
                     "children": [
                       {
                         "kind": "TypeNominal",
@@ -1369,12 +1362,12 @@
                       {
                         "kind": "TypeNominal",
                         "name": "Optional",
-                        "printedName": "Swift.Error?",
+                        "printedName": "(any Swift.Error)?",
                         "children": [
                           {
                             "kind": "TypeNominal",
                             "name": "Error",
-                            "printedName": "Swift.Error",
+                            "printedName": "any Swift.Error",
                             "usr": "s:s5ErrorP"
                           }
                         ],
@@ -1431,7 +1424,7 @@
               {
                 "kind": "TypeFunc",
                 "name": "Function",
-                "printedName": "(Swift.Error?) -> ()",
+                "printedName": "((any Swift.Error)?) -> ()",
                 "children": [
                   {
                     "kind": "TypeNominal",
@@ -1441,12 +1434,12 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "Swift.Error?",
+                    "printedName": "(any Swift.Error)?",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "Error",
-                        "printedName": "Swift.Error",
+                        "printedName": "any Swift.Error",
                         "usr": "s:s5ErrorP"
                       }
                     ],
@@ -1481,7 +1474,7 @@
               {
                 "kind": "TypeFunc",
                 "name": "Function",
-                "printedName": "(Swift.Error?) -> ()",
+                "printedName": "((any Swift.Error)?) -> ()",
                 "children": [
                   {
                     "kind": "TypeNominal",
@@ -1491,12 +1484,12 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "Swift.Error?",
+                    "printedName": "(any Swift.Error)?",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "Error",
-                        "printedName": "Swift.Error",
+                        "printedName": "any Swift.Error",
                         "usr": "s:s5ErrorP"
                       }
                     ],
@@ -1739,12 +1732,12 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "((Swift.Error?) -> ())?",
+                "printedName": "(((any Swift.Error)?) -> ())?",
                 "children": [
                   {
                     "kind": "TypeFunc",
                     "name": "Function",
-                    "printedName": "(Swift.Error?) -> ()",
+                    "printedName": "((any Swift.Error)?) -> ()",
                     "children": [
                       {
                         "kind": "TypeNominal",
@@ -1754,12 +1747,12 @@
                       {
                         "kind": "TypeNominal",
                         "name": "Optional",
-                        "printedName": "Swift.Error?",
+                        "printedName": "(any Swift.Error)?",
                         "children": [
                           {
                             "kind": "TypeNominal",
                             "name": "Error",
-                            "printedName": "Swift.Error",
+                            "printedName": "any Swift.Error",
                             "usr": "s:s5ErrorP"
                           }
                         ],
@@ -3132,6 +3125,54 @@
                 "accessorKind": "get"
               }
             ]
+          },
+          {
+            "kind": "Var",
+            "name": "notifyNotificationsError",
+            "printedName": "notifyNotificationsError",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Name",
+                "printedName": "Foundation.NSNotification.Name",
+                "usr": "c:@T@NSNotificationName"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:So18NSNotificationNamea12FlyBuyNotifyE24notifyNotificationsErrorABvpZ",
+            "mangledName": "$sSo18NSNotificationNamea12FlyBuyNotifyE24notifyNotificationsErrorABvpZ",
+            "moduleName": "FlyBuyNotify",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage"
+            ],
+            "isFromExtension": true,
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Name",
+                    "printedName": "Foundation.NSNotification.Name",
+                    "usr": "c:@T@NSNotificationName"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:So18NSNotificationNamea12FlyBuyNotifyE24notifyNotificationsErrorABvgZ",
+                "mangledName": "$sSo18NSNotificationNamea12FlyBuyNotifyE24notifyNotificationsErrorABvgZ",
+                "moduleName": "FlyBuyNotify",
+                "static": true,
+                "implicit": true,
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
           }
         ],
         "declKind": "Struct",
@@ -3242,48 +3283,6 @@
       "value": "1"
     },
     {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyRepeatability.swift",
-      "kind": "StringLiteral",
-      "offset": 214,
-      "length": 7,
-      "value": "\"daily\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyRepeatability.swift",
-      "kind": "StringLiteral",
-      "offset": 251,
-      "length": 6,
-      "value": "\"once\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyRepeatability.swift",
-      "kind": "StringLiteral",
-      "offset": 332,
-      "length": 7,
-      "value": "\"daily\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyRepeatability.swift",
-      "kind": "StringLiteral",
-      "offset": 370,
-      "length": 6,
-      "value": "\"once\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Networking\/Notify\/Endpoints\/GetNotifyCampaignsEndpoint.swift",
-      "kind": "StringLiteral",
-      "offset": 178,
-      "length": 31,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Networking\/Notify\/Endpoints\/GetNotifyCampaignsEndpoint.swift",
-      "kind": "StringLiteral",
-      "offset": 191,
-      "length": 1,
-      "value": "\"\/notify\/campaigns\""
-    },
-    {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
       "kind": "Array",
       "offset": 114,
@@ -3293,422 +3292,51 @@
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
       "kind": "Array",
-      "offset": 161,
+      "offset": 145,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
       "kind": "Array",
-      "offset": 192,
+      "offset": 193,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
       "kind": "IntegerLiteral",
-      "offset": 516,
+      "offset": 605,
       "length": 2,
       "value": "20"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
       "kind": "IntegerLiteral",
-      "offset": 558,
+      "offset": 647,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
       "kind": "BooleanLiteral",
-      "offset": 1216,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1356,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 1450,
-      "length": 27,
-      "value": "\"SyncDebug: getCampaigns()\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2621,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "BooleanLiteral",
-      "offset": 2796,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "Array",
-      "offset": 3629,
-      "length": 2,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 3778,
-      "length": 60,
-      "value": "\"Failed to fetch NotifyAnalyticsEvents with error: \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 3837,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "BooleanLiteral",
-      "offset": 3853,
+      "offset": 1451,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
       "kind": "IntegerLiteral",
-      "offset": 3891,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "Array",
-      "offset": 4020,
-      "length": 2,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "IntegerLiteral",
-      "offset": 4283,
-      "length": 2,
-      "value": "-1"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 4384,
-      "length": 60,
-      "value": "\"Failed to fetch NotifyAnalyticsEvents with error: \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 4443,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "IntegerLiteral",
-      "offset": 4511,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 5235,
-      "length": 64,
-      "value": "\"Failed to delete all NotifyAnalyticsEvent with error: \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 5298,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "IntegerLiteral",
-      "offset": 6158,
+      "offset": 5655,
       "length": 2,
       "value": "-1"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
       "kind": "Dictionary",
-      "offset": 6188,
+      "offset": 5685,
       "length": 3,
       "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 6452,
-      "length": 58,
-      "value": "\"Failed to save NotifyAnalyticsEvent with error: \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 6509,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 6765,
-      "length": 54,
-      "value": "\"Failed to load Notify campaigns with error: \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 6818,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 7023,
-      "length": 59,
-      "value": "\"Failed to load Notify interest areas with error: \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 7081,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 7262,
-      "length": 50,
-      "value": "\"Failed to load Notify sites with error: \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 7311,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 7622,
-      "length": 54,
-      "value": "\"Failed to save Notify campaigns with error: \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 7675,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 8010,
-      "length": 58,
-      "value": "\"Failed to save Notify interest area with error: \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 8067,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 8360,
-      "length": 50,
-      "value": "\"Failed to save Notify sites with error: \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 8409,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "Array",
-      "offset": 8471,
-      "length": 2,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 8606,
-      "length": 60,
-      "value": "\"Failed to delete all Notify campaigns with error: \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 8665,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "Array",
-      "offset": 8733,
-      "length": 2,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 8872,
-      "length": 65,
-      "value": "\"Failed to delete all Notify interest areas with error: \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 8936,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "Array",
-      "offset": 8988,
-      "length": 2,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 9119,
-      "length": 56,
-      "value": "\"Failed to delete all Notify sites with error: \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 9174,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "Array",
-      "offset": 9288,
-      "length": 2,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 9437,
-      "length": 64,
-      "value": "\"Failed to fetch all Notify trigger events with error: \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 9500,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 9706,
-      "length": 65,
-      "value": "\"Failed to delete all Notify trigger events with error: \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 9770,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 10003,
-      "length": 67,
-      "value": "\"Failed to delete single Notify trigger event with error: \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 10069,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "Array",
-      "offset": 10198,
-      "length": 2,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 10393,
-      "length": 59,
-      "value": "\"Failed to fetch Notify trigger event with error: \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 10451,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 10660,
-      "length": 50,
-      "value": "\"Failed to save Notify sites with error: \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "StringLiteral",
-      "offset": 10709,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "Array",
-      "offset": 10830,
-      "length": 2,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
-      "kind": "IntegerLiteral",
-      "offset": 10932,
-      "length": 1,
-      "value": "0"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyAnalyticsBody.swift",
@@ -3769,69 +3397,6 @@
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/UserDefaultsKey.swift",
       "kind": "StringLiteral",
-      "offset": 403,
-      "length": 5,
-      "value": "\"lon\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/UserDefaultsKey.swift",
-      "kind": "StringLiteral",
-      "offset": 461,
-      "length": 5,
-      "value": "\"lat\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/UserDefaultsKey.swift",
-      "kind": "StringLiteral",
-      "offset": 518,
-      "length": 11,
-      "value": "\"timestamp\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/UserDefaultsKey.swift",
-      "kind": "StringLiteral",
-      "offset": 767,
-      "length": 5,
-      "value": "\"lon\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/UserDefaultsKey.swift",
-      "kind": "StringLiteral",
-      "offset": 825,
-      "length": 5,
-      "value": "\"lat\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/UserDefaultsKey.swift",
-      "kind": "StringLiteral",
-      "offset": 985,
-      "length": 11,
-      "value": "\"timestamp\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/UserDefaultsKey.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1079,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/UserDefaultsKey.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1102,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/UserDefaultsKey.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1123,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/UserDefaultsKey.swift",
-      "kind": "StringLiteral",
       "offset": 103,
       "length": 23,
       "value": "\"FlyBuyNotify.lastSync\""
@@ -3886,361 +3451,46 @@
       "value": "false"
     },
     {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/SyncHistory.swift",
-      "kind": "StringLiteral",
-      "offset": 476,
-      "length": 23,
-      "value": "\"backgroundTaskExpired\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/SyncHistory.swift",
-      "kind": "StringLiteral",
-      "offset": 534,
-      "length": 60,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/SyncHistory.swift",
-      "kind": "StringLiteral",
-      "offset": 584,
-      "length": 1,
-      "value": "\" \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/SyncHistory.swift",
-      "kind": "StringLiteral",
-      "offset": 593,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/SyncHistory.swift",
-      "kind": "StringLiteral",
-      "offset": 666,
-      "length": 60,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/SyncHistory.swift",
-      "kind": "StringLiteral",
-      "offset": 716,
-      "length": 4,
-      "value": "\" push try\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/SyncHistory.swift",
-      "kind": "StringLiteral",
-      "offset": 789,
-      "length": 19,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/SyncHistory.swift",
-      "kind": "StringLiteral",
-      "offset": 796,
-      "length": 4,
-      "value": "\" Push fetch\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/SyncHistory.swift",
-      "kind": "StringLiteral",
-      "offset": 894,
-      "length": 61,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/SyncHistory.swift",
-      "kind": "StringLiteral",
-      "offset": 944,
-      "length": 4,
-      "value": "\" push done\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/SyncHistory.swift",
-      "kind": "StringLiteral",
-      "offset": 996,
-      "length": 20,
-      "value": "\", Error = \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/SyncHistory.swift",
-      "kind": "StringLiteral",
-      "offset": 1015,
-      "length": 1,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/SyncHistory.swift",
-      "kind": "StringLiteral",
-      "offset": 1080,
-      "length": 19,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/SyncHistory.swift",
-      "kind": "StringLiteral",
-      "offset": 1087,
-      "length": 4,
-      "value": "\" Push fetch\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/SyncHistory.swift",
-      "kind": "StringLiteral",
-      "offset": 1170,
-      "length": 58,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/SyncHistory.swift",
-      "kind": "StringLiteral",
-      "offset": 1220,
-      "length": 2,
-      "value": "\" bg try\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/SyncHistory.swift",
-      "kind": "StringLiteral",
-      "offset": 1287,
-      "length": 17,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/SyncHistory.swift",
-      "kind": "StringLiteral",
-      "offset": 1294,
-      "length": 2,
-      "value": "\" BG fetch\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/SyncHistory.swift",
-      "kind": "StringLiteral",
-      "offset": 1389,
-      "length": 59,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/SyncHistory.swift",
-      "kind": "StringLiteral",
-      "offset": 1439,
-      "length": 2,
-      "value": "\" bg done\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/SyncHistory.swift",
-      "kind": "StringLiteral",
-      "offset": 1489,
-      "length": 20,
-      "value": "\", Error = \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/SyncHistory.swift",
-      "kind": "StringLiteral",
-      "offset": 1508,
-      "length": 1,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/SyncHistory.swift",
-      "kind": "StringLiteral",
-      "offset": 1573,
-      "length": 17,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/SyncHistory.swift",
-      "kind": "StringLiteral",
-      "offset": 1580,
-      "length": 2,
-      "value": "\" BG fetch\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/SyncHistory.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1687,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/SyncHistory.swift",
-      "kind": "Array",
-      "offset": 1746,
-      "length": 2,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/SyncHistory.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1790,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/SyncHistory.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1796,
-      "length": 2,
-      "value": "10"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/SyncHistory.swift",
-      "kind": "StringLiteral",
-      "offset": 1860,
-      "length": 36,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/SyncHistory.swift",
-      "kind": "StringLiteral",
-      "offset": 1887,
-      "length": 1,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/SyncHistory.swift",
-      "kind": "StringLiteral",
-      "offset": 1895,
-      "length": 15,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/SyncHistory.swift",
-      "kind": "StringLiteral",
-      "offset": 2059,
-      "length": 36,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/SyncHistory.swift",
-      "kind": "StringLiteral",
-      "offset": 2086,
-      "length": 1,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/SyncHistory.swift",
-      "kind": "StringLiteral",
-      "offset": 2094,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/SyncHistory.swift",
-      "kind": "BooleanLiteral",
-      "offset": 2198,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyInterestArea.swift",
-      "kind": "StringLiteral",
-      "offset": 228,
-      "length": 14,
-      "value": "\"beacon_major\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyInterestArea.swift",
-      "kind": "StringLiteral",
-      "offset": 228,
-      "length": 14,
-      "value": "\"beacon_major\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyInterestArea.swift",
-      "kind": "StringLiteral",
-      "offset": 347,
-      "length": 162,
-      "value": "\"  CREATE TABLE 'notify_interest_area' (\n    id INTEGER PRIMARY KEY NOT NULL,\n    name TEXT,\n    beacon_major INTEGER NOT NULL\n  );\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyInterestArea.swift",
-      "kind": "StringLiteral",
-      "offset": 556,
-      "length": 131,
-      "value": "\"  INSERT OR REPLACE INTO 'notify_interest_area' VALUES (\n    :id,\n    :name,\n    :beacon_major\n  );\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyInterestArea.swift",
-      "kind": "StringLiteral",
-      "offset": 736,
-      "length": 106,
-      "value": "\"  SELECT\n    id,\n    name,\n    beacon_major\n  FROM 'notify_interest_area';\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyInterestArea.swift",
-      "kind": "StringLiteral",
-      "offset": 926,
-      "length": 3,
-      "value": "\";\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyInterestArea.swift",
-      "kind": "StringLiteral",
-      "offset": 937,
-      "length": 16,
-      "value": "\" WHERE id=:id;\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyInterestArea.swift",
-      "kind": "StringLiteral",
-      "offset": 1004,
-      "length": 37,
-      "value": "\"DELETE FROM 'notify_interest_area';\""
-    },
-    {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifySite.swift",
       "kind": "StringLiteral",
-      "offset": 341,
+      "offset": 316,
       "length": 20,
       "value": "\"partner_identifier\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifySite.swift",
       "kind": "StringLiteral",
-      "offset": 388,
+      "offset": 363,
       "length": 17,
       "value": "\"distance_meters\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifySite.swift",
       "kind": "StringLiteral",
-      "offset": 466,
+      "offset": 441,
       "length": 14,
       "value": "\"beacon_minor\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifySite.swift",
       "kind": "StringLiteral",
-      "offset": 504,
-      "length": 14,
-      "value": "\"campaign_ids\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifySite.swift",
-      "kind": "StringLiteral",
-      "offset": 341,
+      "offset": 316,
       "length": 20,
       "value": "\"partner_identifier\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifySite.swift",
       "kind": "StringLiteral",
-      "offset": 388,
+      "offset": 363,
       "length": 17,
       "value": "\"distance_meters\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifySite.swift",
       "kind": "StringLiteral",
-      "offset": 466,
+      "offset": 441,
       "length": 14,
       "value": "\"beacon_minor\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifySite.swift",
-      "kind": "StringLiteral",
-      "offset": 504,
-      "length": 14,
-      "value": "\"campaign_ids\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifySite.swift",
@@ -4250,88 +3500,11 @@
       "value": "\"FlyBuyNotify.NotifySite\""
     },
     {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifySite.swift",
-      "kind": "StringLiteral",
-      "offset": 1240,
-      "length": 301,
-      "value": "\"  CREATE TABLE 'notify_site' (\n    id INTEGER PRIMARY KEY NOT NULL,\n    partner_identifier TEXT,\n    distance_meters INTEGER NOT NULL,\n    latitude TEXT NOT NULL,\n    longitude TEXT NOT NULL,\n    beacon_minor INTEGER,\n    campaign_ids TEXT NOT NULL\n  );\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifySite.swift",
-      "kind": "StringLiteral",
-      "offset": 1588,
-      "length": 224,
-      "value": "\"  INSERT OR REPLACE INTO 'notify_site' VALUES (\n    :id,\n    :partner_identifier,\n    :distance_meters,\n    :latitude,\n    :longitude,\n    :beacon_minor,\n    :campaign_ids\n  );\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifySite.swift",
-      "kind": "StringLiteral",
-      "offset": 1861,
-      "length": 230,
-      "value": "\"  SELECT\n    id,\n    partner_identifier,\n    distance_meters,\n    latitude,\n    longitude,\n    beacon_minor,\n    campaign_ids\n  FROM 'notify_site'\n  ORDER BY distance_meters ASC;\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifySite.swift",
-      "kind": "StringLiteral",
-      "offset": 2175,
-      "length": 3,
-      "value": "\";\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifySite.swift",
-      "kind": "StringLiteral",
-      "offset": 2186,
-      "length": 16,
-      "value": "\" WHERE id=:id;\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifySite.swift",
-      "kind": "StringLiteral",
-      "offset": 2253,
-      "length": 28,
-      "value": "\"DELETE FROM 'notify_site';\""
-    },
-    {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/Date.swift",
       "kind": "StringLiteral",
       "offset": 286,
       "length": 12,
       "value": "\"yyyy-MM-dd\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/Date.swift",
-      "kind": "IntegerLiteral",
-      "offset": 791,
-      "length": 2,
-      "value": "24"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/Date.swift",
-      "kind": "IntegerLiteral",
-      "offset": 796,
-      "length": 2,
-      "value": "60"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/Date.swift",
-      "kind": "IntegerLiteral",
-      "offset": 801,
-      "length": 2,
-      "value": "60"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/Date.swift",
-      "kind": "IntegerLiteral",
-      "offset": 807,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/Array.swift",
-      "kind": "IntegerLiteral",
-      "offset": 109,
-      "length": 1,
-      "value": "0"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyAnalyticsEvent.swift",
@@ -4376,104 +3549,6 @@
       "value": "\"FlyBuyNotify.NotifyAnalyticsEvent\""
     },
     {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyAnalyticsEvent.swift",
-      "kind": "StringLiteral",
-      "offset": 944,
-      "length": 236,
-      "value": "\"  CREATE TABLE 'notify_analytics_event' (\n    guid TEXT PRIMARY KEY NOT NULL,\n    name TEXT NOT NULL,\n    occurred_at TEXT NOT NULL,\n    campaign_id INTEGER NOT NULL,\n    params TEXT NOT NULL\n  );\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyAnalyticsEvent.swift",
-      "kind": "StringLiteral",
-      "offset": 1227,
-      "length": 173,
-      "value": "\"  INSERT OR REPLACE INTO 'notify_analytics_event' VALUES (\n    :guid,\n    :name,\n    :occurred_at,\n    :campaign_id,\n    :params\n  );\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyAnalyticsEvent.swift",
-      "kind": "StringLiteral",
-      "offset": 1449,
-      "length": 146,
-      "value": "\"  SELECT\n    guid,\n    name,\n    occurred_at,\n    campaign_id,\n    params\n  FROM 'notify_analytics_event';\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyAnalyticsEvent.swift",
-      "kind": "StringLiteral",
-      "offset": 1679,
-      "length": 3,
-      "value": "\";\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyAnalyticsEvent.swift",
-      "kind": "StringLiteral",
-      "offset": 1690,
-      "length": 42,
-      "value": "\" WHERE guid=\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyAnalyticsEvent.swift",
-      "kind": "StringLiteral",
-      "offset": 1728,
-      "length": 1,
-      "value": "\"\";\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyAnalyticsEvent.swift",
-      "kind": "StringLiteral",
-      "offset": 1785,
-      "length": 39,
-      "value": "\"DELETE FROM 'notify_analytics_event';\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyAnalyticsEvent.swift",
-      "kind": "StringLiteral",
-      "offset": 1912,
-      "length": 3,
-      "value": "\";\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyAnalyticsEvent.swift",
-      "kind": "StringLiteral",
-      "offset": 1923,
-      "length": 42,
-      "value": "\" WHERE guid=\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyAnalyticsEvent.swift",
-      "kind": "StringLiteral",
-      "offset": 1961,
-      "length": 1,
-      "value": "\"\";\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaignsResponse.swift",
-      "kind": "StringLiteral",
-      "offset": 237,
-      "length": 16,
-      "value": "\"interest_areas\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaignsResponse.swift",
-      "kind": "StringLiteral",
-      "offset": 237,
-      "length": 16,
-      "value": "\"interest_areas\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaignsResponse.swift",
-      "kind": "StringLiteral",
-      "offset": 436,
-      "length": 27,
-      "value": "\"min_sync_interval_seconds\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaignsResponse.swift",
-      "kind": "StringLiteral",
-      "offset": 436,
-      "length": 27,
-      "value": "\"min_sync_interval_seconds\""
-    },
-    {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaignContent.swift",
       "kind": "StringLiteral",
       "offset": 241,
@@ -4509,41 +3584,6 @@
       "value": "\"FlyBuyNotify.NotifyCampaignContent\""
     },
     {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/UserNotificationCenter.swift",
-      "kind": "BooleanLiteral",
-      "offset": 694,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/UserNotificationCenter.swift",
-      "kind": "BooleanLiteral",
-      "offset": 937,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/UserNotificationCenter.swift",
-      "kind": "BooleanLiteral",
-      "offset": 978,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/UserNotificationCenter.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1049,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/UserNotificationCenter.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1093,
-      "length": 5,
-      "value": "false"
-    },
-    {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LocationManager.swift",
       "kind": "IntegerLiteral",
       "offset": 177,
@@ -4565,230 +3605,6 @@
       "value": "10"
     },
     {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LocationManager.swift",
-      "kind": "StringLiteral",
-      "offset": 987,
-      "length": 30,
-      "value": "\"SyncDebug: requestLocation()\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LocationManager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1175,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LocationManager.swift",
-      "kind": "StringLiteral",
-      "offset": 1372,
-      "length": 35,
-      "value": "\"SyncDebug: callLocationCallback()\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LocationManager.swift",
-      "kind": "StringLiteral",
-      "offset": 1815,
-      "length": 38,
-      "value": "\"SyncDebug: requestLocationIfNeeded()\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LocationManager.swift",
-      "kind": "StringLiteral",
-      "offset": 1928,
-      "length": 36,
-      "value": "\"SyncDebug: using existing location\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LocationManager.swift",
-      "kind": "StringLiteral",
-      "offset": 2434,
-      "length": 55,
-      "value": "\"SyncDebug: locationManager didFailWithError: \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LocationManager.swift",
-      "kind": "StringLiteral",
-      "offset": 2488,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LocationManager.swift",
-      "kind": "StringLiteral",
-      "offset": 2745,
-      "length": 70,
-      "value": "\"SyncDebug: locationManager didUpdateLocations error .locationUnknown\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LocationManager.swift",
-      "kind": "StringLiteral",
-      "offset": 3047,
-      "length": 55,
-      "value": "\"SyncDebug: locationManager didUpdateLocations success\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LocationManager.swift",
-      "kind": "StringLiteral",
-      "offset": 3418,
-      "length": 27,
-      "value": "\"SyncDebug: rangeForSite()\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LocationManager.swift",
-      "kind": "StringLiteral",
-      "offset": 3527,
-      "length": 60,
-      "value": "\"SyncDebug: CLLocationManager.isRangingAvailable() == false\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LocationManager.swift",
-      "kind": "StringLiteral",
-      "offset": 3821,
-      "length": 44,
-      "value": "\"SyncDebug: >= iOS 13 - startRangingBeacons\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LocationManager.swift",
-      "kind": "StringLiteral",
-      "offset": 4023,
-      "length": 43,
-      "value": "\"SyncDebug: < iOS 13 - startRangingBeacons\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LocationManager.swift",
-      "kind": "StringLiteral",
-      "offset": 4167,
-      "length": 19,
-      "value": "\"FlyBuyNotify.Site\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LocationManager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 4372,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LocationManager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 4395,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LocationManager.swift",
-      "kind": "StringLiteral",
-      "offset": 4571,
-      "length": 59,
-      "value": "\"SyncDebug: rangeForSiteIfNeeded.notifyModuleNotConfigured\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LocationManager.swift",
-      "kind": "StringLiteral",
-      "offset": 4822,
-      "length": 36,
-      "value": "\"SyncDebug: lastRangeResultNotStale\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LocationManager.swift",
-      "kind": "StringLiteral",
-      "offset": 5172,
-      "length": 69,
-      "value": "\"SyncDebug: Not ranging for beacons because app is in the background\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LocationManager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 5415,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LocationManager.swift",
-      "kind": "StringLiteral",
-      "offset": 5906,
-      "length": 51,
-      "value": "\"SyncDebug: iOS 11 locationManager didRangeBeacons\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LocationManager.swift",
-      "kind": "StringLiteral",
-      "offset": 6039,
-      "length": 46,
-      "value": "\"SyncDebug: didRangeBeacons, no beacons found\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LocationManager.swift",
-      "kind": "StringLiteral",
-      "offset": 6156,
-      "length": 83,
-      "value": "\"SyncDebug: didRangeBeacons, rangingShouldExpire == true, stopping ranging beacons\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LocationManager.swift",
-      "kind": "StringLiteral",
-      "offset": 6396,
-      "length": 73,
-      "value": "\"SyncDebug: didRangeBeacons, rangingShouldExpire == false, doing nothing\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LocationManager.swift",
-      "kind": "StringLiteral",
-      "offset": 6524,
-      "length": 42,
-      "value": "\"SyncDebug: didRangeBeacons, beacon found\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LocationManager.swift",
-      "kind": "StringLiteral",
-      "offset": 6839,
-      "length": 57,
-      "value": "\"SyncDebug: iOS 11 locationManager rangingBeaconsDidFail\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LocationManager.swift",
-      "kind": "StringLiteral",
-      "offset": 7182,
-      "length": 51,
-      "value": "\"SyncDebug: iOS 13 locationManager didRangeBeacons\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LocationManager.swift",
-      "kind": "StringLiteral",
-      "offset": 7315,
-      "length": 46,
-      "value": "\"SyncDebug: didRangeBeacons, no beacons found\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LocationManager.swift",
-      "kind": "StringLiteral",
-      "offset": 7432,
-      "length": 83,
-      "value": "\"SyncDebug: didRangeBeacons, rangingShouldExpire == true, stopping ranging beacons\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LocationManager.swift",
-      "kind": "StringLiteral",
-      "offset": 7690,
-      "length": 73,
-      "value": "\"SyncDebug: didRangeBeacons, rangingShouldExpire == false, doing nothing\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LocationManager.swift",
-      "kind": "StringLiteral",
-      "offset": 7818,
-      "length": 42,
-      "value": "\"SyncDebug: didRangeBeacons, beacon found\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LocationManager.swift",
-      "kind": "StringLiteral",
-      "offset": 8156,
-      "length": 57,
-      "value": "\"SyncDebug: iOS 13 locationManager rangingBeaconsDidFail\""
-    },
-    {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyAnalyticsEventType.swift",
       "kind": "IntegerLiteral",
       "offset": 119,
@@ -4803,88 +3619,32 @@
       "value": "2"
     },
     {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyAnalyticsEventType.swift",
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyNotifications.swift",
       "kind": "StringLiteral",
-      "offset": 282,
-      "length": 24,
-      "value": "\"notification_triggered\""
+      "offset": 201,
+      "length": 13,
+      "value": "\"campaign_id\""
     },
     {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyAnalyticsEventType.swift",
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyNotifications.swift",
       "kind": "StringLiteral",
-      "offset": 351,
-      "length": 22,
-      "value": "\"notification_clicked\""
+      "offset": 233,
+      "length": 9,
+      "value": "\"site_id\""
     },
     {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyAnalyticsEventType.swift",
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyNotifications.swift",
       "kind": "StringLiteral",
-      "offset": 407,
-      "length": 11,
-      "value": "\"sdk_error\""
+      "offset": 201,
+      "length": 13,
+      "value": "\"campaign_id\""
     },
     {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyAnalyticsEventType.swift",
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyNotifications.swift",
       "kind": "StringLiteral",
-      "offset": 493,
-      "length": 24,
-      "value": "\"notification_triggered\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyAnalyticsEventType.swift",
-      "kind": "StringLiteral",
-      "offset": 564,
-      "length": 22,
-      "value": "\"notification_clicked\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyAnalyticsEventType.swift",
-      "kind": "StringLiteral",
-      "offset": 631,
-      "length": 32,
-      "value": "\"notification_permission_denied\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Networking\/Notify\/Endpoints\/GetNotifySitesEndpoint.swift",
-      "kind": "StringLiteral",
-      "offset": 170,
-      "length": 27,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Networking\/Notify\/Endpoints\/GetNotifySitesEndpoint.swift",
-      "kind": "StringLiteral",
-      "offset": 183,
-      "length": 1,
-      "value": "\"\/notify\/sites\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Networking\/Notify\/Endpoints\/GetNotifySitesEndpoint.swift",
-      "kind": "Dictionary",
-      "offset": 335,
-      "length": 3,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Networking\/Notify\/Endpoints\/GetNotifySitesEndpoint.swift",
-      "kind": "StringLiteral",
-      "offset": 379,
-      "length": 10,
-      "value": "\"latitude\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Networking\/Notify\/Endpoints\/GetNotifySitesEndpoint.swift",
-      "kind": "StringLiteral",
-      "offset": 454,
-      "length": 11,
-      "value": "\"longitude\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Networking\/Notify\/Endpoints\/GetNotifySitesEndpoint.swift",
-      "kind": "StringLiteral",
-      "offset": 531,
-      "length": 8,
-      "value": "\"radius\""
+      "offset": 233,
+      "length": 9,
+      "value": "\"site_id\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LoadedCampaigns.swift",
@@ -4892,48 +3652,6 @@
       "offset": 156,
       "length": 3,
       "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LoadedCampaigns.swift",
-      "kind": "Dictionary",
-      "offset": 254,
-      "length": 3,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LoadedCampaigns.swift",
-      "kind": "StringLiteral",
-      "offset": 359,
-      "length": 3,
-      "value": "\",\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LoadedCampaigns.swift",
-      "kind": "StringLiteral",
-      "offset": 666,
-      "length": 3,
-      "value": "\",\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LoadedCampaigns.swift",
-      "kind": "Array",
-      "offset": 1150,
-      "length": 2,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LoadedCampaigns.swift",
-      "kind": "BooleanLiteral",
-      "offset": 2146,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Helpers\/LoadedCampaigns.swift",
-      "kind": "BooleanLiteral",
-      "offset": 2176,
-      "length": 5,
-      "value": "false"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyTriggerEvent.swift",
@@ -4985,382 +3703,123 @@
       "value": "\"FlyBuyNotify.NotifyTriggerEvent\""
     },
     {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyTriggerEvent.swift",
-      "kind": "StringLiteral",
-      "offset": 578,
-      "length": 181,
-      "value": "\"  CREATE TABLE IF NOT EXISTS 'notify_trigger_event' (\n    last_triggered_at TEXT NOT NULL,\n    campaign_id INTEGER NOT NULL,\n    site_id INTEGER\n  );\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyTriggerEvent.swift",
-      "kind": "StringLiteral",
-      "offset": 806,
-      "length": 148,
-      "value": "\"  INSERT OR REPLACE INTO 'notify_trigger_event' VALUES (\n    :last_triggered_at,\n    :campaign_id,\n    :site_id\n  );\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyTriggerEvent.swift",
-      "kind": "StringLiteral",
-      "offset": 1003,
-      "length": 123,
-      "value": "\"  SELECT\n    last_triggered_at,\n    campaign_id,\n    site_id\n  FROM 'notify_trigger_event';\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyTriggerEvent.swift",
-      "kind": "StringLiteral",
-      "offset": 1176,
-      "length": 37,
-      "value": "\"DELETE FROM 'notify_trigger_event';\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyTriggerEvent.swift",
-      "kind": "StringLiteral",
-      "offset": 1322,
-      "length": 3,
-      "value": "\";\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyTriggerEvent.swift",
-      "kind": "StringLiteral",
-      "offset": 1333,
-      "length": 39,
-      "value": "\" WHERE campaign_id=\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyTriggerEvent.swift",
-      "kind": "StringLiteral",
-      "offset": 1368,
-      "length": 1,
-      "value": "\"\";\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyTriggerEvent.swift",
-      "kind": "StringLiteral",
-      "offset": 1480,
-      "length": 3,
-      "value": "\";\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyTriggerEvent.swift",
-      "kind": "StringLiteral",
-      "offset": 1491,
-      "length": 39,
-      "value": "\" WHERE campaign_id=\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyTriggerEvent.swift",
-      "kind": "StringLiteral",
-      "offset": 1526,
-      "length": 1,
-      "value": "\"\";\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaignTargetingType.swift",
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaignRegionType.swift",
       "kind": "IntegerLiteral",
-      "offset": 117,
-      "length": 20,
+      "offset": 106,
+      "length": 6,
       "value": "1"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaignTargetingType.swift",
-      "kind": "IntegerLiteral",
-      "offset": 145,
-      "length": 10,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaignTargetingType.swift",
-      "kind": "StringLiteral",
-      "offset": 278,
-      "length": 19,
-      "value": "\"geofence_approach\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaignTargetingType.swift",
-      "kind": "StringLiteral",
-      "offset": 343,
-      "length": 25,
-      "value": "\"beacon_area_of_interest\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaignTargetingType.swift",
-      "kind": "StringLiteral",
-      "offset": 404,
-      "length": 13,
-      "value": "\"beacon_site\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaignTargetingType.swift",
-      "kind": "StringLiteral",
-      "offset": 492,
-      "length": 19,
-      "value": "\"geofence_approach\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaignTargetingType.swift",
-      "kind": "StringLiteral",
-      "offset": 553,
-      "length": 25,
-      "value": "\"beacon_area_of_interest\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaignTargetingType.swift",
-      "kind": "StringLiteral",
-      "offset": 624,
-      "length": 13,
-      "value": "\"beacon_site\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
       "kind": "StringLiteral",
-      "offset": 421,
+      "offset": 439,
       "length": 26,
       "value": "\"FlyBuy.Notify.CampaignID\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
       "kind": "StringLiteral",
-      "offset": 471,
+      "offset": 489,
       "length": 22,
       "value": "\"FlyBuy.Notify.SiteID\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
       "kind": "StringLiteral",
-      "offset": 1120,
-      "length": 16,
-      "value": "\"targeting_type\""
+      "offset": 1168,
+      "length": 13,
+      "value": "\"region_type\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
       "kind": "StringLiteral",
-      "offset": 1163,
-      "length": 18,
-      "value": "\"interest_area_id\""
+      "offset": 1204,
+      "length": 13,
+      "value": "\"beacon_uuid\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
       "kind": "StringLiteral",
-      "offset": 1202,
+      "offset": 1241,
+      "length": 14,
+      "value": "\"beacon_major\""
+    },
+    {
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
+      "kind": "StringLiteral",
+      "offset": 1276,
       "length": 11,
       "value": "\"start_day\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
       "kind": "StringLiteral",
-      "offset": 1232,
+      "offset": 1306,
       "length": 9,
       "value": "\"end_day\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
       "kind": "StringLiteral",
-      "offset": 1297,
+      "offset": 1371,
       "length": 24,
       "value": "\"geofence_radius_meters\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
       "kind": "StringLiteral",
-      "offset": 1364,
+      "offset": 1438,
       "length": 17,
       "value": "\"defer_on_pickup\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
       "kind": "StringLiteral",
-      "offset": 1120,
-      "length": 16,
-      "value": "\"targeting_type\""
+      "offset": 1168,
+      "length": 13,
+      "value": "\"region_type\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
       "kind": "StringLiteral",
-      "offset": 1163,
-      "length": 18,
-      "value": "\"interest_area_id\""
+      "offset": 1204,
+      "length": 13,
+      "value": "\"beacon_uuid\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
       "kind": "StringLiteral",
-      "offset": 1202,
+      "offset": 1241,
+      "length": 14,
+      "value": "\"beacon_major\""
+    },
+    {
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
+      "kind": "StringLiteral",
+      "offset": 1276,
       "length": 11,
       "value": "\"start_day\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
       "kind": "StringLiteral",
-      "offset": 1232,
+      "offset": 1306,
       "length": 9,
       "value": "\"end_day\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
       "kind": "StringLiteral",
-      "offset": 1297,
+      "offset": 1371,
       "length": 24,
       "value": "\"geofence_radius_meters\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
       "kind": "StringLiteral",
-      "offset": 1364,
+      "offset": 1438,
       "length": 17,
       "value": "\"defer_on_pickup\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1604,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
-      "kind": "Dictionary",
-      "offset": 2067,
-      "length": 3,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
-      "kind": "BooleanLiteral",
-      "offset": 2927,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
-      "kind": "StringLiteral",
-      "offset": 3276,
-      "length": 63,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
-      "kind": "StringLiteral",
-      "offset": 3303,
-      "length": 17,
-      "value": "\" geofence_approach \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
-      "kind": "StringLiteral",
-      "offset": 3327,
-      "length": 1,
-      "value": "\" \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
-      "kind": "StringLiteral",
-      "offset": 3338,
-      "length": 1,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
-      "kind": "BooleanLiteral",
-      "offset": 3463,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
-      "kind": "BooleanLiteral",
-      "offset": 3496,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
-      "kind": "StringLiteral",
-      "offset": 3827,
-      "length": 56,
-      "value": "\"Can't request notification - no beacon UUID configured\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
-      "kind": "StringLiteral",
-      "offset": 3930,
-      "length": 46,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
-      "kind": "StringLiteral",
-      "offset": 3957,
-      "length": 11,
-      "value": "\" beacon_site \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
-      "kind": "StringLiteral",
-      "offset": 3975,
-      "length": 1,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
-      "kind": "BooleanLiteral",
-      "offset": 4086,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
-      "kind": "BooleanLiteral",
-      "offset": 4119,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
-      "kind": "StringLiteral",
-      "offset": 4469,
-      "length": 56,
-      "value": "\"Can't request notification - no beacon UUID configured\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
-      "kind": "StringLiteral",
-      "offset": 4631,
-      "length": 52,
-      "value": "\"Can't request notification - unknown interest area\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
-      "kind": "StringLiteral",
-      "offset": 4730,
-      "length": 58,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
-      "kind": "StringLiteral",
-      "offset": 4757,
-      "length": 23,
-      "value": "\" beacon_area_of_interest \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
-      "kind": "StringLiteral",
-      "offset": 4787,
-      "length": 1,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
-      "kind": "BooleanLiteral",
-      "offset": 4918,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
-      "kind": "BooleanLiteral",
-      "offset": 4951,
-      "length": 4,
-      "value": "true"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
@@ -5370,67 +3829,18 @@
       "value": "\"FlyBuyNotify.NotifyCampaign\""
     },
     {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyNotificationsResponse.swift",
       "kind": "StringLiteral",
-      "offset": 5131,
-      "length": 337,
-      "value": "\"  CREATE TABLE 'notify_campaign' (\n    id INTEGER PRIMARY KEY NOT NULL,\n    targeting_type INTEGER NOT NULL,\n    interest_area_id INTEGER,\n    start_day TEXT NOT NULL,\n    end_day TEXT NOT NULL,\n    repeatability TEXT NOT NULL,\n    geofence_radius_meters INTEGER,\n    content TEXT\n  );\""
+      "offset": 334,
+      "length": 27,
+      "value": "\"min_sync_interval_seconds\""
     },
     {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyNotificationsResponse.swift",
       "kind": "StringLiteral",
-      "offset": 5524,
-      "length": 389,
-      "value": "\"  CREATE TABLE 'notify_campaign' (\n    id INTEGER PRIMARY KEY NOT NULL,\n    targeting_type INTEGER NOT NULL,\n    interest_area_id INTEGER,\n    start_day TEXT NOT NULL,\n    end_day TEXT NOT NULL,\n    repeatability TEXT NOT NULL,\n    geofence_radius_meters INTEGER,\n    content TEXT,\n    defer_on_pickup BOOLEAN NOT NULL DEFAULT 0\n  );\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
-      "kind": "StringLiteral",
-      "offset": 5962,
-      "length": 279,
-      "value": "\"  INSERT OR REPLACE INTO 'notify_campaign' VALUES (\n    :id,\n    :targeting_type,\n    :interest_area_id,\n    :start_day,\n    :end_day,\n    :repeatability,\n    :geofence_radius_meters,\n    :content,\n    :defer_on_pickup\n  );\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
-      "kind": "StringLiteral",
-      "offset": 6292,
-      "length": 248,
-      "value": "\"  SELECT\n    id,\n    targeting_type,\n    interest_area_id,\n    start_day,\n    end_day,\n    repeatability,\n    geofence_radius_meters,\n    content,\n    defer_on_pickup\n  FROM 'notify_campaign';\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
-      "kind": "StringLiteral",
-      "offset": 6626,
-      "length": 3,
-      "value": "\";\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
-      "kind": "StringLiteral",
-      "offset": 6637,
-      "length": 16,
-      "value": "\" WHERE id=:id;\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
-      "kind": "StringLiteral",
-      "offset": 6706,
-      "length": 32,
-      "value": "\"DELETE FROM 'notify_campaign';\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7474,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
-      "kind": "BooleanLiteral",
-      "offset": 7531,
-      "length": 5,
-      "value": "false"
+      "offset": 334,
+      "length": 27,
+      "value": "\"min_sync_interval_seconds\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaignNotification.swift",
@@ -5438,34 +3848,6 @@
       "offset": 25,
       "length": 26,
       "value": "\"FlyBuyNotify.NotifyCampaignNotification\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaignNotification.swift",
-      "kind": "BooleanLiteral",
-      "offset": 695,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaignNotification.swift",
-      "kind": "BooleanLiteral",
-      "offset": 728,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Networking\/Notify\/Endpoints\/UploadNotifyAnalyticsEndpoint.swift",
-      "kind": "StringLiteral",
-      "offset": 229,
-      "length": 37,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Networking\/Notify\/Endpoints\/UploadNotifyAnalyticsEndpoint.swift",
-      "kind": "StringLiteral",
-      "offset": 242,
-      "length": 1,
-      "value": "\"\/notify\/campaign_events\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotificationInfo.swift",
@@ -5512,23 +3894,9 @@
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyDBManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 470,
+      "offset": 518,
       "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyDBManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 486,
-      "length": 1,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyDBManager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 502,
-      "length": 1,
-      "value": "3"
+      "value": "4"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyDBManager.swift",
@@ -5550,90 +3918,48 @@
       "offset": 502,
       "length": 1,
       "value": "3"
+    },
+    {
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyDBManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 518,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyDBManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 470,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyDBManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 486,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyDBManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 502,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyDBManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 518,
+      "length": 1,
+      "value": "4"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyDBManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 594,
+      "offset": 610,
       "length": 4,
       "value": "true"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyDBManager.swift",
-      "kind": "StringLiteral",
-      "offset": 1060,
-      "length": 475,
-      "value": "\"CREATE TABLE 'notify_campaign' (\n          id INTEGER PRIMARY KEY NOT NULL,\n          targeting_type INTEGER NOT NULL,\n          interest_area_id INTEGER,\n          start_day TEXT NOT NULL,\n          end_day TEXT NOT NULL,\n          repeatability TEXT NOT NULL,\n          geofence_radius_meters INTEGER,\n          content TEXT,\n          last_triggered_at TEXT\n        );\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyDBManager.swift",
-      "kind": "StringLiteral",
-      "offset": 1783,
-      "length": 64,
-      "value": "\"ALTER TABLE 'notify_campaign' RENAME TO 'old_notify_campaign';\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyDBManager.swift",
-      "kind": "StringLiteral",
-      "offset": 1947,
-      "length": 638,
-      "value": "\"INSERT INTO 'notify_campaign' (\n          id,\n          targeting_type,\n          interest_area_id,\n          start_day,\n          end_day,\n          repeatability,\n          geofence_radius_meters,\n          content\n        )\n        SELECT\n          id,\n          targeting_type,\n          interest_area_id,\n          start_day,\n          end_day,\n          repeatability,\n          geofence_radius_meters,\n          content\n        FROM 'old_notify_campaign';\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyDBManager.swift",
-      "kind": "StringLiteral",
-      "offset": 2689,
-      "length": 250,
-      "value": "\"INSERT INTO 'notify_trigger_event' (\n  campaign_id,\n  last_triggered_at\n)\nSELECT\n  id,\n  last_triggered_at\nFROM 'old_notify_campaign' WHERE last_triggered_at IS NOT NULL;\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyDBManager.swift",
-      "kind": "StringLiteral",
-      "offset": 2976,
-      "length": 35,
-      "value": "\"DROP TABLE 'old_notify_campaign';\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyDBManager.swift",
-      "kind": "StringLiteral",
-      "offset": 3064,
-      "length": 64,
-      "value": "\"ALTER TABLE 'notify_campaign' RENAME TO 'old_notify_campaign';\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyDBManager.swift",
-      "kind": "StringLiteral",
-      "offset": 3230,
-      "length": 638,
-      "value": "\"INSERT INTO 'notify_campaign' (\n          id,\n          targeting_type,\n          interest_area_id,\n          start_day,\n          end_day,\n          repeatability,\n          geofence_radius_meters,\n          content\n        )\n        SELECT\n          id,\n          targeting_type,\n          interest_area_id,\n          start_day,\n          end_day,\n          repeatability,\n          geofence_radius_meters,\n          content\n        FROM 'old_notify_campaign';\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyDBManager.swift",
-      "kind": "StringLiteral",
-      "offset": 3905,
-      "length": 35,
-      "value": "\"DROP TABLE 'old_notify_campaign';\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyDBManager.swift",
-      "kind": "StringLiteral",
-      "offset": 4033,
-      "length": 67,
-      "value": "\"Could not execute Notify migration \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyDBManager.swift",
-      "kind": "StringLiteral",
-      "offset": 4079,
-      "length": 4,
-      "value": "\" with error:\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyDBManager.swift",
-      "kind": "StringLiteral",
-      "offset": 4099,
-      "length": 2,
-      "value": "\"\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
@@ -5659,1694 +3985,273 @@
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "StringLiteral",
-      "offset": 757,
+      "offset": 439,
+      "length": 26,
+      "value": "\"notifyNotificationsError\""
+    },
+    {
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
+      "kind": "StringLiteral",
+      "offset": 843,
       "length": 16,
       "value": "\"message_source\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "StringLiteral",
-      "offset": 812,
+      "offset": 898,
       "length": 15,
       "value": "\"flybuy.notify\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "StringLiteral",
-      "offset": 868,
+      "offset": 954,
       "length": 18,
       "value": "\"flybuy.notify.v2\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "StringLiteral",
-      "offset": 936,
+      "offset": 1022,
       "length": 27,
       "value": "\"flybuy.notify.deeplinkURL\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "StringLiteral",
-      "offset": 1000,
+      "offset": 1086,
       "length": 14,
       "value": "\"FlyBuyNotify\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "IntegerLiteral",
-      "offset": 1049,
+      "offset": 1135,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "BooleanLiteral",
-      "offset": 1087,
+      "offset": 1173,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "StringLiteral",
-      "offset": 1286,
+      "offset": 1372,
       "length": 21,
       "value": "\"FlyBuyNotify.serial\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "IntegerLiteral",
-      "offset": 1822,
+      "offset": 1908,
       "length": 2,
       "value": "60"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "IntegerLiteral",
-      "offset": 1827,
+      "offset": 1913,
       "length": 2,
       "value": "60"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "IntegerLiteral",
-      "offset": 1832,
+      "offset": 1918,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "StringLiteral",
-      "offset": 2020,
+      "offset": 2106,
       "length": 70,
       "value": "\"Error clearing campaign notifications: \""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "StringLiteral",
-      "offset": 2089,
+      "offset": 2175,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "BooleanLiteral",
-      "offset": 1866,
+      "offset": 1952,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "BooleanLiteral",
-      "offset": 2167,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 4466,
-      "length": 34,
-      "value": "\"FlyBuyNotify Manager configure()\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 4717,
-      "length": 23,
-      "value": "\"FlyBuyModuleConfigure\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 4783,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 4840,
-      "length": 29,
-      "value": "\"FlyBuyNotify Manager deinit\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 4923,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 5024,
-      "length": 29,
-      "value": "\"SyncDebug: fetchCampaigns()\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 5130,
-      "length": 35,
-      "value": "\"SyncDebug: Core is not configured\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 5484,
-      "length": 77,
-      "value": "\"SyncDebug: fetchCampaigns() failed with error \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 5560,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 5662,
-      "length": 38,
-      "value": "\"SyncDebug: fetchCampaigns() success.\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 5793,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 5961,
-      "length": 25,
-      "value": "\"SyncDebug: fetchSites()\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7554,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 7824,
-      "length": 38,
-      "value": "\"Invalid sites, sites variable is nil\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 9605,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 9670,
-      "length": 37,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 9695,
-      "length": 1,
-      "value": "\" \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 9706,
-      "length": 50,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 9983,
-      "length": 110,
-      "value": "\"Failed to add notification request \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 10049,
-      "length": 1,
-      "value": "\", with error: \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 10092,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 10928,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 11446,
+      "offset": 2253,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "BooleanLiteral",
-      "offset": 11531,
+      "offset": 5016,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "Dictionary",
-      "offset": 12012,
+      "offset": 13977,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 12516,
-      "length": 37,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 12541,
-      "length": 1,
-      "value": "\" \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 12552,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 12586,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 12621,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 12853,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 12926,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 12970,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 13010,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 13142,
-      "length": 37,
-      "value": "\"SyncDebug: Syncing analytics events\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 13275,
-      "length": 50,
-      "value": "\"SyncDebug: shouldUploadAnalyticsEvents() = false\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 13353,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 13571,
-      "length": 35,
-      "value": "\"Error syncing analytics: \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 13605,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 13894,
-      "length": 34,
-      "value": "\"FlyBuyNotify.syncAnalyticsEvents\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 14212,
-      "length": 38,
-      "value": "\"SyncDebug: uploadAnalyticsEventsInDB\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 14441,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "Dictionary",
-      "offset": 14671,
-      "length": 3,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 14712,
-      "length": 37,
-      "value": "\"SyncDebug: Logging analytics events\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 14943,
-      "length": 37,
-      "value": "\"SyncDebug: Logging SDK error events\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 15044,
-      "length": 8,
-      "value": "\"reason\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 15067,
-      "length": 9,
-      "value": "\"message\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 15246,
-      "length": 37,
-      "value": "\"SyncDebug: Logging triggered events\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 15504,
-      "length": 9,
-      "value": "\"site_id\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "Dictionary",
-      "offset": 15602,
-      "length": 3,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 15675,
-      "length": 9,
-      "value": "\"site_id\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 15786,
-      "length": 14,
-      "value": "\"beacon_major\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 15901,
-      "length": 14,
-      "value": "\"beacon_minor\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 16498,
-      "length": 32,
-      "value": "\"Orders Updated \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 16529,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 16836,
-      "length": 30,
-      "value": "\"SyncDebug: AppConfig Updated\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 17066,
-      "length": 31,
-      "value": "\"SyncDebug: Notify not enabled\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 17198,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 17301,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 17586,
-      "length": 48,
-      "value": "\"Starting sync initiated from push notification\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 17877,
-      "length": 88,
-      "value": "\"Failed sync initiated from push notification with error: \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 17964,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 18031,
-      "length": 48,
-      "value": "\"Finished sync initiated from push notification\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 18144,
-      "length": 36,
-      "value": "\"SyncDebug: Starting Notify.Setup()\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 18388,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 18437,
-      "length": 64,
-      "value": "\"SyncDebug: Skipping setup, Notify module is already configured\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 18618,
-      "length": 91,
-      "value": "\"SyncDebug: Legacy app setting minimumBackgroundFetchInterval to \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 18708,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 18898,
-      "length": 70,
-      "value": "\"SyncDebug: addObserver for UIApplication.didBecomeActiveNotification\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 19218,
-      "length": 44,
-      "value": "\"SyncDebug: Notify module is now configured\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 19289,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 19365,
-      "length": 73,
-      "value": "\"SyncDebug: removeObserver for UIApplication.didBecomeActiveNotification\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 19894,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 19977,
-      "length": 71,
-      "value": "\"SyncDebug: FlyBuyNotify Manager received didBecomeActiveNotification.\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 20084,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 20132,
-      "length": 95,
-      "value": "\"SyncDebug: FlyBuyNotify Manager ignoring didBecomeActiveNotification. isNotifyEnabled = False\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "IntegerLiteral",
-      "offset": 20413,
-      "length": 3,
-      "value": "-60"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 20417,
-      "length": 2,
-      "value": "60"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 20459,
-      "length": 84,
-      "value": "\"SyncDebug: Sync initiated from didBecomeActiveNotification. Fresh cache location. \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 20738,
-      "length": 128,
-      "value": "\"SyncDebug: Finished Sync initiated from didBecomeActiveNotification. Fresh cache location. error \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 20865,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 20949,
-      "length": 92,
-      "value": "\"SyncDebug: Finished Sync initiated from didBecomeActiveNotification. Fresh cache location.\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 21097,
-      "length": 94,
-      "value": "\"SyncDebug: FlyBuyNotify Manager completed didBecomeActiveNotification. Fresh cache location.\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 21352,
-      "length": 98,
-      "value": "\"SyncDebug: FlyBuyNotify Manager didBecomeActiveNotification.requestLocation().result != .success\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 21505,
-      "length": 78,
-      "value": "\"SyncDebug: Sync initiated from didBecomeActiveNotification.requestLocation()\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 21685,
-      "length": 123,
-      "value": "\"SyncDebug: Finished Sync initiated from didBecomeActiveNotification.requestLocation() error \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 21807,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 21891,
-      "length": 87,
-      "value": "\"SyncDebug: Finished Sync initiated from didBecomeActiveNotification.requestLocation()\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 22162,
+      "offset": 21332,
       "length": 28,
       "value": "1"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "IntegerLiteral",
-      "offset": 22198,
+      "offset": 21368,
       "length": 26,
       "value": "2"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "IntegerLiteral",
-      "offset": 22232,
+      "offset": 21402,
       "length": 25,
       "value": "3"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "IntegerLiteral",
-      "offset": 22265,
+      "offset": 21435,
       "length": 19,
       "value": "4"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "IntegerLiteral",
-      "offset": 22292,
+      "offset": 21462,
       "length": 22,
       "value": "5"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "IntegerLiteral",
-      "offset": 22322,
+      "offset": 21492,
       "length": 25,
       "value": "6"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "IntegerLiteral",
-      "offset": 22355,
+      "offset": 21525,
       "length": 15,
       "value": "7"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "IntegerLiteral",
-      "offset": 22378,
+      "offset": 21548,
       "length": 33,
       "value": "8"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "IntegerLiteral",
-      "offset": 22419,
+      "offset": 21589,
       "length": 30,
       "value": "9"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 22551,
-      "length": 32,
-      "value": "\"Location permission is missing\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 22635,
-      "length": 21,
-      "value": "\"Site limit exceeded\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 22707,
-      "length": 80,
-      "value": "\"Module is not configured. You must call FlyBuyNotify.Manager.configure method.\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 22832,
-      "length": 69,
-      "value": "\"Core is not configured. You must call Flybuy.Core.configure method.\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 22949,
-      "length": 48,
-      "value": "\"FlyBuyNotify has not been enabled for your app\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 23048,
-      "length": 48,
-      "value": "\"Beacon ranging is not available on this device\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 23137,
-      "length": 45,
-      "value": "\"No beacon was found in range of this device\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 23241,
-      "length": 56,
-      "value": "\"Beacon ranging disabled while app is in the background\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 23351,
-      "length": 36,
-      "value": "\"Notification permission is missing\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 23443,
-      "length": 36,
-      "value": "\"Failed to add notification request\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 23586,
-      "length": 22,
-      "value": "\"noLocationPermission\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 23660,
-      "length": 28,
-      "value": "\"reachedTheMaxNumberOfSites\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 23739,
-      "length": 27,
-      "value": "\"notifyModuleNotConfigured\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 23811,
-      "length": 21,
-      "value": "\"coreIsNotConfigured\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 23880,
-      "length": 24,
-      "value": "\"notifyModuleNotEnabled\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 23955,
-      "length": 27,
-      "value": "\"beaconRangingNotAvailable\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 24023,
-      "length": 17,
-      "value": "\"noBeaconInRange\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 24099,
-      "length": 35,
-      "value": "\"beaconRangingDisabledInBackground\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 24188,
-      "length": 30,
-      "value": "\"notificationPermissionDenied\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 24274,
-      "length": 27,
-      "value": "\"unableToSetUpNotification\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "IntegerLiteral",
-      "offset": 22162,
+      "offset": 21332,
       "length": 28,
       "value": "1"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "IntegerLiteral",
-      "offset": 22198,
+      "offset": 21368,
       "length": 26,
       "value": "2"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "IntegerLiteral",
-      "offset": 22232,
+      "offset": 21402,
       "length": 25,
       "value": "3"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "IntegerLiteral",
-      "offset": 22265,
+      "offset": 21435,
       "length": 19,
       "value": "4"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "IntegerLiteral",
-      "offset": 22292,
+      "offset": 21462,
       "length": 22,
       "value": "5"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "IntegerLiteral",
-      "offset": 22322,
+      "offset": 21492,
       "length": 25,
       "value": "6"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "IntegerLiteral",
-      "offset": 22355,
+      "offset": 21525,
       "length": 15,
       "value": "7"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "IntegerLiteral",
-      "offset": 22378,
+      "offset": 21548,
       "length": 33,
       "value": "8"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "IntegerLiteral",
-      "offset": 22419,
+      "offset": 21589,
       "length": 30,
       "value": "9"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "StringLiteral",
-      "offset": 24418,
+      "offset": 23588,
       "length": 11,
       "value": "\"FlyBuyNotify.NotifyError\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "BooleanLiteral",
-      "offset": 25485,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 25567,
-      "length": 34,
-      "value": "\"SyncDebug: sync(force = \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 25600,
-      "length": 3,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 25643,
-      "length": 37,
-      "value": "\"SyncDebug: Testing the serial queue\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 25743,
-      "length": 41,
-      "value": "\"SyncDebug: The serial queue is working.\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 25944,
-      "length": 43,
-      "value": "\"SyncDebug: applicationState = .background\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 26048,
-      "length": 39,
-      "value": "\"SyncDebug: applicationState = .active\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 26150,
-      "length": 41,
-      "value": "\"SyncDebug: applicationState = .inactive\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 26256,
-      "length": 40,
-      "value": "\"SyncDebug: applicationState = .unknown\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 26387,
-      "length": 31,
-      "value": "\"SyncDebug: Notify not enabled\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 26619,
-      "length": 36,
-      "value": "\"SyncDebug: Entering dispatch group\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 27117,
-      "length": 84,
-      "value": "\"SyncDebug: doSync() callback result: \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 27164,
-      "length": 5,
-      "value": "\" error: \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 27200,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 27355,
-      "length": 35,
-      "value": "\"SyncDebug: Leaving dispatch group\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 27492,
-      "length": 35,
-      "value": "\"SyncDebug: Leaving dispatch group\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 31508,
-      "length": 9,
-      "value": "\"site_id\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "Dictionary",
-      "offset": 32225,
-      "length": 3,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 32292,
-      "length": 9,
-      "value": "\"site_id\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 32387,
-      "length": 14,
-      "value": "\"beacon_major\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 32486,
-      "length": 14,
-      "value": "\"beacon_minor\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 33637,
-      "length": 35,
-      "value": "\"Error syncing analytics: \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 33671,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "Dictionary",
-      "offset": 34080,
-      "length": 3,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 34088,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "Dictionary",
-      "offset": 34153,
-      "length": 3,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 34229,
-      "length": 47,
-      "value": "\"Failed to open deepLinkURL: \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 34275,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "Dictionary",
-      "offset": 34354,
-      "length": 3,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 34456,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 34824,
+      "offset": 24655,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "BooleanLiteral",
-      "offset": 35093,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 35165,
-      "length": 21,
-      "value": "\"SyncDebug: doSync()\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 35253,
-      "length": 56,
-      "value": "\"Skipping FlyBuyNotify sync - no location authorization\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 35456,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 35637,
-      "length": 39,
-      "value": "\"SyncDebug: Not forced or dueForSync()\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 35694,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 35865,
-      "length": 143,
-      "value": "\"SyncDebug: locationManager.requestLocationIfNeeded() failed! - location == nil error: \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 36007,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 36028,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 36236,
-      "length": 44,
-      "value": "\"SyncDebug: fetchCampaigns() error \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 36279,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 36358,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 36464,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 36893,
-      "length": 70,
-      "value": "\"SyncDebug: fetchSites() failed! error: \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 36962,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 37049,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 37236,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 37332,
-      "length": 32,
-      "value": "\"SyncDebug: Campaigns count = 0\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 37593,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 37997,
-      "length": 29,
-      "value": "\"SyncDebug: setUpCampaigns()\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 38121,
-      "length": 70,
-      "value": "\"Error clearing campaign notifications: \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 38190,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 38472,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 39348,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 39378,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 39589,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 40100,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 40461,
-      "length": 46,
-      "value": "\"InterestArea campaign with an interest area!\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 40916,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 41447,
-      "length": 110,
-      "value": "\"Failed to add notification request \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 41513,
-      "length": 1,
-      "value": "\", with error: \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 41556,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 41994,
-      "length": 96,
-      "value": "\"Failed to add notification request \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 42060,
-      "length": 1,
-      "value": "\", no error provided by the OS\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 42997,
-      "length": 42,
-      "value": "\"SyncDebug: Detecting triggered campaigns\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 43160,
-      "length": 81,
-      "value": "\"SyncDebug: Stopped Detecting triggered campaigns. No campaigns have been loaded\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 43444,
-      "length": 55,
-      "value": "\"SyncDebug: Entering DG for detectTriggeredCampaigns()\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 43596,
-      "length": 39,
-      "value": "\"SyncDebug: Removing pending campaigns\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 43771,
-      "length": 48,
-      "value": "\"SyncDebug: Finished removing pending campaigns\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "IntegerLiteral",
-      "offset": 43858,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 43994,
-      "length": 49,
-      "value": "\"SyncDebug: campaigns.needToRangeForSite == true\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 44196,
-      "length": 58,
-      "value": "\"SyncDebug: Finished locationManager.rangeForSiteIfNeeded\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 44626,
-      "length": 54,
-      "value": "\"SyncDebug: Leaving DG for detectTriggeredCampaigns()\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 44766,
-      "length": 50,
-      "value": "\"SyncDebug: campaigns.needToRangeForSite == false\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 44899,
-      "length": 54,
-      "value": "\"SyncDebug: Leaving DG for detectTriggeredCampaigns()\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 45186,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 45271,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 45460,
-      "length": 42,
-      "value": "\"SyncDebug: Getting pending notifications\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 45626,
-      "length": 52,
-      "value": "\"SyncDebug: Completed getting pending notifications\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 45788,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 46390,
-      "length": 70,
-      "value": "\"SyncDebug: Setting up BGAppRefreshTask with identifier \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 46459,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 46605,
-      "length": 60,
-      "value": "\"SyncDebug: BGTaskScheduler started task \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 46664,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 46776,
-      "length": 58,
-      "value": "\"SyncDebug: BGTaskScheduler registration result \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 46833,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 47057,
-      "length": 52,
-      "value": "\"SyncDebug: Received didEnterBackgroundNotification\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 47257,
-      "length": 52,
-      "value": "\"SyncDebug: Non-legacy app started BGAppRefreshTask\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 47497,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 47553,
-      "length": 60,
-      "value": "\"SyncDebug: Internet Connected = \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 47612,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 47700,
-      "length": 51,
-      "value": "\"SyncDebug: Starting sync from BGAppRefreshTask...\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 47923,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 48087,
-      "length": 43,
-      "value": "\"SyncDebug: Scheduling BGAppRefreshTask...\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 48387,
-      "length": 81,
-      "value": "\"Notify: Unable to submit BGTaskScheduler request: \""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 48467,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "StringLiteral",
-      "offset": 48543,
-      "length": 12,
-      "value": "\"google.com\""
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 48703,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 48747,
+      "offset": 34386,
       "length": 5,
       "value": "false"
     }
