@@ -4856,9 +4856,13 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:6FlyBuy4SiteC12pickupConfigAA06PickupE0Cvp",
+            "usr": "c:@CM@FlyBuy@objc(cs)FlyBuySite(py)pickupConfig",
             "mangledName": "$s6FlyBuy4SiteC12pickupConfigAA06PickupE0Cvp",
             "moduleName": "FlyBuy",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC"
+            ],
             "isFromExtension": true,
             "accessors": [
               {
@@ -4874,9 +4878,13 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:6FlyBuy4SiteC12pickupConfigAA06PickupE0Cvg",
+                "usr": "c:@CM@FlyBuy@objc(cs)FlyBuySite(im)pickupConfig",
                 "mangledName": "$s6FlyBuy4SiteC12pickupConfigAA06PickupE0Cvg",
                 "moduleName": "FlyBuy",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
                 "isFromExtension": true,
                 "accessorKind": "get"
               }
@@ -22294,12 +22302,10 @@
             "usr": "c:@M@FlyBuy@objc(cs)FlyBuySitesManager(im)fetchWithRegion:page:callback:",
             "mangledName": "$s6FlyBuy12SitesManagerC5fetch6region4page8callbackySo16CLCircularRegionC_SiySayAA4SiteCGSg_s5Error_pSgtcSgtF",
             "moduleName": "FlyBuy",
-            "deprecated": true,
             "objc_name": "fetchWithRegion:page:callback:",
             "declAttributes": [
               "AccessControl",
               "ObjC",
-              "Available",
               "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
@@ -22403,12 +22409,10 @@
             "usr": "c:@M@FlyBuy@objc(cs)FlyBuySitesManager(im)fetchWithRegion:page:operationalStatus:callback:",
             "mangledName": "$s6FlyBuy12SitesManagerC5fetch6region4page17operationalStatus8callbackySo16CLCircularRegionC_SiSSySayAA4SiteCGSg_s5Error_pSgtcSgtF",
             "moduleName": "FlyBuy",
-            "deprecated": true,
             "objc_name": "fetchWithRegion:page:operationalStatus:callback:",
             "declAttributes": [
               "AccessControl",
               "ObjC",
-              "Available",
               "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
@@ -22510,12 +22514,10 @@
             "usr": "c:@M@FlyBuy@objc(cs)FlyBuySitesManager(im)fetchWithRegion:page:per:callback:",
             "mangledName": "$s6FlyBuy12SitesManagerC5fetch6region4page3per8callbackySo16CLCircularRegionC_S2iySayAA4SiteCGSg_s5Error_pSgtcSgtF",
             "moduleName": "FlyBuy",
-            "deprecated": true,
             "objc_name": "fetchWithRegion:page:per:callback:",
             "declAttributes": [
               "AccessControl",
               "ObjC",
-              "Available",
               "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
@@ -22624,12 +22626,10 @@
             "usr": "c:@M@FlyBuy@objc(cs)FlyBuySitesManager(im)fetchWithRegion:page:per:operationalStatus:callback:",
             "mangledName": "$s6FlyBuy12SitesManagerC5fetch6region4page3per17operationalStatus8callbackySo16CLCircularRegionC_S2iSSySayAA4SiteCGSg_s5Error_pSgtcSgtF",
             "moduleName": "FlyBuy",
-            "deprecated": true,
             "objc_name": "fetchWithRegion:page:per:operationalStatus:callback:",
             "declAttributes": [
               "AccessControl",
               "ObjC",
-              "Available",
               "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
@@ -36715,10 +36715,12 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:6FlyBuy5OrderC6isOpenSbyF",
+            "usr": "c:@CM@FlyBuy@objc(cs)FlyBuyOrder(im)isOpen",
             "mangledName": "$s6FlyBuy5OrderC6isOpenSbyF",
             "moduleName": "FlyBuy",
             "declAttributes": [
+              "Dynamic",
+              "ObjC",
               "RawDocComment"
             ],
             "isFromExtension": true,
@@ -36737,9 +36739,13 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:6FlyBuy5OrderC16sitePickupConfigAA0eF0Cvp",
+            "usr": "c:@CM@FlyBuy@objc(cs)FlyBuyOrder(py)sitePickupConfig",
             "mangledName": "$s6FlyBuy5OrderC16sitePickupConfigAA0eF0Cvp",
             "moduleName": "FlyBuy",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC"
+            ],
             "isFromExtension": true,
             "accessors": [
               {
@@ -36755,9 +36761,13 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:6FlyBuy5OrderC16sitePickupConfigAA0eF0Cvg",
+                "usr": "c:@CM@FlyBuy@objc(cs)FlyBuyOrder(im)sitePickupConfig",
                 "mangledName": "$s6FlyBuy5OrderC16sitePickupConfigAA0eF0Cvg",
                 "moduleName": "FlyBuy",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
                 "isFromExtension": true,
                 "accessorKind": "get"
               }
@@ -44543,49 +44553,49 @@
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/SitesManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 5905,
+      "offset": 5769,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/SitesManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 6787,
+      "offset": 6515,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/SitesManager.swift",
       "kind": "StringLiteral",
-      "offset": 6818,
+      "offset": 6546,
       "length": 6,
       "value": "\"live\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/SitesManager.swift",
       "kind": "StringLiteral",
-      "offset": 8685,
+      "offset": 8141,
       "length": 6,
       "value": "\"live\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/SitesManager.swift",
       "kind": "StringLiteral",
-      "offset": 11535,
+      "offset": 10991,
       "length": 17,
       "value": "\"FlyBuy.SitesManagerError\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/SitesManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 12748,
+      "offset": 12204,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/SitesManager.swift",
       "kind": "StringLiteral",
-      "offset": 12779,
+      "offset": 12235,
       "length": 6,
       "value": "\"live\""
     },

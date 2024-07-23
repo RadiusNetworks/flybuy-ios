@@ -6,11 +6,11 @@
 	<dict>
 		<key>ios-arm64/FlyBuyLiveStatus.framework/Assets.car</key>
 		<data>
-		PWe3ZOGnvcjHre7sBcId4sYgPDU=
+		NyxRXi6/X1lMc/9XvxswQ3d1/A8=
 		</data>
 		<key>ios-arm64/FlyBuyLiveStatus.framework/FlyBuyLiveStatus</key>
 		<data>
-		HNODWz53ZREReIkxAJYZz5jY4Lw=
+		jG6sru7XR79sxs4SGvIg/+g6Q4w=
 		</data>
 		<key>ios-arm64/FlyBuyLiveStatus.framework/Headers/FlyBuyLiveStatus-Swift.h</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>ios-arm64/FlyBuyLiveStatus.framework/Info.plist</key>
 		<data>
-		yo9ZKAtHjVnGZevQiOFxHSc7UAk=
+		OJHq9KdKcK+v46NXNnzQ5/1QtN4=
 		</data>
 		<key>ios-arm64/FlyBuyLiveStatus.framework/Modules/FlyBuyLiveStatus.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
@@ -50,11 +50,11 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/FlyBuyLiveStatus.framework/Assets.car</key>
 		<data>
-		PWe3ZOGnvcjHre7sBcId4sYgPDU=
+		NyxRXi6/X1lMc/9XvxswQ3d1/A8=
 		</data>
 		<key>ios-arm64_x86_64-simulator/FlyBuyLiveStatus.framework/FlyBuyLiveStatus</key>
 		<data>
-		9+5DoXirzKDSAdVUbOSPlBOVWMA=
+		AYRoxTisOsN/xGB6GtXeF+CPEj0=
 		</data>
 		<key>ios-arm64_x86_64-simulator/FlyBuyLiveStatus.framework/Headers/FlyBuyLiveStatus-Swift.h</key>
 		<data>
@@ -66,7 +66,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/FlyBuyLiveStatus.framework/Info.plist</key>
 		<data>
-		Okze+St7ISo/hPS2n86dC7ng2zk=
+		f0VQ5PNqEtndKuuyJ/KK93V1M+U=
 		</data>
 		<key>ios-arm64_x86_64-simulator/FlyBuyLiveStatus.framework/Modules/FlyBuyLiveStatus.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -110,7 +110,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/FlyBuyLiveStatus.framework/_CodeSignature/CodeResources</key>
 		<data>
-		Cu7m81hZh1dzUD/O9kxWWmHbz00=
+		xySF8u3HFaqdFSSkBdg2fY4Prxo=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -119,22 +119,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			PWe3ZOGnvcjHre7sBcId4sYgPDU=
+			NyxRXi6/X1lMc/9XvxswQ3d1/A8=
 			</data>
 			<key>hash2</key>
 			<data>
-			ZphCD8aYMpwSlo/Qx/rpyjT1+CGLAJf2htZeAe8azUk=
+			fdw1nMXh6P4MEA7JPap2YlEsFIytr3t9JPDzg+XnwAE=
 			</data>
 		</dict>
 		<key>ios-arm64/FlyBuyLiveStatus.framework/FlyBuyLiveStatus</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			HNODWz53ZREReIkxAJYZz5jY4Lw=
+			jG6sru7XR79sxs4SGvIg/+g6Q4w=
 			</data>
 			<key>hash2</key>
 			<data>
-			yslVdQkYa1hHmYKoDW4mOW11jaKMKR8geFuaGQgEDhA=
+			eioXG/pVFPriH5C9rsqIE9O7P4c4t/NPC4I/S+PngR8=
 			</data>
 		</dict>
 		<key>ios-arm64/FlyBuyLiveStatus.framework/Headers/FlyBuyLiveStatus-Swift.h</key>
@@ -163,11 +163,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			yo9ZKAtHjVnGZevQiOFxHSc7UAk=
+			OJHq9KdKcK+v46NXNnzQ5/1QtN4=
 			</data>
 			<key>hash2</key>
 			<data>
-			7s1lp6wCUz6LPcVra9liasfnMyWmBo3kFW90U1FtEZY=
+			s5qtsZap21ewR++7GyN18wV4wqT/g81X8UDwR5s9d8A=
 			</data>
 		</dict>
 		<key>ios-arm64/FlyBuyLiveStatus.framework/Modules/FlyBuyLiveStatus.swiftmodule/arm64-apple-ios.abi.json</key>
@@ -240,22 +240,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			PWe3ZOGnvcjHre7sBcId4sYgPDU=
+			NyxRXi6/X1lMc/9XvxswQ3d1/A8=
 			</data>
 			<key>hash2</key>
 			<data>
-			ZphCD8aYMpwSlo/Qx/rpyjT1+CGLAJf2htZeAe8azUk=
+			fdw1nMXh6P4MEA7JPap2YlEsFIytr3t9JPDzg+XnwAE=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/FlyBuyLiveStatus.framework/FlyBuyLiveStatus</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			9+5DoXirzKDSAdVUbOSPlBOVWMA=
+			AYRoxTisOsN/xGB6GtXeF+CPEj0=
 			</data>
 			<key>hash2</key>
 			<data>
-			0Rz3AObY3dWdb/XN1H7+Gb33OCCXGC37E30TQhIG+nk=
+			WffH6lbZM9ABBc8JScjIMBzaOdR+3jE4b1dHNXzex60=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/FlyBuyLiveStatus.framework/Headers/FlyBuyLiveStatus-Swift.h</key>
@@ -284,11 +284,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Okze+St7ISo/hPS2n86dC7ng2zk=
+			f0VQ5PNqEtndKuuyJ/KK93V1M+U=
 			</data>
 			<key>hash2</key>
 			<data>
-			OGlQGwsAf0zaMx8aC3fYRK/lNLmID1F5x6jTE/M7FKo=
+			IKW/Y5bvtFRVZtfcG9teKHogFTSR59pU5EZYL7NrTtQ=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/FlyBuyLiveStatus.framework/Modules/FlyBuyLiveStatus.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
@@ -405,11 +405,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Cu7m81hZh1dzUD/O9kxWWmHbz00=
+			xySF8u3HFaqdFSSkBdg2fY4Prxo=
 			</data>
 			<key>hash2</key>
 			<data>
-			XWiOqFHUHTQiaL/AH5Zlx/L4NdwKTMC/EkbD7mXsMlY=
+			KU2vco83aFS9x7arudDfjMiiriq4KwKnY+FY7XtgM1c=
 			</data>
 		</dict>
 	</dict>

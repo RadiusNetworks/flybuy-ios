@@ -849,8 +849,12 @@ SWIFT_CLASS_NAMED("Order")
 @end
 
 
+@class PickupConfig;
 
 @interface FlyBuyOrder (SWIFT_EXTENSION(FlyBuy))
+/// Returns whether the order is considered to be in an ‘open’ state.
+- (BOOL)isOpen SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly, strong) PickupConfig * _Nonnull sitePickupConfig;
 /// Returns if location tracking is deferred for the order.
 @property (nonatomic, readonly) BOOL locationTrackingDeferred;
 @end
@@ -1254,6 +1258,10 @@ SWIFT_CLASS_NAMED("Site")
 @end
 
 
+@interface FlyBuySite (SWIFT_EXTENSION(FlyBuy))
+@property (nonatomic, readonly, strong) PickupConfig * _Nonnull pickupConfig;
+@end
+
 @class CLCircularRegion;
 
 /// Manager for site operations
@@ -1332,7 +1340,7 @@ SWIFT_CLASS_NAMED("SitesManager")
 ///
 /// \param callback will get called on completion with the array of <code>Site</code>s or any errors encountered. Optional.
 ///
-- (void)fetchWithRegion:(CLCircularRegion * _Nonnull)region page:(NSInteger)page callback:(void (^ _Nullable)(NSArray<FlyBuySite *> * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for fetching sites has been deprecated and will be removed in a future SDK release.");
+- (void)fetchWithRegion:(CLCircularRegion * _Nonnull)region page:(NSInteger)page callback:(void (^ _Nullable)(NSArray<FlyBuySite *> * _Nullable, NSError * _Nullable))callback;
 /// fetches the list of sites from the FlyBuy web API via search region
 /// \param region a CLCircularRegion for the search region.
 ///
@@ -1342,7 +1350,7 @@ SWIFT_CLASS_NAMED("SitesManager")
 ///
 /// \param callback will get called on completion with the array of <code>Site</code>s or any errors encountered. Optional.
 ///
-- (void)fetchWithRegion:(CLCircularRegion * _Nonnull)region page:(NSInteger)page operationalStatus:(NSString * _Nonnull)operationalStatus callback:(void (^ _Nullable)(NSArray<FlyBuySite *> * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for fetching sites has been deprecated and will be removed in a future SDK release.");
+- (void)fetchWithRegion:(CLCircularRegion * _Nonnull)region page:(NSInteger)page operationalStatus:(NSString * _Nonnull)operationalStatus callback:(void (^ _Nullable)(NSArray<FlyBuySite *> * _Nullable, NSError * _Nullable))callback;
 /// fetches the list of sites from the FlyBuy web API via search region
 /// \param region a CLCircularRegion for the search region.
 ///
@@ -1352,7 +1360,7 @@ SWIFT_CLASS_NAMED("SitesManager")
 ///
 /// \param callback will get called on completion with the array of <code>Site</code>s or any errors encountered. Optional.
 ///
-- (void)fetchWithRegion:(CLCircularRegion * _Nonnull)region page:(NSInteger)page per:(NSInteger)per callback:(void (^ _Nullable)(NSArray<FlyBuySite *> * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for fetching sites has been deprecated and will be removed in a future SDK release.");
+- (void)fetchWithRegion:(CLCircularRegion * _Nonnull)region page:(NSInteger)page per:(NSInteger)per callback:(void (^ _Nullable)(NSArray<FlyBuySite *> * _Nullable, NSError * _Nullable))callback;
 /// fetches the list of sites from the FlyBuy web API via search region
 /// \param region a CLCircularRegion for the search region.
 ///
@@ -1364,7 +1372,7 @@ SWIFT_CLASS_NAMED("SitesManager")
 ///
 /// \param callback will get called on completion with the array of <code>Site</code>s or any errors encountered. Optional.
 ///
-- (void)fetchWithRegion:(CLCircularRegion * _Nonnull)region page:(NSInteger)page per:(NSInteger)per operationalStatus:(NSString * _Nonnull)operationalStatus callback:(void (^ _Nullable)(NSArray<FlyBuySite *> * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for fetching sites has been deprecated and will be removed in a future SDK release.");
+- (void)fetchWithRegion:(CLCircularRegion * _Nonnull)region page:(NSInteger)page per:(NSInteger)per operationalStatus:(NSString * _Nonnull)operationalStatus callback:(void (^ _Nullable)(NSArray<FlyBuySite *> * _Nullable, NSError * _Nullable))callback;
 /// fetches the complete list of sites from the FlyBuy web API that matches the query string
 /// \param query the query string. Optional.
 ///

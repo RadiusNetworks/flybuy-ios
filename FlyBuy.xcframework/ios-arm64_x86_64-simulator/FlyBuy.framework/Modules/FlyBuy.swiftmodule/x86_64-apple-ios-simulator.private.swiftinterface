@@ -160,8 +160,8 @@ extension FlyBuy._AnyEncodable {
   required public init(from decoder: any Swift.Decoder) throws
 }
 extension FlyBuy.Site {
-  public var pickupConfig: FlyBuy.PickupConfig {
-    get
+  @objc dynamic public var pickupConfig: FlyBuy.PickupConfig {
+    @objc get
   }
 }
 @objc(FlyBuyGeofence) open class Geofence : ObjectiveC.NSObject, Swift.Codable {
@@ -681,13 +681,9 @@ extension Swift.Array where Element : FlyBuy.AvailableHandoffVehicleLocation {
   @objc public func fetch(query: Swift.String? = nil, page: Swift.Int = 1, callback: (([FlyBuy.Site]?, FlyBuy.Pagination?, (any Swift.Error)?) -> (Swift.Void))? = nil)
   @available(*, deprecated, message: "This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetchByPartnerIdentifier instead.")
   @objc public func fetch(query: Swift.String? = nil, page: Swift.Int = 1, operationalStatus: Swift.String = "live", callback: (([FlyBuy.Site]?, FlyBuy.Pagination?, (any Swift.Error)?) -> (Swift.Void))? = nil)
-  @available(*, deprecated, message: "This method for fetching sites has been deprecated and will be removed in a future SDK release.")
   @objc public func fetch(region: CoreLocation.CLCircularRegion, page: Swift.Int = 1, callback: (([FlyBuy.Site]?, (any Swift.Error)?) -> (Swift.Void))? = nil)
-  @available(*, deprecated, message: "This method for fetching sites has been deprecated and will be removed in a future SDK release.")
   @objc public func fetch(region: CoreLocation.CLCircularRegion, page: Swift.Int = 1, operationalStatus: Swift.String = "live", callback: (([FlyBuy.Site]?, (any Swift.Error)?) -> (Swift.Void))? = nil)
-  @available(*, deprecated, message: "This method for fetching sites has been deprecated and will be removed in a future SDK release.")
   @objc public func fetch(region: CoreLocation.CLCircularRegion, page: Swift.Int, per: Swift.Int, callback: (([FlyBuy.Site]?, (any Swift.Error)?) -> (Swift.Void))? = nil)
-  @available(*, deprecated, message: "This method for fetching sites has been deprecated and will be removed in a future SDK release.")
   @objc public func fetch(region: CoreLocation.CLCircularRegion, page: Swift.Int, per: Swift.Int, operationalStatus: Swift.String = "live", callback: (([FlyBuy.Site]?, (any Swift.Error)?) -> (Swift.Void))? = nil)
   @available(*, deprecated, message: "This method for fetching sites has been deprecated. Use FlyBuyCore.sites.fetchByPartnerIdentifier instead.")
   @objc public func fetchAll(query: Swift.String? = nil, callback: (([FlyBuy.Site]?, (any Swift.Error)?) -> (Swift.Void))? = nil)
@@ -1070,9 +1066,9 @@ extension FlyBuy.Order : FlyBuy.PersistableCodable {
   }
 }
 extension FlyBuy.Order {
-  public func isOpen() -> Swift.Bool
-  public var sitePickupConfig: FlyBuy.PickupConfig {
-    get
+  @objc dynamic public func isOpen() -> Swift.Bool
+  @objc dynamic public var sitePickupConfig: FlyBuy.PickupConfig {
+    @objc get
   }
   @objc dynamic public var locationTrackingDeferred: Swift.Bool {
     @objc get
