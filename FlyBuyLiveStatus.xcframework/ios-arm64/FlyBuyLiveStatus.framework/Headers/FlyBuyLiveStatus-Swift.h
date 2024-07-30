@@ -299,11 +299,17 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 #if defined(__OBJC__)
 
+@class NSString;
+@class FlyBuyLiveStatusOptions;
 
 SWIFT_CLASS_NAMED("FlyBuyLiveStatusManager") SWIFT_AVAILABILITY(ios,introduced=16.2)
 @interface FlyBuyLiveStatusManager : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FlyBuyLiveStatusManager * _Nonnull shared;)
++ (FlyBuyLiveStatusManager * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, copy) NSString * _Nullable liveStatusIconName;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+- (void)configureWithOptions:(FlyBuyLiveStatusOptions * _Nonnull)configOptions;
 @end
 
 
@@ -325,7 +331,6 @@ SWIFT_CLASS_NAMED("LiveStatusOptions")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class NSString;
 
 SWIFT_CLASS_NAMED("LiveStatusOptionsBuilder")
 @interface FlyBuyLiveStatusOptionsBuilder : NSObject

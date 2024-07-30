@@ -387,6 +387,7 @@ SWIFT_CLASS("_TtC12FlyBuyNotify16NotificationInfo")
 @property (nonatomic, readonly, copy) NSString * _Nonnull title;
 @property (nonatomic, readonly, copy) NSString * _Nonnull content;
 @property (nonatomic, readonly, copy) NSDictionary * _Nullable data;
+- (nonnull instancetype)initWithTitle:(NSString * _Nonnull)title content:(NSString * _Nonnull)content data:(NSDictionary * _Nullable)data OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end

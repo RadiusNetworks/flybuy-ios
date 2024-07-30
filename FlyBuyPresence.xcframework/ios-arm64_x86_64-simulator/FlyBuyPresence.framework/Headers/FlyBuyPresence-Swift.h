@@ -401,10 +401,15 @@ typedef SWIFT_ENUM(NSInteger, PresenceErrorType, open) {
   PresenceErrorTypePresenceManagerNotConfigured = 9,
 };
 
+@protocol PresenceLocatorDelegate;
 
 /// Data model for the presence locator
 SWIFT_CLASS("_TtC14FlyBuyPresence15PresenceLocator")
 @interface PresenceLocator : NSObject
+@property (nonatomic, readonly, copy) NSUUID * _Nonnull uuid;
+@property (nonatomic, readonly, copy) NSData * _Nonnull identifier;
+@property (nonatomic, readonly, copy) NSString * _Nullable payload;
+@property (nonatomic, strong) id <PresenceLocatorDelegate> _Nullable delegate;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -836,10 +841,15 @@ typedef SWIFT_ENUM(NSInteger, PresenceErrorType, open) {
   PresenceErrorTypePresenceManagerNotConfigured = 9,
 };
 
+@protocol PresenceLocatorDelegate;
 
 /// Data model for the presence locator
 SWIFT_CLASS("_TtC14FlyBuyPresence15PresenceLocator")
 @interface PresenceLocator : NSObject
+@property (nonatomic, readonly, copy) NSUUID * _Nonnull uuid;
+@property (nonatomic, readonly, copy) NSData * _Nonnull identifier;
+@property (nonatomic, readonly, copy) NSString * _Nullable payload;
+@property (nonatomic, strong) id <PresenceLocatorDelegate> _Nullable delegate;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end

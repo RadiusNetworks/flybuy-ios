@@ -352,7 +352,7 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:16FlyBuyLiveStatus0abcD7ManagerC6sharedACvpZ",
+            "usr": "c:@M@FlyBuyLiveStatus@objc(cs)FlyBuyLiveStatusManager(cpy)shared",
             "mangledName": "$s16FlyBuyLiveStatus0abcD7ManagerC6sharedACvpZ",
             "moduleName": "FlyBuyLiveStatus",
             "static": true,
@@ -360,7 +360,8 @@
               "HasInitialValue",
               "Final",
               "HasStorage",
-              "AccessControl"
+              "AccessControl",
+              "ObjC"
             ],
             "isLet": true,
             "hasStorage": true,
@@ -378,13 +379,14 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:16FlyBuyLiveStatus0abcD7ManagerC6sharedACvgZ",
+                "usr": "c:@M@FlyBuyLiveStatus@objc(cs)FlyBuyLiveStatusManager(cm)shared",
                 "mangledName": "$s16FlyBuyLiveStatus0abcD7ManagerC6sharedACvgZ",
                 "moduleName": "FlyBuyLiveStatus",
                 "static": true,
                 "implicit": true,
                 "declAttributes": [
-                  "Final"
+                  "Final",
+                  "ObjC"
                 ],
                 "accessorKind": "get"
               }
@@ -411,14 +413,15 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:16FlyBuyLiveStatus0abcD7ManagerC04liveD8IconNameSSSgvp",
+            "usr": "c:@M@FlyBuyLiveStatus@objc(cs)FlyBuyLiveStatusManager(py)liveStatusIconName",
             "mangledName": "$s16FlyBuyLiveStatus0abcD7ManagerC04liveD8IconNameSSSgvp",
             "moduleName": "FlyBuyLiveStatus",
             "declAttributes": [
               "HasInitialValue",
               "Final",
               "HasStorage",
-              "AccessControl"
+              "AccessControl",
+              "ObjC"
             ],
             "hasStorage": true,
             "accessors": [
@@ -443,12 +446,13 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:16FlyBuyLiveStatus0abcD7ManagerC04liveD8IconNameSSSgvg",
+                "usr": "c:@M@FlyBuyLiveStatus@objc(cs)FlyBuyLiveStatusManager(im)liveStatusIconName",
                 "mangledName": "$s16FlyBuyLiveStatus0abcD7ManagerC04liveD8IconNameSSSgvg",
                 "moduleName": "FlyBuyLiveStatus",
                 "implicit": true,
                 "declAttributes": [
-                  "Final"
+                  "Final",
+                  "ObjC"
                 ],
                 "accessorKind": "get"
               },
@@ -478,12 +482,13 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:16FlyBuyLiveStatus0abcD7ManagerC04liveD8IconNameSSSgvs",
+                "usr": "c:@M@FlyBuyLiveStatus@objc(cs)FlyBuyLiveStatusManager(im)setLiveStatusIconName:",
                 "mangledName": "$s16FlyBuyLiveStatus0abcD7ManagerC04liveD8IconNameSSSgvs",
                 "moduleName": "FlyBuyLiveStatus",
                 "implicit": true,
                 "declAttributes": [
-                  "Final"
+                  "Final",
+                  "ObjC"
                 ],
                 "accessorKind": "set"
               },
@@ -530,12 +535,14 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:16FlyBuyLiveStatus0abcD7ManagerC9configure11withOptionsyAA0cdH0C_tF",
+            "usr": "c:@M@FlyBuyLiveStatus@objc(cs)FlyBuyLiveStatusManager(im)configureWithOptions:",
             "mangledName": "$s16FlyBuyLiveStatus0abcD7ManagerC9configure11withOptionsyAA0cdH0C_tF",
             "moduleName": "FlyBuyLiveStatus",
+            "objc_name": "configureWithOptions:",
             "declAttributes": [
               "Final",
-              "AccessControl"
+              "AccessControl",
+              "ObjC"
             ],
             "funcSelfKind": "NonMutating"
           }

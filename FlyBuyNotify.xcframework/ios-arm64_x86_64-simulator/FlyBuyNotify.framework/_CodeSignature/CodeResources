@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/FlyBuyNotify-Swift.h</key>
 		<data>
-		EAK/wuNCwkQL5XeFukj10xt0M3A=
+		C912JMEen4yO26B8zR4VZHvCef8=
 		</data>
 		<key>Headers/FlyBuyNotify.h</key>
 		<data>
@@ -14,15 +14,15 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		WcofD4cINaZnSc/bQwDfq45jaEA=
+		Q5mtSy/OCpKZOuFkT8rsCG9fwkA=
 		</data>
 		<key>Modules/FlyBuyNotify.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		PpzmAY5z6xYm1yIHjhjPyRBBCCE=
+		TQt3MBnTO/3ryFmZSjqkyj/j3iQ=
 		</data>
 		<key>Modules/FlyBuyNotify.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		RCRu0bCgyJXbbu5+NozV01WMnPo=
+		jN+8/TK50Kc+Ohz6MfayYLfiPjQ=
 		</data>
 		<key>Modules/FlyBuyNotify.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -30,19 +30,19 @@
 		</data>
 		<key>Modules/FlyBuyNotify.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		RCRu0bCgyJXbbu5+NozV01WMnPo=
+		jN+8/TK50Kc+Ohz6MfayYLfiPjQ=
 		</data>
 		<key>Modules/FlyBuyNotify.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		J4HA3+9E48fytqxVEAVr+ysJ9eU=
+		sOdbO4Tco3rPcCKRAXylvBr5/NU=
 		</data>
 		<key>Modules/FlyBuyNotify.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		PpzmAY5z6xYm1yIHjhjPyRBBCCE=
+		TQt3MBnTO/3ryFmZSjqkyj/j3iQ=
 		</data>
 		<key>Modules/FlyBuyNotify.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		x51C8xDhtc17dDKh26PUa38Uddo=
+		CKIcAcT1axZIhPqEFzJtuhzvUpM=
 		</data>
 		<key>Modules/FlyBuyNotify.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -50,11 +50,11 @@
 		</data>
 		<key>Modules/FlyBuyNotify.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		x51C8xDhtc17dDKh26PUa38Uddo=
+		CKIcAcT1axZIhPqEFzJtuhzvUpM=
 		</data>
 		<key>Modules/FlyBuyNotify.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		/oIA7kc5tdAMy9hQhEbMTQxLbFI=
+		THjy/WmTogkDQwNPS+/Px9ne2mI=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -71,7 +71,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			7Cx/nw89Diyak9+ZTg2AfGh0MYjItSGTx9JE5e3BfYM=
+			OKN6zQfbeDGsjTv6vkHWv8wFXW5FDo94cubr6dbnlvQ=
 			</data>
 		</dict>
 		<key>Headers/FlyBuyNotify.h</key>
@@ -85,14 +85,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			c5ZlWlLkYfom0sd3IDm16Dj+qbr5UzHwX+a7VAT/5tk=
+			mmZkhIjpErLPD4IltT690s5CHlWZgHJceocZ5pcMMmI=
 			</data>
 		</dict>
 		<key>Modules/FlyBuyNotify.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			m3GqPmfuruv5ASlqMI1DWpH0XCJgDZGA2H/JqFJPBSk=
+			LMc/IpMzicZ24lMaMx8RHettfZBjVCyrar5Ud7lN0j4=
 			</data>
 		</dict>
 		<key>Modules/FlyBuyNotify.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
@@ -106,28 +106,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			m3GqPmfuruv5ASlqMI1DWpH0XCJgDZGA2H/JqFJPBSk=
+			LMc/IpMzicZ24lMaMx8RHettfZBjVCyrar5Ud7lN0j4=
 			</data>
 		</dict>
 		<key>Modules/FlyBuyNotify.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zFZCYDpfv6YhzOPl34cVmWLTJmrVhlPEC3VUMt20R9k=
+			4VDNh/9/2qxr356UcnuASUcnCWXwXjB/aXw4b4qubIw=
 			</data>
 		</dict>
 		<key>Modules/FlyBuyNotify.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			c5ZlWlLkYfom0sd3IDm16Dj+qbr5UzHwX+a7VAT/5tk=
+			mmZkhIjpErLPD4IltT690s5CHlWZgHJceocZ5pcMMmI=
 			</data>
 		</dict>
 		<key>Modules/FlyBuyNotify.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			UrFWJiAjih3UbGDqabHIhb2dHRXhW40pU8H3tz2A+Ns=
+			LpiFdeo+7WV9VjW8v5jdkyACbH+w9bMOiRpJMVRHk8g=
 			</data>
 		</dict>
 		<key>Modules/FlyBuyNotify.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -141,14 +141,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			UrFWJiAjih3UbGDqabHIhb2dHRXhW40pU8H3tz2A+Ns=
+			LpiFdeo+7WV9VjW8v5jdkyACbH+w9bMOiRpJMVRHk8g=
 			</data>
 		</dict>
 		<key>Modules/FlyBuyNotify.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			1YVkEEt0WBvEX/ksSZ3oIeEK9uBoFf6LaZAQW7nYKmQ=
+			DjvbJb3+/wedWfho/Iq5u4hh5goOgyqVVnV+XCMm4dA=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

@@ -74,10 +74,10 @@ extension FlyBuyPresence.Manager : FlyBuy.FlyBuyModuleManager {
   @objc optional func locator(_ locator: FlyBuyPresence.PresenceLocator, didReceiveEvent type: Swift.UInt8)
 }
 @_hasMissingDesignatedInitializers @objc public class PresenceLocator : ObjectiveC.NSObject {
-  final public let uuid: Foundation.UUID
-  final public let identifier: Foundation.Data
-  final public let payload: Swift.String?
-  public var delegate: (any FlyBuyPresence.PresenceLocatorDelegate)?
+  @objc final public let uuid: Foundation.UUID
+  @objc final public let identifier: Foundation.Data
+  @objc final public let payload: Swift.String?
+  @objc public var delegate: (any FlyBuyPresence.PresenceLocatorDelegate)?
   @objc deinit
 }
 extension FlyBuyPresence.PresenceErrorType : Swift.Equatable {}

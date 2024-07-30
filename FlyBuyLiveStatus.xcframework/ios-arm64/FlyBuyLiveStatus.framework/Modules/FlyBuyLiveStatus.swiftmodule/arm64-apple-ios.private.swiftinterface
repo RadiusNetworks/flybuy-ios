@@ -25,9 +25,9 @@ import _SwiftConcurrencyShims
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @available(iOS 16.2, *)
 @objc(FlyBuyLiveStatusManager) final public class FlyBuyLiveStatusManager : ObjectiveC.NSObject {
-  public static let shared: FlyBuyLiveStatus.FlyBuyLiveStatusManager
-  final public var liveStatusIconName: Swift.String?
-  final public func configure(withOptions configOptions: FlyBuyLiveStatus.LiveStatusOptions)
+  @objc public static let shared: FlyBuyLiveStatus.FlyBuyLiveStatusManager
+  @objc final public var liveStatusIconName: Swift.String?
+  @objc final public func configure(withOptions configOptions: FlyBuyLiveStatus.LiveStatusOptions)
   @objc deinit
 }
 @available(iOS 16.2, *)

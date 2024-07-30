@@ -1998,13 +1998,14 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:14FlyBuyPresence0C7LocatorC4uuid10Foundation4UUIDVvp",
+            "usr": "c:@M@FlyBuyPresence@objc(cs)PresenceLocator(py)uuid",
             "mangledName": "$s14FlyBuyPresence0C7LocatorC4uuid10Foundation4UUIDVvp",
             "moduleName": "FlyBuyPresence",
             "declAttributes": [
               "Final",
               "HasStorage",
-              "AccessControl"
+              "AccessControl",
+              "ObjC"
             ],
             "isLet": true,
             "hasStorage": true,
@@ -2022,12 +2023,13 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:14FlyBuyPresence0C7LocatorC4uuid10Foundation4UUIDVvg",
+                "usr": "c:@M@FlyBuyPresence@objc(cs)PresenceLocator(im)uuid",
                 "mangledName": "$s14FlyBuyPresence0C7LocatorC4uuid10Foundation4UUIDVvg",
                 "moduleName": "FlyBuyPresence",
                 "implicit": true,
                 "declAttributes": [
-                  "Final"
+                  "Final",
+                  "ObjC"
                 ],
                 "accessorKind": "get"
               }
@@ -2046,13 +2048,14 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:14FlyBuyPresence0C7LocatorC10identifier10Foundation4DataVvp",
+            "usr": "c:@M@FlyBuyPresence@objc(cs)PresenceLocator(py)identifier",
             "mangledName": "$s14FlyBuyPresence0C7LocatorC10identifier10Foundation4DataVvp",
             "moduleName": "FlyBuyPresence",
             "declAttributes": [
               "Final",
               "HasStorage",
-              "AccessControl"
+              "AccessControl",
+              "ObjC"
             ],
             "isLet": true,
             "hasStorage": true,
@@ -2070,12 +2073,13 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:14FlyBuyPresence0C7LocatorC10identifier10Foundation4DataVvg",
+                "usr": "c:@M@FlyBuyPresence@objc(cs)PresenceLocator(im)identifier",
                 "mangledName": "$s14FlyBuyPresence0C7LocatorC10identifier10Foundation4DataVvg",
                 "moduleName": "FlyBuyPresence",
                 "implicit": true,
                 "declAttributes": [
-                  "Final"
+                  "Final",
+                  "ObjC"
                 ],
                 "accessorKind": "get"
               }
@@ -2102,13 +2106,14 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:14FlyBuyPresence0C7LocatorC7payloadSSSgvp",
+            "usr": "c:@M@FlyBuyPresence@objc(cs)PresenceLocator(py)payload",
             "mangledName": "$s14FlyBuyPresence0C7LocatorC7payloadSSSgvp",
             "moduleName": "FlyBuyPresence",
             "declAttributes": [
               "Final",
               "HasStorage",
-              "AccessControl"
+              "AccessControl",
+              "ObjC"
             ],
             "isLet": true,
             "hasStorage": true,
@@ -2134,12 +2139,13 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:14FlyBuyPresence0C7LocatorC7payloadSSSgvg",
+                "usr": "c:@M@FlyBuyPresence@objc(cs)PresenceLocator(im)payload",
                 "mangledName": "$s14FlyBuyPresence0C7LocatorC7payloadSSSgvg",
                 "moduleName": "FlyBuyPresence",
                 "implicit": true,
                 "declAttributes": [
-                  "Final"
+                  "Final",
+                  "ObjC"
                 ],
                 "accessorKind": "get"
               }
@@ -2166,13 +2172,14 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:14FlyBuyPresence0C7LocatorC8delegateAA0cD8Delegate_pSgvp",
+            "usr": "c:@M@FlyBuyPresence@objc(cs)PresenceLocator(py)delegate",
             "mangledName": "$s14FlyBuyPresence0C7LocatorC8delegateAA0cD8Delegate_pSgvp",
             "moduleName": "FlyBuyPresence",
             "declAttributes": [
               "HasInitialValue",
               "HasStorage",
-              "AccessControl"
+              "AccessControl",
+              "ObjC"
             ],
             "hasStorage": true,
             "accessors": [
@@ -2197,10 +2204,13 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:14FlyBuyPresence0C7LocatorC8delegateAA0cD8Delegate_pSgvg",
+                "usr": "c:@M@FlyBuyPresence@objc(cs)PresenceLocator(im)delegate",
                 "mangledName": "$s14FlyBuyPresence0C7LocatorC8delegateAA0cD8Delegate_pSgvg",
                 "moduleName": "FlyBuyPresence",
                 "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
                 "accessorKind": "get"
               },
               {
@@ -2229,10 +2239,13 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:14FlyBuyPresence0C7LocatorC8delegateAA0cD8Delegate_pSgvs",
+                "usr": "c:@M@FlyBuyPresence@objc(cs)PresenceLocator(im)setDelegate:",
                 "mangledName": "$s14FlyBuyPresence0C7LocatorC8delegateAA0cD8Delegate_pSgvs",
                 "moduleName": "FlyBuyPresence",
                 "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
                 "accessorKind": "set"
               },
               {

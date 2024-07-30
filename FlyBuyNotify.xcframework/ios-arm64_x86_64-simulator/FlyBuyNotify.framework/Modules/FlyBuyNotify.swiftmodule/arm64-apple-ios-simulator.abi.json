@@ -886,11 +886,13 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:12FlyBuyNotify16NotificationInfoC5title7content4dataACSS_SSSDys11AnyHashableVypGSgtcfc",
+            "usr": "c:@M@FlyBuyNotify@objc(cs)NotificationInfo(im)initWithTitle:content:data:",
             "mangledName": "$s12FlyBuyNotify16NotificationInfoC5title7content4dataACSS_SSSDys11AnyHashableVypGSgtcfc",
             "moduleName": "FlyBuyNotify",
+            "objc_name": "initWithTitle:content:data:",
             "declAttributes": [
-              "AccessControl"
+              "AccessControl",
+              "ObjC"
             ],
             "init_kind": "Designated"
           },
