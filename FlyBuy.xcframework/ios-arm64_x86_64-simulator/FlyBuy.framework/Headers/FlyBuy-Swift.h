@@ -888,6 +888,30 @@ SWIFT_CLASS_NAMED("OrderOptions")
 
 SWIFT_CLASS_NAMED("Builder")
 @interface FlyBuyOrderOptionsBuilder : NSObject
+- (nonnull instancetype)initWithCustomerName:(NSString * _Nonnull)customerName OBJC_DESIGNATED_INITIALIZER;
+/// Set the customer’s [name] property when creating an [Order]
+- (FlyBuyOrderOptionsBuilder * _Nonnull)setCustomerName:(NSString * _Nonnull)name SWIFT_WARN_UNUSED_RESULT;
+/// Set the customer’s [customerPhone] property when creating an [Order]
+- (FlyBuyOrderOptionsBuilder * _Nonnull)setCustomerPhone:(NSString * _Nullable)customerPhone SWIFT_WARN_UNUSED_RESULT;
+/// Set the customer’s [customerCarColor] property when creating an [Order]
+- (FlyBuyOrderOptionsBuilder * _Nonnull)setCustomerCarColor:(NSString * _Nullable)customerCarColor SWIFT_WARN_UNUSED_RESULT;
+/// Set the customer’s [customerCarType] property when creating an [Order]
+- (FlyBuyOrderOptionsBuilder * _Nonnull)setCustomerCarType:(NSString * _Nullable)customerCarType SWIFT_WARN_UNUSED_RESULT;
+/// Set the customer’s [customerCarPlate] property when creating an [Order]
+- (FlyBuyOrderOptionsBuilder * _Nonnull)setCustomerCarPlate:(NSString * _Nullable)customerCarPlate SWIFT_WARN_UNUSED_RESULT;
+/// Set the order’s [partnerIdentifier] property when creating an [Order]
+- (FlyBuyOrderOptionsBuilder * _Nonnull)setPartnerIdentifier:(NSString * _Nullable)partnerIdentifier SWIFT_WARN_UNUSED_RESULT;
+/// Set the order’s [pickupWindow] property when creating an [Order]
+- (FlyBuyOrderOptionsBuilder * _Nonnull)setPickupWindow:(FlyBuyPickupWindow * _Nullable)pickupWindow SWIFT_WARN_UNUSED_RESULT;
+/// Set the order’s [state] property when creating an [Order]
+- (FlyBuyOrderOptionsBuilder * _Nonnull)setState:(NSString * _Nullable)state SWIFT_WARN_UNUSED_RESULT;
+/// Set the order’s [pickupType] property when creating or claiming an [Order]
+- (FlyBuyOrderOptionsBuilder * _Nonnull)setPickupType:(NSString * _Nullable)pickupType SWIFT_WARN_UNUSED_RESULT;
+/// Set the order’s [spotIdentifier] property when creating an [Order]
+- (FlyBuyOrderOptionsBuilder * _Nonnull)setSpotIdentifier:(NSString * _Nullable)spotIdentifier SWIFT_WARN_UNUSED_RESULT;
+/// Set the order’s [handoffVehicleLocation] property when creating or claiming an [Order]
+- (FlyBuyOrderOptionsBuilder * _Nonnull)setHandoffVehicleLocation:(NSString * _Nullable)handoffVehicleLocation SWIFT_WARN_UNUSED_RESULT;
+- (FlyBuyOrderOptions * _Nonnull)build SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1055,6 +1079,12 @@ SWIFT_CLASS_NAMED("OrdersManager")
 /// \param callback called once either an <code>Order</code> is created or an error is encountered. Optional.
 ///
 - (void)createWithSitePartnerIdentifier:(NSString * _Nonnull)sitePartnerIdentifier orderOptions:(FlyBuyOrderOptions * _Nonnull)orderOptions callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
+/// creates an order event using the Flybuy web API
+/// \param info contains the information needed to create the event
+///
+/// \param callback Gets called at completion with the <code>Order</code> or any error encountered. Optional.
+///
+- (void)eventWithInfo:(FlyBuyOrderEvent * _Nonnull)info callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
 /// Update the customerState for an order with the given orderId.
 /// Example:
 /// \code
@@ -2308,6 +2338,30 @@ SWIFT_CLASS_NAMED("OrderOptions")
 
 SWIFT_CLASS_NAMED("Builder")
 @interface FlyBuyOrderOptionsBuilder : NSObject
+- (nonnull instancetype)initWithCustomerName:(NSString * _Nonnull)customerName OBJC_DESIGNATED_INITIALIZER;
+/// Set the customer’s [name] property when creating an [Order]
+- (FlyBuyOrderOptionsBuilder * _Nonnull)setCustomerName:(NSString * _Nonnull)name SWIFT_WARN_UNUSED_RESULT;
+/// Set the customer’s [customerPhone] property when creating an [Order]
+- (FlyBuyOrderOptionsBuilder * _Nonnull)setCustomerPhone:(NSString * _Nullable)customerPhone SWIFT_WARN_UNUSED_RESULT;
+/// Set the customer’s [customerCarColor] property when creating an [Order]
+- (FlyBuyOrderOptionsBuilder * _Nonnull)setCustomerCarColor:(NSString * _Nullable)customerCarColor SWIFT_WARN_UNUSED_RESULT;
+/// Set the customer’s [customerCarType] property when creating an [Order]
+- (FlyBuyOrderOptionsBuilder * _Nonnull)setCustomerCarType:(NSString * _Nullable)customerCarType SWIFT_WARN_UNUSED_RESULT;
+/// Set the customer’s [customerCarPlate] property when creating an [Order]
+- (FlyBuyOrderOptionsBuilder * _Nonnull)setCustomerCarPlate:(NSString * _Nullable)customerCarPlate SWIFT_WARN_UNUSED_RESULT;
+/// Set the order’s [partnerIdentifier] property when creating an [Order]
+- (FlyBuyOrderOptionsBuilder * _Nonnull)setPartnerIdentifier:(NSString * _Nullable)partnerIdentifier SWIFT_WARN_UNUSED_RESULT;
+/// Set the order’s [pickupWindow] property when creating an [Order]
+- (FlyBuyOrderOptionsBuilder * _Nonnull)setPickupWindow:(FlyBuyPickupWindow * _Nullable)pickupWindow SWIFT_WARN_UNUSED_RESULT;
+/// Set the order’s [state] property when creating an [Order]
+- (FlyBuyOrderOptionsBuilder * _Nonnull)setState:(NSString * _Nullable)state SWIFT_WARN_UNUSED_RESULT;
+/// Set the order’s [pickupType] property when creating or claiming an [Order]
+- (FlyBuyOrderOptionsBuilder * _Nonnull)setPickupType:(NSString * _Nullable)pickupType SWIFT_WARN_UNUSED_RESULT;
+/// Set the order’s [spotIdentifier] property when creating an [Order]
+- (FlyBuyOrderOptionsBuilder * _Nonnull)setSpotIdentifier:(NSString * _Nullable)spotIdentifier SWIFT_WARN_UNUSED_RESULT;
+/// Set the order’s [handoffVehicleLocation] property when creating or claiming an [Order]
+- (FlyBuyOrderOptionsBuilder * _Nonnull)setHandoffVehicleLocation:(NSString * _Nullable)handoffVehicleLocation SWIFT_WARN_UNUSED_RESULT;
+- (FlyBuyOrderOptions * _Nonnull)build SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -2475,6 +2529,12 @@ SWIFT_CLASS_NAMED("OrdersManager")
 /// \param callback called once either an <code>Order</code> is created or an error is encountered. Optional.
 ///
 - (void)createWithSitePartnerIdentifier:(NSString * _Nonnull)sitePartnerIdentifier orderOptions:(FlyBuyOrderOptions * _Nonnull)orderOptions callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
+/// creates an order event using the Flybuy web API
+/// \param info contains the information needed to create the event
+///
+/// \param callback Gets called at completion with the <code>Order</code> or any error encountered. Optional.
+///
+- (void)eventWithInfo:(FlyBuyOrderEvent * _Nonnull)info callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
 /// Update the customerState for an order with the given orderId.
 /// Example:
 /// \code

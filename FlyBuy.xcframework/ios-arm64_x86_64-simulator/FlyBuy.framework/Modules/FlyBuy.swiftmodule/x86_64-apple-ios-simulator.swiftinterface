@@ -530,19 +530,19 @@ extension Swift.Error {
   @objc final public let spotIdentifier: Swift.String?
   @objc final public let handoffVehicleLocation: Swift.String?
   @objc(FlyBuyOrderOptionsBuilder) public class Builder : ObjectiveC.NSObject {
-    public init(customerName: Swift.String)
-    public func setCustomerName(_ name: Swift.String) -> FlyBuy.OrderOptions.Builder
-    public func setCustomerPhone(_ customerPhone: Swift.String?) -> FlyBuy.OrderOptions.Builder
-    public func setCustomerCarColor(_ customerCarColor: Swift.String?) -> FlyBuy.OrderOptions.Builder
-    public func setCustomerCarType(_ customerCarType: Swift.String?) -> FlyBuy.OrderOptions.Builder
-    public func setCustomerCarPlate(_ customerCarPlate: Swift.String?) -> FlyBuy.OrderOptions.Builder
-    public func setPartnerIdentifier(_ partnerIdentifier: Swift.String?) -> FlyBuy.OrderOptions.Builder
-    public func setPickupWindow(_ pickupWindow: FlyBuy.PickupWindow?) -> FlyBuy.OrderOptions.Builder
-    public func setState(_ state: Swift.String?) -> FlyBuy.OrderOptions.Builder
-    public func setPickupType(_ pickupType: Swift.String?) -> FlyBuy.OrderOptions.Builder
-    public func setSpotIdentifier(_ spotIdentifier: Swift.String?) -> FlyBuy.OrderOptions.Builder
-    public func setHandoffVehicleLocation(_ handoffVehicleLocation: Swift.String?) -> FlyBuy.OrderOptions.Builder
-    public func build() -> FlyBuy.OrderOptions
+    @objc public init(customerName: Swift.String)
+    @objc public func setCustomerName(_ name: Swift.String) -> FlyBuy.OrderOptions.Builder
+    @objc public func setCustomerPhone(_ customerPhone: Swift.String?) -> FlyBuy.OrderOptions.Builder
+    @objc public func setCustomerCarColor(_ customerCarColor: Swift.String?) -> FlyBuy.OrderOptions.Builder
+    @objc public func setCustomerCarType(_ customerCarType: Swift.String?) -> FlyBuy.OrderOptions.Builder
+    @objc public func setCustomerCarPlate(_ customerCarPlate: Swift.String?) -> FlyBuy.OrderOptions.Builder
+    @objc public func setPartnerIdentifier(_ partnerIdentifier: Swift.String?) -> FlyBuy.OrderOptions.Builder
+    @objc public func setPickupWindow(_ pickupWindow: FlyBuy.PickupWindow?) -> FlyBuy.OrderOptions.Builder
+    @objc public func setState(_ state: Swift.String?) -> FlyBuy.OrderOptions.Builder
+    @objc public func setPickupType(_ pickupType: Swift.String?) -> FlyBuy.OrderOptions.Builder
+    @objc public func setSpotIdentifier(_ spotIdentifier: Swift.String?) -> FlyBuy.OrderOptions.Builder
+    @objc public func setHandoffVehicleLocation(_ handoffVehicleLocation: Swift.String?) -> FlyBuy.OrderOptions.Builder
+    @objc public func build() -> FlyBuy.OrderOptions
     @objc deinit
   }
   @objc deinit
@@ -842,7 +842,7 @@ public struct PickupStates : Swift.Codable {
   @objc public func create(siteID: Swift.Int, partnerIdentifier: Swift.String, customerInfo: FlyBuy.CustomerInfo, state: Swift.String?, pickupType: Swift.String? = nil, callback: ((FlyBuy.Order?, (any Swift.Error)?) -> (Swift.Void))?)
   @objc public func create(siteID: Swift.Int, orderOptions: FlyBuy.OrderOptions, callback: ((FlyBuy.Order?, (any Swift.Error)?) -> (Swift.Void))?)
   @objc public func create(sitePartnerIdentifier: Swift.String, orderOptions: FlyBuy.OrderOptions, callback: ((FlyBuy.Order?, (any Swift.Error)?) -> (Swift.Void))?)
-  public func event(info: FlyBuy.OrderEvent, callback: ((FlyBuy.Order?, (any Swift.Error)?) -> ())? = nil)
+  @objc public func event(info: FlyBuy.OrderEvent, callback: ((FlyBuy.Order?, (any Swift.Error)?) -> ())? = nil)
   @objc public func updateCustomerState(orderID: Swift.Int, customerState: Swift.String, callback: ((FlyBuy.Order?, (any Swift.Error)?) -> (Swift.Void))? = nil)
   @objc public func updateCustomerState(orderID: Swift.Int, customerState: Swift.String, spotIdentifier: Swift.String?, callback: ((FlyBuy.Order?, (any Swift.Error)?) -> (Swift.Void))? = nil)
   @objc public func updateOrderState(orderID: Swift.Int, state: Swift.String, callback: ((FlyBuy.Order?, (any Swift.Error)?) -> (Swift.Void))? = nil)
