@@ -27247,8 +27247,10 @@
                 "usr": "s:6FlyBuy22PlaceSuggestionOptionsC7BuilderC12setProximity8latitude9longitudeAESd_SdtF",
                 "mangledName": "$s6FlyBuy22PlaceSuggestionOptionsC7BuilderC12setProximity8latitude9longitudeAESd_SdtF",
                 "moduleName": "FlyBuy",
+                "objc_name": "setProximityWithLatitude:longitude:",
                 "declAttributes": [
-                  "AccessControl"
+                  "AccessControl",
+                  "ObjC"
                 ],
                 "funcSelfKind": "NonMutating"
               },
@@ -27275,7 +27277,8 @@
                 "mangledName": "$s6FlyBuy22PlaceSuggestionOptionsC7BuilderC7setTypeyAeA0cH0OF",
                 "moduleName": "FlyBuy",
                 "declAttributes": [
-                  "AccessControl"
+                  "AccessControl",
+                  "ObjC"
                 ],
                 "funcSelfKind": "NonMutating"
               },
@@ -27296,7 +27299,8 @@
                 "mangledName": "$s6FlyBuy22PlaceSuggestionOptionsC7BuilderC5buildACyF",
                 "moduleName": "FlyBuy",
                 "declAttributes": [
-                  "AccessControl"
+                  "AccessControl",
+                  "ObjC"
                 ],
                 "funcSelfKind": "NonMutating"
               },

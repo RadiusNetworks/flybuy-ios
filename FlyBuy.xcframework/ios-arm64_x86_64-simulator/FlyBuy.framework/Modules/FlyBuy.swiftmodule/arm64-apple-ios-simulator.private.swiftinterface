@@ -866,9 +866,9 @@ extension Swift.String {
   @objc final public let type: FlyBuy.PlaceType
   public init(latitude: Swift.Double, longitude: Swift.Double, type: FlyBuy.PlaceType)
   @_inheritsConvenienceInitializers @objc(FlyBuyPlaceOptionsBuilder) public class Builder : ObjectiveC.NSObject {
-    public func setProximity(latitude: Swift.Double, longitude: Swift.Double) -> FlyBuy.PlaceSuggestionOptions.Builder
-    public func setType(_ type: FlyBuy.PlaceType) -> FlyBuy.PlaceSuggestionOptions.Builder
-    public func build() -> FlyBuy.PlaceSuggestionOptions
+    @objc public func setProximity(latitude: Swift.Double, longitude: Swift.Double) -> FlyBuy.PlaceSuggestionOptions.Builder
+    @objc public func setType(_ type: FlyBuy.PlaceType) -> FlyBuy.PlaceSuggestionOptions.Builder
+    @objc public func build() -> FlyBuy.PlaceSuggestionOptions
     @objc override dynamic public init()
     @objc deinit
   }

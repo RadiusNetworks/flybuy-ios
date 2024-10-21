@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/FlyBuy-Swift.h</key>
 		<data>
-		Zc5NuMpKSKrWrvhIx8ef4vF5Slg=
+		otTADgXTFyQZOjtPKxJYMCMtPng=
 		</data>
 		<key>Headers/FlyBuy.h</key>
 		<data>
@@ -14,15 +14,15 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		bH9sY+Glk87Y7EBNALckP9KBcvI=
+		PlracacxTsc/G6ciptDOG6O37I4=
 		</data>
 		<key>Modules/FlyBuy.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		tjroB//WytvCtF35KZOemNx7JIE=
+		At8MeV2y0WZant8i0apAcEcGP6Y=
 		</data>
 		<key>Modules/FlyBuy.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		2GNEs0A2ciKaD7S+jVDxyWSkKsc=
+		1RGc/+vE/rj8nc26rlTQ212EoA8=
 		</data>
 		<key>Modules/FlyBuy.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -30,19 +30,19 @@
 		</data>
 		<key>Modules/FlyBuy.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		2GNEs0A2ciKaD7S+jVDxyWSkKsc=
+		1RGc/+vE/rj8nc26rlTQ212EoA8=
 		</data>
 		<key>Modules/FlyBuy.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		rU31iSsxSnbsyVk8052EGtUd+8o=
+		f0ZYf3MjLG5XB29uVucDF+wVosY=
 		</data>
 		<key>Modules/FlyBuy.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		tjroB//WytvCtF35KZOemNx7JIE=
+		At8MeV2y0WZant8i0apAcEcGP6Y=
 		</data>
 		<key>Modules/FlyBuy.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		6lV66bs8bjWzaZitw0S9Dpg0CwI=
+		6rZmX6mpo6iEJ7HJxNPv/M1cbO0=
 		</data>
 		<key>Modules/FlyBuy.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -50,11 +50,11 @@
 		</data>
 		<key>Modules/FlyBuy.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		6lV66bs8bjWzaZitw0S9Dpg0CwI=
+		6rZmX6mpo6iEJ7HJxNPv/M1cbO0=
 		</data>
 		<key>Modules/FlyBuy.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		n41oY85nbZrwGkPZMr96pfCH8NY=
+		D0MifysJHYyznTe4xK0lS1cNu+0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -71,7 +71,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			vzD6vcV+1cQLOhXQtEgjm9ysO1vpkPyXR+5WfA8pE2s=
+			HY6YFiEvXDWoUNcXEMZbKSgaBGhMCtz6PQyxQ7MWyJI=
 			</data>
 		</dict>
 		<key>Headers/FlyBuy.h</key>
@@ -85,14 +85,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			lwYXhex5HJ+3CDJiWvDrERfWn5D+RfdEu0l/tW8/KKo=
+			MBGnArVof7f7khKvgiRTa3w5hDcHrTu3eycpwCBQkj0=
 			</data>
 		</dict>
 		<key>Modules/FlyBuy.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			NaKDvx1cy9VPaFehF8F7tu70YliTHloHF9dIToAw9cQ=
+			gKDb5eNTdN9dWtiLiPfiPac7S38prFvuugZJ3SIc2gk=
 			</data>
 		</dict>
 		<key>Modules/FlyBuy.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
@@ -106,28 +106,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			NaKDvx1cy9VPaFehF8F7tu70YliTHloHF9dIToAw9cQ=
+			gKDb5eNTdN9dWtiLiPfiPac7S38prFvuugZJ3SIc2gk=
 			</data>
 		</dict>
 		<key>Modules/FlyBuy.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zzPDGMNoF+bp36IfOK4Lg0+L328FV5Dm+d1IululHjs=
+			fnUvv6PnO1C+THXET3xdVuxE70CuQI5jdhkPXwRbLM0=
 			</data>
 		</dict>
 		<key>Modules/FlyBuy.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			lwYXhex5HJ+3CDJiWvDrERfWn5D+RfdEu0l/tW8/KKo=
+			MBGnArVof7f7khKvgiRTa3w5hDcHrTu3eycpwCBQkj0=
 			</data>
 		</dict>
 		<key>Modules/FlyBuy.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			DWKoMGpWbg5xn23gxyUGTRzLtlCyKGRbjRLe6nmoMwc=
+			+ypl4bCj5ckDa12KBSMsievDRqIvI0oR84LLReNSVZg=
 			</data>
 		</dict>
 		<key>Modules/FlyBuy.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -141,14 +141,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			DWKoMGpWbg5xn23gxyUGTRzLtlCyKGRbjRLe6nmoMwc=
+			+ypl4bCj5ckDa12KBSMsievDRqIvI0oR84LLReNSVZg=
 			</data>
 		</dict>
 		<key>Modules/FlyBuy.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			KCeBmnmt9ZRxCVOG+onNrEQ7QvAX2I5RYhILQvj6o3U=
+			uBCuKNX1SSuJy1QKm4aCFsWstXhN0bQF6iNFv6rMYXk=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

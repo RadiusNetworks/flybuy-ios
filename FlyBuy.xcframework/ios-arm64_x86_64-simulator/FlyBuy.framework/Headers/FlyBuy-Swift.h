@@ -1336,6 +1336,9 @@ SWIFT_CLASS_NAMED("PlaceSuggestionOptions")
 
 SWIFT_CLASS_NAMED("Builder")
 @interface FlyBuyPlaceOptionsBuilder : NSObject
+- (FlyBuyPlaceOptionsBuilder * _Nonnull)setProximityWithLatitude:(double)latitude longitude:(double)longitude SWIFT_WARN_UNUSED_RESULT;
+- (FlyBuyPlaceOptionsBuilder * _Nonnull)setType:(enum PlaceType)type SWIFT_WARN_UNUSED_RESULT;
+- (FlyBuyPlaceOptions * _Nonnull)build SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -2879,6 +2882,9 @@ SWIFT_CLASS_NAMED("PlaceSuggestionOptions")
 
 SWIFT_CLASS_NAMED("Builder")
 @interface FlyBuyPlaceOptionsBuilder : NSObject
+- (FlyBuyPlaceOptionsBuilder * _Nonnull)setProximityWithLatitude:(double)latitude longitude:(double)longitude SWIFT_WARN_UNUSED_RESULT;
+- (FlyBuyPlaceOptionsBuilder * _Nonnull)setType:(enum PlaceType)type SWIFT_WARN_UNUSED_RESULT;
+- (FlyBuyPlaceOptions * _Nonnull)build SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
