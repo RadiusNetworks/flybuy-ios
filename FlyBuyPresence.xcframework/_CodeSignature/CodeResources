@@ -6,7 +6,7 @@
 	<dict>
 		<key>ios-arm64/FlyBuyPresence.framework/FlyBuyPresence</key>
 		<data>
-		V4bll0i2RGhpc4DC6mcyEmpg7KM=
+		T8qcbFF1gzF4OWbjk+cwc+y9Q3M=
 		</data>
 		<key>ios-arm64/FlyBuyPresence.framework/Headers/FlyBuyPresence-Swift.h</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>ios-arm64/FlyBuyPresence.framework/Info.plist</key>
 		<data>
-		CpGh+3zzhd4Zafj7NfgjTGCBsnE=
+		IJS8W69Bj/3NDlzuMXSfrRy561w=
 		</data>
 		<key>ios-arm64/FlyBuyPresence.framework/Modules/FlyBuyPresence.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/FlyBuyPresence.framework/FlyBuyPresence</key>
 		<data>
-		403DT18+IPuY0qoB9F4KHNPCbP0=
+		8EAbLUxjK15RJpX9JZQISlrESxo=
 		</data>
 		<key>ios-arm64_x86_64-simulator/FlyBuyPresence.framework/Headers/FlyBuyPresence-Swift.h</key>
 		<data>
@@ -58,7 +58,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/FlyBuyPresence.framework/Info.plist</key>
 		<data>
-		V+2/Zp4RbUqjL23GXzy4oZMCMcg=
+		Y9CS1KsFuoGL/+8ZNxuUQTvzPlo=
 		</data>
 		<key>ios-arm64_x86_64-simulator/FlyBuyPresence.framework/Modules/FlyBuyPresence.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -102,7 +102,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/FlyBuyPresence.framework/_CodeSignature/CodeResources</key>
 		<data>
-		Sdp84w9gWgDMIr4Eo7aFsW0mMa8=
+		weNNTimlKO/YcFvHYNmDP7OqrTI=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -111,11 +111,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			V4bll0i2RGhpc4DC6mcyEmpg7KM=
+			T8qcbFF1gzF4OWbjk+cwc+y9Q3M=
 			</data>
 			<key>hash2</key>
 			<data>
-			n1VokSb9ebvtgqLQkT5A8MC0Bv0A2Q7AQYrq5EU0Kg4=
+			ceeBMMFbYJwfmVJcDt1G8wyp1Dz7FC7DHctZ7eroaxg=
 			</data>
 		</dict>
 		<key>ios-arm64/FlyBuyPresence.framework/Headers/FlyBuyPresence-Swift.h</key>
@@ -144,11 +144,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			CpGh+3zzhd4Zafj7NfgjTGCBsnE=
+			IJS8W69Bj/3NDlzuMXSfrRy561w=
 			</data>
 			<key>hash2</key>
 			<data>
-			zRIZ9C46XlIL8cOGRkOVk8h2nSVSHkaPEU5IFXiaEUo=
+			qSHjw7NjMP+X7/yfVORm1o4qUrdnkIniT4Olh7HQcQc=
 			</data>
 		</dict>
 		<key>ios-arm64/FlyBuyPresence.framework/Modules/FlyBuyPresence.swiftmodule/arm64-apple-ios.abi.json</key>
@@ -221,11 +221,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			403DT18+IPuY0qoB9F4KHNPCbP0=
+			8EAbLUxjK15RJpX9JZQISlrESxo=
 			</data>
 			<key>hash2</key>
 			<data>
-			OtF9VVvlgSw1l/ljfNF7aQL12MOTYi6gRroHgP01saA=
+			ENmPSA0WQh161UkSnz40uJf3i3gLXjQaCRJ6YbLRdsE=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/FlyBuyPresence.framework/Headers/FlyBuyPresence-Swift.h</key>
@@ -254,11 +254,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			V+2/Zp4RbUqjL23GXzy4oZMCMcg=
+			Y9CS1KsFuoGL/+8ZNxuUQTvzPlo=
 			</data>
 			<key>hash2</key>
 			<data>
-			RPkwoydYOITUXZrv+twuYFXC/vVyEcCN1EXZ+GKQIoU=
+			39yl71fLupQayODpLLCn3aU7cjHnVE3C54QA+JeTleI=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/FlyBuyPresence.framework/Modules/FlyBuyPresence.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
@@ -375,11 +375,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Sdp84w9gWgDMIr4Eo7aFsW0mMa8=
+			weNNTimlKO/YcFvHYNmDP7OqrTI=
 			</data>
 			<key>hash2</key>
 			<data>
-			nce6Ypx2k3rLdsSolpHInMZ78LXG6S3CPgt+SeHJRbY=
+			gf7wWLBMrW94K7/zwwWt0Jf9+D/PejStInm8jnQyTdA=
 			</data>
 		</dict>
 	</dict>
