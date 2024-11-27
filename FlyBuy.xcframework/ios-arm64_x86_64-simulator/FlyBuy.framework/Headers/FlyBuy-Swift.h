@@ -369,6 +369,8 @@ SWIFT_CLASS_NAMED("ConfigOptionsBuilder")
 
 SWIFT_CLASS_NAMED("Coordinate")
 @interface FlyBuyCoordinate : NSObject
+@property (nonatomic, readonly) double latitude;
+@property (nonatomic, readonly) double longitude;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -914,6 +916,8 @@ SWIFT_CLASS_NAMED("OrderOptions")
 @property (nonatomic, readonly, copy) NSString * _Nullable pickupType;
 @property (nonatomic, readonly, copy) NSString * _Nullable spotIdentifier;
 @property (nonatomic, readonly, copy) NSString * _Nullable handoffVehicleLocation;
+@property (nonatomic, readonly, copy) NSString * _Nullable partnerIdentifierForCustomer;
+@property (nonatomic, readonly, copy) NSString * _Nullable partnerIdentifierForCrew;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -944,6 +948,10 @@ SWIFT_CLASS_NAMED("Builder")
 - (FlyBuyOrderOptionsBuilder * _Nonnull)setSpotIdentifier:(NSString * _Nullable)spotIdentifier SWIFT_WARN_UNUSED_RESULT;
 /// Set the order’s [handoffVehicleLocation] property when creating or claiming an [Order]
 - (FlyBuyOrderOptionsBuilder * _Nonnull)setHandoffVehicleLocation:(NSString * _Nullable)handoffVehicleLocation SWIFT_WARN_UNUSED_RESULT;
+/// Set the order’s [partnerIdentifierForCustomer] property when creating an [Order]
+- (FlyBuyOrderOptionsBuilder * _Nonnull)setPartnerIdentifierForCustomer:(NSString * _Nullable)partnerIdentifierForCustomer SWIFT_WARN_UNUSED_RESULT;
+/// Set the order’s [partnerIdentifierForCrew] property when creating  an [Order]
+- (FlyBuyOrderOptionsBuilder * _Nonnull)setPartnerIdentifierForCrew:(NSString * _Nullable)partnerIdentifierForCrew SWIFT_WARN_UNUSED_RESULT;
 - (FlyBuyOrderOptions * _Nonnull)build SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
@@ -1916,6 +1924,8 @@ SWIFT_CLASS_NAMED("ConfigOptionsBuilder")
 
 SWIFT_CLASS_NAMED("Coordinate")
 @interface FlyBuyCoordinate : NSObject
+@property (nonatomic, readonly) double latitude;
+@property (nonatomic, readonly) double longitude;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -2461,6 +2471,8 @@ SWIFT_CLASS_NAMED("OrderOptions")
 @property (nonatomic, readonly, copy) NSString * _Nullable pickupType;
 @property (nonatomic, readonly, copy) NSString * _Nullable spotIdentifier;
 @property (nonatomic, readonly, copy) NSString * _Nullable handoffVehicleLocation;
+@property (nonatomic, readonly, copy) NSString * _Nullable partnerIdentifierForCustomer;
+@property (nonatomic, readonly, copy) NSString * _Nullable partnerIdentifierForCrew;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -2491,6 +2503,10 @@ SWIFT_CLASS_NAMED("Builder")
 - (FlyBuyOrderOptionsBuilder * _Nonnull)setSpotIdentifier:(NSString * _Nullable)spotIdentifier SWIFT_WARN_UNUSED_RESULT;
 /// Set the order’s [handoffVehicleLocation] property when creating or claiming an [Order]
 - (FlyBuyOrderOptionsBuilder * _Nonnull)setHandoffVehicleLocation:(NSString * _Nullable)handoffVehicleLocation SWIFT_WARN_UNUSED_RESULT;
+/// Set the order’s [partnerIdentifierForCustomer] property when creating an [Order]
+- (FlyBuyOrderOptionsBuilder * _Nonnull)setPartnerIdentifierForCustomer:(NSString * _Nullable)partnerIdentifierForCustomer SWIFT_WARN_UNUSED_RESULT;
+/// Set the order’s [partnerIdentifierForCrew] property when creating  an [Order]
+- (FlyBuyOrderOptionsBuilder * _Nonnull)setPartnerIdentifierForCrew:(NSString * _Nullable)partnerIdentifierForCrew SWIFT_WARN_UNUSED_RESULT;
 - (FlyBuyOrderOptions * _Nonnull)build SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
