@@ -49322,147 +49322,147 @@
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/OrdersManager.swift",
       "kind": "StringLiteral",
-      "offset": 24534,
+      "offset": 24025,
       "length": 15,
       "value": "\"ordersUpdated\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/OrdersManager.swift",
       "kind": "StringLiteral",
-      "offset": 24596,
+      "offset": 24087,
       "length": 13,
       "value": "\"ordersError\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/OrdersManager.swift",
       "kind": "StringLiteral",
-      "offset": 24657,
+      "offset": 24148,
       "length": 14,
       "value": "\"orderUpdated\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/OrdersManager.swift",
       "kind": "StringLiteral",
-      "offset": 24722,
+      "offset": 24213,
       "length": 17,
       "value": "\"orderEventError\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/OrdersManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 24902,
+      "offset": 24393,
       "length": 15,
       "value": "1"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/OrdersManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 24925,
+      "offset": 24416,
       "length": 13,
       "value": "2"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/OrdersManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 24946,
+      "offset": 24437,
       "length": 15,
       "value": "3"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/OrdersManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 24969,
+      "offset": 24460,
       "length": 20,
       "value": "4"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/OrdersManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 24997,
+      "offset": 24488,
       "length": 17,
       "value": "5"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/OrdersManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 25022,
+      "offset": 24513,
       "length": 19,
       "value": "6"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/OrdersManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 25049,
+      "offset": 24540,
       "length": 17,
       "value": "7"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/OrdersManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 25074,
+      "offset": 24565,
       "length": 14,
       "value": "8"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/OrdersManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 24902,
+      "offset": 24393,
       "length": 15,
       "value": "1"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/OrdersManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 24925,
+      "offset": 24416,
       "length": 13,
       "value": "2"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/OrdersManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 24946,
+      "offset": 24437,
       "length": 15,
       "value": "3"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/OrdersManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 24969,
+      "offset": 24460,
       "length": 20,
       "value": "4"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/OrdersManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 24997,
+      "offset": 24488,
       "length": 17,
       "value": "5"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/OrdersManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 25022,
+      "offset": 24513,
       "length": 19,
       "value": "6"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/OrdersManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 25049,
+      "offset": 24540,
       "length": 17,
       "value": "7"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/OrdersManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 25074,
+      "offset": 24565,
       "length": 14,
       "value": "8"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/OrdersManager.swift",
       "kind": "StringLiteral",
-      "offset": 25933,
+      "offset": 25424,
       "length": 18,
       "value": "\"FlyBuy.OrdersManagerError\""
     },

@@ -6,7 +6,7 @@
 	<dict>
 		<key>ios-arm64/FlyBuyTableside.framework/FlyBuyTableside</key>
 		<data>
-		nomy32oUu4fjTUF3q831z2my6ds=
+		Nxe5M98QKSCwJ8N1PyC9L71pKuo=
 		</data>
 		<key>ios-arm64/FlyBuyTableside.framework/Headers/FlyBuyTableside-Swift.h</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>ios-arm64/FlyBuyTableside.framework/Info.plist</key>
 		<data>
-		EGafnLSwREDR0qG0/qbTobms0UE=
+		NaqTvbCJkJo5+tVFb4orgHbdolc=
 		</data>
 		<key>ios-arm64/FlyBuyTableside.framework/Modules/FlyBuyTableside.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/FlyBuyTableside.framework/FlyBuyTableside</key>
 		<data>
-		X8M087jBsFMUYe1YnkgiGNYa2Lw=
+		djAeWw6l2fqgMUrlWFuDZQGdvhY=
 		</data>
 		<key>ios-arm64_x86_64-simulator/FlyBuyTableside.framework/Headers/FlyBuyTableside-Swift.h</key>
 		<data>
@@ -58,7 +58,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/FlyBuyTableside.framework/Info.plist</key>
 		<data>
-		QlSFNLKJumIJqb7G2gE9zDOuflg=
+		i4lRMFSx9FWUD4lb0B7+4MO4VPw=
 		</data>
 		<key>ios-arm64_x86_64-simulator/FlyBuyTableside.framework/Modules/FlyBuyTableside.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -102,7 +102,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/FlyBuyTableside.framework/_CodeSignature/CodeResources</key>
 		<data>
-		kQoyevMJPPMusid53EljJUxP6U4=
+		cYQkOXqYMYWHC+v8ha1l7VRmPLg=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -111,11 +111,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			nomy32oUu4fjTUF3q831z2my6ds=
+			Nxe5M98QKSCwJ8N1PyC9L71pKuo=
 			</data>
 			<key>hash2</key>
 			<data>
-			Q9Lpne9nqLeqCOkFRr3GMj6fZqWWo8fE6SuIcGd7ojs=
+			eVsFZeDF+l0HFbXkqEagvddFy3tS/SCR/3/XhFojPrI=
 			</data>
 		</dict>
 		<key>ios-arm64/FlyBuyTableside.framework/Headers/FlyBuyTableside-Swift.h</key>
@@ -144,11 +144,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			EGafnLSwREDR0qG0/qbTobms0UE=
+			NaqTvbCJkJo5+tVFb4orgHbdolc=
 			</data>
 			<key>hash2</key>
 			<data>
-			jkdz/V5tPheLEZeLUmaT+4Si8yRW6b0hmHRz6ssvEbo=
+			94PehmdVW8sTq5QGFb/5cHf9jj7j7+knshB7VrjiW+0=
 			</data>
 		</dict>
 		<key>ios-arm64/FlyBuyTableside.framework/Modules/FlyBuyTableside.swiftmodule/arm64-apple-ios.abi.json</key>
@@ -221,11 +221,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			X8M087jBsFMUYe1YnkgiGNYa2Lw=
+			djAeWw6l2fqgMUrlWFuDZQGdvhY=
 			</data>
 			<key>hash2</key>
 			<data>
-			IFGzeITGd+isLSfQCnkPLvVcPcNJ/vArt8SaXS0nFUQ=
+			8xewl9qNCBKsM+iSkD37f7MhqcmCAH2xXjKmdGfgg4Y=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/FlyBuyTableside.framework/Headers/FlyBuyTableside-Swift.h</key>
@@ -254,11 +254,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			QlSFNLKJumIJqb7G2gE9zDOuflg=
+			i4lRMFSx9FWUD4lb0B7+4MO4VPw=
 			</data>
 			<key>hash2</key>
 			<data>
-			+OWWyGzlArq+JyETrLK5Zl1+yGVgCLqcCoIaLZX4dZk=
+			CaQqZCK1IO3oaWjVjX89Y8KeqfMP4zXq1ypDA9h4NJc=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/FlyBuyTableside.framework/Modules/FlyBuyTableside.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
@@ -375,11 +375,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			kQoyevMJPPMusid53EljJUxP6U4=
+			cYQkOXqYMYWHC+v8ha1l7VRmPLg=
 			</data>
 			<key>hash2</key>
 			<data>
-			VxEV9JQMVaSrsoNllHrz00cQB/lDJSz+Zz45m1GCz9E=
+			UZGEj6kl6M3dqzvjMGo2ToueBDu21x5HLR+GbT+SxP0=
 			</data>
 		</dict>
 	</dict>
