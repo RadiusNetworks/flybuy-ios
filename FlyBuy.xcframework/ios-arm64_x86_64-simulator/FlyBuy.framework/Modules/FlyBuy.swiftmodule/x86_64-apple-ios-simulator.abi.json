@@ -27171,6 +27171,82 @@
             "fixedbinaryorder": 4
           },
           {
+            "kind": "Var",
+            "name": "stringValue",
+            "printedName": "stringValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:6FlyBuy9PlaceTypeO11stringValueSSvp",
+            "mangledName": "$s6FlyBuy9PlaceTypeO11stringValueSSvp",
+            "moduleName": "FlyBuy",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6FlyBuy9PlaceTypeO11stringValueSSvg",
+                "mangledName": "$s6FlyBuy9PlaceTypeO11stringValueSSvg",
+                "moduleName": "FlyBuy",
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "from",
+            "printedName": "from(string:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "FlyBuy.PlaceType?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PlaceType",
+                    "printedName": "FlyBuy.PlaceType",
+                    "usr": "c:@M@FlyBuy@E@PlaceType"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:6FlyBuy9PlaceTypeO4from6stringACSgSS_tFZ",
+            "mangledName": "$s6FlyBuy9PlaceTypeO4from6stringACSgSS_tFZ",
+            "moduleName": "FlyBuy",
+            "static": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init(rawValue:)",
@@ -27241,6 +27317,63 @@
                 "accessorKind": "get"
               }
             ]
+          },
+          {
+            "kind": "Var",
+            "name": "allCases",
+            "printedName": "allCases",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[FlyBuy.PlaceType]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PlaceType",
+                    "printedName": "FlyBuy.PlaceType",
+                    "usr": "c:@M@FlyBuy@E@PlaceType"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:6FlyBuy9PlaceTypeO8allCasesSayACGvpZ",
+            "mangledName": "$s6FlyBuy9PlaceTypeO8allCasesSayACGvpZ",
+            "moduleName": "FlyBuy",
+            "static": true,
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[FlyBuy.PlaceType]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PlaceType",
+                        "printedName": "FlyBuy.PlaceType",
+                        "usr": "c:@M@FlyBuy@E@PlaceType"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6FlyBuy9PlaceTypeO8allCasesSayACGvgZ",
+                "mangledName": "$s6FlyBuy9PlaceTypeO8allCasesSayACGvgZ",
+                "moduleName": "FlyBuy",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
           }
         ],
         "declKind": "Enum",
@@ -27288,6 +27421,36 @@
             ],
             "usr": "s:SY",
             "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CaseIterable",
+            "printedName": "CaseIterable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "AllCases",
+                "printedName": "AllCases",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[FlyBuy.PlaceType]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PlaceType",
+                        "printedName": "FlyBuy.PlaceType",
+                        "usr": "c:@M@FlyBuy@E@PlaceType"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12CaseIterableP",
+            "mangledName": "$ss12CaseIterableP"
           }
         ]
       },
@@ -27398,25 +27561,32 @@
           },
           {
             "kind": "Var",
-            "name": "type",
-            "printedName": "type",
+            "name": "types",
+            "printedName": "types",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "PlaceType",
-                "printedName": "FlyBuy.PlaceType",
-                "usr": "c:@M@FlyBuy@E@PlaceType"
+                "name": "Array",
+                "printedName": "[FlyBuy.PlaceType]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PlaceType",
+                    "printedName": "FlyBuy.PlaceType",
+                    "usr": "c:@M@FlyBuy@E@PlaceType"
+                  }
+                ],
+                "usr": "s:Sa"
               }
             ],
             "declKind": "Var",
-            "usr": "c:@M@FlyBuy@objc(cs)FlyBuyPlaceOptions(py)type",
-            "mangledName": "$s6FlyBuy22PlaceSuggestionOptionsC4typeAA0C4TypeOvp",
+            "usr": "s:6FlyBuy22PlaceSuggestionOptionsC5typesSayAA0C4TypeOGvp",
+            "mangledName": "$s6FlyBuy22PlaceSuggestionOptionsC5typesSayAA0C4TypeOGvp",
             "moduleName": "FlyBuy",
             "declAttributes": [
               "Final",
               "HasStorage",
-              "AccessControl",
-              "ObjC"
+              "AccessControl"
             ],
             "isLet": true,
             "hasStorage": true,
@@ -27428,19 +27598,90 @@
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "PlaceType",
-                    "printedName": "FlyBuy.PlaceType",
-                    "usr": "c:@M@FlyBuy@E@PlaceType"
+                    "name": "Array",
+                    "printedName": "[FlyBuy.PlaceType]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PlaceType",
+                        "printedName": "FlyBuy.PlaceType",
+                        "usr": "c:@M@FlyBuy@E@PlaceType"
+                      }
+                    ],
+                    "usr": "s:Sa"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "c:@M@FlyBuy@objc(cs)FlyBuyPlaceOptions(im)type",
-                "mangledName": "$s6FlyBuy22PlaceSuggestionOptionsC4typeAA0C4TypeOvg",
+                "usr": "s:6FlyBuy22PlaceSuggestionOptionsC5typesSayAA0C4TypeOGvg",
+                "mangledName": "$s6FlyBuy22PlaceSuggestionOptionsC5typesSayAA0C4TypeOGvg",
                 "moduleName": "FlyBuy",
                 "implicit": true,
                 "declAttributes": [
-                  "Final",
-                  "ObjC"
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "countryCodes",
+            "printedName": "countryCodes",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.String]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:6FlyBuy22PlaceSuggestionOptionsC12countryCodesSaySSGvp",
+            "mangledName": "$s6FlyBuy22PlaceSuggestionOptionsC12countryCodesSaySSGvp",
+            "moduleName": "FlyBuy",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6FlyBuy22PlaceSuggestionOptionsC12countryCodesSaySSGvg",
+                "mangledName": "$s6FlyBuy22PlaceSuggestionOptionsC12countryCodesSaySSGvg",
+                "moduleName": "FlyBuy",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
                 ],
                 "accessorKind": "get"
               }
@@ -27449,7 +27690,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(latitude:longitude:type:)",
+            "printedName": "init(latitude:longitude:types:countryCodes:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -27471,14 +27712,36 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "PlaceType",
-                "printedName": "FlyBuy.PlaceType",
-                "usr": "c:@M@FlyBuy@E@PlaceType"
+                "name": "Array",
+                "printedName": "[FlyBuy.PlaceType]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PlaceType",
+                    "printedName": "FlyBuy.PlaceType",
+                    "usr": "c:@M@FlyBuy@E@PlaceType"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.String]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sa"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:6FlyBuy22PlaceSuggestionOptionsC8latitude9longitude4typeACSd_SdAA0C4TypeOtcfc",
-            "mangledName": "$s6FlyBuy22PlaceSuggestionOptionsC8latitude9longitude4typeACSd_SdAA0C4TypeOtcfc",
+            "usr": "s:6FlyBuy22PlaceSuggestionOptionsC8latitude9longitude5types12countryCodesACSd_SdSayAA0C4TypeOGSaySSGtcfc",
+            "mangledName": "$s6FlyBuy22PlaceSuggestionOptionsC8latitude9longitude5types12countryCodesACSd_SdSayAA0C4TypeOGSaySSGtcfc",
             "moduleName": "FlyBuy",
             "declAttributes": [
               "AccessControl"
@@ -27521,7 +27784,8 @@
                 "objc_name": "setProximityWithLatitude:longitude:",
                 "declAttributes": [
                   "AccessControl",
-                  "ObjC"
+                  "ObjC",
+                  "RawDocComment"
                 ],
                 "funcSelfKind": "NonMutating"
               },
@@ -27549,7 +27813,167 @@
                 "moduleName": "FlyBuy",
                 "declAttributes": [
                   "AccessControl",
-                  "ObjC"
+                  "ObjC",
+                  "RawDocComment"
+                ],
+                "funcSelfKind": "NonMutating"
+              },
+              {
+                "kind": "Function",
+                "name": "addType",
+                "printedName": "addType(_:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Builder",
+                    "printedName": "FlyBuy.PlaceSuggestionOptions.Builder",
+                    "usr": "s:6FlyBuy22PlaceSuggestionOptionsC7BuilderC"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PlaceType",
+                    "printedName": "FlyBuy.PlaceType",
+                    "usr": "c:@M@FlyBuy@E@PlaceType"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:6FlyBuy22PlaceSuggestionOptionsC7BuilderC7addTypeyAeA0cH0OF",
+                "mangledName": "$s6FlyBuy22PlaceSuggestionOptionsC7BuilderC7addTypeyAeA0cH0OF",
+                "moduleName": "FlyBuy",
+                "declAttributes": [
+                  "AccessControl",
+                  "ObjC",
+                  "RawDocComment"
+                ],
+                "funcSelfKind": "NonMutating"
+              },
+              {
+                "kind": "Function",
+                "name": "setTypes",
+                "printedName": "setTypes(_:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Builder",
+                    "printedName": "FlyBuy.PlaceSuggestionOptions.Builder",
+                    "usr": "s:6FlyBuy22PlaceSuggestionOptionsC7BuilderC"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[FlyBuy.PlaceType]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PlaceType",
+                        "printedName": "FlyBuy.PlaceType",
+                        "usr": "c:@M@FlyBuy@E@PlaceType"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:6FlyBuy22PlaceSuggestionOptionsC7BuilderC8setTypesyAESayAA0C4TypeOGF",
+                "mangledName": "$s6FlyBuy22PlaceSuggestionOptionsC7BuilderC8setTypesyAESayAA0C4TypeOGF",
+                "moduleName": "FlyBuy",
+                "declAttributes": [
+                  "AccessControl",
+                  "RawDocComment"
+                ],
+                "funcSelfKind": "NonMutating"
+              },
+              {
+                "kind": "Function",
+                "name": "setCountryCode",
+                "printedName": "setCountryCode(_:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Builder",
+                    "printedName": "FlyBuy.PlaceSuggestionOptions.Builder",
+                    "usr": "s:6FlyBuy22PlaceSuggestionOptionsC7BuilderC"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:6FlyBuy22PlaceSuggestionOptionsC7BuilderC14setCountryCodeyAESSF",
+                "mangledName": "$s6FlyBuy22PlaceSuggestionOptionsC7BuilderC14setCountryCodeyAESSF",
+                "moduleName": "FlyBuy",
+                "declAttributes": [
+                  "AccessControl",
+                  "ObjC",
+                  "RawDocComment"
+                ],
+                "funcSelfKind": "NonMutating"
+              },
+              {
+                "kind": "Function",
+                "name": "addCountryCode",
+                "printedName": "addCountryCode(_:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Builder",
+                    "printedName": "FlyBuy.PlaceSuggestionOptions.Builder",
+                    "usr": "s:6FlyBuy22PlaceSuggestionOptionsC7BuilderC"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:6FlyBuy22PlaceSuggestionOptionsC7BuilderC14addCountryCodeyAESSF",
+                "mangledName": "$s6FlyBuy22PlaceSuggestionOptionsC7BuilderC14addCountryCodeyAESSF",
+                "moduleName": "FlyBuy",
+                "declAttributes": [
+                  "AccessControl",
+                  "ObjC",
+                  "RawDocComment"
+                ],
+                "funcSelfKind": "NonMutating"
+              },
+              {
+                "kind": "Function",
+                "name": "setCountryCodes",
+                "printedName": "setCountryCodes(_:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Builder",
+                    "printedName": "FlyBuy.PlaceSuggestionOptions.Builder",
+                    "usr": "s:6FlyBuy22PlaceSuggestionOptionsC7BuilderC"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:6FlyBuy22PlaceSuggestionOptionsC7BuilderC15setCountryCodesyAESaySSGF",
+                "mangledName": "$s6FlyBuy22PlaceSuggestionOptionsC7BuilderC15setCountryCodesyAESaySSGF",
+                "moduleName": "FlyBuy",
+                "declAttributes": [
+                  "AccessControl",
+                  "RawDocComment"
                 ],
                 "funcSelfKind": "NonMutating"
               },
@@ -27702,7 +28126,8 @@
         "objc_name": "FlyBuyPlaceOptions",
         "declAttributes": [
           "AccessControl",
-          "ObjC"
+          "ObjC",
+          "RawDocComment"
         ],
         "superclassUsr": "c:objc(cs)NSObject",
         "superclassNames": [
@@ -35861,6 +36286,182 @@
         "printedName": "Foundation",
         "declKind": "Import",
         "moduleName": "FlyBuy"
+      },
+      {
+        "kind": "Import",
+        "name": "CoreLocation",
+        "printedName": "CoreLocation",
+        "declKind": "Import",
+        "moduleName": "FlyBuy"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "CLLocationManagerDelegateHandler",
+        "printedName": "CLLocationManagerDelegateHandler",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CLLocationManagerDelegateHandler",
+                "printedName": "FlyBuy.CLLocationManagerDelegateHandler",
+                "usr": "c:@M@FlyBuy@objc(cs)CLLocationManagerDelegateHandler"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(CoreLocation.CLAuthorizationStatus) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CLAuthorizationStatus",
+                    "printedName": "CoreLocation.CLAuthorizationStatus",
+                    "usr": "c:@E@CLAuthorizationStatus"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:6FlyBuy32CLLocationManagerDelegateHandlerC10completionACySo21CLAuthorizationStatusVc_tcfc",
+            "mangledName": "$s6FlyBuy32CLLocationManagerDelegateHandlerC10completionACySo21CLAuthorizationStatusVc_tcfc",
+            "moduleName": "FlyBuy",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "locationManager",
+            "printedName": "locationManager(_:didChangeAuthorization:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CLLocationManager",
+                "printedName": "CoreLocation.CLLocationManager",
+                "usr": "c:objc(cs)CLLocationManager"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CLAuthorizationStatus",
+                "printedName": "CoreLocation.CLAuthorizationStatus",
+                "usr": "c:@E@CLAuthorizationStatus"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@FlyBuy@objc(cs)CLLocationManagerDelegateHandler(im)locationManager:didChangeAuthorizationStatus:",
+            "mangledName": "$s6FlyBuy32CLLocationManagerDelegateHandlerC08locationD0_22didChangeAuthorizationySo0cD0C_So21CLAuthorizationStatusVtF",
+            "moduleName": "FlyBuy",
+            "objc_name": "locationManager:didChangeAuthorizationStatus:",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CLLocationManagerDelegateHandler",
+                "printedName": "FlyBuy.CLLocationManagerDelegateHandler",
+                "usr": "c:@M@FlyBuy@objc(cs)CLLocationManagerDelegateHandler"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@FlyBuy@objc(cs)CLLocationManagerDelegateHandler(im)init",
+            "mangledName": "$s6FlyBuy32CLLocationManagerDelegateHandlerCACycfc",
+            "moduleName": "FlyBuy",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@FlyBuy@objc(cs)CLLocationManagerDelegateHandler",
+        "mangledName": "$s6FlyBuy32CLLocationManagerDelegateHandlerC",
+        "moduleName": "FlyBuy",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
       },
       {
         "kind": "Import",
@@ -44050,6 +44651,113 @@
             "mangledName": "$ss35_HasCustomAnyHashableRepresentationP"
           }
         ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "CLLocationManager",
+        "printedName": "CLLocationManager",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "requestWhenInUseAuthorizationWithDelegateHandler",
+            "printedName": "requestWhenInUseAuthorizationWithDelegateHandler(delegateHandler:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "FlyBuy.CLLocationManagerDelegateHandler?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CLLocationManagerDelegateHandler",
+                    "printedName": "FlyBuy.CLLocationManagerDelegateHandler",
+                    "usr": "c:@M@FlyBuy@objc(cs)CLLocationManagerDelegateHandler"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So17CLLocationManagerC6FlyBuyE48requestWhenInUseAuthorizationWithDelegateHandler08delegateL0yAC0abkL0CSg_tF",
+            "mangledName": "$sSo17CLLocationManagerC6FlyBuyE48requestWhenInUseAuthorizationWithDelegateHandler08delegateL0yAC0abkL0CSg_tF",
+            "moduleName": "FlyBuy",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:objc(cs)CLLocationManager",
+        "moduleName": "CoreLocation",
+        "isOpen": true,
+        "intro_iOS": "2.0",
+        "objc_name": "CLLocationManager",
+        "declAttributes": [
+          "Available",
+          "ObjC",
+          "Dynamic"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "isExternal": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
       }
     ],
     "json_format_version": 8
@@ -44121,140 +44829,140 @@
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Config\/AppConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 2369,
+      "offset": 2372,
       "length": 3,
       "value": "250"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Config\/AppConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2391,
+      "offset": 2394,
       "length": 21,
       "value": "\"best_for_navigation\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Config\/AppConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2428,
+      "offset": 2431,
       "length": 7,
       "value": "\"other\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Config\/AppConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 2461,
+      "offset": 2464,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Config\/AppConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 2491,
+      "offset": 2494,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Config\/AppConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 2541,
+      "offset": 2544,
       "length": 3,
       "value": "500"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Config\/AppConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2563,
+      "offset": 2566,
       "length": 21,
       "value": "\"best_for_navigation\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Config\/AppConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2600,
+      "offset": 2603,
       "length": 7,
       "value": "\"other\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Config\/AppConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 2633,
+      "offset": 2636,
       "length": 2,
       "value": "15"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Config\/AppConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 2664,
+      "offset": 2667,
       "length": 2,
       "value": "30"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Config\/AppConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 2715,
+      "offset": 2718,
       "length": 4,
       "value": "2000"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Config\/AppConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2738,
+      "offset": 2741,
       "length": 6,
       "value": "\"best\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Config\/AppConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2760,
+      "offset": 2763,
       "length": 12,
       "value": "\"automotive\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Config\/AppConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 2798,
+      "offset": 2801,
       "length": 3,
       "value": "100"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Config\/AppConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 2830,
+      "offset": 2833,
       "length": 3,
       "value": "200"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Config\/AppConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 2882,
+      "offset": 2885,
       "length": 2,
       "value": "-1"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Config\/AppConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2903,
+      "offset": 2906,
       "length": 6,
       "value": "\"best\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Config\/AppConfig.swift",
       "kind": "StringLiteral",
-      "offset": 2925,
+      "offset": 2928,
       "length": 12,
       "value": "\"automotive\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Config\/AppConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 2963,
+      "offset": 2966,
       "length": 3,
       "value": "200"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Config\/AppConfig.swift",
       "kind": "IntegerLiteral",
-      "offset": 2995,
+      "offset": 2998,
       "length": 3,
       "value": "400"
     },
@@ -49140,77 +49848,84 @@
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/Builders\/PlaceSuggestionOptions.swift",
       "kind": "IntegerLiteral",
-      "offset": 76,
+      "offset": 90,
       "length": 6,
       "value": "1"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/Builders\/PlaceSuggestionOptions.swift",
       "kind": "IntegerLiteral",
-      "offset": 90,
+      "offset": 104,
       "length": 10,
       "value": "2"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/Builders\/PlaceSuggestionOptions.swift",
       "kind": "IntegerLiteral",
-      "offset": 108,
+      "offset": 122,
       "length": 4,
       "value": "3"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/Builders\/PlaceSuggestionOptions.swift",
       "kind": "IntegerLiteral",
-      "offset": 120,
+      "offset": 134,
       "length": 3,
       "value": "4"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/Builders\/PlaceSuggestionOptions.swift",
       "kind": "IntegerLiteral",
-      "offset": 76,
+      "offset": 90,
       "length": 6,
       "value": "1"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/Builders\/PlaceSuggestionOptions.swift",
       "kind": "IntegerLiteral",
-      "offset": 90,
+      "offset": 104,
       "length": 10,
       "value": "2"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/Builders\/PlaceSuggestionOptions.swift",
       "kind": "IntegerLiteral",
-      "offset": 108,
+      "offset": 122,
       "length": 4,
       "value": "3"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/Builders\/PlaceSuggestionOptions.swift",
       "kind": "IntegerLiteral",
-      "offset": 120,
+      "offset": 134,
       "length": 3,
       "value": "4"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/Builders\/PlaceSuggestionOptions.swift",
       "kind": "FloatLiteral",
-      "offset": 573,
+      "offset": 1726,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/Builders\/PlaceSuggestionOptions.swift",
       "kind": "FloatLiteral",
-      "offset": 613,
+      "offset": 1766,
       "length": 3,
       "value": "0.0"
+    },
+    {
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/Builders\/PlaceSuggestionOptions.swift",
+      "kind": "Array",
+      "offset": 1859,
+      "length": 2,
+      "value": "[]"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/Builders\/PlaceSuggestionOptions.swift",
       "kind": "StringLiteral",
-      "offset": 166,
+      "offset": 1220,
       "length": 22,
       "value": "\"FlyBuy.PlaceSuggestionOptions\""
     },
@@ -49864,6 +50579,13 @@
       "offset": 211,
       "length": 41,
       "value": "\"Unable to decode object into given type\""
+    },
+    {
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Helpers\/CLLocationManager.swift",
+      "kind": "StringLiteral",
+      "offset": 265,
+      "length": 32,
+      "value": "\"FlyBuy.CLLocationManagerDelegateHandler\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Location\/FlyBuyRegion.swift",

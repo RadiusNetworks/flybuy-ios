@@ -853,14 +853,22 @@ extension Swift.String {
   }
   public func removeDirectory()
 }
-@objc public enum PlaceType : Swift.Int {
+@objc public enum PlaceType : Swift.Int, Swift.CaseIterable {
   case address
   case region
   case postalcode
   case city
   case poi
+  public var stringValue: Swift.String {
+    get
+  }
+  public static func from(string: Swift.String) -> FlyBuy.PlaceType?
   public init?(rawValue: Swift.Int)
+  public typealias AllCases = [FlyBuy.PlaceType]
   public typealias RawValue = Swift.Int
+  public static var allCases: [FlyBuy.PlaceType] {
+    get
+  }
   public var rawValue: Swift.Int {
     get
   }
@@ -868,11 +876,17 @@ extension Swift.String {
 @objc(FlyBuyPlaceOptions) public class PlaceSuggestionOptions : ObjectiveC.NSObject {
   @objc final public let latitude: Swift.Double
   @objc final public let longitude: Swift.Double
-  @objc final public let type: FlyBuy.PlaceType
-  public init(latitude: Swift.Double, longitude: Swift.Double, type: FlyBuy.PlaceType)
+  final public let types: [FlyBuy.PlaceType]
+  final public let countryCodes: [Swift.String]
+  public init(latitude: Swift.Double, longitude: Swift.Double, types: [FlyBuy.PlaceType], countryCodes: [Swift.String])
   @_inheritsConvenienceInitializers @objc(FlyBuyPlaceOptionsBuilder) public class Builder : ObjectiveC.NSObject {
     @objc public func setProximity(latitude: Swift.Double, longitude: Swift.Double) -> FlyBuy.PlaceSuggestionOptions.Builder
     @objc public func setType(_ type: FlyBuy.PlaceType) -> FlyBuy.PlaceSuggestionOptions.Builder
+    @objc public func addType(_ type: FlyBuy.PlaceType) -> FlyBuy.PlaceSuggestionOptions.Builder
+    public func setTypes(_ types: [FlyBuy.PlaceType]) -> FlyBuy.PlaceSuggestionOptions.Builder
+    @objc public func setCountryCode(_ countryCode: Swift.String) -> FlyBuy.PlaceSuggestionOptions.Builder
+    @objc public func addCountryCode(_ countryCode: Swift.String) -> FlyBuy.PlaceSuggestionOptions.Builder
+    public func setCountryCodes(_ countryCodes: [Swift.String]) -> FlyBuy.PlaceSuggestionOptions.Builder
     @objc public func build() -> FlyBuy.PlaceSuggestionOptions
     @objc override dynamic public init()
     @objc deinit
@@ -1068,6 +1082,14 @@ extension FlyBuy.OrdersManager : CoreLocation.CLLocationManagerDelegate {
 @_inheritsConvenienceInitializers @objc(FlyBuyLinks) public class Links : ObjectiveC.NSObject {
   @objc public static func parse(url: Foundation.URL) -> FlyBuy.LinkDetails
   @objc override dynamic public init()
+  @objc deinit
+}
+extension CoreLocation.CLLocationManager {
+  public func requestWhenInUseAuthorizationWithDelegateHandler(delegateHandler: FlyBuy.CLLocationManagerDelegateHandler?)
+}
+@objc public class CLLocationManagerDelegateHandler : ObjectiveC.NSObject, CoreLocation.CLLocationManagerDelegate {
+  public init(completion: @escaping (CoreLocation.CLAuthorizationStatus) -> Swift.Void)
+  @objc public func locationManager(_ manager: CoreLocation.CLLocationManager, didChangeAuthorization status: CoreLocation.CLAuthorizationStatus)
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc(FlyBuyRegion) public class FlyBuyRegion : ObjectiveC.NSObject {

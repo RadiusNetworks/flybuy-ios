@@ -329,6 +329,16 @@ SWIFT_CLASS_NAMED("BeaconList")
 @end
 
 
+
+@class CLLocationManager;
+
+SWIFT_CLASS("_TtC6FlyBuy32CLLocationManagerDelegateHandler")
+@interface CLLocationManagerDelegateHandler : NSObject <CLLocationManagerDelegate>
+- (void)locationManager:(CLLocationManager * _Nonnull)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @class FlyBuyConfigOptionsBuilder;
 
 /// Configuration options to be passed to FlyBuy.Core.configure(withOptions configOptions: ConfigOptions)
@@ -1331,22 +1341,55 @@ SWIFT_CLASS_NAMED("Place")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-enum PlaceType : NSInteger;
 
+/// Place Suggestions query options to be passed to FlyBuy.Core.sites.suggest(query: String, options: PlaceSuggestionOptions, callback: (([Place]?, Error?) -> Void)?)
+/// Example usage:
+/// \code
+/// let options = PlaceSuggestionOptions.Builder().setTypes([.address]).setCountryCodes(["US","CA"])
+///
+/// FlyBuy.Core.places.suggest(query: "1600 Pennsylvania Avenue Washington", options: options.build()) { places, error in
+///   if let error = error {
+///    // Handle error
+///   } else {
+///    // Handle success
+///   }
+/// }
+///
+/// \endcode
 SWIFT_CLASS_NAMED("PlaceSuggestionOptions")
 @interface FlyBuyPlaceOptions : NSObject
 @property (nonatomic, readonly) double latitude;
 @property (nonatomic, readonly) double longitude;
-@property (nonatomic, readonly) enum PlaceType type;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+enum PlaceType : NSInteger;
 
 SWIFT_CLASS_NAMED("Builder")
 @interface FlyBuyPlaceOptionsBuilder : NSObject
+/// Sets a latitude/longitude coordinate to favor results that are closer to a specific location
+/// \code
+///
+///
+/// \endcode
 - (FlyBuyPlaceOptionsBuilder * _Nonnull)setProximityWithLatitude:(double)latitude longitude:(double)longitude SWIFT_WARN_UNUSED_RESULT;
+/// Sets a single PlaceType for the suggestion query. This will override any existing PlaceTypes if any.
+/// \code
+///
+///
+/// \endcode
 - (FlyBuyPlaceOptionsBuilder * _Nonnull)setType:(enum PlaceType)type SWIFT_WARN_UNUSED_RESULT;
+/// Adds a PlaceType for the suggestion query. This appends to any PlaceTypes already set.
+/// \code
+///
+///
+/// \endcode
+- (FlyBuyPlaceOptionsBuilder * _Nonnull)addType:(enum PlaceType)type SWIFT_WARN_UNUSED_RESULT;
+/// Sets a single country code for the suggestion query. This will override any existing PlaceTypes if any.
+- (FlyBuyPlaceOptionsBuilder * _Nonnull)setCountryCode:(NSString * _Nonnull)countryCode SWIFT_WARN_UNUSED_RESULT;
+/// Adds a country code for the suggestion query. This appends to any country codes already set.
+- (FlyBuyPlaceOptionsBuilder * _Nonnull)addCountryCode:(NSString * _Nonnull)countryCode SWIFT_WARN_UNUSED_RESULT;
 - (FlyBuyPlaceOptions * _Nonnull)build SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -1366,7 +1409,7 @@ SWIFT_CLASS_NAMED("PlacesManager")
 /// Provide query parameter  to return a list of <code>Place</code>, where the address, zip, region or city matches the provided string.
 /// Example:
 /// \code
-/// FlyBuy.Core.sites.suggest(query: "1600 Pennsylvania Avenue Washington", options: placeSuggestionOptions.build()) { (places, error) -> (Void) in
+/// FlyBuy.Core.places.suggest(query: "1600 Pennsylvania Avenue Washington", options: placeSuggestionOptions.build()) { (places, error) -> (Void) in
 ///   if let error = error {
 ///    // Handle error
 ///   } else {
@@ -1884,6 +1927,16 @@ SWIFT_CLASS_NAMED("BeaconList")
 @end
 
 
+
+@class CLLocationManager;
+
+SWIFT_CLASS("_TtC6FlyBuy32CLLocationManagerDelegateHandler")
+@interface CLLocationManagerDelegateHandler : NSObject <CLLocationManagerDelegate>
+- (void)locationManager:(CLLocationManager * _Nonnull)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @class FlyBuyConfigOptionsBuilder;
 
 /// Configuration options to be passed to FlyBuy.Core.configure(withOptions configOptions: ConfigOptions)
@@ -2886,22 +2939,55 @@ SWIFT_CLASS_NAMED("Place")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-enum PlaceType : NSInteger;
 
+/// Place Suggestions query options to be passed to FlyBuy.Core.sites.suggest(query: String, options: PlaceSuggestionOptions, callback: (([Place]?, Error?) -> Void)?)
+/// Example usage:
+/// \code
+/// let options = PlaceSuggestionOptions.Builder().setTypes([.address]).setCountryCodes(["US","CA"])
+///
+/// FlyBuy.Core.places.suggest(query: "1600 Pennsylvania Avenue Washington", options: options.build()) { places, error in
+///   if let error = error {
+///    // Handle error
+///   } else {
+///    // Handle success
+///   }
+/// }
+///
+/// \endcode
 SWIFT_CLASS_NAMED("PlaceSuggestionOptions")
 @interface FlyBuyPlaceOptions : NSObject
 @property (nonatomic, readonly) double latitude;
 @property (nonatomic, readonly) double longitude;
-@property (nonatomic, readonly) enum PlaceType type;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+enum PlaceType : NSInteger;
 
 SWIFT_CLASS_NAMED("Builder")
 @interface FlyBuyPlaceOptionsBuilder : NSObject
+/// Sets a latitude/longitude coordinate to favor results that are closer to a specific location
+/// \code
+///
+///
+/// \endcode
 - (FlyBuyPlaceOptionsBuilder * _Nonnull)setProximityWithLatitude:(double)latitude longitude:(double)longitude SWIFT_WARN_UNUSED_RESULT;
+/// Sets a single PlaceType for the suggestion query. This will override any existing PlaceTypes if any.
+/// \code
+///
+///
+/// \endcode
 - (FlyBuyPlaceOptionsBuilder * _Nonnull)setType:(enum PlaceType)type SWIFT_WARN_UNUSED_RESULT;
+/// Adds a PlaceType for the suggestion query. This appends to any PlaceTypes already set.
+/// \code
+///
+///
+/// \endcode
+- (FlyBuyPlaceOptionsBuilder * _Nonnull)addType:(enum PlaceType)type SWIFT_WARN_UNUSED_RESULT;
+/// Sets a single country code for the suggestion query. This will override any existing PlaceTypes if any.
+- (FlyBuyPlaceOptionsBuilder * _Nonnull)setCountryCode:(NSString * _Nonnull)countryCode SWIFT_WARN_UNUSED_RESULT;
+/// Adds a country code for the suggestion query. This appends to any country codes already set.
+- (FlyBuyPlaceOptionsBuilder * _Nonnull)addCountryCode:(NSString * _Nonnull)countryCode SWIFT_WARN_UNUSED_RESULT;
 - (FlyBuyPlaceOptions * _Nonnull)build SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -2921,7 +3007,7 @@ SWIFT_CLASS_NAMED("PlacesManager")
 /// Provide query parameter  to return a list of <code>Place</code>, where the address, zip, region or city matches the provided string.
 /// Example:
 /// \code
-/// FlyBuy.Core.sites.suggest(query: "1600 Pennsylvania Avenue Washington", options: placeSuggestionOptions.build()) { (places, error) -> (Void) in
+/// FlyBuy.Core.places.suggest(query: "1600 Pennsylvania Avenue Washington", options: placeSuggestionOptions.build()) { (places, error) -> (Void) in
 ///   if let error = error {
 ///    // Handle error
 ///   } else {
