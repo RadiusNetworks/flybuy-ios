@@ -598,6 +598,9 @@ extension Swift.Error {
   @objc final public let handoffVehicleLocation: Swift.String?
   @objc final public let partnerIdentifierForCustomer: Swift.String?
   @objc final public let partnerIdentifierForCrew: Swift.String?
+  final public let disableOrderFire: Swift.Bool?
+  final public let disablePromiseTimeScheduling: Swift.Bool?
+  final public let orderFireMakeIntervalSeconds: Swift.Int?
   @objc(FlyBuyOrderOptionsBuilder) public class Builder : ObjectiveC.NSObject {
     @objc public init(customerName: Swift.String)
     @objc public func setCustomerName(_ name: Swift.String) -> FlyBuy.OrderOptions.Builder
@@ -613,6 +616,9 @@ extension Swift.Error {
     @objc public func setHandoffVehicleLocation(_ handoffVehicleLocation: Swift.String?) -> FlyBuy.OrderOptions.Builder
     @objc public func setPartnerIdentifierForCustomer(_ partnerIdentifierForCustomer: Swift.String?) -> FlyBuy.OrderOptions.Builder
     @objc public func setPartnerIdentifierForCrew(_ partnerIdentifierForCrew: Swift.String?) -> FlyBuy.OrderOptions.Builder
+    @objc public func setDisableOrderFire(_ disableOrderFire: Swift.Bool) -> FlyBuy.OrderOptions.Builder
+    @objc public func setDisablePromiseTimeScheduling(_ disablePromiseTimeScheduling: Swift.Bool) -> FlyBuy.OrderOptions.Builder
+    @objc public func setOrderFireMakeIntervalSeconds(_ orderFireMakeIntervalSeconds: Swift.Int) -> FlyBuy.OrderOptions.Builder
     @objc public func build() -> FlyBuy.OrderOptions
     @objc deinit
   }

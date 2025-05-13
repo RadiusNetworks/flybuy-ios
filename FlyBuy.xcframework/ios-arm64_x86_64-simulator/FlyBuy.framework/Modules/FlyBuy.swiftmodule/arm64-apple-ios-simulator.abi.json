@@ -20594,6 +20594,198 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "disableOrderFire",
+            "printedName": "disableOrderFire",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Bool?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:6FlyBuy12OrderOptionsC07disableC4FireSbSgvp",
+            "mangledName": "$s6FlyBuy12OrderOptionsC07disableC4FireSbSgvp",
+            "moduleName": "FlyBuy",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Bool?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6FlyBuy12OrderOptionsC07disableC4FireSbSgvg",
+                "mangledName": "$s6FlyBuy12OrderOptionsC07disableC4FireSbSgvg",
+                "moduleName": "FlyBuy",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "disablePromiseTimeScheduling",
+            "printedName": "disablePromiseTimeScheduling",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Bool?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:6FlyBuy12OrderOptionsC28disablePromiseTimeSchedulingSbSgvp",
+            "mangledName": "$s6FlyBuy12OrderOptionsC28disablePromiseTimeSchedulingSbSgvp",
+            "moduleName": "FlyBuy",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Bool?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6FlyBuy12OrderOptionsC28disablePromiseTimeSchedulingSbSgvg",
+                "mangledName": "$s6FlyBuy12OrderOptionsC28disablePromiseTimeSchedulingSbSgvg",
+                "moduleName": "FlyBuy",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "orderFireMakeIntervalSeconds",
+            "printedName": "orderFireMakeIntervalSeconds",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:6FlyBuy12OrderOptionsC28orderFireMakeIntervalSecondsSiSgvp",
+            "mangledName": "$s6FlyBuy12OrderOptionsC28orderFireMakeIntervalSecondsSiSgvp",
+            "moduleName": "FlyBuy",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Int?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6FlyBuy12OrderOptionsC28orderFireMakeIntervalSecondsSiSgvg",
+                "mangledName": "$s6FlyBuy12OrderOptionsC28orderFireMakeIntervalSecondsSiSgvg",
+                "moduleName": "FlyBuy",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
             "kind": "TypeDecl",
             "name": "Builder",
             "printedName": "Builder",
@@ -21092,6 +21284,93 @@
                 "declKind": "Func",
                 "usr": "s:6FlyBuy12OrderOptionsC7BuilderC27setPartnerIdentifierForCrewyAESSSgF",
                 "mangledName": "$s6FlyBuy12OrderOptionsC7BuilderC27setPartnerIdentifierForCrewyAESSSgF",
+                "moduleName": "FlyBuy",
+                "declAttributes": [
+                  "AccessControl",
+                  "ObjC",
+                  "RawDocComment"
+                ],
+                "funcSelfKind": "NonMutating"
+              },
+              {
+                "kind": "Function",
+                "name": "setDisableOrderFire",
+                "printedName": "setDisableOrderFire(_:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Builder",
+                    "printedName": "FlyBuy.OrderOptions.Builder",
+                    "usr": "s:6FlyBuy12OrderOptionsC7BuilderC"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:6FlyBuy12OrderOptionsC7BuilderC010setDisableC4FireyAESbF",
+                "mangledName": "$s6FlyBuy12OrderOptionsC7BuilderC010setDisableC4FireyAESbF",
+                "moduleName": "FlyBuy",
+                "declAttributes": [
+                  "AccessControl",
+                  "ObjC",
+                  "RawDocComment"
+                ],
+                "funcSelfKind": "NonMutating"
+              },
+              {
+                "kind": "Function",
+                "name": "setDisablePromiseTimeScheduling",
+                "printedName": "setDisablePromiseTimeScheduling(_:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Builder",
+                    "printedName": "FlyBuy.OrderOptions.Builder",
+                    "usr": "s:6FlyBuy12OrderOptionsC7BuilderC"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:6FlyBuy12OrderOptionsC7BuilderC31setDisablePromiseTimeSchedulingyAESbF",
+                "mangledName": "$s6FlyBuy12OrderOptionsC7BuilderC31setDisablePromiseTimeSchedulingyAESbF",
+                "moduleName": "FlyBuy",
+                "declAttributes": [
+                  "AccessControl",
+                  "ObjC",
+                  "RawDocComment"
+                ],
+                "funcSelfKind": "NonMutating"
+              },
+              {
+                "kind": "Function",
+                "name": "setOrderFireMakeIntervalSeconds",
+                "printedName": "setOrderFireMakeIntervalSeconds(_:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Builder",
+                    "printedName": "FlyBuy.OrderOptions.Builder",
+                    "usr": "s:6FlyBuy12OrderOptionsC7BuilderC"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:6FlyBuy12OrderOptionsC7BuilderC03setC23FireMakeIntervalSecondsyAESiF",
+                "mangledName": "$s6FlyBuy12OrderOptionsC7BuilderC03setC23FireMakeIntervalSecondsyAESiF",
                 "moduleName": "FlyBuy",
                 "declAttributes": [
                   "AccessControl",
@@ -48578,114 +48857,135 @@
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Order\/CreateOrderInfo.swift",
       "kind": "StringLiteral",
-      "offset": 687,
+      "offset": 800,
       "length": 9,
       "value": "\"site_id\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Order\/CreateOrderInfo.swift",
       "kind": "StringLiteral",
-      "offset": 726,
+      "offset": 839,
       "length": 20,
       "value": "\"partner_identifier\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Order\/CreateOrderInfo.swift",
       "kind": "StringLiteral",
-      "offset": 775,
+      "offset": 888,
       "length": 20,
       "value": "\"customer_car_color\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Order\/CreateOrderInfo.swift",
       "kind": "StringLiteral",
-      "offset": 823,
+      "offset": 936,
       "length": 19,
       "value": "\"customer_car_type\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Order\/CreateOrderInfo.swift",
       "kind": "StringLiteral",
-      "offset": 875,
+      "offset": 988,
       "length": 24,
       "value": "\"customer_license_plate\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Order\/CreateOrderInfo.swift",
       "kind": "StringLiteral",
-      "offset": 924,
+      "offset": 1037,
       "length": 15,
       "value": "\"customer_name\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Order\/CreateOrderInfo.swift",
       "kind": "StringLiteral",
-      "offset": 965,
+      "offset": 1078,
       "length": 16,
       "value": "\"customer_phone\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Order\/CreateOrderInfo.swift",
       "kind": "StringLiteral",
-      "offset": 1003,
+      "offset": 1116,
       "length": 12,
       "value": "\"push_token\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Order\/CreateOrderInfo.swift",
       "kind": "StringLiteral",
-      "offset": 1033,
+      "offset": 1146,
       "length": 7,
       "value": "\"state\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Order\/CreateOrderInfo.swift",
       "kind": "StringLiteral",
-      "offset": 1065,
+      "offset": 1178,
       "length": 15,
       "value": "\"pickup_window\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Order\/CreateOrderInfo.swift",
       "kind": "StringLiteral",
-      "offset": 1103,
+      "offset": 1216,
       "length": 13,
       "value": "\"pickup_type\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Order\/CreateOrderInfo.swift",
       "kind": "StringLiteral",
-      "offset": 1160,
+      "offset": 1273,
       "length": 36,
       "value": "\"deferred_location_tracking_enabled\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Order\/CreateOrderInfo.swift",
       "kind": "StringLiteral",
-      "offset": 1223,
+      "offset": 1336,
       "length": 17,
       "value": "\"spot_identifier\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Order\/CreateOrderInfo.swift",
       "kind": "StringLiteral",
-      "offset": 1275,
+      "offset": 1388,
       "length": 26,
       "value": "\"handoff_vehicle_location\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Order\/CreateOrderInfo.swift",
       "kind": "StringLiteral",
-      "offset": 1342,
+      "offset": 1455,
       "length": 33,
       "value": "\"partner_identifier_for_customer\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Order\/CreateOrderInfo.swift",
       "kind": "StringLiteral",
-      "offset": 1412,
+      "offset": 1525,
       "length": 29,
       "value": "\"partner_identifier_for_crew\""
+    },
+    {
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Order\/CreateOrderInfo.swift",
+      "kind": "StringLiteral",
+      "offset": 1583,
+      "length": 20,
+      "value": "\"disable_order_fire\""
+    },
+    {
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Order\/CreateOrderInfo.swift",
+      "kind": "StringLiteral",
+      "offset": 1644,
+      "length": 33,
+      "value": "\"disable_promise_time_scheduling\""
+    },
+    {
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Order\/CreateOrderInfo.swift",
+      "kind": "StringLiteral",
+      "offset": 1718,
+      "length": 34,
+      "value": "\"order_fire_make_interval_seconds\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/Models\/Beacon\/Beacon.swift",
@@ -50426,7 +50726,7 @@
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/Builders\/OrderOptions.swift",
       "kind": "StringLiteral",
-      "offset": 1954,
+      "offset": 2373,
       "length": 2,
       "value": "\"\""
     },
@@ -51077,84 +51377,84 @@
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/OrdersManager.swift",
       "kind": "StringLiteral",
-      "offset": 24025,
+      "offset": 24220,
       "length": 15,
       "value": "\"ordersUpdated\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/OrdersManager.swift",
       "kind": "StringLiteral",
-      "offset": 24087,
+      "offset": 24282,
       "length": 13,
       "value": "\"ordersError\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/OrdersManager.swift",
       "kind": "StringLiteral",
-      "offset": 24148,
+      "offset": 24343,
       "length": 14,
       "value": "\"orderUpdated\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/OrdersManager.swift",
       "kind": "StringLiteral",
-      "offset": 24213,
+      "offset": 24408,
       "length": 17,
       "value": "\"orderEventError\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/OrdersManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 24393,
+      "offset": 24588,
       "length": 15,
       "value": "1"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/OrdersManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 24416,
+      "offset": 24611,
       "length": 13,
       "value": "2"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/OrdersManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 24437,
+      "offset": 24632,
       "length": 15,
       "value": "3"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/OrdersManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 24460,
+      "offset": 24655,
       "length": 20,
       "value": "4"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/OrdersManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 24488,
+      "offset": 24683,
       "length": 17,
       "value": "5"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/OrdersManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 24513,
+      "offset": 24708,
       "length": 19,
       "value": "6"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/OrdersManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 24540,
+      "offset": 24735,
       "length": 17,
       "value": "7"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/OrdersManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 24565,
+      "offset": 24760,
       "length": 14,
       "value": "8"
     },
@@ -51189,7 +51489,7 @@
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyCore\/API\/Interactors\/OrdersInteractor.swift",
       "kind": "StringLiteral",
-      "offset": 15706,
+      "offset": 16134,
       "length": 28,
       "value": "\"yyyy-MM-dd'T'HH:mm:ss.SSSZ\""
     },

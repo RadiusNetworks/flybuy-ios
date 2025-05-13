@@ -931,6 +931,12 @@ SWIFT_CLASS_NAMED("Builder")
 - (FlyBuyOrderOptionsBuilder * _Nonnull)setPartnerIdentifierForCustomer:(NSString * _Nullable)partnerIdentifierForCustomer SWIFT_WARN_UNUSED_RESULT;
 /// Set the order’s [partnerIdentifierForCrew] property when creating  an [Order]
 - (FlyBuyOrderOptionsBuilder * _Nonnull)setPartnerIdentifierForCrew:(NSString * _Nullable)partnerIdentifierForCrew SWIFT_WARN_UNUSED_RESULT;
+/// Set the order’s [disableOrderFire] property when creating an [Order]
+- (FlyBuyOrderOptionsBuilder * _Nonnull)setDisableOrderFire:(BOOL)disableOrderFire SWIFT_WARN_UNUSED_RESULT;
+/// Set the order’s [disablePromiseTimeScheduling] property when creating an [Order]
+- (FlyBuyOrderOptionsBuilder * _Nonnull)setDisablePromiseTimeScheduling:(BOOL)disablePromiseTimeScheduling SWIFT_WARN_UNUSED_RESULT;
+/// Set the order’s [orderFireMakeIntervalSeconds] property when creating an [Order]
+- (FlyBuyOrderOptionsBuilder * _Nonnull)setOrderFireMakeIntervalSeconds:(NSInteger)orderFireMakeIntervalSeconds SWIFT_WARN_UNUSED_RESULT;
 - (FlyBuyOrderOptions * _Nonnull)build SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
