@@ -216,6 +216,24 @@ final public class PersistManager : FlyBuy.FlyBuyDBProtocol {
   public init(atPath path: Swift.String = PersistManager.defaultDBPath, migrate: Swift.Bool = true)
   @objc deinit
 }
+@objc(FlyBuyPickupMethodOptions) public class PickupMethodOptions : ObjectiveC.NSObject {
+  @objc final public let customerCarColor: Swift.String?
+  @objc final public let customerCarType: Swift.String?
+  @objc final public let customerLicensePlate: Swift.String?
+  @objc final public let pickupType: Swift.String
+  @objc final public let handoffVehicleLocation: Swift.String?
+  @objc public init(customerCarColor: Swift.String?, customerCarType: Swift.String?, customerLicensePlate: Swift.String?, pickupType: Swift.String, handoffVehicleLocation: Swift.String?)
+  @objc(FlyBuyPickupMethodOptionsBuilder) public class Builder : ObjectiveC.NSObject {
+    @objc public init(pickupType: Swift.String)
+    @objc public func setCustomerCarColor(_ customerCarColor: Swift.String?) -> FlyBuy.PickupMethodOptions.Builder
+    @objc public func setCustomerCarType(_ customerCarType: Swift.String?) -> FlyBuy.PickupMethodOptions.Builder
+    @objc public func setCustomerLicensePlate(_ customerLicensePlate: Swift.String?) -> FlyBuy.PickupMethodOptions.Builder
+    @objc public func setHandoffVehicleLocation(_ handoffVehicleLocation: Swift.String?) -> FlyBuy.PickupMethodOptions.Builder
+    @objc public func build() -> FlyBuy.PickupMethodOptions
+    @objc deinit
+  }
+  @objc deinit
+}
 @objc public enum LocationAuthStatus : Swift.Int, Swift.Codable {
   case notDetermined
   case restricted
@@ -475,6 +493,7 @@ public class FirebaseTopicSubscriber : FlyBuy.PushTopicSubscriber {
   public init(orderID: Swift.Int, locationAuthStatus: FlyBuy.LocationAuthStatus)
   public init(orderID: Swift.Int, customerRating: Swift.Int, customerComments: Swift.String?)
   public init(orderID: Swift.Int, pickupType: Swift.String)
+  public init(orderID: Swift.Int, eventType: Swift.String, longitude: Swift.Double? = nil, latitude: Swift.Double? = nil, accuracy: Swift.Double? = nil, speed: Swift.Double? = nil, etaSeconds: Swift.Int? = nil, etaSource: Swift.String? = nil, customerState: Swift.String? = nil, state: Swift.String? = nil, beacons: [FlyBuy.Beacon]? = nil, locationAuthStatus: FlyBuy.LocationAuthStatus? = nil, customerRating: Swift.Int? = nil, customerComments: Swift.String? = nil, spotIdentifier: Swift.String? = nil, possibleWrongSiteId: Swift.Int? = nil, locationAt: Swift.String? = nil, clientEtaExpiry: Swift.Int? = nil, clientEtaAttempted: Swift.Bool? = nil, clientEtaLog: Swift.String? = nil, pickupType: Swift.String? = nil, handoffVehicleLocation: Swift.String? = nil, customerCarType: Swift.String? = nil, customerCarColor: Swift.String? = nil, customerLicensePlate: Swift.String? = nil)
   @objc deinit
   open func encode(to encoder: any Swift.Encoder) throws
 }
@@ -1027,7 +1046,9 @@ public struct PickupStates : Swift.Codable {
   @objc public func updateCustomerState(orderID: Swift.Int, customerState: Swift.String, spotIdentifier: Swift.String?, callback: ((FlyBuy.Order?, (any Swift.Error)?) -> Swift.Void)? = nil)
   @objc public func updateOrderState(orderID: Swift.Int, state: Swift.String, callback: ((FlyBuy.Order?, (any Swift.Error)?) -> Swift.Void)? = nil)
   @objc public func rateOrder(orderID: Swift.Int, rating: Swift.Int, comments: Swift.String? = nil, callback: ((FlyBuy.Order?, (any Swift.Error)?) -> Swift.Void)? = nil)
+  @available(*, deprecated, message: "This method for updating the pickup type of an order has been deprecated. Use updatePickupMethod(orderID:, pickupMethodOptions:) instead.")
   @objc public func updatePickupType(orderID: Swift.Int, pickupType: Swift.String, callback: ((FlyBuy.Order?, (any Swift.Error)?) -> Swift.Void)? = nil)
+  @objc public func updatePickupMethod(orderID: Swift.Int, pickupMethodOptions: FlyBuy.PickupMethodOptions, callback: ((FlyBuy.Order?, (any Swift.Error)?) -> Swift.Void)? = nil)
   @objc deinit
 }
 extension Foundation.NSNotification.Name {
@@ -1203,9 +1224,9 @@ extension CoreLocation.CLLocationManager {
   @objc final public let projectAccentTextColor: Swift.String?
   @objc final public let projectLogoURL: Swift.String?
   @objc final public let customerName: Swift.String?
-  @objc final public let customerCarType: Swift.String?
-  @objc final public let customerCarColor: Swift.String?
-  @objc final public let customerLicensePlate: Swift.String?
+  @objc public var customerCarType: Swift.String?
+  @objc public var customerCarColor: Swift.String?
+  @objc public var customerLicensePlate: Swift.String?
   @available(*, deprecated, message: "Use showVehicleInfoFields for the pickup type in sitePickupConfig.availablePickupTypes")
   @objc final public let projectMobileFlowAlwaysShowVehicleInfoFields: Swift.Bool
   @available(*, deprecated, message: "Use order.sitePickupConfig.customerNameEditingEnabled instead")
@@ -1236,7 +1257,7 @@ extension CoreLocation.CLLocationManager {
     @objc get
   }
   final public let _pickupConfigID: Swift.Int?
-  final public let handoffVehicleLocation: Swift.String?
+  public var handoffVehicleLocation: Swift.String?
   public var estimatedReadyAt: Swift.String?
   required public init(from decoder: any Swift.Decoder) throws
   public func encode(to encoder: any Swift.Encoder) throws

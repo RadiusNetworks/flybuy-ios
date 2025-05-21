@@ -840,9 +840,9 @@ SWIFT_CLASS_NAMED("Order")
 @property (nonatomic, readonly, copy) NSString * _Nullable projectAccentTextColor SWIFT_DEPRECATED_MSG("Use order.sitePickupConfig.projectAccentTextColor instead");
 @property (nonatomic, readonly, copy) NSString * _Nullable projectLogoURL;
 @property (nonatomic, readonly, copy) NSString * _Nullable customerName;
-@property (nonatomic, readonly, copy) NSString * _Nullable customerCarType;
-@property (nonatomic, readonly, copy) NSString * _Nullable customerCarColor;
-@property (nonatomic, readonly, copy) NSString * _Nullable customerLicensePlate;
+@property (nonatomic, copy) NSString * _Nullable customerCarType;
+@property (nonatomic, copy) NSString * _Nullable customerCarColor;
+@property (nonatomic, copy) NSString * _Nullable customerLicensePlate;
 @property (nonatomic, readonly) BOOL projectMobileFlowAlwaysShowVehicleInfoFields SWIFT_DEPRECATED_MSG("Use showVehicleInfoFields for the pickup type in sitePickupConfig.availablePickupTypes");
 @property (nonatomic, readonly) BOOL projectMobileFlowCustomerNameEditingEnabled SWIFT_DEPRECATED_MSG("Use order.sitePickupConfig.customerNameEditingEnabled instead");
 @property (nonatomic, readonly) BOOL projectMobileFlowPickupTypeSelectionEnabled SWIFT_DEPRECATED_MSG("Use order.sitePickupConfig.pickupTypeSelectionEnabled instead");
@@ -948,6 +948,7 @@ SWIFT_CLASS("_TtC6FlyBuy18OrderProgressState")
 @property (nonatomic, readonly, copy) NSString * _Nonnull stateLocalizedString;
 @end
 
+@class FlyBuyPickupMethodOptions;
 /// Manager for order operations
 /// Allows fetching the list of orders, creating a new order, or creating
 /// order events.
@@ -1206,7 +1207,32 @@ SWIFT_CLASS_NAMED("OrdersManager")
 ///
 /// \param callback Gets called at completion with the <code>Order</code> or any error encountered. Optional.
 ///
-- (void)updatePickupTypeWithOrderID:(NSInteger)orderID pickupType:(NSString * _Nonnull)pickupType callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
+- (void)updatePickupTypeWithOrderID:(NSInteger)orderID pickupType:(NSString * _Nonnull)pickupType callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for updating the pickup type of an order has been deprecated. Use updatePickupMethod(orderID:, pickupMethodOptions:) instead.");
+/// Update method for an <code>Order</code> with the given [orderId] including pickup type, vehicle info, and handoff location.
+/// Example:
+/// \code
+/// let options = PickupMethodOptions.Builder(pickupType: "curbside")
+/// .setHandoffVehicleLocation(HandoffLocation.trunkFront.rawValue)
+/// .setCustomerCarType("Toyota Van")
+/// .setCustomerCarColor("Silver")
+/// .setCustomerLicensePlate("OUTATIME")
+/// .build()
+///
+/// FlyBuy.Core.orders.updatePickupMethod(orderID: 123, pickupMethodOptions: options) { order, error in
+///  if let error = error {
+///    // Handle error
+///  } else {
+///    // Handle success
+///  }
+/// }
+///
+/// \endcode\param orderID specifies which order ID this event relates to
+///
+/// \param pickupMethodOptions options containing the pickup type, vehicle info, and handoff location.
+///
+/// \param callback Gets called at completion with the <code>Order</code> or any error encountered. Optional.
+///
+- (void)updatePickupMethodWithOrderID:(NSInteger)orderID pickupMethodOptions:(FlyBuyPickupMethodOptions * _Nonnull)pickupMethodOptions callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
 @end
 
 @interface FlyBuyOrdersManager (SWIFT_EXTENSION(FlyBuy)) <CLLocationManagerDelegate>
@@ -1263,6 +1289,36 @@ SWIFT_CLASS("_TtC6FlyBuy12PickupConfig")
 @property (nonatomic, readonly, copy) NSArray<PickupTypeConfig *> * _Nonnull availablePickupTypes;
 @property (nonatomic, readonly, copy) NSArray<AvailableHandoffVehicleLocation *> * _Nonnull availableHandoffVehicleLocation;
 @property (nonatomic, readonly, copy) NSArray<OrderProgressState *> * _Nonnull orderProgressStates;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+SWIFT_CLASS_NAMED("PickupMethodOptions")
+@interface FlyBuyPickupMethodOptions : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nullable customerCarColor;
+@property (nonatomic, readonly, copy) NSString * _Nullable customerCarType;
+@property (nonatomic, readonly, copy) NSString * _Nullable customerLicensePlate;
+@property (nonatomic, readonly, copy) NSString * _Nonnull pickupType;
+@property (nonatomic, readonly, copy) NSString * _Nullable handoffVehicleLocation;
+- (nonnull instancetype)initWithCustomerCarColor:(NSString * _Nullable)customerCarColor customerCarType:(NSString * _Nullable)customerCarType customerLicensePlate:(NSString * _Nullable)customerLicensePlate pickupType:(NSString * _Nonnull)pickupType handoffVehicleLocation:(NSString * _Nullable)handoffVehicleLocation OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+SWIFT_CLASS_NAMED("Builder")
+@interface FlyBuyPickupMethodOptionsBuilder : NSObject
+/// Initialization method that sets the PickupMethodOptions.Builder [pickupType] property
+- (nonnull instancetype)initWithPickupType:(NSString * _Nonnull)pickupType OBJC_DESIGNATED_INITIALIZER;
+/// Set the customer’s [customerCarColor] property when updating an [Order] pickup method
+- (FlyBuyPickupMethodOptionsBuilder * _Nonnull)setCustomerCarColor:(NSString * _Nullable)customerCarColor SWIFT_WARN_UNUSED_RESULT;
+/// Set the customer’s [customerCarType] property when updating an [Order] pickup method
+- (FlyBuyPickupMethodOptionsBuilder * _Nonnull)setCustomerCarType:(NSString * _Nullable)customerCarType SWIFT_WARN_UNUSED_RESULT;
+/// Set the customer’s [customerLicensePlate] property when updating an [Order] pickup method
+- (FlyBuyPickupMethodOptionsBuilder * _Nonnull)setCustomerLicensePlate:(NSString * _Nullable)customerLicensePlate SWIFT_WARN_UNUSED_RESULT;
+/// Set the order’s [handoffVehicleLocation] property when updating an [Order] pickup method
+- (FlyBuyPickupMethodOptionsBuilder * _Nonnull)setHandoffVehicleLocation:(NSString * _Nullable)handoffVehicleLocation SWIFT_WARN_UNUSED_RESULT;
+/// Build method  to convert [PickupMethodOptions.Builder] to [PickupMethodOptions].
+- (FlyBuyPickupMethodOptions * _Nonnull)build SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
