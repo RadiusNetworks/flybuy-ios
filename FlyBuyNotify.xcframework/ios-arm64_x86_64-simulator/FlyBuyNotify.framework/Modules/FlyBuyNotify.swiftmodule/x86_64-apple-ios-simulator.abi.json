@@ -14543,79 +14543,86 @@
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "IntegerLiteral",
-      "offset": 21759,
+      "offset": 22572,
       "length": 28,
       "value": "1"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "IntegerLiteral",
-      "offset": 21795,
+      "offset": 22608,
       "length": 26,
       "value": "2"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "IntegerLiteral",
-      "offset": 21829,
+      "offset": 22642,
       "length": 25,
       "value": "3"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "IntegerLiteral",
-      "offset": 21862,
+      "offset": 22675,
       "length": 19,
       "value": "4"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "IntegerLiteral",
-      "offset": 21889,
+      "offset": 22702,
       "length": 22,
       "value": "5"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "IntegerLiteral",
-      "offset": 21919,
+      "offset": 22732,
       "length": 25,
       "value": "6"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "IntegerLiteral",
-      "offset": 21952,
+      "offset": 22765,
       "length": 15,
       "value": "7"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "IntegerLiteral",
-      "offset": 21975,
+      "offset": 22788,
       "length": 33,
       "value": "8"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "IntegerLiteral",
-      "offset": 22016,
+      "offset": 22829,
       "length": 30,
       "value": "9"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "BooleanLiteral",
-      "offset": 25102,
+      "offset": 25915,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "BooleanLiteral",
-      "offset": 35163,
+      "offset": 36188,
       "length": 5,
       "value": "false"
+    },
+    {
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
+      "kind": "BooleanLiteral",
+      "offset": 50627,
+      "length": 4,
+      "value": "true"
     }
   ]
 }
