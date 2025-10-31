@@ -2289,6 +2289,13 @@
       },
       {
         "kind": "Import",
+        "name": "SwiftUI",
+        "printedName": "SwiftUI",
+        "declKind": "Import",
+        "moduleName": "FlyBuyLiveStatus"
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -2481,11 +2488,25 @@
   },
   "ConstValues": [
     {
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyLiveStatus\/Widget\/StatusView\/DynamicIsland\/FlyBuyCompactLeadingStatusView.swift",
+      "kind": "FloatLiteral",
+      "offset": 122,
+      "length": 4,
+      "value": "24.0"
+    },
+    {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyLiveStatus\/Extensions\/Bundle.swift",
       "kind": "StringLiteral",
       "offset": 89,
       "length": 37,
       "value": "\"com.radiusnetworks.FlyBuyLiveStatus\""
+    },
+    {
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyLiveStatus\/Widget\/StatusView\/FlyBuyStatusView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 148,
+      "length": 5,
+      "value": "false"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyLiveStatus\/Widget\/StatusView\/StatusViewModel.swift",
