@@ -6,13 +6,6 @@
     "children": [
       {
         "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "FlyBuyNotify"
-      },
-      {
-        "kind": "Import",
         "name": "CoreLocation",
         "printedName": "CoreLocation",
         "declKind": "Import",
@@ -7475,13 +7468,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
             "name": "_ArrayProtocol",
             "printedName": "_ArrayProtocol",
             "children": [
@@ -7935,6 +7921,13 @@
             "printedName": "CustomDebugStringConvertible",
             "usr": "s:s28CustomDebugStringConvertibleP",
             "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
           },
           {
             "kind": "Conformance",
@@ -9518,13 +9511,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
             "name": "Encodable",
             "printedName": "Encodable",
             "usr": "s:SE",
@@ -9740,6 +9726,13 @@
             ],
             "usr": "s:s30ExpressibleByDictionaryLiteralP",
             "mangledName": "$ss30ExpressibleByDictionaryLiteralP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
           },
           {
             "kind": "Conformance",
@@ -11385,13 +11378,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
             "name": "_ExpressibleByBuiltinBooleanLiteral",
             "printedName": "_ExpressibleByBuiltinBooleanLiteral",
             "usr": "s:s35_ExpressibleByBuiltinBooleanLiteralP",
@@ -11425,6 +11411,13 @@
             "printedName": "CustomStringConvertible",
             "usr": "s:s23CustomStringConvertibleP",
             "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
           },
           {
             "kind": "Conformance",
@@ -12784,13 +12777,6 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyRepeatability.swift",
-      "kind": "IntegerLiteral",
-      "offset": 98,
-      "length": 4,
-      "value": "1"
-    },
-    {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyInteractor.swift",
       "kind": "Array",
       "offset": 114,
@@ -13080,84 +13066,91 @@
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
       "kind": "StringLiteral",
-      "offset": 440,
+      "offset": 430,
       "length": 26,
       "value": "\"FlyBuy.Notify.CampaignID\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
       "kind": "StringLiteral",
-      "offset": 490,
+      "offset": 480,
       "length": 22,
       "value": "\"FlyBuy.Notify.SiteID\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
       "kind": "StringLiteral",
-      "offset": 541,
+      "offset": 531,
       "length": 27,
       "value": "\"FlyBuy.Notify.DeepLinkURL\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
       "kind": "StringLiteral",
-      "offset": 594,
+      "offset": 584,
       "length": 24,
       "value": "\"FlyBuy.Notify.Metadata\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
       "kind": "StringLiteral",
-      "offset": 1276,
+      "offset": 1267,
       "length": 13,
       "value": "\"region_type\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
       "kind": "StringLiteral",
-      "offset": 1312,
+      "offset": 1303,
       "length": 13,
       "value": "\"beacon_uuid\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
       "kind": "StringLiteral",
-      "offset": 1349,
+      "offset": 1340,
       "length": 14,
       "value": "\"beacon_major\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
       "kind": "StringLiteral",
-      "offset": 1384,
+      "offset": 1375,
       "length": 11,
       "value": "\"start_day\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
       "kind": "StringLiteral",
-      "offset": 1414,
+      "offset": 1405,
       "length": 9,
       "value": "\"end_day\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
       "kind": "StringLiteral",
-      "offset": 1479,
+      "offset": 1445,
+      "length": 22,
+      "value": "\"repeat_interval_days\""
+    },
+    {
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
+      "kind": "StringLiteral",
+      "offset": 1500,
       "length": 24,
       "value": "\"geofence_radius_meters\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
       "kind": "StringLiteral",
-      "offset": 1524,
+      "offset": 1545,
       "length": 9,
       "value": "\"content\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Model\/NotifyCampaign.swift",
       "kind": "StringLiteral",
-      "offset": 1559,
+      "offset": 1580,
       "length": 17,
       "value": "\"defer_on_pickup\""
     },
@@ -14381,8 +14374,22 @@
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyDBManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 550,
+      "length": 1,
+      "value": "6"
+    },
+    {
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyDBManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 566,
+      "length": 1,
+      "value": "7"
+    },
+    {
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/NotifyDBManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 626,
+      "offset": 658,
       "length": 4,
       "value": "true"
     },
@@ -14620,7 +14627,7 @@
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyNotify\/Manager.swift",
       "kind": "BooleanLiteral",
-      "offset": 50627,
+      "offset": 52254,
       "length": 4,
       "value": "true"
     }

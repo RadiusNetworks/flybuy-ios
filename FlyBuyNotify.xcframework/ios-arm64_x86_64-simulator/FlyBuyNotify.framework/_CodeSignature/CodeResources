@@ -14,11 +14,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		iuTZ/5KCqEkJhiF0SZRSvRUHaS4=
+		EzXOpocMXjIAyxjABZGOHy3u6OY=
 		</data>
 		<key>Modules/FlyBuyNotify.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		1SFA1Eaf290uNpx4Z+LKswgblmw=
+		3J+9l/MKMc/cs50OA3HXMsmPL6U=
 		</data>
 		<key>Modules/FlyBuyNotify.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -34,11 +34,11 @@
 		</data>
 		<key>Modules/FlyBuyNotify.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		LAh7PBL5LEX9XHmWSG8Ulbm/GBc=
+		dNhblMS3mlZXCMgMJQMH2h89wU8=
 		</data>
 		<key>Modules/FlyBuyNotify.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		1SFA1Eaf290uNpx4Z+LKswgblmw=
+		3J+9l/MKMc/cs50OA3HXMsmPL6U=
 		</data>
 		<key>Modules/FlyBuyNotify.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>Modules/FlyBuyNotify.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		hNsINfkjdlrjrH9hbdjD2I+XRl0=
+		Yj1b4lf2Z942KPDsTcRhVYD26EA=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -85,7 +85,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			p517bo+pgCp9ykAeCrYpRojdsGjQyl/7t3VKV1crAtM=
+			pIitJKGjU+eOsD8QnTsOOnQmzZijtTVz0CHFUOwD5jY=
 			</data>
 		</dict>
 		<key>Modules/FlyBuyNotify.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -113,14 +113,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			NQL0rYM0Mo1slytMFbo+xnL8ODveXmmhEATlMIpirp0=
+			hmhawVd9j3VXboDlYuvCODoH6Hnn2cH4HBjgSaemMdg=
 			</data>
 		</dict>
 		<key>Modules/FlyBuyNotify.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			p517bo+pgCp9ykAeCrYpRojdsGjQyl/7t3VKV1crAtM=
+			pIitJKGjU+eOsD8QnTsOOnQmzZijtTVz0CHFUOwD5jY=
 			</data>
 		</dict>
 		<key>Modules/FlyBuyNotify.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -148,7 +148,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			G4LYLnK1qFI/YKDssSV2R6hObtZdvlz8hJUfDGu6LMk=
+			GjXoFEvsmB0gA/L40PH3LXMX5RsaR16nDCXdpRV9WP8=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
