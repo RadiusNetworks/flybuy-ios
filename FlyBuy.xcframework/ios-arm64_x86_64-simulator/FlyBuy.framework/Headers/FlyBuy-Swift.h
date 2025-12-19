@@ -1537,9 +1537,9 @@ SWIFT_CLASS_NAMED("SiteOptions")
 
 SWIFT_CLASS_NAMED("Builder")
 @interface FlyBuySiteOptionsBuilder : NSObject
-- (void)setOperationalStatus:(NSString * _Nonnull)operationalStatus;
-- (void)setPage:(NSInteger)page;
-- (void)setPer:(NSInteger)per;
+- (FlyBuySiteOptionsBuilder * _Nonnull)setOperationalStatus:(NSString * _Nonnull)operationalStatus SWIFT_WARN_UNUSED_RESULT;
+- (FlyBuySiteOptionsBuilder * _Nonnull)setPage:(NSInteger)page SWIFT_WARN_UNUSED_RESULT;
+- (FlyBuySiteOptionsBuilder * _Nonnull)setPer:(NSInteger)per SWIFT_WARN_UNUSED_RESULT;
 - (FlyBuySiteOptions * _Nonnull)build SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -1554,7 +1554,9 @@ SWIFT_CLASS_NAMED("Builder")
 SWIFT_CLASS_NAMED("SitesManager")
 @interface FlyBuySitesManager : NSObject
 /// Gets all sites.
-@property (nonatomic, readonly, copy) NSArray<FlyBuySite *> * _Nullable all SWIFT_DEPRECATED_MSG("This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetchByPartnerIdentifier instead.");
+@property (nonatomic, readonly, copy) NSArray<FlyBuySite *> * _Nullable all SWIFT_DEPRECATED_MSG("This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetchByPartnerIdentifier(partnerIdentifier:options:callback:) instead.");
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 /// Fetch a <code>Site</code> by partner identifier.
 /// Provide partnerIdentifier parameter to return the site with the same partner identifier. If
 /// the site is found, it will be returned in the callback; otherwise, an error will be returned
@@ -1573,9 +1575,9 @@ SWIFT_CLASS_NAMED("SitesManager")
 ///
 /// \param options A <code>SiteOptions</code> instance.
 ///
-/// \param callback Gets called at completion with the <code>Site</code> or any error encountered. Optional.
+/// \param callback Gets called at completion with the <code>Site</code> or any error encountered.
 ///
-- (void)fetchByPartnerIdentifierWithPartnerIdentifier:(NSString * _Nonnull)partnerIdentifier options:(FlyBuySiteOptions * _Nonnull)options callback:(void (^ _Nullable)(FlyBuySite * _Nullable, NSError * _Nullable))callback;
+- (void)fetchByPartnerIdentifierWithPartnerIdentifier:(NSString * _Nonnull)partnerIdentifier options:(FlyBuySiteOptions * _Nonnull)options callback:(void (^ _Nonnull)(FlyBuySite * _Nullable, NSError * _Nullable))callback;
 /// Fetches the list of sites from the FlyBuy web API via search region
 /// \param region a <code>FlyBuyCircularRegion</code> for the search region.
 ///
@@ -1583,28 +1585,68 @@ SWIFT_CLASS_NAMED("SitesManager")
 ///
 /// \param callback will get called on completion with the array of <code>Site</code>s or any errors encountered. Optional.
 ///
-- (void)fetchWithRegion:(FlyBuyCircularRegion * _Nonnull)region options:(FlyBuySiteOptions * _Nonnull)options callback:(void (^ _Nullable)(NSArray<FlyBuySite *> * _Nullable, NSError * _Nullable))callback;
+- (void)fetchWithRegion:(FlyBuyCircularRegion * _Nonnull)region options:(FlyBuySiteOptions * _Nonnull)options callback:(void (^ _Nullable)(NSArray<FlyBuySite *> * _Nullable, FlyBuyPagination * _Nullable, NSError * _Nullable))callback;
 /// Fetch  nearby <code>Site</code>s for a <code>Place</code> within the given radius .
 /// Provide place and radius parameters to return the sites within the range near the <code>Place</code>
 /// If sites are found, they will be returned in the callback; otherwise, an error will be returned
 /// in the callback.
 /// \param partnerIdentifier partner identifier for the site.
 ///
-/// \param operationalStatus operation status of the site.
+/// \param options A <code>SiteOptions</code> instance.
 ///
-/// \param callback Gets called at completion with the <code>Site</code>s or any error encountered. Optional.
+/// \param callback Gets called at completion with the <code>Site</code>s or any error encountered.
 ///
-- (void)fetchNearWithPlace:(FlyBuyPlace * _Nonnull)place radius:(double)radius options:(FlyBuySiteOptions * _Nonnull)options callback:(void (^ _Nullable)(NSArray<FlyBuySite *> * _Nullable, NSError * _Nullable))callback;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (void)fetchNearWithPlace:(FlyBuyPlace * _Nonnull)place radius:(double)radius options:(FlyBuySiteOptions * _Nonnull)options callback:(void (^ _Nonnull)(NSArray<FlyBuySite *> * _Nullable, FlyBuyPagination * _Nullable, NSError * _Nullable))callback;
+/// Fetch nearby <code>Site</code>s using the device’s current location.
+/// This method automatically retrieves the device’s current location and fetches sites within
+/// the specified radius. If location permissions are not granted, location cannot be retrieved,
+/// or a request is already pending, an error will be returned in the callback.
+/// Example:
+/// \code
+/// FlyBuy.Core.sites.fetchNearby(radius: 40000, options: SiteOptions.Builder().build()) { (sites, pagination, error) in
+///   if let error = error {
+///     // Handle error (including location permission errors)
+///   } else if let sites = sites {
+///     // Handle success
+///   }
+/// }
+///
+/// \endcode\param radius The search radius in meters. Defaults to the SDK’s configured default radius.
+///
+/// \param options A <code>SiteOptions</code> instance.
+///
+/// \param callback Gets called at completion with the <code>Site</code>s, <code>Pagination</code>, or any error encountered.
+///
+- (void)fetchNearbyWithRadius:(double)radius options:(FlyBuySiteOptions * _Nonnull)options callback:(void (^ _Nonnull)(NSArray<FlyBuySite *> * _Nullable, FlyBuyPagination * _Nullable, NSError * _Nullable))callback;
+/// Fetch nearby <code>Site</code>s using the device’s current location.
+/// Convenience method for fetchNearby(radius: options:, callback:) for fetching nearby sites with default values for radius and <code>SiteOptions</code>.
+/// Example:
+/// \code
+/// FlyBuy.Core.sites.fetchNearby() { (sites, pagination, error) in
+///   if let error = error {
+///     // Handle error (including location permission errors)
+///   } else if let sites = sites {
+///     // Handle success
+///   }
+/// }
+///
+/// \endcode\param callback Gets called at completion with the <code>Site</code>s, <code>Pagination</code>, or any error encountered.
+///
+- (void)fetchNearbyWithCallback:(void (^ _Nonnull)(NSArray<FlyBuySite *> * _Nullable, FlyBuyPagination * _Nullable, NSError * _Nullable))callback;
+@end
+
+@interface FlyBuySitesManager (SWIFT_EXTENSION(FlyBuy)) <CLLocationManagerDelegate>
+- (void)locationManager:(CLLocationManager * _Nonnull)manager didUpdateLocations:(NSArray<CLLocation *> * _Nonnull)locations;
+- (void)locationManager:(CLLocationManager * _Nonnull)manager didFailWithError:(NSError * _Nonnull)error;
 @end
 
 @class CLCircularRegion;
 @interface FlyBuySitesManager (SWIFT_EXTENSION(FlyBuy))
-- (void)fetchByPartnerIdentifierWithPartnerIdentifier:(NSString * _Nonnull)partnerIdentifier callback:(void (^ _Nullable)(FlyBuySite * _Nullable, NSError * _Nullable))callback;
-- (void)fetchByPartnerIdentifierWithPartnerIdentifier:(NSString * _Nonnull)partnerIdentifier operationalStatus:(NSString * _Nonnull)operationalStatus callback:(void (^ _Nullable)(FlyBuySite * _Nullable, NSError * _Nullable))callback;
-- (void)fetchWithQuery:(NSString * _Nullable)query page:(NSInteger)page callback:(void (^ _Nullable)(NSArray<FlyBuySite *> * _Nullable, FlyBuyPagination * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetchByPartnerIdentifier instead.");
-- (void)fetchWithQuery:(NSString * _Nullable)query page:(NSInteger)page operationalStatus:(NSString * _Nonnull)operationalStatus callback:(void (^ _Nullable)(NSArray<FlyBuySite *> * _Nullable, FlyBuyPagination * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetchByPartnerIdentifier instead.");
-- (void)fetchAllWithQuery:(NSString * _Nullable)query callback:(void (^ _Nullable)(NSArray<FlyBuySite *> * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for fetching sites has been deprecated. Use FlyBuyCore.sites.fetchByPartnerIdentifier instead.");
+- (void)fetchByPartnerIdentifierWithPartnerIdentifier:(NSString * _Nonnull)partnerIdentifier callback:(void (^ _Nullable)(FlyBuySite * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetchByPartnerIdentifier(partnerIdentifier:options:callback:) instead.");
+- (void)fetchByPartnerIdentifierWithPartnerIdentifier:(NSString * _Nonnull)partnerIdentifier operationalStatus:(NSString * _Nonnull)operationalStatus callback:(void (^ _Nullable)(FlyBuySite * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetchByPartnerIdentifier(partnerIdentifier:options:callback:) instead.");
+- (void)fetchWithQuery:(NSString * _Nullable)query page:(NSInteger)page callback:(void (^ _Nullable)(NSArray<FlyBuySite *> * _Nullable, FlyBuyPagination * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetchByPartnerIdentifier(partnerIdentifier:options:callback:) instead.");
+- (void)fetchWithQuery:(NSString * _Nullable)query page:(NSInteger)page operationalStatus:(NSString * _Nonnull)operationalStatus callback:(void (^ _Nullable)(NSArray<FlyBuySite *> * _Nullable, FlyBuyPagination * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetchByPartnerIdentifier(partnerIdentifier:options:callback:) instead.");
+- (void)fetchAllWithQuery:(NSString * _Nullable)query callback:(void (^ _Nullable)(NSArray<FlyBuySite *> * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetchByPartnerIdentifier(partnerIdentifier:options:callback:) instead.");
 - (void)fetchWithRegion:(CLCircularRegion * _Nonnull)region page:(NSInteger)page operationalStatus:(NSString * _Nonnull)operationalStatus callback:(void (^ _Nullable)(NSArray<FlyBuySite *> * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetch(region:, options:) instead.");
 - (void)fetchWithRegion:(CLCircularRegion * _Nonnull)region page:(NSInteger)page per:(NSInteger)per callback:(void (^ _Nullable)(NSArray<FlyBuySite *> * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetch(region:, options:) instead.");
 - (void)fetchWithRegion:(CLCircularRegion * _Nonnull)region page:(NSInteger)page per:(NSInteger)per operationalStatus:(NSString * _Nonnull)operationalStatus callback:(void (^ _Nullable)(NSArray<FlyBuySite *> * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetch(region:, options:) instead.");
@@ -1626,6 +1668,9 @@ SWIFT_CLASS_NAMED("SitesManagerError")
 typedef SWIFT_ENUM(NSInteger, SitesManagerErrorType, open) {
   SitesManagerErrorTypeCoreIsNotConfigured = 0,
   SitesManagerErrorTypeMapboxTokenIsMissing = 1,
+  SitesManagerErrorTypeLocationPermissionDenied = 2,
+  SitesManagerErrorTypeLocationUnavailable = 3,
+  SitesManagerErrorTypeRequestAlreadyPending = 4,
 };
 
 SWIFT_CLASS("_TtC6FlyBuy22WrongSiteArrivalConfig")
@@ -3181,9 +3226,9 @@ SWIFT_CLASS_NAMED("SiteOptions")
 
 SWIFT_CLASS_NAMED("Builder")
 @interface FlyBuySiteOptionsBuilder : NSObject
-- (void)setOperationalStatus:(NSString * _Nonnull)operationalStatus;
-- (void)setPage:(NSInteger)page;
-- (void)setPer:(NSInteger)per;
+- (FlyBuySiteOptionsBuilder * _Nonnull)setOperationalStatus:(NSString * _Nonnull)operationalStatus SWIFT_WARN_UNUSED_RESULT;
+- (FlyBuySiteOptionsBuilder * _Nonnull)setPage:(NSInteger)page SWIFT_WARN_UNUSED_RESULT;
+- (FlyBuySiteOptionsBuilder * _Nonnull)setPer:(NSInteger)per SWIFT_WARN_UNUSED_RESULT;
 - (FlyBuySiteOptions * _Nonnull)build SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -3198,7 +3243,9 @@ SWIFT_CLASS_NAMED("Builder")
 SWIFT_CLASS_NAMED("SitesManager")
 @interface FlyBuySitesManager : NSObject
 /// Gets all sites.
-@property (nonatomic, readonly, copy) NSArray<FlyBuySite *> * _Nullable all SWIFT_DEPRECATED_MSG("This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetchByPartnerIdentifier instead.");
+@property (nonatomic, readonly, copy) NSArray<FlyBuySite *> * _Nullable all SWIFT_DEPRECATED_MSG("This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetchByPartnerIdentifier(partnerIdentifier:options:callback:) instead.");
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 /// Fetch a <code>Site</code> by partner identifier.
 /// Provide partnerIdentifier parameter to return the site with the same partner identifier. If
 /// the site is found, it will be returned in the callback; otherwise, an error will be returned
@@ -3217,9 +3264,9 @@ SWIFT_CLASS_NAMED("SitesManager")
 ///
 /// \param options A <code>SiteOptions</code> instance.
 ///
-/// \param callback Gets called at completion with the <code>Site</code> or any error encountered. Optional.
+/// \param callback Gets called at completion with the <code>Site</code> or any error encountered.
 ///
-- (void)fetchByPartnerIdentifierWithPartnerIdentifier:(NSString * _Nonnull)partnerIdentifier options:(FlyBuySiteOptions * _Nonnull)options callback:(void (^ _Nullable)(FlyBuySite * _Nullable, NSError * _Nullable))callback;
+- (void)fetchByPartnerIdentifierWithPartnerIdentifier:(NSString * _Nonnull)partnerIdentifier options:(FlyBuySiteOptions * _Nonnull)options callback:(void (^ _Nonnull)(FlyBuySite * _Nullable, NSError * _Nullable))callback;
 /// Fetches the list of sites from the FlyBuy web API via search region
 /// \param region a <code>FlyBuyCircularRegion</code> for the search region.
 ///
@@ -3227,28 +3274,68 @@ SWIFT_CLASS_NAMED("SitesManager")
 ///
 /// \param callback will get called on completion with the array of <code>Site</code>s or any errors encountered. Optional.
 ///
-- (void)fetchWithRegion:(FlyBuyCircularRegion * _Nonnull)region options:(FlyBuySiteOptions * _Nonnull)options callback:(void (^ _Nullable)(NSArray<FlyBuySite *> * _Nullable, NSError * _Nullable))callback;
+- (void)fetchWithRegion:(FlyBuyCircularRegion * _Nonnull)region options:(FlyBuySiteOptions * _Nonnull)options callback:(void (^ _Nullable)(NSArray<FlyBuySite *> * _Nullable, FlyBuyPagination * _Nullable, NSError * _Nullable))callback;
 /// Fetch  nearby <code>Site</code>s for a <code>Place</code> within the given radius .
 /// Provide place and radius parameters to return the sites within the range near the <code>Place</code>
 /// If sites are found, they will be returned in the callback; otherwise, an error will be returned
 /// in the callback.
 /// \param partnerIdentifier partner identifier for the site.
 ///
-/// \param operationalStatus operation status of the site.
+/// \param options A <code>SiteOptions</code> instance.
 ///
-/// \param callback Gets called at completion with the <code>Site</code>s or any error encountered. Optional.
+/// \param callback Gets called at completion with the <code>Site</code>s or any error encountered.
 ///
-- (void)fetchNearWithPlace:(FlyBuyPlace * _Nonnull)place radius:(double)radius options:(FlyBuySiteOptions * _Nonnull)options callback:(void (^ _Nullable)(NSArray<FlyBuySite *> * _Nullable, NSError * _Nullable))callback;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (void)fetchNearWithPlace:(FlyBuyPlace * _Nonnull)place radius:(double)radius options:(FlyBuySiteOptions * _Nonnull)options callback:(void (^ _Nonnull)(NSArray<FlyBuySite *> * _Nullable, FlyBuyPagination * _Nullable, NSError * _Nullable))callback;
+/// Fetch nearby <code>Site</code>s using the device’s current location.
+/// This method automatically retrieves the device’s current location and fetches sites within
+/// the specified radius. If location permissions are not granted, location cannot be retrieved,
+/// or a request is already pending, an error will be returned in the callback.
+/// Example:
+/// \code
+/// FlyBuy.Core.sites.fetchNearby(radius: 40000, options: SiteOptions.Builder().build()) { (sites, pagination, error) in
+///   if let error = error {
+///     // Handle error (including location permission errors)
+///   } else if let sites = sites {
+///     // Handle success
+///   }
+/// }
+///
+/// \endcode\param radius The search radius in meters. Defaults to the SDK’s configured default radius.
+///
+/// \param options A <code>SiteOptions</code> instance.
+///
+/// \param callback Gets called at completion with the <code>Site</code>s, <code>Pagination</code>, or any error encountered.
+///
+- (void)fetchNearbyWithRadius:(double)radius options:(FlyBuySiteOptions * _Nonnull)options callback:(void (^ _Nonnull)(NSArray<FlyBuySite *> * _Nullable, FlyBuyPagination * _Nullable, NSError * _Nullable))callback;
+/// Fetch nearby <code>Site</code>s using the device’s current location.
+/// Convenience method for fetchNearby(radius: options:, callback:) for fetching nearby sites with default values for radius and <code>SiteOptions</code>.
+/// Example:
+/// \code
+/// FlyBuy.Core.sites.fetchNearby() { (sites, pagination, error) in
+///   if let error = error {
+///     // Handle error (including location permission errors)
+///   } else if let sites = sites {
+///     // Handle success
+///   }
+/// }
+///
+/// \endcode\param callback Gets called at completion with the <code>Site</code>s, <code>Pagination</code>, or any error encountered.
+///
+- (void)fetchNearbyWithCallback:(void (^ _Nonnull)(NSArray<FlyBuySite *> * _Nullable, FlyBuyPagination * _Nullable, NSError * _Nullable))callback;
+@end
+
+@interface FlyBuySitesManager (SWIFT_EXTENSION(FlyBuy)) <CLLocationManagerDelegate>
+- (void)locationManager:(CLLocationManager * _Nonnull)manager didUpdateLocations:(NSArray<CLLocation *> * _Nonnull)locations;
+- (void)locationManager:(CLLocationManager * _Nonnull)manager didFailWithError:(NSError * _Nonnull)error;
 @end
 
 @class CLCircularRegion;
 @interface FlyBuySitesManager (SWIFT_EXTENSION(FlyBuy))
-- (void)fetchByPartnerIdentifierWithPartnerIdentifier:(NSString * _Nonnull)partnerIdentifier callback:(void (^ _Nullable)(FlyBuySite * _Nullable, NSError * _Nullable))callback;
-- (void)fetchByPartnerIdentifierWithPartnerIdentifier:(NSString * _Nonnull)partnerIdentifier operationalStatus:(NSString * _Nonnull)operationalStatus callback:(void (^ _Nullable)(FlyBuySite * _Nullable, NSError * _Nullable))callback;
-- (void)fetchWithQuery:(NSString * _Nullable)query page:(NSInteger)page callback:(void (^ _Nullable)(NSArray<FlyBuySite *> * _Nullable, FlyBuyPagination * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetchByPartnerIdentifier instead.");
-- (void)fetchWithQuery:(NSString * _Nullable)query page:(NSInteger)page operationalStatus:(NSString * _Nonnull)operationalStatus callback:(void (^ _Nullable)(NSArray<FlyBuySite *> * _Nullable, FlyBuyPagination * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetchByPartnerIdentifier instead.");
-- (void)fetchAllWithQuery:(NSString * _Nullable)query callback:(void (^ _Nullable)(NSArray<FlyBuySite *> * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for fetching sites has been deprecated. Use FlyBuyCore.sites.fetchByPartnerIdentifier instead.");
+- (void)fetchByPartnerIdentifierWithPartnerIdentifier:(NSString * _Nonnull)partnerIdentifier callback:(void (^ _Nullable)(FlyBuySite * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetchByPartnerIdentifier(partnerIdentifier:options:callback:) instead.");
+- (void)fetchByPartnerIdentifierWithPartnerIdentifier:(NSString * _Nonnull)partnerIdentifier operationalStatus:(NSString * _Nonnull)operationalStatus callback:(void (^ _Nullable)(FlyBuySite * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetchByPartnerIdentifier(partnerIdentifier:options:callback:) instead.");
+- (void)fetchWithQuery:(NSString * _Nullable)query page:(NSInteger)page callback:(void (^ _Nullable)(NSArray<FlyBuySite *> * _Nullable, FlyBuyPagination * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetchByPartnerIdentifier(partnerIdentifier:options:callback:) instead.");
+- (void)fetchWithQuery:(NSString * _Nullable)query page:(NSInteger)page operationalStatus:(NSString * _Nonnull)operationalStatus callback:(void (^ _Nullable)(NSArray<FlyBuySite *> * _Nullable, FlyBuyPagination * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetchByPartnerIdentifier(partnerIdentifier:options:callback:) instead.");
+- (void)fetchAllWithQuery:(NSString * _Nullable)query callback:(void (^ _Nullable)(NSArray<FlyBuySite *> * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetchByPartnerIdentifier(partnerIdentifier:options:callback:) instead.");
 - (void)fetchWithRegion:(CLCircularRegion * _Nonnull)region page:(NSInteger)page operationalStatus:(NSString * _Nonnull)operationalStatus callback:(void (^ _Nullable)(NSArray<FlyBuySite *> * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetch(region:, options:) instead.");
 - (void)fetchWithRegion:(CLCircularRegion * _Nonnull)region page:(NSInteger)page per:(NSInteger)per callback:(void (^ _Nullable)(NSArray<FlyBuySite *> * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetch(region:, options:) instead.");
 - (void)fetchWithRegion:(CLCircularRegion * _Nonnull)region page:(NSInteger)page per:(NSInteger)per operationalStatus:(NSString * _Nonnull)operationalStatus callback:(void (^ _Nullable)(NSArray<FlyBuySite *> * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetch(region:, options:) instead.");
@@ -3270,6 +3357,9 @@ SWIFT_CLASS_NAMED("SitesManagerError")
 typedef SWIFT_ENUM(NSInteger, SitesManagerErrorType, open) {
   SitesManagerErrorTypeCoreIsNotConfigured = 0,
   SitesManagerErrorTypeMapboxTokenIsMissing = 1,
+  SitesManagerErrorTypeLocationPermissionDenied = 2,
+  SitesManagerErrorTypeLocationUnavailable = 3,
+  SitesManagerErrorTypeRequestAlreadyPending = 4,
 };
 
 SWIFT_CLASS("_TtC6FlyBuy22WrongSiteArrivalConfig")

@@ -162,6 +162,7 @@ extension FlyBuy._AnyEncodable {
   @objc final public let projectAccentTextColor: Swift.String?
   @objc final public let projectLogoURL: Swift.String?
   @objc final public let geofence: FlyBuy.Geofence?
+  final public let distanceMeters: Swift.Int?
   @objc public var wrongSiteArrivalRadius: Foundation.NSNumber {
     @objc get
   }
@@ -515,6 +516,7 @@ public struct AppConfigData : Swift.Codable {
   public let places: FlyBuy.PlacesConfig?
   public let pushServiceType: FlyBuy.PushServiceType?
   public let pushTopics: Swift.Set<FlyBuy.PushTopic>?
+  public let nearbySitesDefaultSearchRadius: Swift.Double?
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -661,9 +663,9 @@ extension FlyBuy._AnyDecodable {
   final public let per: Swift.Int?
   public init(operationalStatus: Swift.String, page: Swift.Int?, per: Swift.Int?)
   @_inheritsConvenienceInitializers @objc(FlyBuySiteOptionsBuilder) public class Builder : ObjectiveC.NSObject {
-    @objc public func setOperationalStatus(_ operationalStatus: Swift.String)
-    @objc public func setPage(_ page: Swift.Int)
-    @objc public func setPer(_ per: Swift.Int)
+    @objc public func setOperationalStatus(_ operationalStatus: Swift.String) -> FlyBuy.SiteOptions.Builder
+    @objc public func setPage(_ page: Swift.Int) -> FlyBuy.SiteOptions.Builder
+    @objc public func setPer(_ per: Swift.Int) -> FlyBuy.SiteOptions.Builder
     @objc public func build() -> FlyBuy.SiteOptions
     @objc override dynamic public init()
     @objc deinit
@@ -698,6 +700,8 @@ final public class FlyBuyDBManager {
   final public func save<T>(_ value: T) throws where T : FlyBuy.PersistableCodable
   final public func deleteAll<T>(_ type: T.Type) throws where T : FlyBuy.PersistableCodable
   final public func execute(raw: Swift.String) throws
+  final public func executeInTransaction<T>(_ block: () throws -> T) throws -> T
+  final public func close()
   @objc deinit
 }
 public protocol FlyBuyDBProtocol {
@@ -709,6 +713,7 @@ extension FlyBuy.FlyBuyDBProtocol {
   public func save<T>(_ value: T) throws where T : FlyBuy.PersistableCodable
   public func deleteAll<T>(_ type: T.Type) throws where T : FlyBuy.PersistableCodable
   public func execute(sql: Swift.String) throws
+  public func executeInTransaction<T>(_ block: () throws -> T) throws -> T
   public func dbClose()
 }
 public protocol PersistableCodable : Swift.Decodable, Swift.Encodable {
@@ -829,20 +834,24 @@ extension Swift.Array where Element : FlyBuy.AvailableHandoffVehicleLocation {
   @objc public func formattedString(locale: Foundation.Locale = Locale.current) -> Swift.String
   @objc deinit
 }
-@_inheritsConvenienceInitializers @objc(FlyBuySitesManager) open class SitesManager : ObjectiveC.NSObject {
-  @available(*, deprecated, message: "This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetchByPartnerIdentifier instead.")
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(FlyBuySitesManager) open class SitesManager : ObjectiveC.NSObject {
+  @available(*, deprecated, message: "This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetchByPartnerIdentifier(partnerIdentifier:options:callback:) instead.")
   @objc public var all: [FlyBuy.Site]? {
-    get
+    @objc get
   }
-  @objc public func fetchByPartnerIdentifier(partnerIdentifier: Swift.String, options: FlyBuy.SiteOptions, callback: ((FlyBuy.Site?, (any Swift.Error)?) -> Swift.Void)? = nil)
-  @objc public func fetch(region: FlyBuy.FlyBuyCircularRegion, options: FlyBuy.SiteOptions, callback: (([FlyBuy.Site]?, (any Swift.Error)?) -> Swift.Void)? = nil)
-  @objc public func fetchNear(place: FlyBuy.Place, radius: Swift.Double, options: FlyBuy.SiteOptions, callback: (([FlyBuy.Site]?, (any Swift.Error)?) -> Swift.Void)? = nil)
-  @objc override dynamic public init()
+  @objc public func fetchByPartnerIdentifier(partnerIdentifier: Swift.String, options: FlyBuy.SiteOptions, callback: @escaping (FlyBuy.Site?, (any Swift.Error)?) -> Swift.Void)
+  @objc public func fetch(region: FlyBuy.FlyBuyCircularRegion, options: FlyBuy.SiteOptions, callback: (([FlyBuy.Site]?, FlyBuy.Pagination?, (any Swift.Error)?) -> Swift.Void)? = nil)
+  @objc public func fetchNear(place: FlyBuy.Place, radius: Swift.Double, options: FlyBuy.SiteOptions, callback: @escaping ([FlyBuy.Site]?, FlyBuy.Pagination?, (any Swift.Error)?) -> Swift.Void)
+  @objc public func fetchNearby(radius: Swift.Double, options: FlyBuy.SiteOptions, callback: @escaping ([FlyBuy.Site]?, FlyBuy.Pagination?, (any Swift.Error)?) -> Swift.Void)
+  @objc public func fetchNearby(callback: @escaping ([FlyBuy.Site]?, FlyBuy.Pagination?, (any Swift.Error)?) -> Swift.Void)
   @objc deinit
 }
 @objc public enum SitesManagerErrorType : Swift.Int {
   case coreIsNotConfigured
   case mapboxTokenIsMissing
+  case locationPermissionDenied
+  case locationUnavailable
+  case requestAlreadyPending
   public var description: Swift.String {
     get
   }
@@ -863,13 +872,15 @@ extension Swift.Array where Element : FlyBuy.AvailableHandoffVehicleLocation {
   @objc deinit
 }
 extension FlyBuy.SitesManager {
+  @available(*, deprecated, message: "This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetchByPartnerIdentifier(partnerIdentifier:options:callback:) instead.")
   @objc dynamic public func fetchByPartnerIdentifier(partnerIdentifier: Swift.String, callback: ((FlyBuy.Site?, (any Swift.Error)?) -> Swift.Void)? = nil)
+  @available(*, deprecated, message: "This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetchByPartnerIdentifier(partnerIdentifier:options:callback:) instead.")
   @objc dynamic public func fetchByPartnerIdentifier(partnerIdentifier: Swift.String, operationalStatus: Swift.String = "live", callback: ((FlyBuy.Site?, (any Swift.Error)?) -> Swift.Void)? = nil)
-  @available(*, deprecated, message: "This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetchByPartnerIdentifier instead.")
+  @available(*, deprecated, message: "This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetchByPartnerIdentifier(partnerIdentifier:options:callback:) instead.")
   @objc dynamic public func fetch(query: Swift.String? = nil, page: Swift.Int = 1, callback: (([FlyBuy.Site]?, FlyBuy.Pagination?, (any Swift.Error)?) -> Swift.Void)? = nil)
-  @available(*, deprecated, message: "This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetchByPartnerIdentifier instead.")
+  @available(*, deprecated, message: "This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetchByPartnerIdentifier(partnerIdentifier:options:callback:) instead.")
   @objc dynamic public func fetch(query: Swift.String? = nil, page: Swift.Int = 1, operationalStatus: Swift.String = "live", callback: (([FlyBuy.Site]?, FlyBuy.Pagination?, (any Swift.Error)?) -> Swift.Void)? = nil)
-  @available(*, deprecated, message: "This method for fetching sites has been deprecated. Use FlyBuyCore.sites.fetchByPartnerIdentifier instead.")
+  @available(*, deprecated, message: "This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetchByPartnerIdentifier(partnerIdentifier:options:callback:) instead.")
   @objc dynamic public func fetchAll(query: Swift.String? = nil, callback: (([FlyBuy.Site]?, (any Swift.Error)?) -> Swift.Void)? = nil)
   @available(*, deprecated, message: "This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetch(region:, options:) instead.")
   @objc dynamic public func fetch(region: CoreLocation.CLCircularRegion, page: Swift.Int = 1, operationalStatus: Swift.String = "live", callback: (([FlyBuy.Site]?, (any Swift.Error)?) -> Swift.Void)? = nil)
@@ -879,6 +890,10 @@ extension FlyBuy.SitesManager {
   @objc dynamic public func fetch(region: CoreLocation.CLCircularRegion, page: Swift.Int, per: Swift.Int, operationalStatus: Swift.String = "live", callback: (([FlyBuy.Site]?, (any Swift.Error)?) -> Swift.Void)? = nil)
   @available(*, deprecated, message: "This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetch(region:, options:) instead.")
   @objc dynamic public func fetch(region: CoreLocation.CLCircularRegion, page: Swift.Int = 1, callback: (([FlyBuy.Site]?, (any Swift.Error)?) -> Swift.Void)? = nil)
+}
+extension FlyBuy.SitesManager : CoreLocation.CLLocationManagerDelegate {
+  @objc dynamic public func locationManager(_ manager: CoreLocation.CLLocationManager, didUpdateLocations locations: [CoreLocation.CLLocation])
+  @objc dynamic public func locationManager(_ manager: CoreLocation.CLLocationManager, didFailWithError error: any Swift.Error)
 }
 public enum RemoteNotificationMessageType : Swift.String {
   case backgroundSync
