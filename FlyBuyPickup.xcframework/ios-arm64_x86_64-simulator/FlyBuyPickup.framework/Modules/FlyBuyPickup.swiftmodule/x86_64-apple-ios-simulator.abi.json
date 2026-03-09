@@ -20,6 +20,20 @@
       },
       {
         "kind": "Import",
+        "name": "FlyBuy",
+        "printedName": "FlyBuy",
+        "declKind": "Import",
+        "moduleName": "FlyBuyPickup"
+      },
+      {
+        "kind": "Import",
+        "name": "CoreLocation",
+        "printedName": "CoreLocation",
+        "declKind": "Import",
+        "moduleName": "FlyBuyPickup"
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -132,157 +146,6 @@
               "ObjC",
               "RawDocComment"
             ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "stop",
-            "printedName": "stop()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:12FlyBuyPickup7ManagerC4stopyyF",
-            "mangledName": "$s12FlyBuyPickup7ManagerC4stopyyF",
-            "moduleName": "FlyBuyPickup",
-            "declAttributes": [
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "locationManager",
-            "printedName": "locationManager(_:didChangeAuthorization:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "CLLocationManager",
-                "printedName": "CoreLocation.CLLocationManager",
-                "usr": "c:objc(cs)CLLocationManager"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "CLAuthorizationStatus",
-                "printedName": "CoreLocation.CLAuthorizationStatus",
-                "usr": "c:@E@CLAuthorizationStatus"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@FlyBuyPickup@objc(cs)FlyBuyPickupManager(im)locationManager:didChangeAuthorizationStatus:",
-            "mangledName": "$s12FlyBuyPickup7ManagerC08locationD0_22didChangeAuthorizationySo010CLLocationD0C_So21CLAuthorizationStatusVtF",
-            "moduleName": "FlyBuyPickup",
-            "objc_name": "locationManager:didChangeAuthorizationStatus:",
-            "declAttributes": [
-              "Dynamic",
-              "ObjC",
-              "AccessControl"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "locationManager",
-            "printedName": "locationManager(_:didUpdateLocations:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "CLLocationManager",
-                "printedName": "CoreLocation.CLLocationManager",
-                "usr": "c:objc(cs)CLLocationManager"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Array",
-                "printedName": "[CoreLocation.CLLocation]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "CLLocation",
-                    "printedName": "CoreLocation.CLLocation",
-                    "usr": "c:objc(cs)CLLocation"
-                  }
-                ],
-                "usr": "s:Sa"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@FlyBuyPickup@objc(cs)FlyBuyPickupManager(im)locationManager:didUpdateLocations:",
-            "mangledName": "$s12FlyBuyPickup7ManagerC08locationD0_18didUpdateLocationsySo010CLLocationD0C_SaySo0I0CGtF",
-            "moduleName": "FlyBuyPickup",
-            "objc_name": "locationManager:didUpdateLocations:",
-            "declAttributes": [
-              "Dynamic",
-              "ObjC",
-              "AccessControl"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "locationManager",
-            "printedName": "locationManager(_:didRangeBeacons:in:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "CLLocationManager",
-                "printedName": "CoreLocation.CLLocationManager",
-                "usr": "c:objc(cs)CLLocationManager"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Array",
-                "printedName": "[CoreLocation.CLBeacon]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "CLBeacon",
-                    "printedName": "CoreLocation.CLBeacon",
-                    "usr": "c:objc(cs)CLBeacon"
-                  }
-                ],
-                "usr": "s:Sa"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "CLBeaconRegion",
-                "printedName": "CoreLocation.CLBeaconRegion",
-                "usr": "c:objc(cs)CLBeaconRegion"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@FlyBuyPickup@objc(cs)FlyBuyPickupManager(im)locationManager:didRangeBeacons:inRegion:",
-            "mangledName": "$s12FlyBuyPickup7ManagerC08locationD0_15didRangeBeacons2inySo010CLLocationD0C_SaySo8CLBeaconCGSo0K6RegionCtF",
-            "moduleName": "FlyBuyPickup",
-            "objc_name": "locationManager:didRangeBeacons:inRegion:",
-            "declAttributes": [
-              "Dynamic",
-              "ObjC",
-              "AccessControl"
-            ],
-            "isFromExtension": true,
             "funcSelfKind": "NonMutating"
           },
           {
@@ -489,6 +352,27 @@
         "kind": "Import",
         "name": "FlyBuy",
         "printedName": "FlyBuy",
+        "declKind": "Import",
+        "moduleName": "FlyBuyPickup"
+      },
+      {
+        "kind": "Import",
+        "name": "FlyBuy",
+        "printedName": "FlyBuy",
+        "declKind": "Import",
+        "moduleName": "FlyBuyPickup"
+      },
+      {
+        "kind": "Import",
+        "name": "CoreLocation",
+        "printedName": "CoreLocation",
+        "declKind": "Import",
+        "moduleName": "FlyBuyPickup"
+      },
+      {
+        "kind": "Import",
+        "name": "NotificationCenter",
+        "printedName": "NotificationCenter",
         "declKind": "Import",
         "moduleName": "FlyBuyPickup"
       },
@@ -866,70 +750,105 @@
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyPickup\/Helpers\/LocationEventGenerator.swift",
       "kind": "IntegerLiteral",
-      "offset": 386,
+      "offset": 518,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyPickup\/Helpers\/LocationEventGenerator.swift",
+      "kind": "IntegerLiteral",
+      "offset": 569,
+      "length": 3,
+      "value": "500"
+    },
+    {
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyPickup\/Helpers\/LocationEventGenerator.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1024,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyPickup\/Helpers\/LocationEventGenerator.swift",
       "kind": "Array",
-      "offset": 932,
+      "offset": 1197,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyPickup\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1548,
-      "length": 5,
-      "value": "false"
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyPickup\/Helpers\/PickupOrdersObserver.swift",
+      "kind": "Array",
+      "offset": 837,
+      "length": 2,
+      "value": "[]"
     },
     {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyPickup\/Manager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1571,
-      "length": 5,
-      "value": "false"
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyPickup\/Helpers\/PickupOrdersObserver.swift",
+      "kind": "IntegerLiteral",
+      "offset": 903,
+      "length": 1,
+      "value": "1"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyPickup\/Manager.swift",
       "kind": "StringLiteral",
-      "offset": 2065,
+      "offset": 1590,
       "length": 14,
       "value": "\"FlyBuyPickup\""
     },
     {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyPickup\/Manager.swift",
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyPickup\/PickupLocationManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 277,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyPickup\/PickupLocationManager.swift",
+      "kind": "BooleanLiteral",
+      "offset": 376,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyPickup\/PickupLocationManager.swift",
+      "kind": "BooleanLiteral",
+      "offset": 399,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyPickup\/PickupLocationManager.swift",
       "kind": "StringLiteral",
-      "offset": 11721,
+      "offset": 8170,
       "length": 16,
       "value": "\"locationUpdate\""
     },
     {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyPickup\/Manager.swift",
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyPickup\/PickupLocationManager.swift",
       "kind": "StringLiteral",
-      "offset": 11807,
+      "offset": 8256,
       "length": 36,
       "value": "\"locationAuthorizationNotDetermined\""
     },
     {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyPickup\/Manager.swift",
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyPickup\/PickupLocationManager.swift",
       "kind": "StringLiteral",
-      "offset": 11900,
+      "offset": 8349,
       "length": 23,
       "value": "\"locationNotAuthorized\""
     },
     {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyPickup\/Manager.swift",
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyPickup\/PickupLocationManager.swift",
       "kind": "StringLiteral",
-      "offset": 11987,
+      "offset": 8436,
       "length": 30,
       "value": "\"locationAuthorizationChanged\""
     },
     {
-      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyPickup\/Manager.swift",
+      "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyPickup\/PickupLocationManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 12089,
+      "offset": 8538,
       "length": 2,
       "value": "30"
     },

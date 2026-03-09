@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/FlyBuyPickup-Swift.h</key>
 		<data>
-		IAkwILjhW9wcKFE0h8tb2gwEitw=
+		/BP/Lw11Nk2Hxa91nhLdMmWCyJA=
 		</data>
 		<key>Headers/FlyBuyPickup.h</key>
 		<data>
@@ -14,15 +14,15 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		ztBrDh17YLOMquVM5ki5JG6lyBc=
+		xfmTR1LtRfvmEnt5vY+SiabgjFY=
 		</data>
 		<key>Modules/FlyBuyPickup.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		C8g9TwxWf6xkFwA+A75aSNKlMoE=
+		TcTbBynXrSFVd+ova9Tct6lKaZg=
 		</data>
 		<key>Modules/FlyBuyPickup.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		O8n+i1L/Wuk0G+bPzf5f9vvkhMY=
+		jD/INqcvvZkZ0cub26NH11+RbiY=
 		</data>
 		<key>Modules/FlyBuyPickup.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -30,19 +30,19 @@
 		</data>
 		<key>Modules/FlyBuyPickup.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		O8n+i1L/Wuk0G+bPzf5f9vvkhMY=
+		jD/INqcvvZkZ0cub26NH11+RbiY=
 		</data>
 		<key>Modules/FlyBuyPickup.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		Sy6GXLLgAKRgd+BzQgwF+m/PUhM=
+		NGpxIkQdLTVvNx4YvwtSnmtFM/0=
 		</data>
 		<key>Modules/FlyBuyPickup.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		C8g9TwxWf6xkFwA+A75aSNKlMoE=
+		TcTbBynXrSFVd+ova9Tct6lKaZg=
 		</data>
 		<key>Modules/FlyBuyPickup.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		wHRxTzSBN402CMG8mHbmhKy9Tx0=
+		qxdyghHJX9FIab5F2f8jfzkNNoQ=
 		</data>
 		<key>Modules/FlyBuyPickup.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -50,11 +50,11 @@
 		</data>
 		<key>Modules/FlyBuyPickup.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		wHRxTzSBN402CMG8mHbmhKy9Tx0=
+		qxdyghHJX9FIab5F2f8jfzkNNoQ=
 		</data>
 		<key>Modules/FlyBuyPickup.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		tvrRA7PQhLLpvn4CcW/HEx2OcJk=
+		Wx6TMVU0oPaZ/mXmwszUd1njL9g=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -71,7 +71,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			HYnRkgfLn4Du2qR/FaatoLJCV0MgiYvihshYEj79JyI=
+			6fTrsH4Hisaa9Sz7xdKFqe2E/YExZnGTUKCwOa6n6WA=
 			</data>
 		</dict>
 		<key>Headers/FlyBuyPickup.h</key>
@@ -85,14 +85,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			RliLwsNCp5ze25APv2dyxXoujUYpfOFN6BOD6U6yCxM=
+			h5Mz6opivCZ5BBywnOxx2jbZEXa8WVxkJgYsc8mYi1I=
 			</data>
 		</dict>
 		<key>Modules/FlyBuyPickup.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			EKBlPUbMcUEpYVk/oPVeOIY6JicSAuA2BusuSxdjcbA=
+			ZOP9AZGXMlDYsDQnkqaWDygkRHDRJXHFTgKtd4HTHzM=
 			</data>
 		</dict>
 		<key>Modules/FlyBuyPickup.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
@@ -106,28 +106,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			EKBlPUbMcUEpYVk/oPVeOIY6JicSAuA2BusuSxdjcbA=
+			ZOP9AZGXMlDYsDQnkqaWDygkRHDRJXHFTgKtd4HTHzM=
 			</data>
 		</dict>
 		<key>Modules/FlyBuyPickup.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Dtuh9AhkdwvXApMwEpNxr/O88TskJSBZCb8rZJf/Foo=
+			Di/KsrQTSFUsqjzycdu136oXD6Na/SUqeMAn7ApaaaA=
 			</data>
 		</dict>
 		<key>Modules/FlyBuyPickup.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			RliLwsNCp5ze25APv2dyxXoujUYpfOFN6BOD6U6yCxM=
+			h5Mz6opivCZ5BBywnOxx2jbZEXa8WVxkJgYsc8mYi1I=
 			</data>
 		</dict>
 		<key>Modules/FlyBuyPickup.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			R5M8BOgXgesPiJTcLd1c5DxG+4ZQr5s6lHiGFxUsRKw=
+			2PM0wJ9Z0gABCe+1kIq/AbUhPjl+9Ob8ZR9PbACeoaE=
 			</data>
 		</dict>
 		<key>Modules/FlyBuyPickup.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -141,14 +141,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			R5M8BOgXgesPiJTcLd1c5DxG+4ZQr5s6lHiGFxUsRKw=
+			2PM0wJ9Z0gABCe+1kIq/AbUhPjl+9Ob8ZR9PbACeoaE=
 			</data>
 		</dict>
 		<key>Modules/FlyBuyPickup.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			12jqgm9X1A+3yR2HTUNULTX7F17lufC5TEeD9uivc8U=
+			eKJUwChuU3+YBuf8j45QgIFpblhTq3eLrvXUz30mS1U=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

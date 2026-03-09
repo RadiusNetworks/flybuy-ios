@@ -14,11 +14,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		QF3NQ3zbZKczEM2aKrEA9s+kFcQ=
+		h1jkvPAVcuuPoe18Re6fSwym31Q=
 		</data>
 		<key>Modules/FlyBuyNotify.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		3J+9l/MKMc/cs50OA3HXMsmPL6U=
+		cDv7IjPci/OI1xaLcYROkQIG9lY=
 		</data>
 		<key>Modules/FlyBuyNotify.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -34,11 +34,11 @@
 		</data>
 		<key>Modules/FlyBuyNotify.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		dNhblMS3mlZXCMgMJQMH2h89wU8=
+		2RuZZMIrzZeRJ5bCapWh5srAFQA=
 		</data>
 		<key>Modules/FlyBuyNotify.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		3J+9l/MKMc/cs50OA3HXMsmPL6U=
+		cDv7IjPci/OI1xaLcYROkQIG9lY=
 		</data>
 		<key>Modules/FlyBuyNotify.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>Modules/FlyBuyNotify.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		Yj1b4lf2Z942KPDsTcRhVYD26EA=
+		3pXdz+FmD9EBm3+BLRK/L6SYpG8=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -85,7 +85,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			pIitJKGjU+eOsD8QnTsOOnQmzZijtTVz0CHFUOwD5jY=
+			ue/yTdHPzDHEFF1W3C3hZt0n8GjcMuYjRzfZeFP7I60=
 			</data>
 		</dict>
 		<key>Modules/FlyBuyNotify.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -113,14 +113,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			hmhawVd9j3VXboDlYuvCODoH6Hnn2cH4HBjgSaemMdg=
+			xsGKqNlGJN6V3AvGRvyEGYiunKoNqECRtMspqNthA6M=
 			</data>
 		</dict>
 		<key>Modules/FlyBuyNotify.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			pIitJKGjU+eOsD8QnTsOOnQmzZijtTVz0CHFUOwD5jY=
+			ue/yTdHPzDHEFF1W3C3hZt0n8GjcMuYjRzfZeFP7I60=
 			</data>
 		</dict>
 		<key>Modules/FlyBuyNotify.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -148,7 +148,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			GjXoFEvsmB0gA/L40PH3LXMX5RsaR16nDCXdpRV9WP8=
+			hPq4eRrAzFC/Wm1/JBq66KGOpxMuzFRNKHTbuQavKbs=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

@@ -362,6 +362,7 @@ SWIFT_CLASS_NAMED("ConfigOptionsBuilder")
 - (nonnull instancetype)initWithToken:(NSString * _Nonnull)token OBJC_DESIGNATED_INITIALIZER;
 /// Returns finalized options to pass to FlyBuy.Core.configure(withOptions configOptions: ConfigOptions)
 - (FlyBuyConfigOptions * _Nonnull)build SWIFT_WARN_UNUSED_RESULT;
+- (FlyBuyConfigOptionsBuilder * _Nonnull)setSecondaryToken:(NSString * _Nonnull)secondaryToken SWIFT_WARN_UNUSED_RESULT;
 /// Sets the SDK log level
 - (FlyBuyConfigOptionsBuilder * _Nonnull)setLogLevel:(enum LogLevel)logLevel SWIFT_WARN_UNUSED_RESULT;
 /// Sets whether the deferred location tracking feature is enabled
@@ -380,11 +381,11 @@ SWIFT_CLASS_NAMED("Coordinate")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class FlyBuyInstance;
 @class FlyBuyOrdersManager;
 @class FlyBuyCustomerManager;
 @class FlyBuySitesManager;
 @class FlyBuyPlacesManager;
-@class FlyBuyLogger;
 @class NSUUID;
 @class UNNotificationResponse;
 @class NSData;
@@ -399,20 +400,16 @@ SWIFT_CLASS_NAMED("Core")
 @interface FlyBuyCore : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-/// Gets the <code>OrdersManager</code> instance
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FlyBuyOrdersManager * _Nonnull orders;)
+/// Gets the FlyBuyInstance associated with an appAuthId. If appAuthId is not specified, returns the Instance associated with the primary auth token.
++ (FlyBuyInstance * _Nullable)getInstanceForAppAuthId:(NSString * _Nullable)forAppAuthId error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FlyBuyOrdersManager * _Nonnull orders SWIFT_DEPRECATED_MSG("Use FlyBuy.Core.getInstance(forAppAuthId:).orders instead.");)
 + (FlyBuyOrdersManager * _Nonnull)orders SWIFT_WARN_UNUSED_RESULT;
-/// Gets the <code>CustomerManager</code> instance
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FlyBuyCustomerManager * _Nonnull customer;)
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FlyBuyCustomerManager * _Nonnull customer SWIFT_DEPRECATED_MSG("Use FlyBuy.Core.getInstance(forAppAuthId:).customer instead.");)
 + (FlyBuyCustomerManager * _Nonnull)customer SWIFT_WARN_UNUSED_RESULT;
-/// Gets the <code>SitesManager</code> instance
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FlyBuySitesManager * _Nonnull sites;)
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FlyBuySitesManager * _Nonnull sites SWIFT_DEPRECATED_MSG("Use FlyBuy.Core.getInstance(forAppAuthId:).sites instead.");)
 + (FlyBuySitesManager * _Nonnull)sites SWIFT_WARN_UNUSED_RESULT;
-/// Gets the <code>PlacesManager</code> instance
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FlyBuyPlacesManager * _Nonnull places;)
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FlyBuyPlacesManager * _Nonnull places SWIFT_DEPRECATED_MSG("Use FlyBuy.Core.getInstance(forAppAuthId:).places instead.");)
 + (FlyBuyPlacesManager * _Nonnull)places SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FlyBuyLogger * _Nonnull logger;)
-+ (FlyBuyLogger * _Nonnull)logger SWIFT_WARN_UNUSED_RESULT;
 /// Set a callback to be notified when the app instance ID is updated.
 + (void)setAppInstanceIDUpdatedListenerWithCallback:(void (^ _Nullable)(NSUUID * _Nonnull))callback;
 /// Configures FlyBuy with the given options
@@ -515,11 +512,18 @@ SWIFT_CLASS_NAMED("CustomerInfo")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+SWIFT_CLASS("_TtC6FlyBuy13FlyBuyManager")
+@interface FlyBuyManager : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 /// Manager for customer operations: creating, storing, updating, signing-out
 SWIFT_CLASS_NAMED("CustomerManager")
-@interface FlyBuyCustomerManager : NSObject
+@interface FlyBuyCustomerManager : FlyBuyManager
 /// Gets the current logged in customer.
 @property (nonatomic, readonly, strong) FlyBuyCustomer * _Nullable current;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 /// Create a customer account using customerInfo from the user.
 /// Consent for termsOfService and ageVerification should be collected from the user (e.g. checkboxes).
 /// note:
@@ -702,7 +706,6 @@ SWIFT_CLASS_NAMED("CustomerManager")
 ///
 /// \endcode
 - (void)logout;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 enum CustomerManagerErrorType : NSInteger;
@@ -780,6 +783,21 @@ SWIFT_CLASS_NAMED("Geofence")
 @property (nonatomic, readonly) double radiusMeters;
 @end
 
+/// Main class for accessing core Flybuy functionality (customer, orders, and sites).
+SWIFT_CLASS_NAMED("Instance")
+@interface FlyBuyInstance : NSObject
+/// Gets the <code>OrdersManager</code> instance
+@property (nonatomic, readonly, strong) FlyBuyOrdersManager * _Nonnull orders;
+/// Gets the <code>CustomerManager</code> instance
+@property (nonatomic, readonly, strong) FlyBuyCustomerManager * _Nonnull customer;
+/// Gets the <code>SitesManager</code> instance
+@property (nonatomic, readonly, strong) FlyBuySitesManager * _Nonnull sites;
+/// Gets the <code>PlacesManager</code> instance
+@property (nonatomic, readonly, strong) FlyBuyPlacesManager * _Nonnull places;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @class FlyBuyOrderOptionsBuilder;
 SWIFT_CLASS_NAMED("LinkDetails")
 @interface FlybuyLink : NSObject
@@ -821,6 +839,12 @@ SWIFT_CLASS_NAMED("Logger")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+SWIFT_CLASS("_TtC6FlyBuy20NotificationsManager")
+@interface NotificationsManager : FlyBuyManager
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 SWIFT_CLASS("_TtC6FlyBuy12NotifyConfig")
 @interface NotifyConfig : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -838,6 +862,7 @@ SWIFT_CLASS("_TtC6FlyBuy14OneSignalTopic")
 /// Data model for orders.
 SWIFT_CLASS_NAMED("Order")
 @interface FlyBuyOrder : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull appAuthId;
 @property (nonatomic, readonly) NSInteger id;
 @property (nonatomic, readonly) NSInteger siteID;
 @property (nonatomic, copy) NSString * _Nonnull state;
@@ -986,7 +1011,7 @@ SWIFT_CLASS("_TtC6FlyBuy18OrderProgressState")
 /// Allows fetching the list of orders, creating a new order, or creating
 /// order events.
 SWIFT_CLASS_NAMED("OrdersManager")
-@interface FlyBuyOrdersManager : NSObject
+@interface FlyBuyOrdersManager : FlyBuyManager
 /// Gets all orders for the current customer.
 @property (nonatomic, readonly, copy) NSArray<FlyBuyOrder *> * _Nonnull all;
 /// Gets open orders for the current customer.
@@ -997,7 +1022,6 @@ SWIFT_CLASS_NAMED("OrdersManager")
 @property (nonatomic, copy) NSArray<NSString *> * _Nonnull orderStates;
 /// The full list of possible customer states.
 @property (nonatomic, copy) NSArray<NSString *> * _Nonnull customerStates;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 /// Fetches the list of orders from the FlyBuy web API
 /// Fetch the latest claimed orders with the server. An <code>Order</code> is claimed if it is associated with the current customer. Most of the time this method does not need to be called by the app except for refreshing an order list.
 /// Example:
@@ -1266,6 +1290,8 @@ SWIFT_CLASS_NAMED("OrdersManager")
 /// \param callback Gets called at completion with the <code>Order</code> or any error encountered. Optional.
 ///
 - (void)updatePickupMethodWithOrderID:(NSInteger)orderID pickupMethodOptions:(FlyBuyPickupMethodOptions * _Nonnull)pickupMethodOptions callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 @interface FlyBuyOrdersManager (SWIFT_EXTENSION(FlyBuy)) <CLLocationManagerDelegate>
@@ -1310,6 +1336,7 @@ SWIFT_CLASS_NAMED("Pagination")
 /// Data model for pickup config options for an order or site.
 SWIFT_CLASS("_TtC6FlyBuy12PickupConfig")
 @interface PickupConfig : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull appAuthId;
 @property (nonatomic, copy) NSString * _Nonnull type;
 @property (nonatomic, readonly) NSInteger id;
 @property (nonatomic, readonly) BOOL customerNameEditingEnabled;
@@ -1450,7 +1477,7 @@ typedef SWIFT_ENUM(NSInteger, PlaceType, open) {
 };
 
 SWIFT_CLASS_NAMED("PlacesManager")
-@interface FlyBuyPlacesManager : NSObject
+@interface FlyBuyPlacesManager : FlyBuyManager
 /// Fetch  <code>Place</code>s for a query string.
 /// Provide query parameter  to return a list of <code>Place</code>, where the address, zip, region or city matches the provided string.
 /// Example:
@@ -1552,11 +1579,9 @@ SWIFT_CLASS_NAMED("Builder")
 ///
 /// \endcode
 SWIFT_CLASS_NAMED("SitesManager")
-@interface FlyBuySitesManager : NSObject
+@interface FlyBuySitesManager : FlyBuyManager
 /// Gets all sites.
 @property (nonatomic, readonly, copy) NSArray<FlyBuySite *> * _Nullable all SWIFT_DEPRECATED_MSG("This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetchByPartnerIdentifier(partnerIdentifier:options:callback:) instead.");
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 /// Fetch a <code>Site</code> by partner identifier.
 /// Provide partnerIdentifier parameter to return the site with the same partner identifier. If
 /// the site is found, it will be returned in the callback; otherwise, an error will be returned
@@ -1633,6 +1658,8 @@ SWIFT_CLASS_NAMED("SitesManager")
 /// \endcode\param callback Gets called at completion with the <code>Site</code>s, <code>Pagination</code>, or any error encountered.
 ///
 - (void)fetchNearbyWithCallback:(void (^ _Nonnull)(NSArray<FlyBuySite *> * _Nullable, FlyBuyPagination * _Nullable, NSError * _Nullable))callback;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 @interface FlyBuySitesManager (SWIFT_EXTENSION(FlyBuy)) <CLLocationManagerDelegate>
@@ -1670,7 +1697,8 @@ typedef SWIFT_ENUM(NSInteger, SitesManagerErrorType, open) {
   SitesManagerErrorTypeMapboxTokenIsMissing = 1,
   SitesManagerErrorTypeLocationPermissionDenied = 2,
   SitesManagerErrorTypeLocationUnavailable = 3,
-  SitesManagerErrorTypeRequestAlreadyPending = 4,
+  SitesManagerErrorTypeRequestCancelled = 4,
+  SitesManagerErrorTypeInstanceInaccessible = 5,
 };
 
 SWIFT_CLASS("_TtC6FlyBuy22WrongSiteArrivalConfig")
@@ -2051,6 +2079,7 @@ SWIFT_CLASS_NAMED("ConfigOptionsBuilder")
 - (nonnull instancetype)initWithToken:(NSString * _Nonnull)token OBJC_DESIGNATED_INITIALIZER;
 /// Returns finalized options to pass to FlyBuy.Core.configure(withOptions configOptions: ConfigOptions)
 - (FlyBuyConfigOptions * _Nonnull)build SWIFT_WARN_UNUSED_RESULT;
+- (FlyBuyConfigOptionsBuilder * _Nonnull)setSecondaryToken:(NSString * _Nonnull)secondaryToken SWIFT_WARN_UNUSED_RESULT;
 /// Sets the SDK log level
 - (FlyBuyConfigOptionsBuilder * _Nonnull)setLogLevel:(enum LogLevel)logLevel SWIFT_WARN_UNUSED_RESULT;
 /// Sets whether the deferred location tracking feature is enabled
@@ -2069,11 +2098,11 @@ SWIFT_CLASS_NAMED("Coordinate")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class FlyBuyInstance;
 @class FlyBuyOrdersManager;
 @class FlyBuyCustomerManager;
 @class FlyBuySitesManager;
 @class FlyBuyPlacesManager;
-@class FlyBuyLogger;
 @class NSUUID;
 @class UNNotificationResponse;
 @class NSData;
@@ -2088,20 +2117,16 @@ SWIFT_CLASS_NAMED("Core")
 @interface FlyBuyCore : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-/// Gets the <code>OrdersManager</code> instance
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FlyBuyOrdersManager * _Nonnull orders;)
+/// Gets the FlyBuyInstance associated with an appAuthId. If appAuthId is not specified, returns the Instance associated with the primary auth token.
++ (FlyBuyInstance * _Nullable)getInstanceForAppAuthId:(NSString * _Nullable)forAppAuthId error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FlyBuyOrdersManager * _Nonnull orders SWIFT_DEPRECATED_MSG("Use FlyBuy.Core.getInstance(forAppAuthId:).orders instead.");)
 + (FlyBuyOrdersManager * _Nonnull)orders SWIFT_WARN_UNUSED_RESULT;
-/// Gets the <code>CustomerManager</code> instance
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FlyBuyCustomerManager * _Nonnull customer;)
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FlyBuyCustomerManager * _Nonnull customer SWIFT_DEPRECATED_MSG("Use FlyBuy.Core.getInstance(forAppAuthId:).customer instead.");)
 + (FlyBuyCustomerManager * _Nonnull)customer SWIFT_WARN_UNUSED_RESULT;
-/// Gets the <code>SitesManager</code> instance
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FlyBuySitesManager * _Nonnull sites;)
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FlyBuySitesManager * _Nonnull sites SWIFT_DEPRECATED_MSG("Use FlyBuy.Core.getInstance(forAppAuthId:).sites instead.");)
 + (FlyBuySitesManager * _Nonnull)sites SWIFT_WARN_UNUSED_RESULT;
-/// Gets the <code>PlacesManager</code> instance
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FlyBuyPlacesManager * _Nonnull places;)
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FlyBuyPlacesManager * _Nonnull places SWIFT_DEPRECATED_MSG("Use FlyBuy.Core.getInstance(forAppAuthId:).places instead.");)
 + (FlyBuyPlacesManager * _Nonnull)places SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) FlyBuyLogger * _Nonnull logger;)
-+ (FlyBuyLogger * _Nonnull)logger SWIFT_WARN_UNUSED_RESULT;
 /// Set a callback to be notified when the app instance ID is updated.
 + (void)setAppInstanceIDUpdatedListenerWithCallback:(void (^ _Nullable)(NSUUID * _Nonnull))callback;
 /// Configures FlyBuy with the given options
@@ -2204,11 +2229,18 @@ SWIFT_CLASS_NAMED("CustomerInfo")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+SWIFT_CLASS("_TtC6FlyBuy13FlyBuyManager")
+@interface FlyBuyManager : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 /// Manager for customer operations: creating, storing, updating, signing-out
 SWIFT_CLASS_NAMED("CustomerManager")
-@interface FlyBuyCustomerManager : NSObject
+@interface FlyBuyCustomerManager : FlyBuyManager
 /// Gets the current logged in customer.
 @property (nonatomic, readonly, strong) FlyBuyCustomer * _Nullable current;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 /// Create a customer account using customerInfo from the user.
 /// Consent for termsOfService and ageVerification should be collected from the user (e.g. checkboxes).
 /// note:
@@ -2391,7 +2423,6 @@ SWIFT_CLASS_NAMED("CustomerManager")
 ///
 /// \endcode
 - (void)logout;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 enum CustomerManagerErrorType : NSInteger;
@@ -2469,6 +2500,21 @@ SWIFT_CLASS_NAMED("Geofence")
 @property (nonatomic, readonly) double radiusMeters;
 @end
 
+/// Main class for accessing core Flybuy functionality (customer, orders, and sites).
+SWIFT_CLASS_NAMED("Instance")
+@interface FlyBuyInstance : NSObject
+/// Gets the <code>OrdersManager</code> instance
+@property (nonatomic, readonly, strong) FlyBuyOrdersManager * _Nonnull orders;
+/// Gets the <code>CustomerManager</code> instance
+@property (nonatomic, readonly, strong) FlyBuyCustomerManager * _Nonnull customer;
+/// Gets the <code>SitesManager</code> instance
+@property (nonatomic, readonly, strong) FlyBuySitesManager * _Nonnull sites;
+/// Gets the <code>PlacesManager</code> instance
+@property (nonatomic, readonly, strong) FlyBuyPlacesManager * _Nonnull places;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @class FlyBuyOrderOptionsBuilder;
 SWIFT_CLASS_NAMED("LinkDetails")
 @interface FlybuyLink : NSObject
@@ -2510,6 +2556,12 @@ SWIFT_CLASS_NAMED("Logger")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+SWIFT_CLASS("_TtC6FlyBuy20NotificationsManager")
+@interface NotificationsManager : FlyBuyManager
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 SWIFT_CLASS("_TtC6FlyBuy12NotifyConfig")
 @interface NotifyConfig : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -2527,6 +2579,7 @@ SWIFT_CLASS("_TtC6FlyBuy14OneSignalTopic")
 /// Data model for orders.
 SWIFT_CLASS_NAMED("Order")
 @interface FlyBuyOrder : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull appAuthId;
 @property (nonatomic, readonly) NSInteger id;
 @property (nonatomic, readonly) NSInteger siteID;
 @property (nonatomic, copy) NSString * _Nonnull state;
@@ -2675,7 +2728,7 @@ SWIFT_CLASS("_TtC6FlyBuy18OrderProgressState")
 /// Allows fetching the list of orders, creating a new order, or creating
 /// order events.
 SWIFT_CLASS_NAMED("OrdersManager")
-@interface FlyBuyOrdersManager : NSObject
+@interface FlyBuyOrdersManager : FlyBuyManager
 /// Gets all orders for the current customer.
 @property (nonatomic, readonly, copy) NSArray<FlyBuyOrder *> * _Nonnull all;
 /// Gets open orders for the current customer.
@@ -2686,7 +2739,6 @@ SWIFT_CLASS_NAMED("OrdersManager")
 @property (nonatomic, copy) NSArray<NSString *> * _Nonnull orderStates;
 /// The full list of possible customer states.
 @property (nonatomic, copy) NSArray<NSString *> * _Nonnull customerStates;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 /// Fetches the list of orders from the FlyBuy web API
 /// Fetch the latest claimed orders with the server. An <code>Order</code> is claimed if it is associated with the current customer. Most of the time this method does not need to be called by the app except for refreshing an order list.
 /// Example:
@@ -2955,6 +3007,8 @@ SWIFT_CLASS_NAMED("OrdersManager")
 /// \param callback Gets called at completion with the <code>Order</code> or any error encountered. Optional.
 ///
 - (void)updatePickupMethodWithOrderID:(NSInteger)orderID pickupMethodOptions:(FlyBuyPickupMethodOptions * _Nonnull)pickupMethodOptions callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 @interface FlyBuyOrdersManager (SWIFT_EXTENSION(FlyBuy)) <CLLocationManagerDelegate>
@@ -2999,6 +3053,7 @@ SWIFT_CLASS_NAMED("Pagination")
 /// Data model for pickup config options for an order or site.
 SWIFT_CLASS("_TtC6FlyBuy12PickupConfig")
 @interface PickupConfig : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull appAuthId;
 @property (nonatomic, copy) NSString * _Nonnull type;
 @property (nonatomic, readonly) NSInteger id;
 @property (nonatomic, readonly) BOOL customerNameEditingEnabled;
@@ -3139,7 +3194,7 @@ typedef SWIFT_ENUM(NSInteger, PlaceType, open) {
 };
 
 SWIFT_CLASS_NAMED("PlacesManager")
-@interface FlyBuyPlacesManager : NSObject
+@interface FlyBuyPlacesManager : FlyBuyManager
 /// Fetch  <code>Place</code>s for a query string.
 /// Provide query parameter  to return a list of <code>Place</code>, where the address, zip, region or city matches the provided string.
 /// Example:
@@ -3241,11 +3296,9 @@ SWIFT_CLASS_NAMED("Builder")
 ///
 /// \endcode
 SWIFT_CLASS_NAMED("SitesManager")
-@interface FlyBuySitesManager : NSObject
+@interface FlyBuySitesManager : FlyBuyManager
 /// Gets all sites.
 @property (nonatomic, readonly, copy) NSArray<FlyBuySite *> * _Nullable all SWIFT_DEPRECATED_MSG("This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetchByPartnerIdentifier(partnerIdentifier:options:callback:) instead.");
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 /// Fetch a <code>Site</code> by partner identifier.
 /// Provide partnerIdentifier parameter to return the site with the same partner identifier. If
 /// the site is found, it will be returned in the callback; otherwise, an error will be returned
@@ -3322,6 +3375,8 @@ SWIFT_CLASS_NAMED("SitesManager")
 /// \endcode\param callback Gets called at completion with the <code>Site</code>s, <code>Pagination</code>, or any error encountered.
 ///
 - (void)fetchNearbyWithCallback:(void (^ _Nonnull)(NSArray<FlyBuySite *> * _Nullable, FlyBuyPagination * _Nullable, NSError * _Nullable))callback;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 @interface FlyBuySitesManager (SWIFT_EXTENSION(FlyBuy)) <CLLocationManagerDelegate>
@@ -3359,7 +3414,8 @@ typedef SWIFT_ENUM(NSInteger, SitesManagerErrorType, open) {
   SitesManagerErrorTypeMapboxTokenIsMissing = 1,
   SitesManagerErrorTypeLocationPermissionDenied = 2,
   SitesManagerErrorTypeLocationUnavailable = 3,
-  SitesManagerErrorTypeRequestAlreadyPending = 4,
+  SitesManagerErrorTypeRequestCancelled = 4,
+  SitesManagerErrorTypeInstanceInaccessible = 5,
 };
 
 SWIFT_CLASS("_TtC6FlyBuy22WrongSiteArrivalConfig")

@@ -211,6 +211,9 @@ public enum PushServiceType : Swift.String, Swift.Codable {
 final public class PersistManager : FlyBuy.FlyBuyDBProtocol {
   public static let defaultDBPath: Swift.String
   public static var resetOnInit: Swift.Bool
+  public static var defaultAppAuthId: Swift.String {
+    get
+  }
   public static var shared: FlyBuy.PersistManager
   final public var dbManager: FlyBuy.FlyBuyDBManager
   final public var needsInit: Swift.Bool
@@ -341,6 +344,9 @@ public enum HTTPStatusCode : Swift.Int, Swift.Error {
   required public init(from decoder: any Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers @objc public class PickupConfig : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var appAuthId: Swift.String {
+    get
+  }
   @objc public var type: Swift.String
   @objc final public let id: Swift.Int
   @objc final public let customerNameEditingEnabled: Swift.Bool
@@ -368,9 +374,11 @@ extension FlyBuy.PickupConfig : FlyBuy.PersistableCodable {
   public static var fetchAll: Swift.String {
     get
   }
+  public static func fetchAll(byAppAuthId: Swift.String) throws -> Swift.String
   public static var deleteAll: Swift.String {
     get
   }
+  public static func deleteAll(byAppAuthId: Swift.String) throws -> Swift.String
 }
 @objc @_hasMissingDesignatedInitializers public class WrongSiteArrivalConfig : ObjectiveC.NSObject, Swift.Codable {
   public var siteLimit: Swift.Int?
@@ -521,7 +529,7 @@ public struct AppConfigData : Swift.Codable {
   public init(from decoder: any Swift.Decoder) throws
 }
 open class BaseAPIService {
-  public init()
+  public init(appToken: Swift.String)
   public func execute<Request>(_ request: Request, withCompletion completion: @escaping (FlyBuy.ResultType<Request.Response>) -> Swift.Void) where Request : FlyBuy.CodableRequest
   @objc deinit
 }
@@ -552,16 +560,28 @@ extension FlyBuy.FlyBuyModuleManager {
   public func ordersUpdated(_ orders: [FlyBuy.Order])
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(FlyBuyCore) public class Core : ObjectiveC.NSObject {
-  @objc public static let orders: FlyBuy.OrdersManager
-  @objc public static let customer: FlyBuy.CustomerManager
-  @objc public static let sites: FlyBuy.SitesManager
-  @objc public static let places: FlyBuy.PlacesManager
-  public static let notifications: FlyBuy.NotificationsManager
-  @objc public static let logger: FlyBuy.Logger
-  public static var isCoreConfigured: Swift.Bool {
+  @objc public static func getInstance(forAppAuthId: Swift.String? = nil) throws -> FlyBuy.Instance
+  @available(*, deprecated, message: "Use FlyBuy.Core.getInstance(forAppAuthId:).orders instead.")
+  @objc public static var orders: FlyBuy.OrdersManager {
+    @objc get
+  }
+  @available(*, deprecated, message: "Use FlyBuy.Core.getInstance(forAppAuthId:).customer instead.")
+  @objc public static var customer: FlyBuy.CustomerManager {
+    @objc get
+  }
+  @available(*, deprecated, message: "Use FlyBuy.Core.getInstance(forAppAuthId:).sites instead.")
+  @objc public static var sites: FlyBuy.SitesManager {
+    @objc get
+  }
+  @available(*, deprecated, message: "Use FlyBuy.Core.getInstance(forAppAuthId:).places instead.")
+  @objc public static var places: FlyBuy.PlacesManager {
+    @objc get
+  }
+  @available(*, deprecated, message: "Use FlyBuy.Core.getInstance(forAppAuthId:).notifications instead.")
+  public static var notifications: FlyBuy.NotificationsManager {
     get
   }
-  public static var deferredLocationTracking: Swift.Bool {
+  public static var isCoreConfigured: Swift.Bool {
     get
   }
   @objc public static func setAppInstanceIDUpdatedListener(callback: ((Foundation.UUID) -> Swift.Void)? = nil)
@@ -680,7 +700,7 @@ public class OneSignalTopicSubscriber : FlyBuy.PushTopicSubscriber {
 public protocol NotificationHandler : AnyObject {
   func handle(response: UserNotifications.UNNotificationResponse) -> [Swift.String : Swift.String]?
 }
-@_hasMissingDesignatedInitializers public class NotificationsManager {
+@objc @_hasMissingDesignatedInitializers public class NotificationsManager : FlyBuy.FlyBuyManager {
   public func addNotificationHandler(_ handler: any FlyBuy.NotificationHandler)
   public func removeNotificationHandler(_ handler: any FlyBuy.NotificationHandler)
   @objc deinit
@@ -695,23 +715,32 @@ final public class FlyBuyDBManager {
     set
   }
   public init(atPath path: Swift.String)
-  final public func fetchAll<T>(_ type: [T].Type) throws -> [T] where T : FlyBuy.PersistableCodable
+  final public func fetchAll<T>(_ type: [T].Type, byAppAuthId: Swift.String? = nil) throws -> [T] where T : FlyBuy.PersistableCodable
   final public func fetch<T>(_ type: [T].Type, using sql: Swift.String) throws -> [T] where T : FlyBuy.PersistableCodable
   final public func save<T>(_ value: T) throws where T : FlyBuy.PersistableCodable
-  final public func deleteAll<T>(_ type: T.Type) throws where T : FlyBuy.PersistableCodable
+  final public func deleteAll<T>(_ type: T.Type, byAppAuthId: Swift.String? = nil) throws where T : FlyBuy.PersistableCodable
   final public func execute(raw: Swift.String) throws
   final public func executeInTransaction<T>(_ block: () throws -> T) throws -> T
   final public func close()
+  final public func waitForPendingOperations(timeout: Foundation.TimeInterval = 5.0)
   @objc deinit
+}
+public enum FlyBuyDBError : Swift.Error {
+  case databaseNotInitialized
+  public static func == (a: FlyBuy.FlyBuyDBError, b: FlyBuy.FlyBuyDBError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
 }
 public protocol FlyBuyDBProtocol {
   var dbManager: FlyBuy.FlyBuyDBManager { get }
 }
 extension FlyBuy.FlyBuyDBProtocol {
-  public func fetchAll<T>(_ type: [T].Type) throws -> [T] where T : FlyBuy.PersistableCodable
+  public func fetchAll<T>(_ type: [T].Type, byAppAuthId: Swift.String? = nil) throws -> [T] where T : FlyBuy.PersistableCodable
   public func fetch<T>(_ type: [T].Type, using sql: Swift.String) throws -> [T] where T : FlyBuy.PersistableCodable
   public func save<T>(_ value: T) throws where T : FlyBuy.PersistableCodable
-  public func deleteAll<T>(_ type: T.Type) throws where T : FlyBuy.PersistableCodable
+  public func deleteAll<T>(_ type: T.Type, byAppAuthId: Swift.String? = nil) throws where T : FlyBuy.PersistableCodable
   public func execute(sql: Swift.String) throws
   public func executeInTransaction<T>(_ block: () throws -> T) throws -> T
   public func dbClose()
@@ -720,12 +749,14 @@ public protocol PersistableCodable : Swift.Decodable, Swift.Encodable {
   static var createTable: Swift.String { get }
   static var upsert: Swift.String { get }
   static var fetchAll: Swift.String { get }
+  static func fetchAll(byAppAuthId: Swift.String) throws -> Swift.String
   static var deleteAll: Swift.String { get }
+  static func deleteAll(byAppAuthId: Swift.String) throws -> Swift.String
 }
 extension FlyBuy.PersistableCodable {
-  public static func fetchAll(persistManager: any FlyBuy.FlyBuyDBProtocol = PersistManager.shared) throws -> [Self]
+  public static func fetchAll(persistManager: any FlyBuy.FlyBuyDBProtocol = PersistManager.shared, byAppAuthId: Swift.String? = nil) throws -> [Self]
   public func save(persistManager: any FlyBuy.FlyBuyDBProtocol = PersistManager.shared) throws
-  public static func deleteAll(persistManager: any FlyBuy.FlyBuyDBProtocol = PersistManager.shared) throws
+  public static func deleteAll(persistManager: any FlyBuy.FlyBuyDBProtocol = PersistManager.shared, byAppAuthId: Swift.String? = nil) throws
 }
 extension Foundation.JSONDecoder {
   public static let iso8601Full: Foundation.JSONDecoder
@@ -774,7 +805,7 @@ public struct PlacesConfig : Swift.Codable {
   public func encode(to encoder: any Swift.Encoder) throws
   required public init(from decoder: any Swift.Decoder) throws
 }
-@_inheritsConvenienceInitializers @objc(FlyBuyPlacesManager) open class PlacesManager : ObjectiveC.NSObject {
+@_inheritsConvenienceInitializers @objc(FlyBuyPlacesManager) public class PlacesManager : FlyBuy.FlyBuyManager {
   @objc public func suggest(query: Swift.String, options: FlyBuy.PlaceSuggestionOptions, callback: (([FlyBuy.Place]?, (any Swift.Error)?) -> Swift.Void)? = nil)
   @objc public func retrieve(place: FlyBuy.Place, callback: ((FlyBuy.Coordinate?, (any Swift.Error)?) -> Swift.Void)? = nil)
   @objc override dynamic public init()
@@ -834,11 +865,12 @@ extension Swift.Array where Element : FlyBuy.AvailableHandoffVehicleLocation {
   @objc public func formattedString(locale: Foundation.Locale = Locale.current) -> Swift.String
   @objc deinit
 }
-@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(FlyBuySitesManager) open class SitesManager : ObjectiveC.NSObject {
+@objc(FlyBuySitesManager) public class SitesManager : FlyBuy.FlyBuyManager {
   @available(*, deprecated, message: "This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetchByPartnerIdentifier(partnerIdentifier:options:callback:) instead.")
   @objc public var all: [FlyBuy.Site]? {
     @objc get
   }
+  public init(withAppToken: Swift.String)
   @objc public func fetchByPartnerIdentifier(partnerIdentifier: Swift.String, options: FlyBuy.SiteOptions, callback: @escaping (FlyBuy.Site?, (any Swift.Error)?) -> Swift.Void)
   @objc public func fetch(region: FlyBuy.FlyBuyCircularRegion, options: FlyBuy.SiteOptions, callback: (([FlyBuy.Site]?, FlyBuy.Pagination?, (any Swift.Error)?) -> Swift.Void)? = nil)
   @objc public func fetchNear(place: FlyBuy.Place, radius: Swift.Double, options: FlyBuy.SiteOptions, callback: @escaping ([FlyBuy.Site]?, FlyBuy.Pagination?, (any Swift.Error)?) -> Swift.Void)
@@ -851,7 +883,8 @@ extension Swift.Array where Element : FlyBuy.AvailableHandoffVehicleLocation {
   case mapboxTokenIsMissing
   case locationPermissionDenied
   case locationUnavailable
-  case requestAlreadyPending
+  case requestCancelled
+  case instanceInaccessible
   public var description: Swift.String {
     get
   }
@@ -1024,7 +1057,7 @@ public struct PickupStates : Swift.Codable {
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
-@_inheritsConvenienceInitializers @objc(FlyBuyOrdersManager) open class OrdersManager : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers @objc(FlyBuyOrdersManager) public class OrdersManager : FlyBuy.FlyBuyManager {
   @objc public var all: [FlyBuy.Order] {
     @objc get
   }
@@ -1040,7 +1073,7 @@ public struct PickupStates : Swift.Codable {
   @objc public var customerStates: [Swift.String]
   public var openCustomerStates: [Swift.String]
   public var deferredCustomerStates: [Swift.String]
-  @objc override dynamic public init()
+  public func subscribe(_ observer: any FlyBuy.OrdersObserver)
   @objc public func fetch(callback: (([FlyBuy.Order]?, (any Swift.Error)?) -> Swift.Void)? = nil)
   @objc public func fetch(withRedemptionCode redemptionCode: Swift.String, callback: ((FlyBuy.Order?, (any Swift.Error)?) -> Swift.Void)? = nil)
   @objc public func claim(withRedemptionCode redemptionCode: Swift.String, orderOptions: FlyBuy.OrderOptions, callback: ((FlyBuy.Order?, (any Swift.Error)?) -> Swift.Void)? = nil)
@@ -1116,20 +1149,19 @@ extension Foundation.NSNotification.Name {
 }
 extension FlyBuy.OrdersManager : CoreLocation.CLLocationManagerDelegate {
 }
-@_inheritsConvenienceInitializers @objc(FlyBuyCustomerManager) public class CustomerManager : ObjectiveC.NSObject {
-  @objc public var current: FlyBuy.Customer? {
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(FlyBuyCustomerManager) final public class CustomerManager : FlyBuy.FlyBuyManager {
+  @objc final public var current: FlyBuy.Customer? {
     @objc get
   }
-  @objc public func create(_ customerInfo: FlyBuy.CustomerInfo, termsOfService: Swift.Bool, ageVerification: Swift.Bool, callback: ((FlyBuy.Customer?, (any Swift.Error)?) -> Swift.Void)? = nil)
-  @objc public func create(_ customerInfo: FlyBuy.CustomerInfo, email: Swift.String, password: Swift.String, customerConsent: FlyBuy.CustomerConsent, callback: ((FlyBuy.Customer?, (any Swift.Error)?) -> Swift.Void)? = nil)
-  @objc public func update(_ customerInfo: FlyBuy.CustomerInfo, callback: ((FlyBuy.Customer?, (any Swift.Error)?) -> Swift.Void)? = nil)
-  @objc public func login(emailAddress: Swift.String, password: Swift.String, callback: ((FlyBuy.Customer?, (any Swift.Error)?) -> Swift.Void)? = nil)
-  @objc public func loginWithToken(token: Swift.String, callback: ((FlyBuy.Customer?, (any Swift.Error)?) -> Swift.Void)? = nil)
-  @objc public func signUp(emailAddress: Swift.String, password: Swift.String, callback: ((FlyBuy.Customer?, (any Swift.Error)?) -> Swift.Void)? = nil)
-  @objc public func requestNewPassword(emailAddress: Swift.String, callback: (((any Swift.Error)?) -> Swift.Void)? = nil)
-  @objc public func setNewPassword(resetPasswordToken: Swift.String, password: Swift.String, confirmation: Swift.String, callback: ((FlyBuy.Customer?, (any Swift.Error)?) -> Swift.Void)? = nil)
-  @objc public func logout()
-  @objc override dynamic public init()
+  @objc final public func create(_ customerInfo: FlyBuy.CustomerInfo, termsOfService: Swift.Bool, ageVerification: Swift.Bool, callback: ((FlyBuy.Customer?, (any Swift.Error)?) -> Swift.Void)? = nil)
+  @objc final public func create(_ customerInfo: FlyBuy.CustomerInfo, email: Swift.String, password: Swift.String, customerConsent: FlyBuy.CustomerConsent, callback: ((FlyBuy.Customer?, (any Swift.Error)?) -> Swift.Void)? = nil)
+  @objc final public func update(_ customerInfo: FlyBuy.CustomerInfo, callback: ((FlyBuy.Customer?, (any Swift.Error)?) -> Swift.Void)? = nil)
+  @objc final public func login(emailAddress: Swift.String, password: Swift.String, callback: ((FlyBuy.Customer?, (any Swift.Error)?) -> Swift.Void)? = nil)
+  @objc final public func loginWithToken(token: Swift.String, callback: ((FlyBuy.Customer?, (any Swift.Error)?) -> Swift.Void)? = nil)
+  @objc final public func signUp(emailAddress: Swift.String, password: Swift.String, callback: ((FlyBuy.Customer?, (any Swift.Error)?) -> Swift.Void)? = nil)
+  @objc final public func requestNewPassword(emailAddress: Swift.String, callback: (((any Swift.Error)?) -> Swift.Void)? = nil)
+  @objc final public func setNewPassword(resetPasswordToken: Swift.String, password: Swift.String, confirmation: Swift.String, callback: ((FlyBuy.Customer?, (any Swift.Error)?) -> Swift.Void)? = nil)
+  @objc final public func logout()
   @objc deinit
 }
 @objc public enum CustomerManagerErrorType : Swift.Int {
@@ -1157,6 +1189,26 @@ extension FlyBuy.OrdersManager : CoreLocation.CLLocationManagerDelegate {
   }
   @objc deinit
 }
+@_inheritsConvenienceInitializers @objc public class FlyBuyManager : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(FlyBuyInstance) final public class Instance : ObjectiveC.NSObject {
+  @objc final public let orders: FlyBuy.OrdersManager
+  @objc final public let customer: FlyBuy.CustomerManager
+  @objc final public let sites: FlyBuy.SitesManager
+  @objc final public let places: FlyBuy.PlacesManager
+  public static var primary: FlyBuy.Instance {
+    get throws
+  }
+  public static var secondary: FlyBuy.Instance? {
+    get throws
+  }
+  @objc deinit
+}
+public protocol OrdersObserver {
+  func ordersUpdated(_ orders: [FlyBuy.Order])
+}
 @objc public enum LogLevel : Swift.Int {
   case verbose
   case debug
@@ -1182,12 +1234,14 @@ extension FlyBuy.OrdersManager : CoreLocation.CLLocationManagerDelegate {
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc(FlyBuyConfigOptions) public class ConfigOptions : ObjectiveC.NSObject {
+  final public let token: Swift.String
   @objc public static func Builder(token: Swift.String) -> FlyBuy.ConfigOptionsBuilder
   @objc deinit
 }
 @objc(FlyBuyConfigOptionsBuilder) public class ConfigOptionsBuilder : ObjectiveC.NSObject {
   @objc public init(token: Swift.String)
   @objc public func build() -> FlyBuy.ConfigOptions
+  @objc public func setSecondaryToken(_ secondaryToken: Swift.String) -> FlyBuy.ConfigOptionsBuilder
   @objc public func setLogLevel(_ logLevel: FlyBuy.LogLevel) -> FlyBuy.ConfigOptionsBuilder
   @objc public func setDeferredLocationTracking(_ enabled: Swift.Bool) -> FlyBuy.ConfigOptionsBuilder
   @objc public func setOptions(_ opts: [Swift.String : Any]) -> FlyBuy.ConfigOptionsBuilder
@@ -1199,6 +1253,16 @@ public protocol PushTopicSubscriber {
 @_inheritsConvenienceInitializers @objc(FlyBuyLinks) public class Links : ObjectiveC.NSObject {
   @objc public static func parse(url: Foundation.URL) -> FlyBuy.LinkDetails
   @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class SdkGlobals {
+  public static let logger: FlyBuy.Logger
+  public static var configOptions: FlyBuy.ConfigOptions {
+    get
+  }
+  public static var deferredLocationTracking: Swift.Bool {
+    get
+  }
   @objc deinit
 }
 extension CoreLocation.CLLocationManager {
@@ -1213,6 +1277,9 @@ extension CoreLocation.CLLocationManager {
   @objc deinit
 }
 @objc(FlyBuyOrder) open class Order : ObjectiveC.NSObject {
+  @objc public var appAuthId: Swift.String {
+    get
+  }
   @objc final public let id: Swift.Int
   @objc final public let siteID: Swift.Int
   @objc public var state: Swift.String
@@ -1308,9 +1375,11 @@ extension FlyBuy.Order : FlyBuy.PersistableCodable {
   public static var fetchAll: Swift.String {
     get
   }
+  public static func fetchAll(byAppAuthId: Swift.String) throws -> Swift.String
   public static var deleteAll: Swift.String {
     get
   }
+  public static func deleteAll(byAppAuthId: Swift.String) throws -> Swift.String
 }
 extension FlyBuy.Order {
   @objc dynamic public func isOpen() -> Swift.Bool
@@ -1338,6 +1407,8 @@ extension FlyBuy.HTTPMethod : Swift.Hashable {}
 extension FlyBuy.HTTPMethod : Swift.RawRepresentable {}
 extension FlyBuy.EncodingType : Swift.Equatable {}
 extension FlyBuy.EncodingType : Swift.Hashable {}
+extension FlyBuy.FlyBuyDBError : Swift.Equatable {}
+extension FlyBuy.FlyBuyDBError : Swift.Hashable {}
 extension FlyBuy.FlyBuyAPIErrorType : Swift.Equatable {}
 extension FlyBuy.FlyBuyAPIErrorType : Swift.Hashable {}
 extension FlyBuy.FlyBuyAPIErrorType : Swift.RawRepresentable {}

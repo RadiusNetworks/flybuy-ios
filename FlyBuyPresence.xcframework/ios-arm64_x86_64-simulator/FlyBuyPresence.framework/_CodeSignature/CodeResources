@@ -14,11 +14,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		gDFTPTAQYhy3rtFLmhdcEZR2aOU=
+		LAA+ZUtGwUkfXpB/ht/Cxt1qKkM=
 		</data>
 		<key>Modules/FlyBuyPresence.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		C6lTRWqrxEwU7+lsjkurgp+iN+M=
+		Ma7i0vTETBlRPws4QdL8Q57VT5I=
 		</data>
 		<key>Modules/FlyBuyPresence.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Modules/FlyBuyPresence.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		C6lTRWqrxEwU7+lsjkurgp+iN+M=
+		Ma7i0vTETBlRPws4QdL8Q57VT5I=
 		</data>
 		<key>Modules/FlyBuyPresence.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -85,7 +85,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			54xwvR0t69BHqEVm2v4ts3p/CHisIF18TmGfgk5pBDU=
+			Xc/wTRbI8lcTVsdGM5I/FUSFWzo+JKzchYeA4cKCfQk=
 			</data>
 		</dict>
 		<key>Modules/FlyBuyPresence.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -120,7 +120,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			54xwvR0t69BHqEVm2v4ts3p/CHisIF18TmGfgk5pBDU=
+			Xc/wTRbI8lcTVsdGM5I/FUSFWzo+JKzchYeA4cKCfQk=
 			</data>
 		</dict>
 		<key>Modules/FlyBuyPresence.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
