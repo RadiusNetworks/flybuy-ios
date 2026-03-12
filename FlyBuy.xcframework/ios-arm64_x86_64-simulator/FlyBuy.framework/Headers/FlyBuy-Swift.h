@@ -915,6 +915,9 @@ SWIFT_CLASS_NAMED("Order")
 @property (nonatomic, readonly) BOOL wrongSiteDetectionEnabled;
 @property (nonatomic, readonly) BOOL distanceFilteringDisabled;
 @property (nonatomic, readonly, strong) NSNumber * _Nullable wrongSiteSearchRadius;
+@property (nonatomic, readonly, copy) NSString * _Nullable loyaltyIdentifier;
+@property (nonatomic, readonly, copy) NSString * _Nullable loyaltyProvider;
+@property (nonatomic, readonly) BOOL orderStatusLiveActivityEnabled;
 /// Gets the location of the order’s associated site.
 - (CLLocation * _Nullable)siteLocation SWIFT_WARN_UNUSED_RESULT;
 /// Gets the distance between the location and the site in meters.
@@ -956,6 +959,8 @@ SWIFT_CLASS_NAMED("OrderOptions")
 @property (nonatomic, readonly, copy) NSString * _Nullable handoffVehicleLocation;
 @property (nonatomic, readonly, copy) NSString * _Nullable partnerIdentifierForCustomer;
 @property (nonatomic, readonly, copy) NSString * _Nullable partnerIdentifierForCrew;
+@property (nonatomic, readonly, copy) NSString * _Nullable loyaltyIdentifier;
+@property (nonatomic, readonly, copy) NSString * _Nullable loyaltyProvider;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -995,6 +1000,8 @@ SWIFT_CLASS_NAMED("Builder")
 - (FlyBuyOrderOptionsBuilder * _Nonnull)setDisablePromiseTimeScheduling:(BOOL)disablePromiseTimeScheduling SWIFT_WARN_UNUSED_RESULT;
 /// Set the order’s [orderFireMakeIntervalSeconds] property when creating an [Order]
 - (FlyBuyOrderOptionsBuilder * _Nonnull)setOrderFireMakeIntervalSeconds:(NSInteger)orderFireMakeIntervalSeconds SWIFT_WARN_UNUSED_RESULT;
+/// Set the order’s [loyaltyIdentifier] and [loyaltyProvider] properties when creating  an [Order]
+- (FlyBuyOrderOptionsBuilder * _Nonnull)setLoyaltyInfoWithIdentifier:(NSString * _Nonnull)identifier provider:(NSString * _Nullable)provider SWIFT_WARN_UNUSED_RESULT;
 - (FlyBuyOrderOptions * _Nonnull)build SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
@@ -2632,6 +2639,9 @@ SWIFT_CLASS_NAMED("Order")
 @property (nonatomic, readonly) BOOL wrongSiteDetectionEnabled;
 @property (nonatomic, readonly) BOOL distanceFilteringDisabled;
 @property (nonatomic, readonly, strong) NSNumber * _Nullable wrongSiteSearchRadius;
+@property (nonatomic, readonly, copy) NSString * _Nullable loyaltyIdentifier;
+@property (nonatomic, readonly, copy) NSString * _Nullable loyaltyProvider;
+@property (nonatomic, readonly) BOOL orderStatusLiveActivityEnabled;
 /// Gets the location of the order’s associated site.
 - (CLLocation * _Nullable)siteLocation SWIFT_WARN_UNUSED_RESULT;
 /// Gets the distance between the location and the site in meters.
@@ -2673,6 +2683,8 @@ SWIFT_CLASS_NAMED("OrderOptions")
 @property (nonatomic, readonly, copy) NSString * _Nullable handoffVehicleLocation;
 @property (nonatomic, readonly, copy) NSString * _Nullable partnerIdentifierForCustomer;
 @property (nonatomic, readonly, copy) NSString * _Nullable partnerIdentifierForCrew;
+@property (nonatomic, readonly, copy) NSString * _Nullable loyaltyIdentifier;
+@property (nonatomic, readonly, copy) NSString * _Nullable loyaltyProvider;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -2712,6 +2724,8 @@ SWIFT_CLASS_NAMED("Builder")
 - (FlyBuyOrderOptionsBuilder * _Nonnull)setDisablePromiseTimeScheduling:(BOOL)disablePromiseTimeScheduling SWIFT_WARN_UNUSED_RESULT;
 /// Set the order’s [orderFireMakeIntervalSeconds] property when creating an [Order]
 - (FlyBuyOrderOptionsBuilder * _Nonnull)setOrderFireMakeIntervalSeconds:(NSInteger)orderFireMakeIntervalSeconds SWIFT_WARN_UNUSED_RESULT;
+/// Set the order’s [loyaltyIdentifier] and [loyaltyProvider] properties when creating  an [Order]
+- (FlyBuyOrderOptionsBuilder * _Nonnull)setLoyaltyInfoWithIdentifier:(NSString * _Nonnull)identifier provider:(NSString * _Nullable)provider SWIFT_WARN_UNUSED_RESULT;
 - (FlyBuyOrderOptions * _Nonnull)build SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");

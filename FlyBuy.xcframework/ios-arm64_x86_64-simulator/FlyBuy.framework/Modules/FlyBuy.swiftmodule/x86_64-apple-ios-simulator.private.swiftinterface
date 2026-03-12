@@ -646,6 +646,8 @@ extension Swift.Error {
   final public let disableOrderFire: Swift.Bool?
   final public let disablePromiseTimeScheduling: Swift.Bool?
   final public let orderFireMakeIntervalSeconds: Swift.Int?
+  @objc final public let loyaltyIdentifier: Swift.String?
+  @objc final public let loyaltyProvider: Swift.String?
   @objc(FlyBuyOrderOptionsBuilder) public class Builder : ObjectiveC.NSObject {
     @objc public init(customerName: Swift.String)
     @objc public func setCustomerName(_ name: Swift.String) -> FlyBuy.OrderOptions.Builder
@@ -664,6 +666,7 @@ extension Swift.Error {
     @objc public func setDisableOrderFire(_ disableOrderFire: Swift.Bool) -> FlyBuy.OrderOptions.Builder
     @objc public func setDisablePromiseTimeScheduling(_ disablePromiseTimeScheduling: Swift.Bool) -> FlyBuy.OrderOptions.Builder
     @objc public func setOrderFireMakeIntervalSeconds(_ orderFireMakeIntervalSeconds: Swift.Int) -> FlyBuy.OrderOptions.Builder
+    @objc public func setLoyaltyInfo(identifier: Swift.String, provider: Swift.String? = nil) -> FlyBuy.OrderOptions.Builder
     @objc public func build() -> FlyBuy.OrderOptions
     @objc deinit
   }
@@ -1353,6 +1356,11 @@ extension CoreLocation.CLLocationManager {
   final public let _pickupConfigID: Swift.Int?
   public var handoffVehicleLocation: Swift.String?
   public var estimatedReadyAt: Swift.String?
+  @objc final public let loyaltyIdentifier: Swift.String?
+  @objc final public let loyaltyProvider: Swift.String?
+  @objc public var orderStatusLiveActivityEnabled: Swift.Bool {
+    @objc get
+  }
   required public init(from decoder: any Swift.Decoder) throws
   public func encode(to encoder: any Swift.Encoder) throws
   @objc public func siteLocation() -> CoreLocation.CLLocation?
