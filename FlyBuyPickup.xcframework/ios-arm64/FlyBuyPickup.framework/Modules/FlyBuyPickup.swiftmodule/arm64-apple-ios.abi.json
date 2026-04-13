@@ -764,28 +764,28 @@
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyPickup\/Helpers\/LocationEventGenerator.swift",
       "kind": "BooleanLiteral",
-      "offset": 1024,
+      "offset": 1015,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyPickup\/Helpers\/LocationEventGenerator.swift",
       "kind": "Array",
-      "offset": 1197,
+      "offset": 1188,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyPickup\/Helpers\/PickupOrdersObserver.swift",
       "kind": "Array",
-      "offset": 837,
+      "offset": 758,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyPickup\/Helpers\/PickupOrdersObserver.swift",
       "kind": "IntegerLiteral",
-      "offset": 903,
+      "offset": 824,
       "length": 1,
       "value": "1"
     },

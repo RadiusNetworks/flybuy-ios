@@ -10,7 +10,7 @@
 		</data>
 		<key>ios-arm64/FlyBuyLiveStatus.framework/FlyBuyLiveStatus</key>
 		<data>
-		iraAsXqEntGws90qqd9tm8UgkX0=
+		x3ijE0Y/UdTFHZKzx8ei80gVfWg=
 		</data>
 		<key>ios-arm64/FlyBuyLiveStatus.framework/Headers/FlyBuyLiveStatus-Swift.h</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>ios-arm64/FlyBuyLiveStatus.framework/Info.plist</key>
 		<data>
-		hEShaybbRRPyp/E+ZsfQreOYmw4=
+		VB61dKrQhDidoUQv22mYbQiEF6Q=
 		</data>
 		<key>ios-arm64/FlyBuyLiveStatus.framework/Modules/FlyBuyLiveStatus.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/FlyBuyLiveStatus.framework/FlyBuyLiveStatus</key>
 		<data>
-		EuXcwVa+C/mGLC4W7aodDkFC4Kw=
+		V/aaxZi7ISN9J/t3033fBzkB+Ao=
 		</data>
 		<key>ios-arm64_x86_64-simulator/FlyBuyLiveStatus.framework/Headers/FlyBuyLiveStatus-Swift.h</key>
 		<data>
@@ -66,7 +66,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/FlyBuyLiveStatus.framework/Info.plist</key>
 		<data>
-		Ety4LejneI4gv+FdG/VDUd2u924=
+		NsRLXr7JeNWODRj+9ogQ+0qRGTM=
 		</data>
 		<key>ios-arm64_x86_64-simulator/FlyBuyLiveStatus.framework/Modules/FlyBuyLiveStatus.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -110,7 +110,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/FlyBuyLiveStatus.framework/_CodeSignature/CodeResources</key>
 		<data>
-		cq0dq+KXbmIKjY7shOCGTzgNyYo=
+		MSRBVluTCQzI0cLKLHqukrvgb7g=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -130,11 +130,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			iraAsXqEntGws90qqd9tm8UgkX0=
+			x3ijE0Y/UdTFHZKzx8ei80gVfWg=
 			</data>
 			<key>hash2</key>
 			<data>
-			U+Kq/oK5+tG8/+j138ybfeoD43LCJ5+cJLvZ2JnoK2Y=
+			4tKgFszIfoxyQtNBoPTVlskltZdPhRDgKH7nuNG673s=
 			</data>
 		</dict>
 		<key>ios-arm64/FlyBuyLiveStatus.framework/Headers/FlyBuyLiveStatus-Swift.h</key>
@@ -163,11 +163,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			hEShaybbRRPyp/E+ZsfQreOYmw4=
+			VB61dKrQhDidoUQv22mYbQiEF6Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			9C+YNByPoLMj3itUYnjpjYtq71MxlIbE9ZPLoTtUUgM=
+			R4/aNOG81r6ri9Tm+2yEsiRfeBvIUgIMMtTaB8AWdRA=
 			</data>
 		</dict>
 		<key>ios-arm64/FlyBuyLiveStatus.framework/Modules/FlyBuyLiveStatus.swiftmodule/arm64-apple-ios.abi.json</key>
@@ -251,11 +251,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			EuXcwVa+C/mGLC4W7aodDkFC4Kw=
+			V/aaxZi7ISN9J/t3033fBzkB+Ao=
 			</data>
 			<key>hash2</key>
 			<data>
-			cWt1sa4a4hppab4S8esc3yHkBJJICBrs3cR0szxXUzE=
+			CZwoZhJPOtafON1lOMwAqOtUt31bBvuR+gDUvpvFrNo=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/FlyBuyLiveStatus.framework/Headers/FlyBuyLiveStatus-Swift.h</key>
@@ -284,11 +284,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Ety4LejneI4gv+FdG/VDUd2u924=
+			NsRLXr7JeNWODRj+9ogQ+0qRGTM=
 			</data>
 			<key>hash2</key>
 			<data>
-			a5zdiF/gHdkQCscwplOw3DHJBd4otiZo68UeKh4fDGE=
+			OI5G2z7a6gpmFaqp7bDUhDIEbVqdeKA/uQ08MsZGmMc=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/FlyBuyLiveStatus.framework/Modules/FlyBuyLiveStatus.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
@@ -405,11 +405,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			cq0dq+KXbmIKjY7shOCGTzgNyYo=
+			MSRBVluTCQzI0cLKLHqukrvgb7g=
 			</data>
 			<key>hash2</key>
 			<data>
-			btxWN4jB9fVNKfxSY9RvtrRBVmvNI/yQ9ttQqJDo9EY=
+			NWy4aWne/0m9snPVQbkM1oVZ3ES01T9dKyjnoYtgCEM=
 			</data>
 		</dict>
 	</dict>

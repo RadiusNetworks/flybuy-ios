@@ -317,10 +317,24 @@ SWIFT_CLASS("_TtC6FlyBuy10AppUpgrade")
 @end
 
 @class NSString;
+SWIFT_CLASS("_TtC6FlyBuy31AvailableCustomerRatingCategory")
+@interface AvailableCustomerRatingCategory : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull customerRatingCategory;
+@property (nonatomic, readonly, copy) NSString * _Nonnull customerRatingCategoryLocalizedString;
+- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
+@end
+
 SWIFT_CLASS("_TtC6FlyBuy31AvailableHandoffVehicleLocation")
 @interface AvailableHandoffVehicleLocation : NSObject
 @property (nonatomic, readonly, copy) NSString * _Nonnull vehicleLocation;
 @property (nonatomic, readonly, copy) NSString * _Nonnull vehicleLocationLocalizedString;
+- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
+@end
+
+SWIFT_CLASS("_TtC6FlyBuy22AvailableTransportMode")
+@interface AvailableTransportMode : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull transportMode;
+@property (nonatomic, readonly, copy) NSString * _Nonnull transportModeLocalizedString;
 @end
 
 /// Data model for a list of <code>Beacon</code>s
@@ -918,6 +932,8 @@ SWIFT_CLASS_NAMED("Order")
 @property (nonatomic, readonly, copy) NSString * _Nullable loyaltyIdentifier;
 @property (nonatomic, readonly, copy) NSString * _Nullable loyaltyProvider;
 @property (nonatomic, readonly) BOOL orderStatusLiveActivityEnabled;
+@property (nonatomic, copy) NSString * _Nullable transportMode;
+@property (nonatomic, copy) NSArray<NSString *> * _Nullable customerRatingCategories;
 /// Gets the location of the order’s associated site.
 - (CLLocation * _Nullable)siteLocation SWIFT_WARN_UNUSED_RESULT;
 /// Gets the distance between the location and the site in meters.
@@ -959,6 +975,7 @@ SWIFT_CLASS_NAMED("OrderOptions")
 @property (nonatomic, readonly, copy) NSString * _Nullable handoffVehicleLocation;
 @property (nonatomic, readonly, copy) NSString * _Nullable partnerIdentifierForCustomer;
 @property (nonatomic, readonly, copy) NSString * _Nullable partnerIdentifierForCrew;
+@property (nonatomic, readonly, copy) NSString * _Nullable tranportMode;
 @property (nonatomic, readonly, copy) NSString * _Nullable loyaltyIdentifier;
 @property (nonatomic, readonly, copy) NSString * _Nullable loyaltyProvider;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -1002,6 +1019,8 @@ SWIFT_CLASS_NAMED("Builder")
 - (FlyBuyOrderOptionsBuilder * _Nonnull)setOrderFireMakeIntervalSeconds:(NSInteger)orderFireMakeIntervalSeconds SWIFT_WARN_UNUSED_RESULT;
 /// Set the order’s [loyaltyIdentifier] and [loyaltyProvider] properties when creating  an [Order]
 - (FlyBuyOrderOptionsBuilder * _Nonnull)setLoyaltyInfoWithIdentifier:(NSString * _Nonnull)identifier provider:(NSString * _Nullable)provider SWIFT_WARN_UNUSED_RESULT;
+/// Set the order’s [tranportMode] property when creating or claiming an [Order]
+- (FlyBuyOrderOptionsBuilder * _Nonnull)setTransportMode:(NSString * _Nullable)transportMode SWIFT_WARN_UNUSED_RESULT;
 - (FlyBuyOrderOptions * _Nonnull)build SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
@@ -1011,6 +1030,7 @@ SWIFT_CLASS("_TtC6FlyBuy18OrderProgressState")
 @interface OrderProgressState : NSObject
 @property (nonatomic, readonly, copy) NSString * _Nonnull state;
 @property (nonatomic, readonly, copy) NSString * _Nonnull stateLocalizedString;
+- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class FlyBuyPickupMethodOptions;
@@ -1033,7 +1053,7 @@ SWIFT_CLASS_NAMED("OrdersManager")
 /// Fetch the latest claimed orders with the server. An <code>Order</code> is claimed if it is associated with the current customer. Most of the time this method does not need to be called by the app except for refreshing an order list.
 /// Example:
 /// \code
-/// FlyBuy.Core.orders.fetch() { (orders, error) -> (Void) in
+/// FlyBuy.Core.getInstance().orders.fetch() { (orders, error) -> (Void) in
 ///   if let error = error {
 ///     // Handle error
 ///   } else {
@@ -1048,7 +1068,7 @@ SWIFT_CLASS_NAMED("OrdersManager")
 /// After the <code>Order</code> is fetched, use <code>claim(withRedemptionCode:customerInfo:pickupType:callback:)</code> to associate the order with the current customer which may start location tracking.
 /// Example:
 /// \code
-/// FlyBuy.Core.orders.fetch(withRedemptionCode: code) { (order, error) -> (Void) in
+/// FlyBuy.Core.getInstance().orders.fetch(withRedemptionCode: code) { (order, error) -> (Void) in
 ///   if let error = error {
 ///     // Handle error
 ///   } else {
@@ -1074,7 +1094,7 @@ SWIFT_CLASS_NAMED("OrdersManager")
 /// .setCustomerCarPlate("OUTATIME")
 ///
 ///
-/// FlyBuy.Core.orders.claim(withRedemptionCode: code, orderOptions: orderOptions.build()) { (order, error) -> (Void) in
+/// FlyBuy.Core.getInstance().orders.claim(withRedemptionCode: code, orderOptions: orderOptions.build()) { (order, error) -> (Void) in
 ///  if let error = error {
 ///    // Handle error
 ///  } else {
@@ -1117,7 +1137,7 @@ SWIFT_CLASS_NAMED("OrdersManager")
 /// .setState(orderState)
 /// .setPickupType(pickupType)
 ///
-/// FlyBuy.Core.orders.create(siteID: 101, orderOptions: orderOptions.build()) { (order, error) -> (Void) in
+/// FlyBuy.Core.getInstance().orders.create(siteID: 101, orderOptions: orderOptions.build()) { (order, error) -> (Void) in
 ///   if let error = error {
 ///      // Handle error
 ///   } else {
@@ -1153,7 +1173,7 @@ SWIFT_CLASS_NAMED("OrdersManager")
 /// .setState(orderState)
 /// .setPickupType(pickupType)
 ///
-/// FlyBuy.Core.orders.create(sitePartnerIdentifier: "123", orderOptions: orderOptions.build()) { (order, error) -> (Void) in
+/// FlyBuy.Core.getInstance().orders.create(sitePartnerIdentifier: "123", orderOptions: orderOptions.build()) { (order, error) -> (Void) in
 ///  if let error = error {
 ///    // Handle error
 ///  } else {
@@ -1177,7 +1197,7 @@ SWIFT_CLASS_NAMED("OrdersManager")
 /// Update the customerState for an order with the given orderId.
 /// Example:
 /// \code
-/// FlyBuy.Core.orders.updateCustomerState(orderID: order.id, customerState: "waiting") { (order, error) -> (Void) in
+/// FlyBuy.Core.getInstance().orders.updateCustomerState(orderID: order.id, customerState: "waiting") { (order, error) -> (Void) in
 ///   if let error = error {
 ///     // Handle error
 ///   } else {
@@ -1198,7 +1218,7 @@ SWIFT_CLASS_NAMED("OrdersManager")
 /// An <code>Order</code> also has fields for spotIdentifierEntryEnabled and spotIdentifierInputType that can be used by the app to decide if spot entry should be allowed. Note that the spotIdentifier can be set for the order regardless of these fields values.
 /// Example:
 /// \code
-/// FlyBuy.Core.orders.updateCustomerState(orderID: order.id, customerState: "waiting", spotIdentifier: "1") { (order, error) -> (Void) in
+/// FlyBuy.Core.getInstance().orders.updateCustomerState(orderID: order.id, customerState: "waiting", spotIdentifier: "1") { (order, error) -> (Void) in
 ///   if let error = error {
 ///     // Handle error
 ///   } else {
@@ -1218,7 +1238,7 @@ SWIFT_CLASS_NAMED("OrdersManager")
 /// Update the state for an <code>Order</code> with the given orderId.
 /// Example:
 /// \code
-/// FlyBuy.Core.orders.updateState(orderID: order.id, state: "cancelled") { order, error ->
+/// FlyBuy.Core.getInstance().orders.updateState(orderID: order.id, state: "cancelled") { order, error ->
 ///   if let error = error {
 ///     // Handle error
 ///   } else {
@@ -1237,7 +1257,7 @@ SWIFT_CLASS_NAMED("OrdersManager")
 /// If you collect customer ratings in your app, you can pass them to Flybuy. The rating should be an integer and comments (optional) should be a string:
 /// Example:
 /// \code
-/// FlyBuy.Core.orders.rateOrder(orderID: 123, rating: 5, comments: 'Great service') { order, error ->
+/// FlyBuy.Core.getInstance().orders.rateOrder(orderID: 123, rating: 5, comments: 'Great service', categories: ["order_accuracy", "customer_service"]) { order, error ->
 ///   if let error = error {
 ///     // Handle error
 ///   } else {
@@ -1251,13 +1271,16 @@ SWIFT_CLASS_NAMED("OrdersManager")
 ///
 /// \param comments the comment string. Optional.
 ///
+/// \param categories an array of rating category strings. Optional.
+///
 /// \param callback Gets called at completion with the <code>Order</code> or any error encountered. Optional.
 ///
+- (void)rateOrderWithOrderID:(NSInteger)orderID rating:(NSInteger)rating comments:(NSString * _Nullable)comments categories:(NSArray<NSString *> * _Nullable)categories callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
 - (void)rateOrderWithOrderID:(NSInteger)orderID rating:(NSInteger)rating comments:(NSString * _Nullable)comments callback:(void (^ _Nullable)(FlyBuyOrder * _Nullable, NSError * _Nullable))callback;
 /// Update the pickup type for an <code>Order</code> with the give orderId.
 /// Example:
 /// \code
-/// FlyBuy.Core.orders.updatePickupType(orderID: 123, pickupType: "pickup") { order, error ->
+/// FlyBuy.Core.getInstance().orders.updatePickupType(orderID: 123, pickupType: "pickup") { order, error ->
 ///   if let error = error {
 ///     // Handle error
 ///   } else {
@@ -1282,7 +1305,7 @@ SWIFT_CLASS_NAMED("OrdersManager")
 /// .setCustomerLicensePlate("OUTATIME")
 /// .build()
 ///
-/// FlyBuy.Core.orders.updatePickupMethod(orderID: 123, pickupMethodOptions: options) { order, error in
+/// FlyBuy.Core.getInstance().orders.updatePickupMethod(orderID: 123, pickupMethodOptions: options) { order, error in
 ///  if let error = error {
 ///    // Handle error
 ///  } else {
@@ -1357,6 +1380,9 @@ SWIFT_CLASS("_TtC6FlyBuy12PickupConfig")
 @property (nonatomic, readonly, copy) NSArray<AvailableHandoffVehicleLocation *> * _Nonnull availableHandoffVehicleLocation;
 @property (nonatomic, readonly, copy) NSArray<OrderProgressState *> * _Nonnull orderProgressStates;
 @property (nonatomic, readonly) BOOL customerFeedbackEnabled;
+@property (nonatomic, readonly, copy) NSString * _Nullable defaultTransportMode;
+@property (nonatomic, readonly, copy) NSArray<AvailableTransportMode *> * _Nonnull availableTransportModes;
+@property (nonatomic, readonly, copy) NSArray<AvailableCustomerRatingCategory *> * _Nonnull availableCustomerRatingCategories;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1368,7 +1394,8 @@ SWIFT_CLASS_NAMED("PickupMethodOptions")
 @property (nonatomic, readonly, copy) NSString * _Nullable customerLicensePlate;
 @property (nonatomic, readonly, copy) NSString * _Nonnull pickupType;
 @property (nonatomic, readonly, copy) NSString * _Nullable handoffVehicleLocation;
-- (nonnull instancetype)initWithCustomerCarColor:(NSString * _Nullable)customerCarColor customerCarType:(NSString * _Nullable)customerCarType customerLicensePlate:(NSString * _Nullable)customerLicensePlate pickupType:(NSString * _Nonnull)pickupType handoffVehicleLocation:(NSString * _Nullable)handoffVehicleLocation OBJC_DESIGNATED_INITIALIZER;
+@property (nonatomic, readonly, copy) NSString * _Nullable transportMode;
+- (nonnull instancetype)initWithCustomerCarColor:(NSString * _Nullable)customerCarColor customerCarType:(NSString * _Nullable)customerCarType customerLicensePlate:(NSString * _Nullable)customerLicensePlate pickupType:(NSString * _Nonnull)pickupType handoffVehicleLocation:(NSString * _Nullable)handoffVehicleLocation transportMode:(NSString * _Nullable)transportMode OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1385,6 +1412,8 @@ SWIFT_CLASS_NAMED("Builder")
 - (FlyBuyPickupMethodOptionsBuilder * _Nonnull)setCustomerLicensePlate:(NSString * _Nullable)customerLicensePlate SWIFT_WARN_UNUSED_RESULT;
 /// Set the order’s [handoffVehicleLocation] property when updating an [Order] pickup method
 - (FlyBuyPickupMethodOptionsBuilder * _Nonnull)setHandoffVehicleLocation:(NSString * _Nullable)handoffVehicleLocation SWIFT_WARN_UNUSED_RESULT;
+/// Set the order’s [transportMode] property when updating an [Order] pickup method
+- (FlyBuyPickupMethodOptionsBuilder * _Nonnull)setTransportMode:(NSString * _Nullable)mode SWIFT_WARN_UNUSED_RESULT;
 /// Build method  to convert [PickupMethodOptions.Builder] to [PickupMethodOptions].
 - (FlyBuyPickupMethodOptions * _Nonnull)build SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -1399,6 +1428,7 @@ SWIFT_CLASS("_TtC6FlyBuy16PickupTypeConfig")
 @property (nonatomic, readonly) BOOL showVehicleInfoFields;
 @property (nonatomic, readonly) BOOL showHandoffVehicleLocations;
 @property (nonatomic, readonly) BOOL requireVehicleInfo;
+- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class NSLocale;

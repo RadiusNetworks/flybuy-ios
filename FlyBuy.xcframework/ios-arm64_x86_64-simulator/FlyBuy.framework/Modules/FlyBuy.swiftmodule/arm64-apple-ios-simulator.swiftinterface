@@ -52,6 +52,9 @@ extension FlyBuy.AppConfig {
 }
 public struct PickupLocationFilters : Swift.Codable {
   public let ios: [FlyBuy.PickupLocationFilterData]?
+  public let iosBiking: [FlyBuy.PickupLocationFilterData]?
+  public let iosWalking: [FlyBuy.PickupLocationFilterData]?
+  public func filters(for transportMode: Swift.String?) -> [FlyBuy.PickupLocationFilterData]?
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -226,13 +229,15 @@ final public class PersistManager : FlyBuy.FlyBuyDBProtocol {
   @objc final public let customerLicensePlate: Swift.String?
   @objc final public let pickupType: Swift.String
   @objc final public let handoffVehicleLocation: Swift.String?
-  @objc public init(customerCarColor: Swift.String?, customerCarType: Swift.String?, customerLicensePlate: Swift.String?, pickupType: Swift.String, handoffVehicleLocation: Swift.String?)
+  @objc final public let transportMode: Swift.String?
+  @objc public init(customerCarColor: Swift.String?, customerCarType: Swift.String?, customerLicensePlate: Swift.String?, pickupType: Swift.String, handoffVehicleLocation: Swift.String?, transportMode: Swift.String?)
   @objc(FlyBuyPickupMethodOptionsBuilder) public class Builder : ObjectiveC.NSObject {
     @objc public init(pickupType: Swift.String)
     @objc public func setCustomerCarColor(_ customerCarColor: Swift.String?) -> FlyBuy.PickupMethodOptions.Builder
     @objc public func setCustomerCarType(_ customerCarType: Swift.String?) -> FlyBuy.PickupMethodOptions.Builder
     @objc public func setCustomerLicensePlate(_ customerLicensePlate: Swift.String?) -> FlyBuy.PickupMethodOptions.Builder
     @objc public func setHandoffVehicleLocation(_ handoffVehicleLocation: Swift.String?) -> FlyBuy.PickupMethodOptions.Builder
+    @objc public func setTransportMode(_ mode: Swift.String?) -> FlyBuy.PickupMethodOptions.Builder
     @objc public func build() -> FlyBuy.PickupMethodOptions
     @objc deinit
   }
@@ -339,6 +344,7 @@ public enum HTTPStatusCode : Swift.Int, Swift.Error {
   @objc public var requireVehicleInfo: Swift.Bool {
     @objc get
   }
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
   @objc deinit
   public func encode(to encoder: any Swift.Encoder) throws
   required public init(from decoder: any Swift.Decoder) throws
@@ -360,6 +366,9 @@ public enum HTTPStatusCode : Swift.Int, Swift.Error {
   @objc final public let availableHandoffVehicleLocation: [FlyBuy.AvailableHandoffVehicleLocation]
   @objc final public let orderProgressStates: [FlyBuy.OrderProgressState]
   @objc final public let customerFeedbackEnabled: Swift.Bool
+  @objc final public let defaultTransportMode: Swift.String?
+  @objc final public let availableTransportModes: [FlyBuy.AvailableTransportMode]
+  @objc final public let availableCustomerRatingCategories: [FlyBuy.AvailableCustomerRatingCategory]
   required public init(from decoder: any Swift.Decoder) throws
   public func encode(to encoder: any Swift.Encoder) throws
   @objc deinit
@@ -486,6 +495,7 @@ extension FlyBuy.BaseApiRequest {
 @objc public class OrderProgressState : ObjectiveC.NSObject, Swift.Codable {
   @objc final public let state: Swift.String
   @objc final public let stateLocalizedString: Swift.String
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
   @objc deinit
   public func encode(to encoder: any Swift.Encoder) throws
   required public init(from decoder: any Swift.Decoder) throws
@@ -503,7 +513,7 @@ public class FirebaseTopicSubscriber : FlyBuy.PushTopicSubscriber {
   public init(orderID: Swift.Int, locationAuthStatus: FlyBuy.LocationAuthStatus)
   public init(orderID: Swift.Int, customerRating: Swift.Int, customerComments: Swift.String?)
   public init(orderID: Swift.Int, pickupType: Swift.String)
-  public init(orderID: Swift.Int, eventType: Swift.String, longitude: Swift.Double? = nil, latitude: Swift.Double? = nil, accuracy: Swift.Double? = nil, speed: Swift.Double? = nil, etaSeconds: Swift.Int? = nil, etaSource: Swift.String? = nil, customerState: Swift.String? = nil, state: Swift.String? = nil, beacons: [FlyBuy.Beacon]? = nil, locationAuthStatus: FlyBuy.LocationAuthStatus? = nil, customerRating: Swift.Int? = nil, customerComments: Swift.String? = nil, spotIdentifier: Swift.String? = nil, possibleWrongSiteId: Swift.Int? = nil, locationAt: Swift.String? = nil, clientEtaExpiry: Swift.Int? = nil, clientEtaAttempted: Swift.Bool? = nil, clientEtaLog: Swift.String? = nil, pickupType: Swift.String? = nil, handoffVehicleLocation: Swift.String? = nil, customerCarType: Swift.String? = nil, customerCarColor: Swift.String? = nil, customerLicensePlate: Swift.String? = nil)
+  public init(orderID: Swift.Int, eventType: Swift.String, longitude: Swift.Double? = nil, latitude: Swift.Double? = nil, accuracy: Swift.Double? = nil, speed: Swift.Double? = nil, etaSeconds: Swift.Int? = nil, etaSource: Swift.String? = nil, customerState: Swift.String? = nil, state: Swift.String? = nil, beacons: [FlyBuy.Beacon]? = nil, locationAuthStatus: FlyBuy.LocationAuthStatus? = nil, customerRating: Swift.Int? = nil, customerComments: Swift.String? = nil, spotIdentifier: Swift.String? = nil, possibleWrongSiteId: Swift.Int? = nil, locationAt: Swift.String? = nil, clientEtaExpiry: Swift.Int? = nil, clientEtaAttempted: Swift.Bool? = nil, clientEtaLog: Swift.String? = nil, pickupType: Swift.String? = nil, handoffVehicleLocation: Swift.String? = nil, customerCarType: Swift.String? = nil, customerCarColor: Swift.String? = nil, customerLicensePlate: Swift.String? = nil, customerRatingCategories: [Swift.String]? = nil, transportMode: Swift.String? = nil)
   @objc deinit
   open func encode(to encoder: any Swift.Encoder) throws
 }
@@ -643,6 +653,7 @@ extension Swift.Error {
   @objc final public let handoffVehicleLocation: Swift.String?
   @objc final public let partnerIdentifierForCustomer: Swift.String?
   @objc final public let partnerIdentifierForCrew: Swift.String?
+  @objc final public let tranportMode: Swift.String?
   final public let disableOrderFire: Swift.Bool?
   final public let disablePromiseTimeScheduling: Swift.Bool?
   final public let orderFireMakeIntervalSeconds: Swift.Int?
@@ -667,6 +678,7 @@ extension Swift.Error {
     @objc public func setDisablePromiseTimeScheduling(_ disablePromiseTimeScheduling: Swift.Bool) -> FlyBuy.OrderOptions.Builder
     @objc public func setOrderFireMakeIntervalSeconds(_ orderFireMakeIntervalSeconds: Swift.Int) -> FlyBuy.OrderOptions.Builder
     @objc public func setLoyaltyInfo(identifier: Swift.String, provider: Swift.String? = nil) -> FlyBuy.OrderOptions.Builder
+    @objc public func setTransportMode(_ transportMode: Swift.String?) -> FlyBuy.OrderOptions.Builder
     @objc public func build() -> FlyBuy.OrderOptions
     @objc deinit
   }
@@ -851,6 +863,7 @@ public protocol FlyBuyError : Foundation.LocalizedError {
 @objc public class AvailableHandoffVehicleLocation : ObjectiveC.NSObject, Swift.Codable {
   @objc final public let vehicleLocation: Swift.String
   @objc final public let vehicleLocationLocalizedString: Swift.String
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
   @objc deinit
   public func encode(to encoder: any Swift.Encoder) throws
   required public init(from decoder: any Swift.Decoder) throws
@@ -1001,6 +1014,17 @@ extension Swift.String {
   }
   public func removeDirectory()
 }
+@objc public class AvailableCustomerRatingCategory : ObjectiveC.NSObject, Swift.Codable {
+  @objc final public let customerRatingCategory: Swift.String
+  @objc final public let customerRatingCategoryLocalizedString: Swift.String
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+}
+extension Swift.Array where Element : FlyBuy.AvailableCustomerRatingCategory {
+  public func get(forCustomerRatingCategory category: Swift.String) -> FlyBuy.AvailableCustomerRatingCategory?
+}
 @objc public enum PlaceType : Swift.Int, Swift.CaseIterable {
   case address
   case region
@@ -1060,6 +1084,16 @@ public struct PickupStates : Swift.Codable {
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
+@objc public class AvailableTransportMode : ObjectiveC.NSObject, Swift.Codable {
+  @objc final public let transportMode: Swift.String
+  @objc final public let transportModeLocalizedString: Swift.String
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+}
+extension Swift.Array where Element : FlyBuy.AvailableTransportMode {
+  public func get(forTransportMode transportMode: Swift.String) -> FlyBuy.AvailableTransportMode?
+}
 @_hasMissingDesignatedInitializers @objc(FlyBuyOrdersManager) public class OrdersManager : FlyBuy.FlyBuyManager {
   @objc public var all: [FlyBuy.Order] {
     @objc get
@@ -1108,6 +1142,7 @@ public struct PickupStates : Swift.Codable {
   @objc public func updateCustomerState(orderID: Swift.Int, customerState: Swift.String, callback: ((FlyBuy.Order?, (any Swift.Error)?) -> Swift.Void)? = nil)
   @objc public func updateCustomerState(orderID: Swift.Int, customerState: Swift.String, spotIdentifier: Swift.String?, callback: ((FlyBuy.Order?, (any Swift.Error)?) -> Swift.Void)? = nil)
   @objc public func updateOrderState(orderID: Swift.Int, state: Swift.String, callback: ((FlyBuy.Order?, (any Swift.Error)?) -> Swift.Void)? = nil)
+  @objc public func rateOrder(orderID: Swift.Int, rating: Swift.Int, comments: Swift.String? = nil, categories: [Swift.String]? = nil, callback: ((FlyBuy.Order?, (any Swift.Error)?) -> Swift.Void)? = nil)
   @objc public func rateOrder(orderID: Swift.Int, rating: Swift.Int, comments: Swift.String? = nil, callback: ((FlyBuy.Order?, (any Swift.Error)?) -> Swift.Void)? = nil)
   @available(*, deprecated, message: "This method for updating the pickup type of an order has been deprecated. Use updatePickupMethod(orderID:, pickupMethodOptions:) instead.")
   @objc public func updatePickupType(orderID: Swift.Int, pickupType: Swift.String, callback: ((FlyBuy.Order?, (any Swift.Error)?) -> Swift.Void)? = nil)
@@ -1361,6 +1396,8 @@ extension CoreLocation.CLLocationManager {
   @objc public var orderStatusLiveActivityEnabled: Swift.Bool {
     @objc get
   }
+  @objc public var transportMode: Swift.String?
+  @objc public var customerRatingCategories: [Swift.String]?
   required public init(from decoder: any Swift.Decoder) throws
   public func encode(to encoder: any Swift.Encoder) throws
   @objc public func siteLocation() -> CoreLocation.CLLocation?
