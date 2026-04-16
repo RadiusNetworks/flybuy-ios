@@ -778,9 +778,11 @@ SWIFT_CLASS_NAMED("FlyBuyBeaconRegion")
 - (nonnull instancetype)initWithUuid:(NSUUID * _Nonnull)uuid major:(uint16_t)major minor:(uint16_t)minor identifier:(NSString * _Nonnull)identifier OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class CLLocation;
 SWIFT_CLASS_NAMED("FlyBuyCircularRegion")
 @interface FlyBuyCircularRegion : FlyBuyRegion
 - (nonnull instancetype)initWithLatitude:(double)latitude longitude:(double)longitude radius:(double)radius identifier:(NSString * _Nonnull)identifier OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init:(CLLocation * _Nonnull)location;
 @end
 
 typedef SWIFT_ENUM(NSInteger, FlybuyLinkType, open) {
@@ -865,6 +867,41 @@ SWIFT_CLASS("_TtC6FlyBuy12NotifyConfig")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+/// Returned in <code>OnSiteResult</code> when a device is within the bounds of an pickup area
+SWIFT_CLASS_NAMED("OnSiteArea")
+@interface FlyBuyOnSiteArea : NSObject
+/// The pickup area’s identifier.
+@property (nonatomic, readonly) NSInteger id;
+/// The pickup area’s name.
+@property (nonatomic, readonly, copy) NSString * _Nonnull name;
+/// Pickup types associated with this area.
+@property (nonatomic, readonly, copy) NSArray<NSString *> * _Nullable pickupTypes;
+/// The probability that the device’s location is within the area’s bounds
+@property (nonatomic, readonly) double probability;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+SWIFT_CLASS("_TtC6FlyBuy21OnSiteDetectionConfig")
+@interface OnSiteDetectionConfig : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class FlyBuySite;
+/// Result returned from FlyBuy.Core.getInstance().sites.checkIfOnSite()
+SWIFT_CLASS_NAMED("OnSiteResult")
+@interface FlyBuyOnSiteResult : NSObject
+/// The closest <code>Site</code> to the device. Returns nil if no site within the search range.
+@property (nonatomic, readonly, strong) FlyBuySite * _Nullable site;
+/// Set to <code>true</code> if the device is within the premises of the closest <code>Site</code>.
+@property (nonatomic, readonly) BOOL isOnSite;
+/// List of <code>OnSiteArea</code> within the <code>Site</code> that the device’s location overlaps with
+@property (nonatomic, readonly, copy) NSArray<FlyBuyOnSiteArea *> * _Nonnull areas;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 SWIFT_CLASS("_TtC6FlyBuy14OneSignalTopic")
 @interface OneSignalTopic : NSObject
 @end
@@ -872,7 +909,6 @@ SWIFT_CLASS("_TtC6FlyBuy14OneSignalTopic")
 @class NSDate;
 @class FlyBuyPickupWindow;
 @class NSNumber;
-@class CLLocation;
 /// Data model for orders.
 SWIFT_CLASS_NAMED("Order")
 @interface FlyBuyOrder : NSObject
@@ -1717,6 +1753,12 @@ SWIFT_CLASS_NAMED("SitesManager")
 - (void)fetchWithRegion:(CLCircularRegion * _Nonnull)region page:(NSInteger)page callback:(void (^ _Nullable)(NSArray<FlyBuySite *> * _Nullable, NSError * _Nullable))callback SWIFT_DEPRECATED_MSG("This method for fetching sites has been deprecated. Use FlyBuy.Core.sites.fetch(region:, options:) instead.");
 @end
 
+@interface FlyBuySitesManager (SWIFT_EXTENSION(FlyBuy))
+/// Check if on site. This method will return the closest site and if the current device location
+/// is on site. Note this will return an error if the app does not have location permissions.
+- (void)checkIfOnSiteWithCallback:(void (^ _Nonnull)(FlyBuyOnSiteResult * _Nullable, NSError * _Nullable))callback;
+@end
+
 /// Error that may be returned from SitesManager methods.
 SWIFT_CLASS_NAMED("SitesManagerError")
 @interface FlyBuySitesManagerError : NSObject
@@ -1736,6 +1778,8 @@ typedef SWIFT_ENUM(NSInteger, SitesManagerErrorType, open) {
   SitesManagerErrorTypeLocationUnavailable = 3,
   SitesManagerErrorTypeRequestCancelled = 4,
   SitesManagerErrorTypeInstanceInaccessible = 5,
+  SitesManagerErrorTypeCheckIfOnSiteInterrupted = 6,
+  SitesManagerErrorTypeSitesCacheError = 7,
 };
 
 SWIFT_CLASS("_TtC6FlyBuy22WrongSiteArrivalConfig")

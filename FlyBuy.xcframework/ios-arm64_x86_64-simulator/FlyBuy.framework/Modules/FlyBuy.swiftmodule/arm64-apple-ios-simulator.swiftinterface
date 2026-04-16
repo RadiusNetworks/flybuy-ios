@@ -50,6 +50,12 @@ extension FlyBuy.AppConfig {
   @objc final public let params: [Swift.String : Swift.String]
   @objc deinit
 }
+@_hasMissingDesignatedInitializers @objc(FlyBuyOnSiteResult) public class OnSiteResult : ObjectiveC.NSObject {
+  @objc final public let site: FlyBuy.Site?
+  @objc final public let isOnSite: Swift.Bool
+  @objc final public let areas: [FlyBuy.OnSiteArea]
+  @objc deinit
+}
 public struct PickupLocationFilters : Swift.Codable {
   public let ios: [FlyBuy.PickupLocationFilterData]?
   public let iosBiking: [FlyBuy.PickupLocationFilterData]?
@@ -145,7 +151,7 @@ extension FlyBuy._AnyEncodable {
   public init(arrayLiteral elements: Any...)
   public init(dictionaryLiteral elements: (Swift.AnyHashable, Any)...)
 }
-@objc(FlyBuySite) open class Site : ObjectiveC.NSObject, Swift.Decodable {
+@objc(FlyBuySite) open class Site : ObjectiveC.NSObject, Swift.Codable {
   @objc final public let id: Swift.Int
   @objc final public let partnerIdentifier: Swift.String?
   @objc final public let name: Swift.String?
@@ -173,6 +179,7 @@ extension FlyBuy._AnyEncodable {
   @objc public func location() -> CoreLocation.CLLocation?
   @objc public func distance(from loc: CoreLocation.CLLocation) -> Foundation.NSNumber?
   @objc deinit
+  open func encode(to encoder: any Swift.Encoder) throws
   required public init(from decoder: any Swift.Decoder) throws
 }
 extension FlyBuy.Site {
@@ -535,8 +542,10 @@ public struct AppConfigData : Swift.Codable {
   public let pushServiceType: FlyBuy.PushServiceType?
   public let pushTopics: Swift.Set<FlyBuy.PushTopic>?
   public let nearbySitesDefaultSearchRadius: Swift.Double?
-  public func encode(to encoder: any Swift.Encoder) throws
+  public let onSiteDetection: FlyBuy.OnSiteDetectionConfig
   public init(from decoder: any Swift.Decoder) throws
+  public init(pickupLocationFilters: FlyBuy.PickupLocationFilters? = nil, pickupStates: FlyBuy.PickupStates? = nil, notifyMaxSites: Swift.Int? = nil, nearbySitesFeatureUrl: Swift.String? = nil, upgrade: FlyBuy.AppUpgrade? = nil, notify: FlyBuy.NotifyConfig? = nil, wrongSiteArrivalConfig: FlyBuy.WrongSiteArrivalConfig? = nil, etaSettings: FlyBuy.ETAConfig? = nil, places: FlyBuy.PlacesConfig? = nil, pushServiceType: FlyBuy.PushServiceType? = nil, pushTopics: Swift.Set<FlyBuy.PushTopic>? = nil, nearbySitesDefaultSearchRadius: Swift.Double? = nil, onSiteDetection: FlyBuy.OnSiteDetectionConfig = OnSiteDetectionConfig())
+  public func encode(to encoder: any Swift.Encoder) throws
 }
 open class BaseAPIService {
   public init(appToken: Swift.String)
@@ -607,6 +616,13 @@ extension FlyBuy.FlyBuyModuleManager {
   public static func cancelRunningURLSessions()
   @objc deinit
 }
+@_hasMissingDesignatedInitializers @objc(FlyBuyOnSiteArea) public class OnSiteArea : ObjectiveC.NSObject {
+  @objc final public let id: Swift.Int
+  @objc final public let name: Swift.String
+  @objc final public let pickupTypes: [Swift.String]?
+  @objc final public let probability: Swift.Double
+  @objc deinit
+}
 @objc public class PushTopic : ObjectiveC.NSObject, Swift.Codable {
   final public let id: Swift.Int
   final public let pushTopicType: Swift.String
@@ -637,6 +653,7 @@ extension Swift.Error {
 }
 @_hasMissingDesignatedInitializers @objc(FlyBuyCircularRegion) public class FlyBuyCircularRegion : FlyBuy.FlyBuyRegion {
   @objc public init(latitude: Swift.Double, longitude: Swift.Double, radius: Swift.Double, identifier: Swift.String = UUID().uuidString)
+  @objc convenience public init(_ location: CoreLocation.CLLocation)
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc(FlyBuyOrderOptions) public class OrderOptions : ObjectiveC.NSObject {
@@ -886,7 +903,7 @@ extension Swift.Array where Element : FlyBuy.AvailableHandoffVehicleLocation {
   @objc public var all: [FlyBuy.Site]? {
     @objc get
   }
-  public init(withAppToken: Swift.String)
+  public init(withAppAuthId: Swift.String, appToken: Swift.String)
   @objc public func fetchByPartnerIdentifier(partnerIdentifier: Swift.String, options: FlyBuy.SiteOptions, callback: @escaping (FlyBuy.Site?, (any Swift.Error)?) -> Swift.Void)
   @objc public func fetch(region: FlyBuy.FlyBuyCircularRegion, options: FlyBuy.SiteOptions, callback: (([FlyBuy.Site]?, FlyBuy.Pagination?, (any Swift.Error)?) -> Swift.Void)? = nil)
   @objc public func fetchNear(place: FlyBuy.Place, radius: Swift.Double, options: FlyBuy.SiteOptions, callback: @escaping ([FlyBuy.Site]?, FlyBuy.Pagination?, (any Swift.Error)?) -> Swift.Void)
@@ -901,6 +918,8 @@ extension Swift.Array where Element : FlyBuy.AvailableHandoffVehicleLocation {
   case locationUnavailable
   case requestCancelled
   case instanceInaccessible
+  case checkIfOnSiteInterrupted
+  case sitesCacheError
   public var description: Swift.String {
     get
   }
@@ -943,6 +962,9 @@ extension FlyBuy.SitesManager {
 extension FlyBuy.SitesManager : CoreLocation.CLLocationManagerDelegate {
   @objc dynamic public func locationManager(_ manager: CoreLocation.CLLocationManager, didUpdateLocations locations: [CoreLocation.CLLocation])
   @objc dynamic public func locationManager(_ manager: CoreLocation.CLLocationManager, didFailWithError error: any Swift.Error)
+}
+extension FlyBuy.SitesManager {
+  @objc dynamic public func checkIfOnSite(callback: @escaping (FlyBuy.OnSiteResult?, (any Swift.Error)?) -> Swift.Void)
 }
 public enum RemoteNotificationMessageType : Swift.String {
   case backgroundSync
@@ -1292,6 +1314,22 @@ public protocol PushTopicSubscriber {
   @objc public static func parse(url: Foundation.URL) -> FlyBuy.LinkDetails
   @objc override dynamic public init()
   @objc deinit
+}
+@objc public class OnSiteDetectionConfig : ObjectiveC.NSObject, Swift.Codable {
+  public static let defaultapiCacheSeconds: Swift.Int
+  public static let defaultapiCacheDistanceMeters: Swift.Int
+  public static let defaultAreaPercentOverlap: Swift.Double
+  public static let defaultOverlapComputationSteps: Swift.Int
+  public static let defaultPremisesPercentOverlap: Swift.Double
+  public var apiCacheSeconds: Swift.Int
+  public var apiCacheDistanceMeters: Swift.Int
+  public var areaPercentOverlap: Swift.Double
+  public var overlapComputationSteps: Swift.Int
+  public var premisesPercentOverlap: Swift.Double
+  public init(apiCacheSeconds: Swift.Int? = nil, apiCacheDistanceMeters: Swift.Int? = nil, areaPercentOverlap: Swift.Double? = nil, overlapComputationSteps: Swift.Int? = nil, premisesPercentOverlap: Swift.Double? = nil)
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers public class SdkGlobals {
   public static let logger: FlyBuy.Logger
