@@ -7,5 +7,4 @@ framework module FlyBuy {
 
 module FlyBuy.Swift {
   header "FlyBuy-Swift.h"
-  requires objc
 }

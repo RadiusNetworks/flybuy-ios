@@ -7,5 +7,4 @@ framework module FlyBuyLiveStatus {
 
 module FlyBuyLiveStatus.Swift {
   header "FlyBuyLiveStatus-Swift.h"
-  requires objc
 }

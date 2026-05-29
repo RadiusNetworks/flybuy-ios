@@ -7,5 +7,4 @@ framework module FlyBuyNotify {
 
 module FlyBuyNotify.Swift {
   header "FlyBuyNotify-Swift.h"
-  requires objc
 }

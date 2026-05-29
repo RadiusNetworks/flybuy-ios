@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1 effective-5.10 (swiftlang-6.1.0.110.21 clang-1700.0.13.3)
-// swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name FlyBuy
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1
+// swift-compiler-version: Apple Swift version 6.3.2 effective-5.10 (swiftlang-6.3.2.1.108 clang-2100.1.1.101)
+// swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name FlyBuy
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.2
 import CoreBluetooth
 import CoreLocation
 @_exported import FlyBuy
@@ -176,8 +176,8 @@ extension FlyBuy._AnyEncodable {
     @objc get
   }
   @objc final public let operationalStatus: Swift.String?
-  @objc public func location() -> CoreLocation.CLLocation?
-  @objc public func distance(from loc: CoreLocation.CLLocation) -> Foundation.NSNumber?
+  @objc public func location() -> _LocationEssentials.CLLocation?
+  @objc public func distance(from loc: _LocationEssentials.CLLocation) -> Foundation.NSNumber?
   @objc deinit
   open func encode(to encoder: any Swift.Encoder) throws
   required public init(from decoder: any Swift.Decoder) throws
@@ -202,7 +202,7 @@ public enum PushServiceType : Swift.String, Swift.Codable {
   @objc final public let latitude: Swift.String
   @objc final public let longitude: Swift.String
   @objc final public let radiusMeters: Swift.Double
-  public func locationCoordinate() -> CoreLocation.CLLocationCoordinate2D?
+  public func locationCoordinate() -> _LocationEssentials.CLLocationCoordinate2D?
   @objc deinit
   open func encode(to encoder: any Swift.Encoder) throws
   required public init(from decoder: any Swift.Decoder) throws
@@ -513,10 +513,10 @@ public class FirebaseTopicSubscriber : FlyBuy.PushTopicSubscriber {
   @objc deinit
 }
 @objc(FlyBuyOrderEvent) open class OrderEvent : ObjectiveC.NSObject, Swift.Encodable {
-  public init(orderID: Swift.Int, location: CoreLocation.CLLocation, beacons: [FlyBuy.Beacon], etaSeconds: Foundation.NSNumber?, etaSource: Swift.String?, possibleWrongSiteId: Swift.Int?, clientEtaExpiry: Swift.Int?, clientEtaAttempted: Swift.Bool?, clientEtaLog: Swift.String?)
-  public init(orderID: Swift.Int, customerState: Swift.String, etaSeconds: Foundation.NSNumber?, etaSource: Swift.String?, location: CoreLocation.CLLocation? = nil)
-  public init(orderID: Swift.Int, customerState: Swift.String, spotIdentifier: Swift.String?, location: CoreLocation.CLLocation?)
-  public init(orderID: Swift.Int, state: Swift.String, location: CoreLocation.CLLocation? = nil)
+  public init(orderID: Swift.Int, location: _LocationEssentials.CLLocation, beacons: [FlyBuy.Beacon], etaSeconds: Foundation.NSNumber?, etaSource: Swift.String?, possibleWrongSiteId: Swift.Int?, clientEtaExpiry: Swift.Int?, clientEtaAttempted: Swift.Bool?, clientEtaLog: Swift.String?)
+  public init(orderID: Swift.Int, customerState: Swift.String, etaSeconds: Foundation.NSNumber?, etaSource: Swift.String?, location: _LocationEssentials.CLLocation? = nil)
+  public init(orderID: Swift.Int, customerState: Swift.String, spotIdentifier: Swift.String?, location: _LocationEssentials.CLLocation?)
+  public init(orderID: Swift.Int, state: Swift.String, location: _LocationEssentials.CLLocation? = nil)
   public init(orderID: Swift.Int, locationAuthStatus: FlyBuy.LocationAuthStatus)
   public init(orderID: Swift.Int, customerRating: Swift.Int, customerComments: Swift.String?)
   public init(orderID: Swift.Int, pickupType: Swift.String)
@@ -653,7 +653,7 @@ extension Swift.Error {
 }
 @_hasMissingDesignatedInitializers @objc(FlyBuyCircularRegion) public class FlyBuyCircularRegion : FlyBuy.FlyBuyRegion {
   @objc public init(latitude: Swift.Double, longitude: Swift.Double, radius: Swift.Double, identifier: Swift.String = UUID().uuidString)
-  @objc convenience public init(_ location: CoreLocation.CLLocation)
+  @objc convenience public init(_ location: _LocationEssentials.CLLocation)
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc(FlyBuyOrderOptions) public class OrderOptions : ObjectiveC.NSObject {
@@ -960,7 +960,7 @@ extension FlyBuy.SitesManager {
   @objc dynamic public func fetch(region: CoreLocation.CLCircularRegion, page: Swift.Int = 1, callback: (([FlyBuy.Site]?, (any Swift.Error)?) -> Swift.Void)? = nil)
 }
 extension FlyBuy.SitesManager : CoreLocation.CLLocationManagerDelegate {
-  @objc dynamic public func locationManager(_ manager: CoreLocation.CLLocationManager, didUpdateLocations locations: [CoreLocation.CLLocation])
+  @objc dynamic public func locationManager(_ manager: CoreLocation.CLLocationManager, didUpdateLocations locations: [_LocationEssentials.CLLocation])
   @objc dynamic public func locationManager(_ manager: CoreLocation.CLLocationManager, didFailWithError error: any Swift.Error)
 }
 extension FlyBuy.SitesManager {
@@ -1438,8 +1438,8 @@ extension CoreLocation.CLLocationManager {
   @objc public var customerRatingCategories: [Swift.String]?
   required public init(from decoder: any Swift.Decoder) throws
   public func encode(to encoder: any Swift.Encoder) throws
-  @objc public func siteLocation() -> CoreLocation.CLLocation?
-  @objc public func siteDistance(from location: CoreLocation.CLLocation) -> Foundation.NSNumber?
+  @objc public func siteLocation() -> _LocationEssentials.CLLocation?
+  @objc public func siteDistance(from location: _LocationEssentials.CLLocation) -> Foundation.NSNumber?
   @objc public var customerID: Foundation.NSNumber? {
     @objc get
   }

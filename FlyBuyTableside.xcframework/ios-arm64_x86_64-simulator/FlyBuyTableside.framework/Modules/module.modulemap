@@ -7,5 +7,4 @@ framework module FlyBuyTableside {
 
 module FlyBuyTableside.Swift {
   header "FlyBuyTableside-Swift.h"
-  requires objc
 }

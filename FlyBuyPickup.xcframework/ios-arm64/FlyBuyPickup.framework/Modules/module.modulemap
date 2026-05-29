@@ -7,5 +7,4 @@ framework module FlyBuyPickup {
 
 module FlyBuyPickup.Swift {
   header "FlyBuyPickup-Swift.h"
-  requires objc
 }

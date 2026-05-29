@@ -7,5 +7,4 @@ framework module FlyBuyPresence {
 
 module FlyBuyPresence.Swift {
   header "FlyBuyPresence-Swift.h"
-  requires objc
 }
