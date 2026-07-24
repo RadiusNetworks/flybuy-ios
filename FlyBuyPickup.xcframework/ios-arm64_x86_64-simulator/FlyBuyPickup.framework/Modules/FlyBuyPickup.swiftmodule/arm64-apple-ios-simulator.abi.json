@@ -771,28 +771,28 @@
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyPickup\/Helpers\/LocationEventGenerator.swift",
       "kind": "BooleanLiteral",
-      "offset": 1015,
+      "offset": 1107,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyPickup\/Helpers\/LocationEventGenerator.swift",
       "kind": "Array",
-      "offset": 1188,
+      "offset": 1280,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyPickup\/Helpers\/PickupOrdersObserver.swift",
       "kind": "Array",
-      "offset": 758,
+      "offset": 780,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyPickup\/Helpers\/PickupOrdersObserver.swift",
       "kind": "IntegerLiteral",
-      "offset": 824,
+      "offset": 846,
       "length": 1,
       "value": "1"
     },
@@ -827,35 +827,35 @@
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyPickup\/PickupLocationManager.swift",
       "kind": "StringLiteral",
-      "offset": 8150,
+      "offset": 8830,
       "length": 16,
       "value": "\"locationUpdate\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyPickup\/PickupLocationManager.swift",
       "kind": "StringLiteral",
-      "offset": 8236,
+      "offset": 8916,
       "length": 36,
       "value": "\"locationAuthorizationNotDetermined\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyPickup\/PickupLocationManager.swift",
       "kind": "StringLiteral",
-      "offset": 8329,
+      "offset": 9009,
       "length": 23,
       "value": "\"locationNotAuthorized\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyPickup\/PickupLocationManager.swift",
       "kind": "StringLiteral",
-      "offset": 8416,
+      "offset": 9096,
       "length": 30,
       "value": "\"locationAuthorizationChanged\""
     },
     {
       "filePath": "\/Users\/radbot\/actions-runner\/_work\/iris-ios\/iris-ios\/FlyBuySDK\/FlyBuyPickup\/PickupLocationManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 8518,
+      "offset": 9198,
       "length": 2,
       "value": "30"
     },
