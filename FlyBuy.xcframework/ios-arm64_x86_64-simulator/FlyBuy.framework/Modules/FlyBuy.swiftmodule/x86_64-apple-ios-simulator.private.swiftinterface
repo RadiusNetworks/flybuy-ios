@@ -228,6 +228,11 @@ final public class PersistManager : FlyBuy.FlyBuyDBProtocol {
   final public var dbManager: FlyBuy.FlyBuyDBManager
   final public var needsInit: Swift.Bool
   public init(atPath path: Swift.String = PersistManager.defaultDBPath, migrate: Swift.Bool = true)
+  @discardableResult
+  final public func prepareDatabase() -> Swift.Bool
+  final public var isDatabaseReady: Swift.Bool {
+    get
+  }
   @objc deinit
 }
 @objc(FlyBuyPickupMethodOptions) public class PickupMethodOptions : ObjectiveC.NSObject {
@@ -746,7 +751,12 @@ final public class FlyBuyDBManager {
     get
     set
   }
+  final public var isOpen: Swift.Bool {
+    get
+  }
   public init(atPath path: Swift.String)
+  @discardableResult
+  final public func openIfNeeded() -> Swift.Bool
   final public func fetchAll<T>(_ type: [T].Type, byAppAuthId: Swift.String? = nil) throws -> [T] where T : FlyBuy.PersistableCodable
   final public func fetch<T>(_ type: [T].Type, using sql: Swift.String) throws -> [T] where T : FlyBuy.PersistableCodable
   final public func save<T>(_ value: T) throws where T : FlyBuy.PersistableCodable
@@ -1124,6 +1134,9 @@ extension Swift.Array where Element : FlyBuy.AvailableTransportMode {
     @objc get
   }
   @objc public var closed: [FlyBuy.Order] {
+    @objc get
+  }
+  @objc public var hasSyncedSinceLaunch: Swift.Bool {
     @objc get
   }
   @objc public var orderStates: [Swift.String]

@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		4d5JCYfXo4UWxP3S4QtAnJ6+RQg=
+		QxaQbie/YoQC9lH1Rppph/7ql74=
 		</data>
 		<key>Headers/FlyBuyLiveStatus-Swift.h</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		1SQXI3+X0ZKFNPu4BPO4gIfXWU8=
+		zh74R9i6eBpdnnm000y6i4Hgsa4=
 		</data>
 		<key>Modules/FlyBuyLiveStatus.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Modules/FlyBuyLiveStatus.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		OkFjCK0jrqRtfzUG95G69gsqvJ0=
+		afHrVo2GkVHG7HRbl5fOfO/g7t4=
 		</data>
 		<key>Modules/FlyBuyLiveStatus.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -58,7 +58,7 @@
 		</data>
 		<key>Modules/FlyBuyLiveStatus.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		/Q8X2UYe6QeLjC3sdMFIodWafHw=
+		qH/1toqFbFylfS3bS0ND7BE3kV4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -75,7 +75,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			tN1BP/zSAc3NiZPg+qy8ByNEX+iswCPYSLcLJCaLGsE=
+			YaCeUrIloBd4zuFIMc0XbSGHIMPY9suX6e9CcetrrwA=
 			</data>
 		</dict>
 		<key>Headers/FlyBuyLiveStatus-Swift.h</key>
@@ -124,7 +124,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			xZfvgUgajaolHH6vwT42yldlF8Squ8wBrioeGABsDcY=
+			kX0xyXyZBXlra8CbFjbnqotML+EC3Hn8r5H0tV71Um8=
 			</data>
 		</dict>
 		<key>Modules/FlyBuyLiveStatus.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
@@ -159,7 +159,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ygb96Tjn9oAFdxJ/T8V6l0uKO+F7IWYAOCS6heyso3I=
+			BX4pW7bQtvgeGELTNmaDsbjuuzJC1lHB6CDi7bnEFLs=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

@@ -1146,6 +1146,10 @@ SWIFT_CLASS_NAMED("OrdersManager")
 @property (nonatomic, readonly, copy) NSArray<FlyBuyOrder *> * _Nonnull open;
 /// Gets closed orders for the current customer.
 @property (nonatomic, readonly, copy) NSArray<FlyBuyOrder *> * _Nonnull closed;
+/// Whether the list of orders has been fetched successfully since the SDK was configured.
+/// Until this is <code>true</code>, the order list is whatever was loaded from the database at launch and
+/// may describe orders that have since been completed or removed on the server.
+@property (nonatomic, readonly) BOOL hasSyncedSinceLaunch;
 /// The full list of possible order states.
 @property (nonatomic, copy) NSArray<NSString *> * _Nonnull orderStates;
 /// The full list of possible customer states.
