@@ -1030,6 +1030,7 @@ SWIFT_CLASS_NAMED("Order")
 @property (nonatomic, readonly) BOOL wrongSiteDetectionEnabled;
 @property (nonatomic, readonly) BOOL distanceFilteringDisabled;
 @property (nonatomic, readonly, strong) NSNumber * _Nullable wrongSiteSearchRadius;
+@property (nonatomic, strong) FlyBuyPickupWindow * _Nullable estimatedReadyWindow;
 @property (nonatomic, readonly, copy) NSString * _Nullable loyaltyIdentifier;
 @property (nonatomic, readonly, copy) NSString * _Nullable loyaltyProvider;
 @property (nonatomic, readonly) BOOL orderStatusLiveActivityEnabled;
@@ -1132,6 +1133,23 @@ SWIFT_CLASS("_TtC6FlyBuy18OrderProgressState")
 @property (nonatomic, readonly, copy) NSString * _Nonnull state;
 @property (nonatomic, readonly, copy) NSString * _Nonnull stateLocalizedString;
 - (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
+@end
+
+SWIFT_CLASS_NAMED("OrderStatusStrings")
+@interface FlyBuyOrderStatusStrings : NSObject
+/// Prefix on the order identifier, e.g. <code>Order #1234</code>.
+@property (nonatomic, readonly, copy) NSString * _Nonnull orderNumber;
+/// Prefix on an estimated ready time that is a single instant, e.g. <code>Ready at 8:00 PM</code>.
+@property (nonatomic, readonly, copy) NSString * _Nonnull readyAt;
+/// Prefix on an estimated ready time that spans a range, e.g. <code>Ready 8:00 - 8:30 PM</code>.
+@property (nonatomic, readonly, copy) NSString * _Nonnull ready;
+/// Replaces the time once the order is within a minute of ready.
+@property (nonatomic, readonly, copy) NSString * _Nonnull finishingUp;
+- (nonnull instancetype)initWithOrderNumber:(NSString * _Nonnull)orderNumber readyAt:(NSString * _Nonnull)readyAt ready:(NSString * _Nonnull)ready finishingUp:(NSString * _Nonnull)finishingUp OBJC_DESIGNATED_INITIALIZER;
+- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly) NSUInteger hash;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 @class FlyBuyPickupMethodOptions;
@@ -1488,6 +1506,7 @@ SWIFT_CLASS("_TtC6FlyBuy12PickupConfig")
 @property (nonatomic, readonly, copy) NSString * _Nullable defaultTransportMode;
 @property (nonatomic, readonly, copy) NSArray<AvailableTransportMode *> * _Nonnull availableTransportModes;
 @property (nonatomic, readonly, copy) NSArray<AvailableCustomerRatingCategory *> * _Nonnull availableCustomerRatingCategories;
+@property (nonatomic, readonly, strong) FlyBuyOrderStatusStrings * _Nonnull orderStatusStrings;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end

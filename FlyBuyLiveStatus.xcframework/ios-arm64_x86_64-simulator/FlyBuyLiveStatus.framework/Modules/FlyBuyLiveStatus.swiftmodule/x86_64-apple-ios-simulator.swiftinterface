@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 6.3.2 effective-5.10 (swiftlang-6.3.2.1.108 clang-2100.1.1.101)
-// swift-module-flags: -target x86_64-apple-ios14.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name FlyBuyLiveStatus
+// swift-module-flags: -target x86_64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name FlyBuyLiveStatus
 // swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.2
 import ActivityKit
 import DeveloperToolsSupport
@@ -51,12 +51,24 @@ import _SwiftConcurrencyShims
     public let placeName: Swift.String?
     public let orderId: Swift.String?
     public let etr: Swift.String?
+    public let etrWindow: Swift.String?
+    public let orderStatusStrings: FlyBuy.OrderStatusStrings?
     public let formatterETR: Swift.String?
+    public let formatterETRShort: Swift.String?
     public let progress: Swift.Int
     public let iconName: Swift.String?
     public let tintColorHexString: Swift.String?
     public let tintColorDarkModeHexString: Swift.String?
-    public init(status: Swift.String, statusLocalized: Swift.String, placeName: Swift.String? = nil, orderId: Swift.String? = nil, etr: Swift.String? = nil, iconName: Swift.String? = nil, tintColorHexString: Swift.String? = nil, tintColorDarkModeHexString: Swift.String? = nil)
+    public init(status: Swift.String, statusLocalized: Swift.String, placeName: Swift.String? = nil, orderId: Swift.String? = nil, etr: Swift.String? = nil, etrWindow: Swift.String? = nil, orderStatusStrings: FlyBuy.OrderStatusStrings? = nil, iconName: Swift.String? = nil, tintColorHexString: Swift.String? = nil, tintColorDarkModeHexString: Swift.String? = nil)
+    public var strings: FlyBuy.OrderStatusStrings {
+      get
+    }
+    public var readyWindow: FlyBuy.PickupWindow? {
+      get
+    }
+    public var readyInstant: Foundation.Date? {
+      get
+    }
     public static func == (a: FlyBuyLiveStatus.OrderAttributes.ContentState, b: FlyBuyLiveStatus.OrderAttributes.ContentState) -> Swift.Bool
     public func encode(to encoder: any Swift.Encoder) throws
     public func hash(into hasher: inout Swift.Hasher)
@@ -71,6 +83,12 @@ import _SwiftConcurrencyShims
   required public init(from decoder: any Swift.Decoder) throws
 }
 extension FlyBuy.Order {
+  public var hasOrderProgressStates: Swift.Bool {
+    get
+  }
+  public var liveStatusEnabled: Swift.Bool {
+    get
+  }
   public func asOrderAttributes() -> FlyBuyLiveStatus.OrderAttributes.ContentState?
   public func getOrderStatusLocalizedString() -> Swift.String?
 }

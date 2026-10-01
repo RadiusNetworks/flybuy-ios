@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 6.3.2 effective-5.10 (swiftlang-6.3.2.1.108 clang-2100.1.1.101)
-// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name FlyBuy
+// swift-module-flags: -target arm64-apple-ios15.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name FlyBuy
 // swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.2
 import CoreBluetooth
 import CoreLocation
@@ -381,6 +381,7 @@ public enum HTTPStatusCode : Swift.Int, Swift.Error {
   @objc final public let defaultTransportMode: Swift.String?
   @objc final public let availableTransportModes: [FlyBuy.AvailableTransportMode]
   @objc final public let availableCustomerRatingCategories: [FlyBuy.AvailableCustomerRatingCategory]
+  @objc final public let orderStatusStrings: FlyBuy.OrderStatusStrings
   required public init(from decoder: any Swift.Decoder) throws
   public func encode(to encoder: any Swift.Encoder) throws
   @objc deinit
@@ -400,6 +401,24 @@ extension FlyBuy.PickupConfig : FlyBuy.PersistableCodable {
     get
   }
   public static func deleteAll(byAppAuthId: Swift.String) throws -> Swift.String
+}
+@objc(FlyBuyOrderStatusStrings) public class OrderStatusStrings : ObjectiveC.NSObject, Swift.Codable {
+  public static let defaultOrderNumber: Swift.String
+  public static let defaultReadyAt: Swift.String
+  public static let defaultReady: Swift.String
+  public static let defaultFinishingUp: Swift.String
+  @objc final public let orderNumber: Swift.String
+  @objc final public let readyAt: Swift.String
+  @objc final public let ready: Swift.String
+  @objc final public let finishingUp: Swift.String
+  @objc public init(orderNumber: Swift.String = OrderStatusStrings.defaultOrderNumber, readyAt: Swift.String = OrderStatusStrings.defaultReadyAt, ready: Swift.String = OrderStatusStrings.defaultReady, finishingUp: Swift.String = OrderStatusStrings.defaultFinishingUp)
+  required public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc override dynamic public var hash: Swift.Int {
+    @objc get
+  }
+  @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers public class WrongSiteArrivalConfig : ObjectiveC.NSObject, Swift.Codable {
   public var siteLimit: Swift.Int?
@@ -903,8 +922,10 @@ extension Swift.Array where Element : FlyBuy.AvailableHandoffVehicleLocation {
   @objc final public let end: Foundation.Date
   @objc public init(start: Foundation.Date, end: Foundation.Date)
   @objc convenience public init(_ date: Foundation.Date)
+  convenience public init(_ jsonString: Swift.String) throws
   required convenience public init(from decoder: any Swift.Decoder) throws
   public func encode(to encoder: any Swift.Encoder) throws
+  public func jsonString() -> Swift.String
   @objc public func formattedString(locale: Foundation.Locale = Locale.current) -> Swift.String
   @objc deinit
 }
@@ -1442,6 +1463,7 @@ extension CoreLocation.CLLocationManager {
   final public let _pickupConfigID: Swift.Int?
   public var handoffVehicleLocation: Swift.String?
   public var estimatedReadyAt: Swift.String?
+  @objc public var estimatedReadyWindow: FlyBuy.PickupWindow?
   @objc final public let loyaltyIdentifier: Swift.String?
   @objc final public let loyaltyProvider: Swift.String?
   @objc public var orderStatusLiveActivityEnabled: Swift.Bool {
