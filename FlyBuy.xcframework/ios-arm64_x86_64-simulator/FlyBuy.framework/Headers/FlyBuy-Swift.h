@@ -1785,8 +1785,8 @@ SWIFT_CLASS_NAMED("SitesManager")
 - (void)fetchNearWithPlace:(FlyBuyPlace * _Nonnull)place radius:(double)radius options:(FlyBuySiteOptions * _Nonnull)options callback:(void (^ _Nonnull)(NSArray<FlyBuySite *> * _Nullable, FlyBuyPagination * _Nullable, NSError * _Nullable))callback;
 /// Fetch nearby <code>Site</code>s using the device’s current location.
 /// This method automatically retrieves the device’s current location and fetches sites within
-/// the specified radius. If location permissions are not granted, location cannot be retrieved,
-/// or a request is already pending, an error will be returned in the callback.
+/// the specified radius. If location permissions are not granted or location cannot be retrieved,
+/// an error will be returned in the callback.
 /// Example:
 /// \code
 /// FlyBuy.Core.sites.fetchNearby(radius: 40000, options: SiteOptions.Builder().build()) { (sites, pagination, error) in
@@ -1866,6 +1866,7 @@ typedef SWIFT_ENUM(NSInteger, SitesManagerErrorType, open) {
   SitesManagerErrorTypeLocationUnavailable = 3,
   SitesManagerErrorTypeRequestCancelled = 4,
   SitesManagerErrorTypeInstanceInaccessible = 5,
+/// No longer returned: overlapping <code>checkIfOnSite</code> calls now share one location request.
   SitesManagerErrorTypeCheckIfOnSiteInterrupted = 6,
   SitesManagerErrorTypeSitesCacheError = 7,
 };
@@ -3671,8 +3672,8 @@ SWIFT_CLASS_NAMED("SitesManager")
 - (void)fetchNearWithPlace:(FlyBuyPlace * _Nonnull)place radius:(double)radius options:(FlyBuySiteOptions * _Nonnull)options callback:(void (^ _Nonnull)(NSArray<FlyBuySite *> * _Nullable, FlyBuyPagination * _Nullable, NSError * _Nullable))callback;
 /// Fetch nearby <code>Site</code>s using the device’s current location.
 /// This method automatically retrieves the device’s current location and fetches sites within
-/// the specified radius. If location permissions are not granted, location cannot be retrieved,
-/// or a request is already pending, an error will be returned in the callback.
+/// the specified radius. If location permissions are not granted or location cannot be retrieved,
+/// an error will be returned in the callback.
 /// Example:
 /// \code
 /// FlyBuy.Core.sites.fetchNearby(radius: 40000, options: SiteOptions.Builder().build()) { (sites, pagination, error) in
@@ -3752,6 +3753,7 @@ typedef SWIFT_ENUM(NSInteger, SitesManagerErrorType, open) {
   SitesManagerErrorTypeLocationUnavailable = 3,
   SitesManagerErrorTypeRequestCancelled = 4,
   SitesManagerErrorTypeInstanceInaccessible = 5,
+/// No longer returned: overlapping <code>checkIfOnSite</code> calls now share one location request.
   SitesManagerErrorTypeCheckIfOnSiteInterrupted = 6,
   SitesManagerErrorTypeSitesCacheError = 7,
 };

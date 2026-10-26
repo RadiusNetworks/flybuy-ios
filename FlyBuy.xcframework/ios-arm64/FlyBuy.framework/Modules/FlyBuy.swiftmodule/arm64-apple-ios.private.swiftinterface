@@ -935,12 +935,12 @@ extension Swift.Array where Element : FlyBuy.AvailableHandoffVehicleLocation {
     @objc get
   }
   public init(withAppAuthId: Swift.String, appToken: Swift.String)
+  @objc deinit
   @objc public func fetchByPartnerIdentifier(partnerIdentifier: Swift.String, options: FlyBuy.SiteOptions, callback: @escaping (FlyBuy.Site?, (any Swift.Error)?) -> Swift.Void)
   @objc public func fetch(region: FlyBuy.FlyBuyCircularRegion, options: FlyBuy.SiteOptions, callback: (([FlyBuy.Site]?, FlyBuy.Pagination?, (any Swift.Error)?) -> Swift.Void)? = nil)
   @objc public func fetchNear(place: FlyBuy.Place, radius: Swift.Double, options: FlyBuy.SiteOptions, callback: @escaping ([FlyBuy.Site]?, FlyBuy.Pagination?, (any Swift.Error)?) -> Swift.Void)
   @objc public func fetchNearby(radius: Swift.Double, options: FlyBuy.SiteOptions, callback: @escaping ([FlyBuy.Site]?, FlyBuy.Pagination?, (any Swift.Error)?) -> Swift.Void)
   @objc public func fetchNearby(callback: @escaping ([FlyBuy.Site]?, FlyBuy.Pagination?, (any Swift.Error)?) -> Swift.Void)
-  @objc deinit
 }
 @objc public enum SitesManagerErrorType : Swift.Int {
   case coreIsNotConfigured
